@@ -1,0 +1,54 @@
+[meta_ensemble] stage=oof folds=5 train=5 points=2
+[meta_ensemble] fold 1/5 train=4 val=1
+[meta_ensemble] fold 1/5 base=baseline
+[meta_ensemble] fold 1/5 base=residual_huber
+[meta_ensemble] fold 1/5 base=local_knn
+[meta_ensemble] fold 1/5 done
+[meta_ensemble] fold 2/5 train=4 val=1
+[meta_ensemble] fold 2/5 base=baseline
+[meta_ensemble] fold 2/5 base=residual_huber
+[meta_ensemble] fold 2/5 base=local_knn
+[meta_ensemble] fold 2/5 done
+[meta_ensemble] fold 3/5 train=4 val=1
+[meta_ensemble] fold 3/5 base=baseline
+[meta_ensemble] fold 3/5 base=residual_huber
+[meta_ensemble] fold 3/5 base=local_knn
+[meta_ensemble] fold 3/5 done
+[meta_ensemble] fold 4/5 train=4 val=1
+[meta_ensemble] fold 4/5 base=baseline
+[meta_ensemble] fold 4/5 base=residual_huber
+[meta_ensemble] fold 4/5 base=local_knn
+[meta_ensemble] fold 4/5 done
+[meta_ensemble] fold 5/5 train=4 val=1
+[meta_ensemble] fold 5/5 base=baseline
+[meta_ensemble] fold 5/5 base=residual_huber
+[meta_ensemble] fold 5/5 base=local_knn
+[meta_ensemble] fold 5/5 done
+[meta_ensemble] stage=meta_train points=2
+[meta_ensemble] stage=holdout_base_models
+[meta_ensemble] holdout base=baseline
+[meta_ensemble] holdout base=residual_huber
+[meta_ensemble] holdout base=local_knn
+[meta_ensemble] stage=meta_predict points=2
+=== Retention Meta-Ensemble LOO ===
+videos_total_with_target: 83
+videos_used: 6
+train_videos: 5
+curve_points: 2
+test_video: 3PBo1GiAlbs
+test_drive_file_id: 3PBo1GiAlbs
+oof_folds: 5
+meta_l2: 0.02
+base_models: ['baseline', 'residual_huber', 'local_knn']
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/meta_ensemble/meta_ensemble_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/meta_ensemble/holdout_prediction_vs_true.csv
+spearman: 0.9999999999999999
+pearson: 1.0
+rmse: 0.11878004074292856
+mae: 0.08399017227893918
+spike_rmse: 0.16798034455787836
+curvature_rmse: 0.0
+=== Holdout Prediction vs True (2 points) ===
+ point_idx  point_frac  base_baseline  base_residual_huber  base_local_knn pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0         0.0          1.000             1.000000        1.000000        1.00000              1.00000         1.00000        1.00000   0.00000
+         1         1.0          0.438             0.420853        0.392959        0.43798              0.43798         0.43798        0.27000   0.16798

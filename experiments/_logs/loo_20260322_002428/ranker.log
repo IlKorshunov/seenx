@@ -1,0 +1,19 @@
+Default metric period is 5 because PFound, NDCG is/are not implemented for GPU
+Metric PFound is not implemented on GPU. Will use CPU for metric computation, this could significantly affect learning time
+Metric NDCG:top=2;type=Base is not implemented on GPU. Will use CPU for metric computation, this could significantly affect learning time
+=== Retention Ranker LOO ===
+videos_total_with_target: 83
+videos_used: 6
+train_videos: 5
+curve_points: 2
+test_video: 3PBo1GiAlbs
+spearman: 0.9999999999999999
+pearson: 1.0
+rmse: 0.19091883092036785
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/ranker_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/holdout_prediction_vs_true.csv
+model_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/catboost_ranker.cbm
+=== Holdout Prediction vs True (2 points) ===
+ point_idx pred_score_raw pred_retention_norm true_retention
+         0        0.02500             1.00000        1.00000
+         1       -0.02500             0.00000        0.27000

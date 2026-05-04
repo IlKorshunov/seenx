@@ -1,0 +1,371 @@
+2026-03-22 01:41:04,110 INFO Loading merged data...
+2026-03-22 01:41:04,124 INFO Loaded 138P93_Z_u0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,137 INFO Loaded 1J5zlq2Vs3Y: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,148 INFO Loaded 39R6j9qkzPo: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,157 INFO Loaded 3G6JrAq-w4M: 101 rows, 120 cols (output+llm)
+2026-03-22 01:41:04,167 INFO Loaded 3MncoqWP_qg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,178 INFO Loaded 3PBo1GiAlbs: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,188 INFO Loaded 3WA4YT8fkx8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,197 INFO Loaded 4WcGtcKKoWg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,207 INFO Loaded 6Ha1lqRKMig: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,218 INFO Loaded 6_qPAwOsDi0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,232 INFO Loaded 7g_56jn0NCA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,242 INFO Loaded 8YXWaEo201o: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,255 INFO Loaded 8__NWVjeyZ8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,264 INFO Loaded 9B3N8I4Vidc: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,277 INFO Loaded BZEZxzRJ-L4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,286 INFO Loaded Db6f982wxPg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,299 INFO Loaded DhFuAhFMvms: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,307 INFO Loaded DrS6_CT0XrU: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,319 INFO Loaded ECP4p12A5FY: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,330 INFO Loaded EFxlvlchMw8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,340 INFO Loaded EhAdb6fIEe0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,351 INFO Loaded Ei6QuJppkb4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,358 INFO Loaded FYbEJ3oRgFk: 100 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,371 INFO Loaded FZ4waB-THOA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,382 INFO Loaded Fr4ZqY97Bco: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,394 INFO Loaded GfEdSBXxyHA: 101 rows, 82 cols (output+llm)
+2026-03-22 01:41:04,404 INFO Loaded GthDbmZFW-w: 101 rows, 84 cols (output+llm)
+2026-03-22 01:41:04,413 INFO Loaded IgJxh-fJTBU: 101 rows, 79 cols (output+llm)
+2026-03-22 01:41:04,420 INFO Loaded JXTBwlW02No: 101 rows, 79 cols (output+llm)
+2026-03-22 01:41:04,431 INFO Loaded K5zVqoMMj3Y: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,439 INFO Loaded LH3DvvXTxzc: 101 rows, 79 cols (output+llm)
+2026-03-22 01:41:04,447 INFO Loaded Mc0b511IaVU: 101 rows, 79 cols (output+llm)
+2026-03-22 01:41:04,453 INFO Loaded NE38Pn3CYRc: 100 rows, 79 cols (output+llm)
+2026-03-22 01:41:04,463 INFO Loaded Nvq6okhPSOw: 101 rows, 79 cols (output+llm)
+2026-03-22 01:41:04,470 INFO Loaded OpuMLYUuP_M: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,477 INFO Loaded P9bVljfAWS8: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,487 INFO Loaded Q1ZmiQVX9cY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,495 INFO Loaded RhVq2oJpsEY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,502 INFO Loaded RkwsqGM4_DE: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,509 INFO Loaded S_o49-nmh5w: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,519 INFO Loaded Sf95qeC7BUs: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,529 INFO Loaded U8e1Pd7aBLY: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,535 INFO Loaded VYYzb9KHawI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,542 INFO Loaded VYsqc9S5b9E: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,551 INFO Loaded W6enyqR-1Jw: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,558 INFO Loaded YoGUM0AsXJI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,566 INFO Loaded YubjPoEmzgU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,575 INFO Loaded Z6cbf9WN0c4: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,585 INFO Loaded b5gAWk2QuSU: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,594 INFO Loaded bK-1Mfb93uA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,607 INFO Loaded dx7dMwMXSAA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,618 INFO Loaded e21aHqRYPKE: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,627 INFO Loaded eL9OqXpmvOE: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,639 INFO Loaded eLSgNBnpeRg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,649 INFO Loaded fwHhuHVNR4I: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,657 INFO Loaded gYHHQNT6100: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,666 INFO Loaded gkSAR3jbMjA: 101 rows, 84 cols (output+llm)
+2026-03-22 01:41:04,677 INFO Loaded hnyYg62DY4E: 101 rows, 84 cols (output+llm)
+2026-03-22 01:41:04,685 INFO Loaded iKGmIRAfmCM: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,696 INFO Loaded iP_siVZjbzc: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,709 INFO Loaded ib29EiVnmJM: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,718 INFO Loaded ie3vumn9Je4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,729 INFO Loaded jPVQgOI33V0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:41:04,738 INFO Loaded jTtvWTti3b0: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,744 INFO Loaded kifrPvJigCU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,756 INFO Loaded lLoSngvynB8: 101 rows, 120 cols (output+llm)
+2026-03-22 01:41:04,765 INFO Loaded lYAEH2n3I58: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,773 INFO Loaded lgeLlSArJXU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,781 INFO Loaded mBzEZBF1a_U: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,787 INFO Loaded mM6sYTdPZ-0: 100 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,796 INFO Loaded pfacUo-6wNs: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,803 INFO Loaded porv8WwTSgc: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,812 INFO Loaded q607HENWvqY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,821 INFO Loaded qoqjZR52lOQ: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,829 INFO Loaded rJxhpVu7BhU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,840 INFO Loaded sujXtr4AVRU: 101 rows, 120 cols (output+llm)
+2026-03-22 01:41:04,847 INFO Loaded szF7osJgt-A: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,855 INFO Loaded vVZDZxRRXDI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,864 INFO Loaded v_puTGCZjnA: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,870 INFO Loaded vopiJ3KKT-k: 100 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,877 INFO Loaded wS79wHHkjjw: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,881 INFO Loaded wWtq4RlbRos: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,890 INFO Loaded xK0GkyIVzq4: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,901 INFO Loaded xZnMwJQ4mfc: 101 rows, 120 cols (output+llm)
+2026-03-22 01:41:04,913 INFO Loaded yKC5nekLvbs: 101 rows, 120 cols (output+llm)
+2026-03-22 01:41:04,923 INFO Loaded yXaJpj7Bb9w: 101 rows, 69 cols (output+llm)
+2026-03-22 01:41:04,936 INFO Loaded yv4o4Epz1eM: 101 rows, 120 cols (output+llm)
+2026-03-22 01:41:04,937 INFO Total videos loaded: 87 (87 output, 0 snapshot-only)
+2026-03-22 01:41:06,092 INFO Embedding PCA visual: 79.6% explained by 36 components
+2026-03-22 01:41:06,092 INFO Embedding PCA audio: 92.2% explained by 36 components
+2026-03-22 01:41:06,092 INFO Embedding PCA text: 67.0% explained by 36 components
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:217: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df[col] = vals
+2026-03-22 01:41:06,572 INFO Embedding PCA: added 108 features (87 videos with embeddings / 87 total)
+2026-03-22 01:41:06,573 INFO Videos: ['138P93_Z_u0', '1J5zlq2Vs3Y', '39R6j9qkzPo', '3G6JrAq-w4M', '3MncoqWP_qg', '3PBo1GiAlbs', '3WA4YT8fkx8', '4WcGtcKKoWg', '6Ha1lqRKMig', '6_qPAwOsDi0', '7g_56jn0NCA', '8YXWaEo201o', '8__NWVjeyZ8', '9B3N8I4Vidc', 'BZEZxzRJ-L4', 'Db6f982wxPg', 'DhFuAhFMvms', 'DrS6_CT0XrU', 'ECP4p12A5FY', 'EFxlvlchMw8', 'EhAdb6fIEe0', 'Ei6QuJppkb4', 'FYbEJ3oRgFk', 'FZ4waB-THOA', 'Fr4ZqY97Bco', 'GfEdSBXxyHA', 'GthDbmZFW-w', 'IgJxh-fJTBU', 'JXTBwlW02No', 'K5zVqoMMj3Y', 'LH3DvvXTxzc', 'Mc0b511IaVU', 'NE38Pn3CYRc', 'Nvq6okhPSOw', 'OpuMLYUuP_M', 'P9bVljfAWS8', 'Q1ZmiQVX9cY', 'RhVq2oJpsEY', 'RkwsqGM4_DE', 'S_o49-nmh5w', 'Sf95qeC7BUs', 'U8e1Pd7aBLY', 'VYYzb9KHawI', 'VYsqc9S5b9E', 'W6enyqR-1Jw', 'YoGUM0AsXJI', 'YubjPoEmzgU', 'Z6cbf9WN0c4', 'b5gAWk2QuSU', 'bK-1Mfb93uA', 'dx7dMwMXSAA', 'e21aHqRYPKE', 'eL9OqXpmvOE', 'eLSgNBnpeRg', 'fwHhuHVNR4I', 'gYHHQNT6100', 'gkSAR3jbMjA', 'hnyYg62DY4E', 'iKGmIRAfmCM', 'iP_siVZjbzc', 'ib29EiVnmJM', 'ie3vumn9Je4', 'jPVQgOI33V0', 'jTtvWTti3b0', 'kifrPvJigCU', 'lLoSngvynB8', 'lYAEH2n3I58', 'lgeLlSArJXU', 'mBzEZBF1a_U', 'mM6sYTdPZ-0', 'pfacUo-6wNs', 'porv8WwTSgc', 'q607HENWvqY', 'qoqjZR52lOQ', 'rJxhpVu7BhU', 'sujXtr4AVRU', 'szF7osJgt-A', 'vVZDZxRRXDI', 'v_puTGCZjnA', 'vopiJ3KKT-k', 'wS79wHHkjjw', 'wWtq4RlbRos', 'xK0GkyIVzq4', 'xZnMwJQ4mfc', 'yKC5nekLvbs', 'yXaJpj7Bb9w', 'yv4o4Epz1eM']
+2026-03-22 01:41:08,115 INFO Features after filtering: 212
+2026-03-22 01:41:08,115 INFO Validation split: first 10 videos from output
+2026-03-22 01:41:08,115 INFO Train: ['7g_56jn0NCA', '8YXWaEo201o', '8__NWVjeyZ8', '9B3N8I4Vidc', 'BZEZxzRJ-L4', 'Db6f982wxPg', 'DhFuAhFMvms', 'DrS6_CT0XrU', 'ECP4p12A5FY', 'EFxlvlchMw8', 'EhAdb6fIEe0', 'Ei6QuJppkb4', 'FYbEJ3oRgFk', 'FZ4waB-THOA', 'Fr4ZqY97Bco', 'GfEdSBXxyHA', 'GthDbmZFW-w', 'IgJxh-fJTBU', 'JXTBwlW02No', 'K5zVqoMMj3Y', 'LH3DvvXTxzc', 'Mc0b511IaVU', 'NE38Pn3CYRc', 'Nvq6okhPSOw', 'OpuMLYUuP_M', 'P9bVljfAWS8', 'Q1ZmiQVX9cY', 'RhVq2oJpsEY', 'RkwsqGM4_DE', 'S_o49-nmh5w', 'Sf95qeC7BUs', 'U8e1Pd7aBLY', 'VYYzb9KHawI', 'VYsqc9S5b9E', 'W6enyqR-1Jw', 'YoGUM0AsXJI', 'YubjPoEmzgU', 'Z6cbf9WN0c4', 'b5gAWk2QuSU', 'bK-1Mfb93uA', 'dx7dMwMXSAA', 'e21aHqRYPKE', 'eL9OqXpmvOE', 'eLSgNBnpeRg', 'fwHhuHVNR4I', 'gYHHQNT6100', 'gkSAR3jbMjA', 'hnyYg62DY4E', 'iKGmIRAfmCM', 'iP_siVZjbzc', 'ib29EiVnmJM', 'ie3vumn9Je4', 'jPVQgOI33V0', 'jTtvWTti3b0', 'kifrPvJigCU', 'lLoSngvynB8', 'lYAEH2n3I58', 'lgeLlSArJXU', 'mBzEZBF1a_U', 'mM6sYTdPZ-0', 'pfacUo-6wNs', 'porv8WwTSgc', 'q607HENWvqY', 'qoqjZR52lOQ', 'rJxhpVu7BhU', 'sujXtr4AVRU', 'szF7osJgt-A', 'vVZDZxRRXDI', 'v_puTGCZjnA', 'vopiJ3KKT-k', 'wS79wHHkjjw', 'wWtq4RlbRos', 'xK0GkyIVzq4', 'xZnMwJQ4mfc', 'yKC5nekLvbs', 'yXaJpj7Bb9w', 'yv4o4Epz1eM'], Val: ['138P93_Z_u0', '1J5zlq2Vs3Y', '39R6j9qkzPo', '3G6JrAq-w4M', '3MncoqWP_qg', '3PBo1GiAlbs', '3WA4YT8fkx8', '4WcGtcKKoWg', '6Ha1lqRKMig', '6_qPAwOsDi0']
+2026-03-22 01:41:08,663 INFO Time ref (max time_sec on train): 1979.0 s
+2026-03-22 01:41:08,665 INFO Video weights: min=0.250  max=1.310  mean=1.022
+2026-03-22 01:41:09,234 INFO Train windows: 77, Val windows: 10
+2026-03-22 01:41:09,482 INFO Baseline disabled (--no-baseline)
+2026-03-22 01:41:09,482 INFO Model params: 5623141 (5623.1K)
+2026-03-22 01:41:10.020295: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-22 01:41:10.046528: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-03-22 01:41:10.556364: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+  result = _VF.lstm(
+2026-03-22 01:42:06,667 INFO Saved experiments/lstm_exp/v2_tabular_pca/training_curve.png
+2026-03-22 01:42:06,714 INFO 138P93_Z_u0 [val]  RMSE=9.8431  MAE=7.4335  r=0.655
+2026-03-22 01:42:06,832 INFO 1J5zlq2Vs3Y [val]  RMSE=16.9554  MAE=14.8852  r=0.831
+2026-03-22 01:42:06,952 INFO 39R6j9qkzPo [val]  RMSE=10.4099  MAE=8.0641  r=0.727
+2026-03-22 01:42:07,229 INFO 3G6JrAq-w4M [val]  RMSE=19.7702  MAE=18.5474  r=0.758
+2026-03-22 01:42:07,345 INFO 3MncoqWP_qg [val]  RMSE=14.9655  MAE=11.4378  r=0.766
+2026-03-22 01:42:07,464 INFO 3PBo1GiAlbs [val]  RMSE=15.2907  MAE=12.8119  r=0.788
+2026-03-22 01:42:07,580 INFO 3WA4YT8fkx8 [val]  RMSE=14.5646  MAE=12.1872  r=0.828
+2026-03-22 01:42:07,701 INFO 4WcGtcKKoWg [val]  RMSE=21.0902  MAE=20.2039  r=0.748
+2026-03-22 01:42:07,819 INFO 6Ha1lqRKMig [val]  RMSE=10.1662  MAE=7.0778  r=0.869
+2026-03-22 01:42:07,937 INFO 6_qPAwOsDi0 [val]  RMSE=17.1902  MAE=14.3392  r=0.810
+2026-03-22 01:42:08,058 INFO 7g_56jn0NCA [train]  RMSE=10.2939  MAE=7.1851  r=0.827
+2026-03-22 01:42:08,176 INFO 8YXWaEo201o [train]  RMSE=12.5576  MAE=10.0215  r=0.796
+2026-03-22 01:42:08,301 INFO 8__NWVjeyZ8 [train]  RMSE=12.0663  MAE=8.2920  r=0.699
+2026-03-22 01:42:08,419 INFO 9B3N8I4Vidc [train]  RMSE=10.4717  MAE=7.7933  r=0.590
+2026-03-22 01:42:08,534 INFO BZEZxzRJ-L4 [train]  RMSE=12.2014  MAE=8.9778  r=0.901
+2026-03-22 01:42:08,656 INFO Db6f982wxPg [train]  RMSE=16.8323  MAE=14.7908  r=0.892
+2026-03-22 01:42:08,775 INFO DhFuAhFMvms [train]  RMSE=12.2993  MAE=9.3476  r=0.827
+2026-03-22 01:42:08,892 INFO DrS6_CT0XrU [train]  RMSE=13.2160  MAE=10.9010  r=0.796
+2026-03-22 01:42:09,011 INFO ECP4p12A5FY [train]  RMSE=14.3638  MAE=12.6221  r=0.515
+2026-03-22 01:42:09,128 INFO EFxlvlchMw8 [train]  RMSE=11.9369  MAE=9.5671  r=0.569
+2026-03-22 01:42:09,244 INFO EhAdb6fIEe0 [train]  RMSE=10.7550  MAE=8.6593  r=0.861
+2026-03-22 01:42:09,364 INFO Ei6QuJppkb4 [train]  RMSE=19.6275  MAE=18.4357  r=0.551
+2026-03-22 01:42:09,481 INFO FYbEJ3oRgFk [train]  RMSE=17.9274  MAE=17.2768  r=0.749
+2026-03-22 01:42:09,603 INFO FZ4waB-THOA [train]  RMSE=12.8381  MAE=9.8800  r=0.900
+2026-03-22 01:42:09,720 INFO Fr4ZqY97Bco [train]  RMSE=13.9444  MAE=10.4504  r=0.866
+2026-03-22 01:42:09,838 INFO GfEdSBXxyHA [train]  RMSE=14.4198  MAE=11.8551  r=0.846
+2026-03-22 01:42:10,188 INFO GthDbmZFW-w [train]  RMSE=11.6841  MAE=9.1398  r=0.643
+2026-03-22 01:42:10,305 INFO IgJxh-fJTBU [train]  RMSE=13.1570  MAE=10.0305  r=0.607
+2026-03-22 01:42:10,423 INFO JXTBwlW02No [train]  RMSE=14.5266  MAE=13.0491  r=0.769
+2026-03-22 01:42:10,546 INFO K5zVqoMMj3Y [train]  RMSE=15.8781  MAE=13.1498  r=0.719
+2026-03-22 01:42:10,664 INFO LH3DvvXTxzc [train]  RMSE=11.6703  MAE=8.9597  r=0.590
+2026-03-22 01:42:10,781 INFO Mc0b511IaVU [train]  RMSE=14.8812  MAE=12.1116  r=0.921
+2026-03-22 01:42:10,900 INFO NE38Pn3CYRc [train]  RMSE=8.7896  MAE=6.1481  r=0.817
+2026-03-22 01:42:11,020 INFO Nvq6okhPSOw [train]  RMSE=9.3642  MAE=6.6368  r=0.946
+2026-03-22 01:42:11,138 INFO OpuMLYUuP_M [train]  RMSE=14.7935  MAE=12.8908  r=0.927
+2026-03-22 01:42:11,257 INFO P9bVljfAWS8 [train]  RMSE=19.5907  MAE=17.2901  r=0.960
+2026-03-22 01:42:11,376 INFO Q1ZmiQVX9cY [train]  RMSE=11.9940  MAE=10.0267  r=0.949
+2026-03-22 01:42:11,496 INFO RhVq2oJpsEY [train]  RMSE=13.3283  MAE=10.7498  r=0.837
+2026-03-22 01:42:11,616 INFO RkwsqGM4_DE [train]  RMSE=16.3037  MAE=15.1096  r=0.822
+2026-03-22 01:42:11,741 INFO S_o49-nmh5w [train]  RMSE=12.5175  MAE=9.8677  r=0.863
+2026-03-22 01:42:11,863 INFO Sf95qeC7BUs [train]  RMSE=9.4663  MAE=6.6697  r=0.744
+2026-03-22 01:42:11,983 INFO U8e1Pd7aBLY [train]  RMSE=18.7712  MAE=17.0008  r=0.856
+2026-03-22 01:42:12,100 INFO VYYzb9KHawI [train]  RMSE=14.7485  MAE=11.7076  r=0.872
+2026-03-22 01:42:12,219 INFO VYsqc9S5b9E [train]  RMSE=13.7317  MAE=10.6007  r=0.893
+2026-03-22 01:42:12,337 INFO W6enyqR-1Jw [train]  RMSE=10.4225  MAE=7.8006  r=0.924
+2026-03-22 01:42:12,457 INFO YoGUM0AsXJI [train]  RMSE=11.8131  MAE=8.9293  r=0.894
+2026-03-22 01:42:12,575 INFO YubjPoEmzgU [train]  RMSE=10.7051  MAE=8.2688  r=0.867
+2026-03-22 01:42:12,692 INFO Z6cbf9WN0c4 [train]  RMSE=9.1401  MAE=6.8735  r=0.894
+2026-03-22 01:42:12,810 INFO b5gAWk2QuSU [train]  RMSE=16.6393  MAE=15.1051  r=0.732
+2026-03-22 01:42:12,928 INFO bK-1Mfb93uA [train]  RMSE=11.9279  MAE=8.3620  r=0.882
+2026-03-22 01:42:13,290 INFO dx7dMwMXSAA [train]  RMSE=10.0566  MAE=6.8806  r=0.904
+2026-03-22 01:42:13,412 INFO e21aHqRYPKE [train]  RMSE=15.0185  MAE=13.3091  r=0.878
+2026-03-22 01:42:13,531 INFO eL9OqXpmvOE [train]  RMSE=13.3228  MAE=10.5093  r=0.876
+2026-03-22 01:42:13,651 INFO eLSgNBnpeRg [train]  RMSE=13.9452  MAE=11.0011  r=0.883
+2026-03-22 01:42:13,773 INFO fwHhuHVNR4I [train]  RMSE=17.1292  MAE=15.4326  r=0.689
+2026-03-22 01:42:13,891 INFO gYHHQNT6100 [train]  RMSE=12.7341  MAE=10.8645  r=0.882
+2026-03-22 01:42:14,012 INFO gkSAR3jbMjA [train]  RMSE=21.8652  MAE=21.1566  r=0.507
+2026-03-22 01:42:14,130 INFO hnyYg62DY4E [train]  RMSE=13.9409  MAE=11.0032  r=0.258
+2026-03-22 01:42:14,248 INFO iKGmIRAfmCM [train]  RMSE=18.6445  MAE=17.1894  r=0.738
+2026-03-22 01:42:14,365 INFO iP_siVZjbzc [train]  RMSE=12.0175  MAE=9.0535  r=0.860
+2026-03-22 01:42:14,484 INFO ib29EiVnmJM [train]  RMSE=11.8325  MAE=8.6027  r=0.880
+2026-03-22 01:42:14,603 INFO ie3vumn9Je4 [train]  RMSE=12.9665  MAE=9.7861  r=0.925
+2026-03-22 01:42:14,724 INFO jPVQgOI33V0 [train]  RMSE=12.7736  MAE=9.8494  r=0.861
+2026-03-22 01:42:14,844 INFO jTtvWTti3b0 [train]  RMSE=9.0344  MAE=6.5735  r=0.962
+2026-03-22 01:42:14,965 INFO kifrPvJigCU [train]  RMSE=14.4777  MAE=12.5545  r=0.894
+2026-03-22 01:42:15,086 INFO lLoSngvynB8 [train]  RMSE=15.9684  MAE=13.1921  r=0.486
+2026-03-22 01:42:15,205 INFO lYAEH2n3I58 [train]  RMSE=12.8311  MAE=10.3048  r=0.940
+2026-03-22 01:42:15,324 INFO lgeLlSArJXU [train]  RMSE=13.3632  MAE=10.7622  r=0.906
+2026-03-22 01:42:15,445 INFO mBzEZBF1a_U [train]  RMSE=9.0687  MAE=5.9310  r=0.927
+2026-03-22 01:42:15,565 INFO mM6sYTdPZ-0 [train]  RMSE=14.1685  MAE=12.1322  r=0.850
+2026-03-22 01:42:15,685 INFO pfacUo-6wNs [train]  RMSE=8.0513  MAE=5.0063  r=0.965
+2026-03-22 01:42:15,808 INFO porv8WwTSgc [train]  RMSE=18.3302  MAE=16.7449  r=0.948
+2026-03-22 01:42:15,928 INFO q607HENWvqY [train]  RMSE=10.8793  MAE=8.1140  r=0.836
+2026-03-22 01:42:16,048 INFO qoqjZR52lOQ [train]  RMSE=10.9395  MAE=7.7128  r=0.887
+2026-03-22 01:42:16,167 INFO rJxhpVu7BhU [train]  RMSE=13.6424  MAE=11.0946  r=0.859
+2026-03-22 01:42:16,529 INFO sujXtr4AVRU [train]  RMSE=17.3625  MAE=16.2633  r=0.592
+2026-03-22 01:42:16,646 INFO szF7osJgt-A [train]  RMSE=16.8341  MAE=15.1084  r=0.959
+2026-03-22 01:42:16,766 INFO vVZDZxRRXDI [train]  RMSE=12.7204  MAE=10.0951  r=0.860
+2026-03-22 01:42:16,885 INFO v_puTGCZjnA [train]  RMSE=11.1359  MAE=9.0675  r=0.971
+2026-03-22 01:42:17,005 INFO vopiJ3KKT-k [train]  RMSE=10.2026  MAE=7.9274  r=0.761
+2026-03-22 01:42:17,127 INFO wS79wHHkjjw [train]  RMSE=9.7849  MAE=6.4010  r=0.901
+2026-03-22 01:42:17,248 INFO wWtq4RlbRos [train]  RMSE=23.9345  MAE=22.7438  r=0.922
+2026-03-22 01:42:17,368 INFO xK0GkyIVzq4 [train]  RMSE=12.3559  MAE=9.8113  r=0.857
+2026-03-22 01:42:17,490 INFO xZnMwJQ4mfc [train]  RMSE=15.0469  MAE=13.2310  r=0.901
+2026-03-22 01:42:17,612 INFO yKC5nekLvbs [train]  RMSE=16.5115  MAE=15.0987  r=0.484
+2026-03-22 01:42:17,731 INFO yXaJpj7Bb9w [train]  RMSE=10.7534  MAE=8.9909  r=0.972
+2026-03-22 01:42:17,853 INFO yv4o4Epz1eM [train]  RMSE=11.9724  MAE=9.3604  r=0.913
+2026-03-22 01:42:18,219 INFO Feature importance: 212 features
+2026-03-22 01:42:18,233 INFO Done. Best val loss=0.0617, epochs=600, time=56s

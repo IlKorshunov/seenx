@@ -1,0 +1,119 @@
+2026-03-22 01:11:19,184 INFO Tuned JSON: applied loss / optimizer / window / feature-filter params (architecture kept from CLI — use --tuned-apply-architecture to override).
+2026-03-22 01:11:19,184 INFO Saved tuned payload copy -> experiments/lstm_exp/v4_tuned_multimodal/tuned_params_applied.json
+2026-03-22 01:11:19,184 INFO Merged tuned params from /home/kolya/ilya/seenx-ml/tune_hp/results/tune_multimodal_lstm_best.json
+2026-03-22 01:11:19,185 INFO Loading merged data (no PCA — raw embeddings go to model)...
+2026-03-22 01:11:19,199 INFO Loaded 138P93_Z_u0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,212 INFO Loaded 1J5zlq2Vs3Y: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,223 INFO Loaded 39R6j9qkzPo: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,232 INFO Loaded 3G6JrAq-w4M: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:19,242 INFO Loaded 3MncoqWP_qg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,254 INFO Loaded 3PBo1GiAlbs: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,263 INFO Loaded 3WA4YT8fkx8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,272 INFO Loaded 4WcGtcKKoWg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,282 INFO Loaded 6Ha1lqRKMig: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,293 INFO Loaded 6_qPAwOsDi0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,307 INFO Loaded 7g_56jn0NCA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,317 INFO Loaded 8YXWaEo201o: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,330 INFO Loaded 8__NWVjeyZ8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,339 INFO Loaded 9B3N8I4Vidc: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,352 INFO Loaded BZEZxzRJ-L4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,361 INFO Loaded Db6f982wxPg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,374 INFO Loaded DhFuAhFMvms: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,383 INFO Loaded DrS6_CT0XrU: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,395 INFO Loaded ECP4p12A5FY: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,406 INFO Loaded EFxlvlchMw8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,416 INFO Loaded EhAdb6fIEe0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,426 INFO Loaded Ei6QuJppkb4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,434 INFO Loaded FYbEJ3oRgFk: 100 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,446 INFO Loaded FZ4waB-THOA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,458 INFO Loaded Fr4ZqY97Bco: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,469 INFO Loaded GfEdSBXxyHA: 101 rows, 82 cols (output+llm)
+2026-03-22 01:11:19,479 INFO Loaded GthDbmZFW-w: 101 rows, 84 cols (output+llm)
+2026-03-22 01:11:19,488 INFO Loaded IgJxh-fJTBU: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:19,495 INFO Loaded JXTBwlW02No: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:19,506 INFO Loaded K5zVqoMMj3Y: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,514 INFO Loaded LH3DvvXTxzc: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:19,522 INFO Loaded Mc0b511IaVU: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:19,528 INFO Loaded NE38Pn3CYRc: 100 rows, 79 cols (output+llm)
+2026-03-22 01:11:19,537 INFO Loaded Nvq6okhPSOw: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:19,544 INFO Loaded OpuMLYUuP_M: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,551 INFO Loaded P9bVljfAWS8: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,561 INFO Loaded Q1ZmiQVX9cY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,569 INFO Loaded RhVq2oJpsEY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,576 INFO Loaded RkwsqGM4_DE: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,583 INFO Loaded S_o49-nmh5w: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,593 INFO Loaded Sf95qeC7BUs: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,603 INFO Loaded U8e1Pd7aBLY: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,609 INFO Loaded VYYzb9KHawI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,617 INFO Loaded VYsqc9S5b9E: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,625 INFO Loaded W6enyqR-1Jw: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,632 INFO Loaded YoGUM0AsXJI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,641 INFO Loaded YubjPoEmzgU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,649 INFO Loaded Z6cbf9WN0c4: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,659 INFO Loaded b5gAWk2QuSU: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,669 INFO Loaded bK-1Mfb93uA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,681 INFO Loaded dx7dMwMXSAA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,692 INFO Loaded e21aHqRYPKE: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,701 INFO Loaded eL9OqXpmvOE: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,713 INFO Loaded eLSgNBnpeRg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,723 INFO Loaded fwHhuHVNR4I: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,732 INFO Loaded gYHHQNT6100: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,741 INFO Loaded gkSAR3jbMjA: 101 rows, 84 cols (output+llm)
+2026-03-22 01:11:19,751 INFO Loaded hnyYg62DY4E: 101 rows, 84 cols (output+llm)
+2026-03-22 01:11:19,759 INFO Loaded iKGmIRAfmCM: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,770 INFO Loaded iP_siVZjbzc: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,783 INFO Loaded ib29EiVnmJM: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,792 INFO Loaded ie3vumn9Je4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,803 INFO Loaded jPVQgOI33V0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:19,812 INFO Loaded jTtvWTti3b0: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,819 INFO Loaded kifrPvJigCU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,830 INFO Loaded lLoSngvynB8: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:19,839 INFO Loaded lYAEH2n3I58: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,847 INFO Loaded lgeLlSArJXU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,855 INFO Loaded mBzEZBF1a_U: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,861 INFO Loaded mM6sYTdPZ-0: 100 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,870 INFO Loaded pfacUo-6wNs: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,877 INFO Loaded porv8WwTSgc: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,886 INFO Loaded q607HENWvqY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,895 INFO Loaded qoqjZR52lOQ: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,903 INFO Loaded rJxhpVu7BhU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,914 INFO Loaded sujXtr4AVRU: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:19,921 INFO Loaded szF7osJgt-A: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,929 INFO Loaded vVZDZxRRXDI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,938 INFO Loaded v_puTGCZjnA: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,944 INFO Loaded vopiJ3KKT-k: 100 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,950 INFO Loaded wS79wHHkjjw: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,955 INFO Loaded wWtq4RlbRos: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,964 INFO Loaded xK0GkyIVzq4: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:19,975 INFO Loaded xZnMwJQ4mfc: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:19,987 INFO Loaded yKC5nekLvbs: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:19,997 INFO Loaded yXaJpj7Bb9w: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:20,010 INFO Loaded yv4o4Epz1eM: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:20,010 INFO Total videos loaded: 87 (87 output, 0 snapshot-only)
+2026-03-22 01:11:20,011 INFO Loading aligned embeddings...
+2026-03-22 01:11:20,759 INFO Loaded aligned embeddings for 87 / 87 videos
+2026-03-22 01:11:21,447 INFO Tabular features after filtering: 106
+2026-03-22 01:11:21,447 INFO Train: 77 videos, Val: 10 videos
+2026-03-22 01:11:21,735 INFO Video weights: min=0.250  max=1.310  mean=1.022
+2026-03-22 01:11:21,995 INFO Train windows: 77, Val windows: 10
+2026-03-22 01:11:22,249 INFO Baseline curve set: 101 points, mean=66.5%
+2026-03-22 01:11:22,249 INFO Model: lstm, params: 6275329 (6275.3K), tabular features: 106
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_multimodal_seq.py", line 614, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_multimodal_seq.py", line 414, in main
+    model, result = train_model(model, train_dl, val_dl, device, args,
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_multimodal_seq.py", line 140, in train_model
+    pred = model(emb, tabular=tab, src_key_padding_mask=pad_mask)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/src/models/retention_multimodal_lstm.py", line 178, in forward
+    return bl.unsqueeze(0) + deviation
+           ~~~~~~~~~~~~~~~~^~~~~~~~~~~
+RuntimeError: The size of tensor a (101) must match the size of tensor b (192) at non-singleton dimension 1

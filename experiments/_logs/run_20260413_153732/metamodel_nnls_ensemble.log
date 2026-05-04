@@ -1,0 +1,169 @@
+2026-04-13 15:53:13,968 INFO Loading features and embeddings...
+2026-04-13 15:53:13,987 INFO Loaded 138P93_Z_u0: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,005 INFO Loaded 1J5zlq2Vs3Y: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,017 INFO Loaded 39R6j9qkzPo: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,029 INFO Loaded 3G6JrAq-w4M: 101 rows, 161 cols (output+llm)
+2026-04-13 15:53:14,041 INFO Loaded 3MncoqWP_qg: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,054 INFO Loaded 3PBo1GiAlbs: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,065 INFO Loaded 3WA4YT8fkx8: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,076 INFO Loaded 4WcGtcKKoWg: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,089 INFO Loaded 6Ha1lqRKMig: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,101 INFO Loaded 6_qPAwOsDi0: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,119 INFO Loaded 7g_56jn0NCA: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,133 INFO Loaded 8YXWaEo201o: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,149 INFO Loaded 8__NWVjeyZ8: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,160 INFO Loaded 9B3N8I4Vidc: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,172 INFO Loaded BZEZxzRJ-L4: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,183 INFO Loaded Db6f982wxPg: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,200 INFO Loaded DhFuAhFMvms: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,209 INFO Loaded DrS6_CT0XrU: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,225 INFO Loaded ECP4p12A5FY: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,239 INFO Loaded EFxlvlchMw8: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,252 INFO Loaded EhAdb6fIEe0: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,264 INFO Loaded Ei6QuJppkb4: 101 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,273 INFO Loaded FYbEJ3oRgFk: 100 rows, 163 cols (output+llm)
+2026-04-13 15:53:14,286 INFO Loaded FZ4waB-THOA: 101 rows, 135 cols (output+llm)
+2026-04-13 15:53:14,298 INFO Loaded Fr4ZqY97Bco: 101 rows, 135 cols (output+llm)
+2026-04-13 15:53:14,310 INFO Loaded GfEdSBXxyHA: 101 rows, 95 cols (output+llm)
+2026-04-13 15:53:14,322 INFO Loaded GthDbmZFW-w: 101 rows, 97 cols (output+llm)
+2026-04-13 15:53:14,333 INFO Loaded IgJxh-fJTBU: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,343 INFO Loaded JXTBwlW02No: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,354 INFO Loaded K5zVqoMMj3Y: 101 rows, 135 cols (output+llm)
+2026-04-13 15:53:14,365 INFO Loaded LH3DvvXTxzc: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,376 INFO Loaded Mc0b511IaVU: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,384 INFO Loaded NE38Pn3CYRc: 100 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,397 INFO Loaded Nvq6okhPSOw: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,406 INFO Loaded OpuMLYUuP_M: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,416 INFO Loaded P9bVljfAWS8: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,431 INFO Loaded Q1ZmiQVX9cY: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,443 INFO Loaded RhVq2oJpsEY: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,453 INFO Loaded RkwsqGM4_DE: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,462 INFO Loaded S_o49-nmh5w: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,478 INFO Loaded Sf95qeC7BUs: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,488 INFO Loaded U8e1Pd7aBLY: 101 rows, 135 cols (output+llm)
+2026-04-13 15:53:14,497 INFO Loaded VYYzb9KHawI: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,507 INFO Loaded VYsqc9S5b9E: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,520 INFO Loaded W6enyqR-1Jw: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,530 INFO Loaded YoGUM0AsXJI: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,542 INFO Loaded YubjPoEmzgU: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,554 INFO Loaded Z6cbf9WN0c4: 101 rows, 133 cols (output+llm)
+2026-04-13 15:53:14,565 INFO Loaded b5gAWk2QuSU: 101 rows, 135 cols (output+llm)
+2026-04-13 15:53:14,575 INFO Loaded bK-1Mfb93uA: 101 rows, 135 cols (output+llm)
+2026-04-13 15:53:14,588 INFO Loaded dx7dMwMXSAA: 101 rows, 135 cols (output+llm)
+2026-04-13 15:53:14,600 INFO Loaded e21aHqRYPKE: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,610 INFO Loaded eL9OqXpmvOE: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,622 INFO Loaded eLSgNBnpeRg: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,633 INFO Loaded fwHhuHVNR4I: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,645 INFO Loaded gYHHQNT6100: 101 rows, 129 cols (output+llm)
+2026-04-13 15:53:14,655 INFO Loaded gkSAR3jbMjA: 101 rows, 93 cols (output+llm)
+2026-04-13 15:53:14,665 INFO Loaded hnyYg62DY4E: 101 rows, 93 cols (output+llm)
+2026-04-13 15:53:14,674 INFO Loaded iKGmIRAfmCM: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,686 INFO Loaded iP_siVZjbzc: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,699 INFO Loaded ib29EiVnmJM: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,709 INFO Loaded ie3vumn9Je4: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,721 INFO Loaded jPVQgOI33V0: 101 rows, 131 cols (output+llm)
+2026-04-13 15:53:14,734 INFO Loaded jTtvWTti3b0: 101 rows, 129 cols (output+llm)
+2026-04-13 15:53:14,743 INFO Loaded kifrPvJigCU: 101 rows, 129 cols (output+llm)
+2026-04-13 15:53:14,755 INFO Loaded lLoSngvynB8: 101 rows, 129 cols (output+llm)
+2026-04-13 15:53:14,768 INFO Loaded lYAEH2n3I58: 101 rows, 129 cols (output+llm)
+2026-04-13 15:53:14,780 INFO Loaded lgeLlSArJXU: 101 rows, 129 cols (output+llm)
+2026-04-13 15:53:14,791 INFO Loaded mBzEZBF1a_U: 101 rows, 129 cols (output+llm)
+2026-04-13 15:53:14,799 INFO Loaded mM6sYTdPZ-0: 100 rows, 129 cols (output+llm)
+2026-04-13 15:53:14,813 INFO Loaded pfacUo-6wNs: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,822 INFO Loaded porv8WwTSgc: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,835 INFO Loaded q607HENWvqY: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,847 INFO Loaded qoqjZR52lOQ: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,858 INFO Loaded rJxhpVu7BhU: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,870 INFO Loaded sujXtr4AVRU: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,879 INFO Loaded szF7osJgt-A: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,891 INFO Loaded vVZDZxRRXDI: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,904 INFO Loaded v_puTGCZjnA: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,911 INFO Loaded vopiJ3KKT-k: 100 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,920 INFO Loaded wS79wHHkjjw: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,926 INFO Loaded wWtq4RlbRos: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,939 INFO Loaded xK0GkyIVzq4: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,950 INFO Loaded xZnMwJQ4mfc: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,962 INFO Loaded yKC5nekLvbs: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,978 INFO Loaded yXaJpj7Bb9w: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,992 INFO Loaded yv4o4Epz1eM: 101 rows, 122 cols (output+llm)
+2026-04-13 15:53:14,992 INFO Total videos loaded: 87 (87 output, 0 snapshot-only)
+2026-04-13 15:53:15,027 INFO Added per-video features: duration_sec, log1p_view_count, mean_retention_prior, early_retention_drop_30s
+2026-04-13 15:53:16,135 INFO Loaded aligned embeddings for 87 / 87 videos
+2026-04-13 15:53:16,192 INFO Loading pre-trained base models...
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/metamodel/train_metamodel.py", line 241, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/metamodel/train_metamodel.py", line 112, in main
+    m_lstm, cols_lstm = load_model(Path(args.lstm_exp) / "multimodal_lstm_model.pt", device, is_lstm=True)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/metamodel/train_metamodel.py", line 77, in load_model
+    model.load_state_dict(ckpt["model_state_dict"])
+  File "/home/kolya/.local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2635, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for MultimodalRetentionLSTM:
+	size mismatch for mod_emb: copying a param with shape torch.Size([3, 512]) from checkpoint, the shape in current model is torch.Size([3, 256]).
+	size mismatch for vis_proj.proj.0.weight: copying a param with shape torch.Size([512, 768]) from checkpoint, the shape in current model is torch.Size([256, 768]).
+	size mismatch for vis_proj.proj.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for vis_proj.proj.1.weight: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for vis_proj.proj.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for aud_proj.proj.0.weight: copying a param with shape torch.Size([512, 512]) from checkpoint, the shape in current model is torch.Size([256, 512]).
+	size mismatch for aud_proj.proj.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for aud_proj.proj.1.weight: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for aud_proj.proj.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for txt_proj.proj.0.weight: copying a param with shape torch.Size([512, 256]) from checkpoint, the shape in current model is torch.Size([256, 256]).
+	size mismatch for txt_proj.proj.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for txt_proj.proj.1.weight: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for txt_proj.proj.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for fusion.0.weight: copying a param with shape torch.Size([512, 1536]) from checkpoint, the shape in current model is torch.Size([256, 768]).
+	size mismatch for fusion.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for tabular_proj.0.weight: copying a param with shape torch.Size([512, 114]) from checkpoint, the shape in current model is torch.Size([256, 114]).
+	size mismatch for tabular_proj.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for tabular_gate.0.weight: copying a param with shape torch.Size([512, 1024]) from checkpoint, the shape in current model is torch.Size([256, 512]).
+	size mismatch for tabular_gate.0.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for lstm.weight_ih_l0: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.weight_hh_l0: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.bias_ih_l0: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.bias_hh_l0: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.weight_ih_l0_reverse: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.weight_hh_l0_reverse: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.bias_ih_l0_reverse: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.bias_hh_l0_reverse: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.weight_ih_l1: copying a param with shape torch.Size([2048, 1024]) from checkpoint, the shape in current model is torch.Size([1024, 512]).
+	size mismatch for lstm.weight_hh_l1: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.bias_ih_l1: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.bias_hh_l1: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.weight_ih_l1_reverse: copying a param with shape torch.Size([2048, 1024]) from checkpoint, the shape in current model is torch.Size([1024, 512]).
+	size mismatch for lstm.weight_hh_l1_reverse: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.bias_ih_l1_reverse: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.bias_hh_l1_reverse: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.weight_ih_l2: copying a param with shape torch.Size([2048, 1024]) from checkpoint, the shape in current model is torch.Size([1024, 512]).
+	size mismatch for lstm.weight_hh_l2: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.bias_ih_l2: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.bias_hh_l2: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.weight_ih_l2_reverse: copying a param with shape torch.Size([2048, 1024]) from checkpoint, the shape in current model is torch.Size([1024, 512]).
+	size mismatch for lstm.weight_hh_l2_reverse: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.bias_ih_l2_reverse: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.bias_hh_l2_reverse: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.weight_ih_l3: copying a param with shape torch.Size([2048, 1024]) from checkpoint, the shape in current model is torch.Size([1024, 512]).
+	size mismatch for lstm.weight_hh_l3: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.bias_ih_l3: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.bias_hh_l3: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.weight_ih_l3_reverse: copying a param with shape torch.Size([2048, 1024]) from checkpoint, the shape in current model is torch.Size([1024, 512]).
+	size mismatch for lstm.weight_hh_l3_reverse: copying a param with shape torch.Size([2048, 512]) from checkpoint, the shape in current model is torch.Size([1024, 256]).
+	size mismatch for lstm.bias_ih_l3_reverse: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for lstm.bias_hh_l3_reverse: copying a param with shape torch.Size([2048]) from checkpoint, the shape in current model is torch.Size([1024]).
+	size mismatch for residual_proj.weight: copying a param with shape torch.Size([1024, 512]) from checkpoint, the shape in current model is torch.Size([512, 256]).
+	size mismatch for residual_proj.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for layer_norm.weight: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for layer_norm.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for attention.attn.in_proj_weight: copying a param with shape torch.Size([3072, 1024]) from checkpoint, the shape in current model is torch.Size([1536, 512]).
+	size mismatch for attention.attn.in_proj_bias: copying a param with shape torch.Size([3072]) from checkpoint, the shape in current model is torch.Size([1536]).
+	size mismatch for attention.attn.out_proj.weight: copying a param with shape torch.Size([1024, 1024]) from checkpoint, the shape in current model is torch.Size([512, 512]).
+	size mismatch for attention.attn.out_proj.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for attention.norm.weight: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for attention.norm.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for deviation_head.0.weight: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for deviation_head.0.bias: copying a param with shape torch.Size([1024]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for deviation_head.1.weight: copying a param with shape torch.Size([512, 1024]) from checkpoint, the shape in current model is torch.Size([256, 512]).
+	size mismatch for deviation_head.1.bias: copying a param with shape torch.Size([512]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for deviation_head.4.weight: copying a param with shape torch.Size([1, 512]) from checkpoint, the shape in current model is torch.Size([1, 256]).

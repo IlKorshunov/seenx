@@ -1,0 +1,26 @@
+Training points:   0%|          | 0/2 [00:00<?, ?it/s]
+Training points: 100%|██████████| 2/2 [00:01<00:00,  1.54it/s]
+Training points: 100%|██████████| 2/2 [00:01<00:00,  1.54it/s]
+=== Retention Ad-Peak-Weighted LOO ===
+videos_total_with_target: 83
+videos_used: 6
+train_videos: 5
+curve_points: 2
+test_video: 3PBo1GiAlbs
+test_drive_file_id: 3PBo1GiAlbs
+weight_slope_alpha: 1.4
+weight_curvature_alpha: 0.9
+weight_ad_alpha: 1.2
+weight_max: 6.0
+integration_max_drop: 0.1
+integration_strength_power: 1.0
+integration_active_threshold: 0.5
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/ad_peak_weighted_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/point_models
+spearman: 0.9999999999999999
+pearson: 1.0
+rmse: 0.08706201806104977
+mae: 0.06156214335475396
+spike_rmse: 0.12312428670950792
+curvature_rmse: 0.0

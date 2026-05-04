@@ -1,0 +1,33 @@
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+[residual_huber] stage=residual_points total=2
+[residual_huber][residual] 1/2
+[residual_huber][residual] 2/2
+[residual_huber] stage=delta_residual total=1
+[residual_huber][delta] 1/1
+=== Retention Residual-Huber LOO ===
+videos_total_with_target: 83
+videos_used: 6
+train_videos: 5
+curve_points: 2
+test_video: 3PBo1GiAlbs
+test_drive_file_id: 3PBo1GiAlbs
+huber_delta: 0.03
+huber_delta_delta: 0.015
+delta_blend: 0.65
+delta_max_step: 0.15
+point_models_count: 1
+delta_models_count: 1
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/residual_huber_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/point_models
+spearman: 0.9999999999999999
+pearson: 1.0
+rmse: 0.10514212023525214
+mae: 0.0743467062066781
+spike_rmse: 0.1486934124133562
+curvature_rmse: 0.0
+=== Holdout Prediction vs True (2 points) ===
+ point_idx  baseline_value  pred_residual_base  pred_residual_delta_curve pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0           1.000            0.000000                    0.00000        1.00000             1.000000        1.000000        1.00000   0.00000
+         1           0.438           -0.030479                   -0.01329        0.41869             0.418693        0.418693        0.27000   0.14869

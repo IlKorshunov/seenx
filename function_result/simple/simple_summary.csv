@@ -1,0 +1,5 @@
+model,loo_mae_mean,loo_r2_mean,n_folds,iterations,depth,learning_rate,mae,mse,r2
+Ridge,9.197,-0.759,87.0,,,,,,
+CatBoost,7.722,-0.237,87.0,500.0,5.0,0.05,,,
+CatBoost final (train),,,,,,,2.909,15.184,0.925
+CatBoost final (val),,,,,,,8.29,122.196,0.339

@@ -1,0 +1,118 @@
+============================================================
+LOO Experiments Runner
+============================================================
+SNAPSHOT_DIR=data  CURVE_POINTS=20  SEED=42
+ITERATIONS=700  LR=0.05  DEPTH=6
+LOG: experiments/_logs/loo_20260321_233431
+============================================================
+[RUN] regressor
+[OUT] experiments/loo/regressor
+[LOG] experiments/_logs/loo_20260321_233431/regressor.log
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 467, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 463, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 311, in run_experiment
+    all_df, train_df, test_df = select_train_test(rows, args)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 252, in select_train_test
+    raise RuntimeError(
+RuntimeError: Недостаточно видео с target retention: найдено 0, нужно 45
+[FAIL] regressor (exit=1)
+============================================================
+[RUN] shape_only
+[OUT] experiments/loo/shape_only
+[LOG] experiments/_logs/loo_20260321_233431/shape_only.log
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_shape_only_loo.py", line 262, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_shape_only_loo.py", line 258, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_shape_only_loo.py", line 103, in run_experiment
+    rows = build_rows_with_targets_source(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 186, in build_rows_with_targets_source
+    access_token = manager.get()
+                   ^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/drive_feature_labeling_pipeline.py", line 43, in get
+    raise RuntimeError(
+RuntimeError: Google Drive access token not found. Set GDRIVE_ACCESS_TOKEN or use --snapshot-dir mode.
+[FAIL] shape_only (exit=1)
+============================================================
+[RUN] local_knn
+[OUT] experiments/loo/local_knn
+[LOG] experiments/_logs/loo_20260321_233431/local_knn.log
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 416, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 412, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 290, in run_experiment
+    rows = build_rows_with_targets_source(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 186, in build_rows_with_targets_source
+    access_token = manager.get()
+                   ^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/drive_feature_labeling_pipeline.py", line 43, in get
+    raise RuntimeError(
+RuntimeError: Google Drive access token not found. Set GDRIVE_ACCESS_TOKEN or use --snapshot-dir mode.
+[FAIL] local_knn (exit=1)
+============================================================
+[RUN] ranker
+[OUT] experiments/loo/ranker
+[LOG] experiments/_logs/loo_20260321_233431/ranker.log
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_ranker_loo.py", line 211, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_ranker_loo.py", line 207, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_ranker_loo.py", line 96, in run_experiment
+    df, train_df, test_df = select_train_test(rows, args)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 252, in select_train_test
+    raise RuntimeError(
+RuntimeError: Недостаточно видео с target retention: найдено 0, нужно 30
+[FAIL] ranker (exit=1)
+============================================================
+[RUN] hybrid
+[OUT] experiments/loo/hybrid
+[LOG] experiments/_logs/loo_20260321_233431/hybrid.log
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_hybrid_loo.py", line 525, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_hybrid_loo.py", line 521, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_hybrid_loo.py", line 176, in run_experiment
+    all_df, train_df, test_df = select_train_test(rows, args)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 252, in select_train_test
+    raise RuntimeError(
+RuntimeError: Недостаточно видео с target retention: найдено 0, нужно 45
+[FAIL] hybrid (exit=1)
+============================================================
+[RUN] stacked
+[OUT] experiments/loo/stacked
+[LOG] experiments/_logs/loo_20260321_233431/stacked.log
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_stacked_loo.py", line 424, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_stacked_loo.py", line 420, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_stacked_loo.py", line 249, in run_experiment
+    all_df, train_df, test_df = select_train_test(rows, args)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 252, in select_train_test
+    raise RuntimeError(
+RuntimeError: Недостаточно видео с target retention: найдено 0, нужно 51
+[FAIL] stacked (exit=1)
+============================================================
+[SUMMARY] LOO experiment results
+No metrics found in LOO experiments.
+[DONE WITH FAILURES]
+  - regressor
+  - shape_only
+  - local_knn
+  - ranker
+  - hybrid
+  - stacked

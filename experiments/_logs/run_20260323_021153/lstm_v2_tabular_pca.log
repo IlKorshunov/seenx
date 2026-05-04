@@ -1,0 +1,389 @@
+2026-03-23 02:12:21,458 INFO Loading merged data...
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,474 INFO Loaded 138P93_Z_u0: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,491 INFO Loaded 1J5zlq2Vs3Y: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,503 INFO Loaded 39R6j9qkzPo: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,514 INFO Loaded 3G6JrAq-w4M: 101 rows, 149 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,526 INFO Loaded 3MncoqWP_qg: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,539 INFO Loaded 3PBo1GiAlbs: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,550 INFO Loaded 3WA4YT8fkx8: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,560 INFO Loaded 4WcGtcKKoWg: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,573 INFO Loaded 6Ha1lqRKMig: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,585 INFO Loaded 6_qPAwOsDi0: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,602 INFO Loaded 7g_56jn0NCA: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,614 INFO Loaded 8YXWaEo201o: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,630 INFO Loaded 8__NWVjeyZ8: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,640 INFO Loaded 9B3N8I4Vidc: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,656 INFO Loaded BZEZxzRJ-L4: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,666 INFO Loaded Db6f982wxPg: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,682 INFO Loaded DhFuAhFMvms: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,691 INFO Loaded DrS6_CT0XrU: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,705 INFO Loaded ECP4p12A5FY: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,718 INFO Loaded EFxlvlchMw8: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,731 INFO Loaded EhAdb6fIEe0: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,743 INFO Loaded Ei6QuJppkb4: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,751 INFO Loaded FYbEJ3oRgFk: 100 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,766 INFO Loaded FZ4waB-THOA: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,780 INFO Loaded Fr4ZqY97Bco: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,793 INFO Loaded GfEdSBXxyHA: 101 rows, 111 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,806 INFO Loaded GthDbmZFW-w: 101 rows, 113 cols (output+llm)
+2026-03-23 02:12:21,818 INFO Loaded IgJxh-fJTBU: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,827 INFO Loaded JXTBwlW02No: 101 rows, 127 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,840 INFO Loaded K5zVqoMMj3Y: 101 rows, 151 cols (output+llm)
+2026-03-23 02:12:21,850 INFO Loaded LH3DvvXTxzc: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,861 INFO Loaded Mc0b511IaVU: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,869 INFO Loaded NE38Pn3CYRc: 100 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,882 INFO Loaded Nvq6okhPSOw: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,892 INFO Loaded OpuMLYUuP_M: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,901 INFO Loaded P9bVljfAWS8: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,917 INFO Loaded Q1ZmiQVX9cY: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,929 INFO Loaded RhVq2oJpsEY: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,938 INFO Loaded RkwsqGM4_DE: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,947 INFO Loaded S_o49-nmh5w: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,963 INFO Loaded Sf95qeC7BUs: 101 rows, 127 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:21,975 INFO Loaded U8e1Pd7aBLY: 101 rows, 151 cols (output+llm)
+2026-03-23 02:12:21,984 INFO Loaded VYYzb9KHawI: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:21,994 INFO Loaded VYsqc9S5b9E: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,007 INFO Loaded W6enyqR-1Jw: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,017 INFO Loaded YoGUM0AsXJI: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,062 INFO Loaded YubjPoEmzgU: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,074 INFO Loaded Z6cbf9WN0c4: 101 rows, 127 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,086 INFO Loaded b5gAWk2QuSU: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,098 INFO Loaded bK-1Mfb93uA: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,113 INFO Loaded dx7dMwMXSAA: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,127 INFO Loaded e21aHqRYPKE: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,137 INFO Loaded eL9OqXpmvOE: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,151 INFO Loaded eLSgNBnpeRg: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,163 INFO Loaded fwHhuHVNR4I: 101 rows, 151 cols (output+llm)
+2026-03-23 02:12:22,176 INFO Loaded gYHHQNT6100: 101 rows, 127 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,187 INFO Loaded gkSAR3jbMjA: 101 rows, 113 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,199 INFO Loaded hnyYg62DY4E: 101 rows, 113 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,209 INFO Loaded iKGmIRAfmCM: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,222 INFO Loaded iP_siVZjbzc: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,238 INFO Loaded ib29EiVnmJM: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,249 INFO Loaded ie3vumn9Je4: 101 rows, 151 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,262 INFO Loaded jPVQgOI33V0: 101 rows, 151 cols (output+llm)
+2026-03-23 02:12:22,276 INFO Loaded jTtvWTti3b0: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,284 INFO Loaded kifrPvJigCU: 101 rows, 127 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,298 INFO Loaded lLoSngvynB8: 101 rows, 149 cols (output+llm)
+2026-03-23 02:12:22,312 INFO Loaded lYAEH2n3I58: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,324 INFO Loaded lgeLlSArJXU: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,336 INFO Loaded mBzEZBF1a_U: 101 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,343 INFO Loaded mM6sYTdPZ-0: 100 rows, 127 cols (output+llm)
+2026-03-23 02:12:22,357 INFO Loaded pfacUo-6wNs: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,367 INFO Loaded porv8WwTSgc: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,379 INFO Loaded q607HENWvqY: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,392 INFO Loaded qoqjZR52lOQ: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,403 INFO Loaded rJxhpVu7BhU: 101 rows, 119 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,416 INFO Loaded sujXtr4AVRU: 101 rows, 149 cols (output+llm)
+2026-03-23 02:12:22,425 INFO Loaded szF7osJgt-A: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,437 INFO Loaded vVZDZxRRXDI: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,450 INFO Loaded v_puTGCZjnA: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,457 INFO Loaded vopiJ3KKT-k: 100 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,466 INFO Loaded wS79wHHkjjw: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,472 INFO Loaded wWtq4RlbRos: 101 rows, 119 cols (output+llm)
+2026-03-23 02:12:22,485 INFO Loaded xK0GkyIVzq4: 101 rows, 119 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,498 INFO Loaded xZnMwJQ4mfc: 101 rows, 149 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,512 INFO Loaded yKC5nekLvbs: 101 rows, 149 cols (output+llm)
+2026-03-23 02:12:22,527 INFO Loaded yXaJpj7Bb9w: 101 rows, 119 cols (output+llm)
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:99: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  if df.index.name == "time": df = df.reset_index()
+/home/kolya/ilya/seenx-ml/train/seq_data_utils.py:104: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  try: df["time_sec"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+2026-03-23 02:12:22,544 INFO Loaded yv4o4Epz1eM: 101 rows, 149 cols (output+llm)
+2026-03-23 02:12:22,544 INFO Total videos loaded: 87 (87 output, 0 snapshot-only)
+2026-03-23 02:12:22,575 INFO Added per-video features: duration_sec, log1p_view_count, mean_retention_prior
+2026-03-23 02:12:23,974 INFO Embedding PCA visual: 69.6% explained by 12 components
+2026-03-23 02:12:23,974 INFO Embedding PCA audio: 79.9% explained by 12 components
+2026-03-23 02:12:23,974 INFO Embedding PCA text: 31.9% explained by 12 components
+2026-03-23 02:12:23,999 INFO Embedding PCA: added 36 features (87 videos with embeddings / 87 total)
+2026-03-23 02:12:23,999 INFO Videos: ['138P93_Z_u0', '1J5zlq2Vs3Y', '39R6j9qkzPo', '3G6JrAq-w4M', '3MncoqWP_qg', '3PBo1GiAlbs', '3WA4YT8fkx8', '4WcGtcKKoWg', '6Ha1lqRKMig', '6_qPAwOsDi0', '7g_56jn0NCA', '8YXWaEo201o', '8__NWVjeyZ8', '9B3N8I4Vidc', 'BZEZxzRJ-L4', 'Db6f982wxPg', 'DhFuAhFMvms', 'DrS6_CT0XrU', 'ECP4p12A5FY', 'EFxlvlchMw8', 'EhAdb6fIEe0', 'Ei6QuJppkb4', 'FYbEJ3oRgFk', 'FZ4waB-THOA', 'Fr4ZqY97Bco', 'GfEdSBXxyHA', 'GthDbmZFW-w', 'IgJxh-fJTBU', 'JXTBwlW02No', 'K5zVqoMMj3Y', 'LH3DvvXTxzc', 'Mc0b511IaVU', 'NE38Pn3CYRc', 'Nvq6okhPSOw', 'OpuMLYUuP_M', 'P9bVljfAWS8', 'Q1ZmiQVX9cY', 'RhVq2oJpsEY', 'RkwsqGM4_DE', 'S_o49-nmh5w', 'Sf95qeC7BUs', 'U8e1Pd7aBLY', 'VYYzb9KHawI', 'VYsqc9S5b9E', 'W6enyqR-1Jw', 'YoGUM0AsXJI', 'YubjPoEmzgU', 'Z6cbf9WN0c4', 'b5gAWk2QuSU', 'bK-1Mfb93uA', 'dx7dMwMXSAA', 'e21aHqRYPKE', 'eL9OqXpmvOE', 'eLSgNBnpeRg', 'fwHhuHVNR4I', 'gYHHQNT6100', 'gkSAR3jbMjA', 'hnyYg62DY4E', 'iKGmIRAfmCM', 'iP_siVZjbzc', 'ib29EiVnmJM', 'ie3vumn9Je4', 'jPVQgOI33V0', 'jTtvWTti3b0', 'kifrPvJigCU', 'lLoSngvynB8', 'lYAEH2n3I58', 'lgeLlSArJXU', 'mBzEZBF1a_U', 'mM6sYTdPZ-0', 'pfacUo-6wNs', 'porv8WwTSgc', 'q607HENWvqY', 'qoqjZR52lOQ', 'rJxhpVu7BhU', 'sujXtr4AVRU', 'szF7osJgt-A', 'vVZDZxRRXDI', 'v_puTGCZjnA', 'vopiJ3KKT-k', 'wS79wHHkjjw', 'wWtq4RlbRos', 'xK0GkyIVzq4', 'xZnMwJQ4mfc', 'yKC5nekLvbs', 'yXaJpj7Bb9w', 'yv4o4Epz1eM']
+2026-03-23 02:12:25,361 INFO Features after filtering: 172
+2026-03-23 02:12:25,361 INFO Validation split: first 10 videos from output
+2026-03-23 02:12:25,361 INFO Train: ['7g_56jn0NCA', '8YXWaEo201o', '8__NWVjeyZ8', '9B3N8I4Vidc', 'BZEZxzRJ-L4', 'Db6f982wxPg', 'DhFuAhFMvms', 'DrS6_CT0XrU', 'ECP4p12A5FY', 'EFxlvlchMw8', 'EhAdb6fIEe0', 'Ei6QuJppkb4', 'FYbEJ3oRgFk', 'FZ4waB-THOA', 'Fr4ZqY97Bco', 'GfEdSBXxyHA', 'GthDbmZFW-w', 'IgJxh-fJTBU', 'JXTBwlW02No', 'K5zVqoMMj3Y', 'LH3DvvXTxzc', 'Mc0b511IaVU', 'NE38Pn3CYRc', 'Nvq6okhPSOw', 'OpuMLYUuP_M', 'P9bVljfAWS8', 'Q1ZmiQVX9cY', 'RhVq2oJpsEY', 'RkwsqGM4_DE', 'S_o49-nmh5w', 'Sf95qeC7BUs', 'U8e1Pd7aBLY', 'VYYzb9KHawI', 'VYsqc9S5b9E', 'W6enyqR-1Jw', 'YoGUM0AsXJI', 'YubjPoEmzgU', 'Z6cbf9WN0c4', 'b5gAWk2QuSU', 'bK-1Mfb93uA', 'dx7dMwMXSAA', 'e21aHqRYPKE', 'eL9OqXpmvOE', 'eLSgNBnpeRg', 'fwHhuHVNR4I', 'gYHHQNT6100', 'gkSAR3jbMjA', 'hnyYg62DY4E', 'iKGmIRAfmCM', 'iP_siVZjbzc', 'ib29EiVnmJM', 'ie3vumn9Je4', 'jPVQgOI33V0', 'jTtvWTti3b0', 'kifrPvJigCU', 'lLoSngvynB8', 'lYAEH2n3I58', 'lgeLlSArJXU', 'mBzEZBF1a_U', 'mM6sYTdPZ-0', 'pfacUo-6wNs', 'porv8WwTSgc', 'q607HENWvqY', 'qoqjZR52lOQ', 'rJxhpVu7BhU', 'sujXtr4AVRU', 'szF7osJgt-A', 'vVZDZxRRXDI', 'v_puTGCZjnA', 'vopiJ3KKT-k', 'wS79wHHkjjw', 'wWtq4RlbRos', 'xK0GkyIVzq4', 'xZnMwJQ4mfc', 'yKC5nekLvbs', 'yXaJpj7Bb9w', 'yv4o4Epz1eM'], Val: ['138P93_Z_u0', '1J5zlq2Vs3Y', '39R6j9qkzPo', '3G6JrAq-w4M', '3MncoqWP_qg', '3PBo1GiAlbs', '3WA4YT8fkx8', '4WcGtcKKoWg', '6Ha1lqRKMig', '6_qPAwOsDi0']
+2026-03-23 02:12:25,801 INFO Time ref (max time_sec on train): 1979.0 s
+2026-03-23 02:12:25,803 INFO Video weights: min=0.250  max=1.310  mean=1.022
+2026-03-23 02:12:26,214 INFO Train windows: 77, Val windows: 10
+2026-03-23 02:12:26,469 INFO Baseline curve set: 101 points, raw_mean=66.5%, norm_mean=0.5321
+2026-03-23 02:12:26,469 INFO Model params: 5597501 (5597.5K)
+2026-03-23 02:12:26.995406: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-23 02:12:27.021393: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-03-23 02:12:27.507305: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-23 02:12:34,993 INFO Saved experiments/lstm_exp/v2_tabular_pca/training_curve.png
+2026-03-23 02:12:35,038 INFO 138P93_Z_u0 [val]  RMSE=12.2329  MAE=11.8042  r=0.911
+2026-03-23 02:12:35,158 INFO 1J5zlq2Vs3Y [val]  RMSE=7.7233  MAE=7.1772  r=0.970
+2026-03-23 02:12:35,278 INFO 39R6j9qkzPo [val]  RMSE=6.4269  MAE=5.5497  r=0.945
+2026-03-23 02:12:35,395 INFO 3G6JrAq-w4M [val]  RMSE=27.0918  MAE=26.5966  r=0.800
+2026-03-23 02:12:35,513 INFO 3MncoqWP_qg [val]  RMSE=15.3485  MAE=15.1761  r=0.985
+2026-03-23 02:12:35,634 INFO 3PBo1GiAlbs [val]  RMSE=14.4827  MAE=13.8980  r=0.919
+2026-03-23 02:12:35,753 INFO 3WA4YT8fkx8 [val]  RMSE=22.1258  MAE=22.0253  r=0.981
+2026-03-23 02:12:35,874 INFO 4WcGtcKKoWg [val]  RMSE=28.5239  MAE=28.3601  r=0.971
+2026-03-23 02:12:35,992 INFO 6Ha1lqRKMig [val]  RMSE=5.4533  MAE=4.6780  r=0.933
+2026-03-23 02:12:36,113 INFO 6_qPAwOsDi0 [val]  RMSE=19.3174  MAE=19.1668  r=0.975
+2026-03-23 02:12:36,235 INFO 7g_56jn0NCA [train]  RMSE=7.8115  MAE=7.4985  r=0.971
+2026-03-23 02:12:36,351 INFO 8YXWaEo201o [train]  RMSE=14.4628  MAE=14.2260  r=0.966
+2026-03-23 02:12:36,474 INFO 8__NWVjeyZ8 [train]  RMSE=17.0241  MAE=16.4993  r=0.941
+2026-03-23 02:12:36,593 INFO 9B3N8I4Vidc [train]  RMSE=18.8869  MAE=18.5038  r=0.912
+2026-03-23 02:12:36,713 INFO BZEZxzRJ-L4 [train]  RMSE=12.8164  MAE=12.4127  r=0.958
+2026-03-23 02:12:36,836 INFO Db6f982wxPg [train]  RMSE=19.1679  MAE=19.0481  r=0.975
+2026-03-23 02:12:36,955 INFO DhFuAhFMvms [train]  RMSE=15.4831  MAE=15.0674  r=0.932
+2026-03-23 02:12:37,261 INFO DrS6_CT0XrU [train]  RMSE=16.9148  MAE=16.5075  r=0.930
+2026-03-23 02:12:37,381 INFO ECP4p12A5FY [train]  RMSE=17.6130  MAE=17.3909  r=0.962
+2026-03-23 02:12:37,500 INFO EFxlvlchMw8 [train]  RMSE=12.5240  MAE=12.2933  r=0.967
+2026-03-23 02:12:37,618 INFO EhAdb6fIEe0 [train]  RMSE=12.6394  MAE=12.3383  r=0.982
+2026-03-23 02:12:37,741 INFO Ei6QuJppkb4 [train]  RMSE=22.9024  MAE=22.5937  r=0.940
+2026-03-23 02:12:37,858 INFO FYbEJ3oRgFk [train]  RMSE=12.9375  MAE=11.9724  r=0.802
+2026-03-23 02:12:37,980 INFO FZ4waB-THOA [train]  RMSE=12.0018  MAE=11.3344  r=0.976
+2026-03-23 02:12:38,098 INFO Fr4ZqY97Bco [train]  RMSE=10.3331  MAE=9.6761  r=0.980
+2026-03-23 02:12:38,215 INFO GfEdSBXxyHA [train]  RMSE=16.0423  MAE=15.9067  r=0.979
+2026-03-23 02:12:38,336 INFO GthDbmZFW-w [train]  RMSE=11.8617  MAE=11.5277  r=0.960
+2026-03-23 02:12:38,456 INFO IgJxh-fJTBU [train]  RMSE=15.3649  MAE=14.8284  r=0.922
+2026-03-23 02:12:38,575 INFO JXTBwlW02No [train]  RMSE=16.4627  MAE=16.1584  r=0.963
+2026-03-23 02:12:38,698 INFO K5zVqoMMj3Y [train]  RMSE=17.1800  MAE=16.8725  r=0.961
+2026-03-23 02:12:38,818 INFO LH3DvvXTxzc [train]  RMSE=6.6970  MAE=6.0885  r=0.970
+2026-03-23 02:12:38,934 INFO Mc0b511IaVU [train]  RMSE=15.1895  MAE=15.0467  r=0.982
+2026-03-23 02:12:39,055 INFO NE38Pn3CYRc [train]  RMSE=4.8939  MAE=3.9513  r=0.923
+2026-03-23 02:12:39,175 INFO Nvq6okhPSOw [train]  RMSE=12.6639  MAE=11.9473  r=0.946
+2026-03-23 02:12:39,294 INFO OpuMLYUuP_M [train]  RMSE=16.1475  MAE=15.5679  r=0.930
+2026-03-23 02:12:39,412 INFO P9bVljfAWS8 [train]  RMSE=22.0078  MAE=21.2378  r=0.878
+2026-03-23 02:12:39,529 INFO Q1ZmiQVX9cY [train]  RMSE=13.6616  MAE=13.2716  r=0.977
+2026-03-23 02:12:39,647 INFO RhVq2oJpsEY [train]  RMSE=14.1919  MAE=14.0070  r=0.976
+2026-03-23 02:12:39,766 INFO RkwsqGM4_DE [train]  RMSE=16.3945  MAE=16.0437  r=0.971
+2026-03-23 02:12:40,094 INFO S_o49-nmh5w [train]  RMSE=10.6660  MAE=10.5499  r=0.987
+2026-03-23 02:12:40,210 INFO Sf95qeC7BUs [train]  RMSE=9.5471  MAE=9.0221  r=0.941
+2026-03-23 02:12:40,328 INFO U8e1Pd7aBLY [train]  RMSE=21.6506  MAE=21.5447  r=0.976
+2026-03-23 02:12:40,446 INFO VYYzb9KHawI [train]  RMSE=16.4270  MAE=16.0251  r=0.939
+2026-03-23 02:12:40,566 INFO VYsqc9S5b9E [train]  RMSE=14.0546  MAE=13.4428  r=0.963
+2026-03-23 02:12:40,685 INFO W6enyqR-1Jw [train]  RMSE=12.3940  MAE=12.1124  r=0.975
+2026-03-23 02:12:40,808 INFO YoGUM0AsXJI [train]  RMSE=11.4775  MAE=11.3802  r=0.990
+2026-03-23 02:12:40,923 INFO YubjPoEmzgU [train]  RMSE=6.1381  MAE=5.0956  r=0.962
+2026-03-23 02:12:41,043 INFO Z6cbf9WN0c4 [train]  RMSE=7.4083  MAE=6.2949  r=0.893
+2026-03-23 02:12:41,162 INFO b5gAWk2QuSU [train]  RMSE=22.2357  MAE=22.1145  r=0.980
+2026-03-23 02:12:41,280 INFO bK-1Mfb93uA [train]  RMSE=11.3370  MAE=11.0014  r=0.973
+2026-03-23 02:12:41,401 INFO dx7dMwMXSAA [train]  RMSE=11.8649  MAE=11.6992  r=0.981
+2026-03-23 02:12:41,521 INFO e21aHqRYPKE [train]  RMSE=15.8296  MAE=15.7146  r=0.983
+2026-03-23 02:12:41,638 INFO eL9OqXpmvOE [train]  RMSE=9.6939  MAE=7.0079  r=0.970
+2026-03-23 02:12:41,754 INFO eLSgNBnpeRg [train]  RMSE=14.4569  MAE=14.1525  r=0.966
+2026-03-23 02:12:41,873 INFO fwHhuHVNR4I [train]  RMSE=18.9990  MAE=18.4562  r=0.894
+2026-03-23 02:12:41,991 INFO gYHHQNT6100 [train]  RMSE=11.2488  MAE=10.4846  r=0.965
+2026-03-23 02:12:42,109 INFO gkSAR3jbMjA [train]  RMSE=29.3747  MAE=29.1539  r=0.967
+2026-03-23 02:12:42,226 INFO hnyYg62DY4E [train]  RMSE=12.1665  MAE=10.9863  r=0.948
+2026-03-23 02:12:42,342 INFO iKGmIRAfmCM [train]  RMSE=23.1304  MAE=22.8286  r=0.934
+2026-03-23 02:12:42,459 INFO iP_siVZjbzc [train]  RMSE=12.0022  MAE=11.7396  r=0.980
+2026-03-23 02:12:42,579 INFO ib29EiVnmJM [train]  RMSE=5.9449  MAE=3.8876  r=0.959
+2026-03-23 02:12:42,699 INFO ie3vumn9Je4 [train]  RMSE=14.3926  MAE=13.6545  r=0.972
+2026-03-23 02:12:42,819 INFO jPVQgOI33V0 [train]  RMSE=14.9202  MAE=14.7386  r=0.986
+2026-03-23 02:12:43,152 INFO jTtvWTti3b0 [train]  RMSE=17.6875  MAE=17.5501  r=0.980
+2026-03-23 02:12:43,268 INFO kifrPvJigCU [train]  RMSE=12.6350  MAE=12.4068  r=0.968
+2026-03-23 02:12:43,387 INFO lLoSngvynB8 [train]  RMSE=16.2654  MAE=16.0905  r=0.973
+2026-03-23 02:12:43,505 INFO lYAEH2n3I58 [train]  RMSE=8.8014  MAE=7.4665  r=0.961
+2026-03-23 02:12:43,624 INFO lgeLlSArJXU [train]  RMSE=15.0996  MAE=14.6903  r=0.940
+2026-03-23 02:12:43,742 INFO mBzEZBF1a_U [train]  RMSE=4.9040  MAE=3.4870  r=0.912
+2026-03-23 02:12:43,858 INFO mM6sYTdPZ-0 [train]  RMSE=15.4633  MAE=14.9348  r=0.904
+2026-03-23 02:12:43,974 INFO pfacUo-6wNs [train]  RMSE=9.6016  MAE=8.7441  r=0.929
+2026-03-23 02:12:44,092 INFO porv8WwTSgc [train]  RMSE=20.6035  MAE=20.0706  r=0.915
+2026-03-23 02:12:44,211 INFO q607HENWvqY [train]  RMSE=10.7421  MAE=10.3412  r=0.964
+2026-03-23 02:12:44,329 INFO qoqjZR52lOQ [train]  RMSE=12.5849  MAE=11.9850  r=0.951
+2026-03-23 02:12:44,445 INFO rJxhpVu7BhU [train]  RMSE=13.8148  MAE=13.4920  r=0.953
+2026-03-23 02:12:44,565 INFO sujXtr4AVRU [train]  RMSE=22.5276  MAE=22.3358  r=0.957
+2026-03-23 02:12:44,682 INFO szF7osJgt-A [train]  RMSE=19.9771  MAE=19.5701  r=0.919
+2026-03-23 02:12:44,799 INFO vVZDZxRRXDI [train]  RMSE=12.7284  MAE=12.3532  r=0.957
+2026-03-23 02:12:44,916 INFO v_puTGCZjnA [train]  RMSE=10.9727  MAE=10.0927  r=0.933
+2026-03-23 02:12:45,036 INFO vopiJ3KKT-k [train]  RMSE=6.3691  MAE=5.0788  r=0.880
+2026-03-23 02:12:45,159 INFO wS79wHHkjjw [train]  RMSE=4.7979  MAE=4.0926  r=0.938
+2026-03-23 02:12:45,278 INFO wWtq4RlbRos [train]  RMSE=21.5530  MAE=21.3486  r=0.950
+2026-03-23 02:12:45,399 INFO xK0GkyIVzq4 [train]  RMSE=11.3461  MAE=10.8981  r=0.940
+2026-03-23 02:12:45,517 INFO xZnMwJQ4mfc [train]  RMSE=17.9164  MAE=17.4639  r=0.918
+2026-03-23 02:12:45,641 INFO yKC5nekLvbs [train]  RMSE=18.0555  MAE=17.8777  r=0.963
+2026-03-23 02:12:45,760 INFO yXaJpj7Bb9w [train]  RMSE=7.2467  MAE=5.5833  r=0.908
+2026-03-23 02:12:45,879 INFO yv4o4Epz1eM [train]  RMSE=13.0985  MAE=12.8701  r=0.978
+2026-03-23 02:12:46,439 INFO Feature importance: 172 features
+2026-03-23 02:12:46,451 INFO Done. Best val loss=0.0323, epochs=93, time=7s

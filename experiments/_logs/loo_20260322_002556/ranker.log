@@ -1,0 +1,37 @@
+Default metric period is 5 because PFound, NDCG is/are not implemented for GPU
+Metric PFound is not implemented on GPU. Will use CPU for metric computation, this could significantly affect learning time
+Metric NDCG:top=20;type=Base is not implemented on GPU. Will use CPU for metric computation, this could significantly affect learning time
+=== Retention Ranker LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+spearman: 0.849624060150376
+pearson: 0.8973259168473954
+rmse: 0.23580069084936225
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/ranker_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/holdout_prediction_vs_true.csv
+model_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/catboost_ranker.cbm
+=== Holdout Prediction vs True (20 points) ===
+ point_idx pred_score_raw pred_retention_norm true_retention
+         0        3.78497             1.00000        1.00000
+         1        1.72086             0.74005        0.75553
+         2        0.99716             0.64891        0.52776
+         3        0.07513             0.53279        0.60118
+         4       -0.08525             0.51259        0.69789
+         5       -0.18083             0.50056        0.69276
+         6       -0.14155             0.50550        0.66316
+         7       -0.28046             0.48801        0.65250
+         8       -0.53289             0.45622        0.63671
+         9       -0.83686             0.41794        0.61974
+        10       -1.07090             0.38846        0.59526
+        11       -1.34899             0.35344        0.58500
+        12       -1.67501             0.31238        0.56250
+        13       -1.92130             0.28137        0.54750
+        14       -2.15750             0.25162        0.54000
+        15       -2.38432             0.22305        0.52539
+        16       -2.65455             0.18902        0.52500
+        17       -2.85738             0.16348        0.50250
+        18       -3.11779             0.13068        0.48947
+        19       -4.15546             0.00000        0.36750

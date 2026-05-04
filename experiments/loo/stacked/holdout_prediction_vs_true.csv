@@ -1,0 +1,3 @@
+point_idx,point_frac,pred_abs_expert,pred_delta_expert,pred_shape_expert,pred_retention,pred_retention_norm,pred_score_raw,true_retention,abs_error
+0,0.0,1.0,1.0,0.718999981880188,1.0,1.0,1.0,1.0,0.0
+1,1.0,0.4364624936133623,0.7,0.718999981880188,0.4387882801435615,0.4387882801435615,0.4387882801435615,0.27,0.1687882801435615

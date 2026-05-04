@@ -1,0 +1,16 @@
+[meta_ensemble] stage=oof folds=5 train=5 points=2
+[meta_ensemble] fold 1/5 train=4 val=1
+[meta_ensemble] fold 1/5 base=baseline
+[meta_ensemble] fold 1/5 base=residual_huber
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_meta_ensemble_loo.py", line 447, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_meta_ensemble_loo.py", line 443, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_meta_ensemble_loo.py", line 282, in run_experiment
+    oof_rh[va_idx] = _predict_residual_huber(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_meta_ensemble_loo.py", line 137, in _predict_residual_huber
+    task_type=getattr(args, "task_type", "GPU"),
+                      ^^^^
+NameError: name 'args' is not defined

@@ -1,0 +1,26 @@
+Default metric period is 5 because MAE is/are not implemented for GPU
+[blended_quantile] stage=quantile_points total=2 alpha=0.35
+[blended_quantile][point] 1/2
+[blended_quantile][point] 2/2
+=== Retention Blended-Quantile LOO ===
+videos_total_with_target: 83
+videos_used: 6
+train_videos: 5
+curve_points: 2
+test_video: 3PBo1GiAlbs
+test_drive_file_id: 3PBo1GiAlbs
+baseline_weight: 0.35
+model_count: 1
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/blended_quantile_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/point_models
+spearman: 0.9999999999999999
+pearson: 1.0
+rmse: 0.13139470707414996
+mae: 0.09291008838415146
+spike_rmse: 0.18582017676830298
+curvature_rmse: 0.0
+=== Holdout Prediction vs True (2 points) ===
+ point_idx  baseline_value  model_quantile_pred pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0           1.000             1.000000        1.00000              1.00000         1.00000        1.00000   0.00000
+         1           0.438             0.465416        0.45582              0.45582         0.45582        0.27000   0.18582

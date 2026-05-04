@@ -1,0 +1,3 @@
+point_idx,baseline_value,model_quantile_pred,pred_retention,pred_retention_norm,pred_score_raw,true_retention,abs_error
+0,1.0,1.0,1.0,1.0,1.0,1.0,0.0
+1,0.438,0.4654156565666199,0.45582017676830294,0.45582017676830294,0.45582017676830294,0.27,0.18582017676830292

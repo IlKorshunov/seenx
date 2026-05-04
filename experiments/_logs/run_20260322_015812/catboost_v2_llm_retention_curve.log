@@ -1,0 +1,262 @@
+[dataset] files_discovered=87 rows=83 cols=64
+[dataset] saved=experiments/catboost_exp/v2_llm_retention_curve/video_features_dataset.csv
+0:	learn: 0.0003008	test: 0.0000366	best: 0.0000366 (0)	total: 46.2ms	remaining: 36.9s
+100:	learn: 0.0001409	test: 0.0000251	best: 0.0000214 (97)	total: 83.4ms	remaining: 577ms
+200:	learn: 0.0000663	test: 0.0000222	best: 0.0000214 (97)	total: 120ms	remaining: 356ms
+300:	learn: 0.0000312	test: 0.0000218	best: 0.0000214 (97)	total: 156ms	remaining: 258ms
+400:	learn: 0.0000147	test: 0.0000220	best: 0.0000214 (97)	total: 192ms	remaining: 191ms
+500:	learn: 0.0000069	test: 0.0000219	best: 0.0000214 (97)	total: 231ms	remaining: 138ms
+600:	learn: 0.0000033	test: 0.0000219	best: 0.0000214 (97)	total: 269ms	remaining: 89ms
+700:	learn: 0.0000016	test: 0.0000219	best: 0.0000214 (97)	total: 307ms	remaining: 43.3ms
+799:	learn: 0.0000008	test: 0.0000219	best: 0.0000214 (97)	total: 344ms	remaining: 0us
+bestTest = 2.140834019e-05
+bestIteration = 97
+[train] done target=target__retention_curve_20__00 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__00.cbm
+0:	learn: 0.0866281	test: 0.0900111	best: 0.0900111 (0)	total: 515us	remaining: 412ms
+100:	learn: 0.0405654	test: 0.0920674	best: 0.0894385 (9)	total: 32.2ms	remaining: 223ms
+200:	learn: 0.0207107	test: 0.0918389	best: 0.0894385 (9)	total: 64.2ms	remaining: 191ms
+300:	learn: 0.0098002	test: 0.0897264	best: 0.0894385 (9)	total: 97.7ms	remaining: 162ms
+400:	learn: 0.0045577	test: 0.0888746	best: 0.0888746 (400)	total: 135ms	remaining: 135ms
+500:	learn: 0.0020971	test: 0.0888276	best: 0.0886472 (432)	total: 175ms	remaining: 104ms
+600:	learn: 0.0009281	test: 0.0889118	best: 0.0886472 (432)	total: 212ms	remaining: 70.1ms
+700:	learn: 0.0003972	test: 0.0889268	best: 0.0886472 (432)	total: 246ms	remaining: 34.7ms
+799:	learn: 0.0002038	test: 0.0889339	best: 0.0886472 (432)	total: 279ms	remaining: 0us
+bestTest = 0.08864720863
+bestIteration = 432
+Shrink model to first 433 iterations.
+[train] done target=target__retention_curve_20__01 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__01.cbm
+0:	learn: 0.1057112	test: 0.1008927	best: 0.1008927 (0)	total: 473us	remaining: 378ms
+100:	learn: 0.0535796	test: 0.1017636	best: 0.1003565 (16)	total: 31.8ms	remaining: 220ms
+200:	learn: 0.0287470	test: 0.1020237	best: 0.1003565 (16)	total: 63.6ms	remaining: 189ms
+300:	learn: 0.0138023	test: 0.1021141	best: 0.1003565 (16)	total: 96.6ms	remaining: 160ms
+400:	learn: 0.0063437	test: 0.1027476	best: 0.1003565 (16)	total: 133ms	remaining: 133ms
+500:	learn: 0.0029455	test: 0.1023406	best: 0.1003565 (16)	total: 170ms	remaining: 101ms
+600:	learn: 0.0015083	test: 0.1024046	best: 0.1003565 (16)	total: 207ms	remaining: 68.5ms
+700:	learn: 0.0007268	test: 0.1024863	best: 0.1003565 (16)	total: 243ms	remaining: 34.3ms
+799:	learn: 0.0003854	test: 0.1024751	best: 0.1003565 (16)	total: 279ms	remaining: 0us
+bestTest = 0.100356515
+bestIteration = 16
+Shrink model to first 17 iterations.
+[train] done target=target__retention_curve_20__02 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__02.cbm
+0:	learn: 0.1117853	test: 0.0974663	best: 0.0974663 (0)	total: 451us	remaining: 361ms
+100:	learn: 0.0551721	test: 0.0966797	best: 0.0956215 (35)	total: 34ms	remaining: 235ms
+200:	learn: 0.0286358	test: 0.0957706	best: 0.0956215 (35)	total: 67.4ms	remaining: 201ms
+300:	learn: 0.0130869	test: 0.0968348	best: 0.0956215 (35)	total: 104ms	remaining: 172ms
+400:	learn: 0.0060715	test: 0.0977804	best: 0.0956215 (35)	total: 143ms	remaining: 143ms
+500:	learn: 0.0026467	test: 0.0979222	best: 0.0956215 (35)	total: 180ms	remaining: 107ms
+600:	learn: 0.0012323	test: 0.0977402	best: 0.0956215 (35)	total: 217ms	remaining: 71.7ms
+700:	learn: 0.0005938	test: 0.0977800	best: 0.0956215 (35)	total: 253ms	remaining: 35.7ms
+799:	learn: 0.0002807	test: 0.0977823	best: 0.0956215 (35)	total: 290ms	remaining: 0us
+bestTest = 0.09562154578
+bestIteration = 35
+Shrink model to first 36 iterations.
+[train] done target=target__retention_curve_20__03 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__03.cbm
+0:	learn: 0.1111918	test: 0.1021873	best: 0.1021873 (0)	total: 431us	remaining: 345ms
+100:	learn: 0.0561909	test: 0.1030982	best: 0.1007997 (27)	total: 32.1ms	remaining: 222ms
+200:	learn: 0.0286058	test: 0.1048759	best: 0.1007997 (27)	total: 68.3ms	remaining: 203ms
+300:	learn: 0.0123246	test: 0.1068380	best: 0.1007997 (27)	total: 105ms	remaining: 174ms
+400:	learn: 0.0054959	test: 0.1073696	best: 0.1007997 (27)	total: 143ms	remaining: 142ms
+500:	learn: 0.0024797	test: 0.1075923	best: 0.1007997 (27)	total: 190ms	remaining: 113ms
+600:	learn: 0.0011510	test: 0.1077000	best: 0.1007997 (27)	total: 226ms	remaining: 75ms
+700:	learn: 0.0005829	test: 0.1077498	best: 0.1007997 (27)	total: 262ms	remaining: 37ms
+799:	learn: 0.0002761	test: 0.1077559	best: 0.1007997 (27)	total: 299ms	remaining: 0us
+bestTest = 0.1007996979
+bestIteration = 27
+Shrink model to first 28 iterations.
+[train] done target=target__retention_curve_20__04 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__04.cbm
+0:	learn: 0.1209479	test: 0.1019412	best: 0.1019412 (0)	total: 554us	remaining: 443ms
+100:	learn: 0.0559728	test: 0.1027137	best: 0.1012276 (27)	total: 36.6ms	remaining: 253ms
+200:	learn: 0.0274249	test: 0.1045374	best: 0.1012276 (27)	total: 72.9ms	remaining: 217ms
+300:	learn: 0.0128409	test: 0.1068376	best: 0.1012276 (27)	total: 110ms	remaining: 182ms
+400:	learn: 0.0056467	test: 0.1083959	best: 0.1012276 (27)	total: 147ms	remaining: 147ms
+500:	learn: 0.0026603	test: 0.1087083	best: 0.1012276 (27)	total: 185ms	remaining: 110ms
+600:	learn: 0.0011475	test: 0.1090206	best: 0.1012276 (27)	total: 223ms	remaining: 73.9ms
+700:	learn: 0.0005256	test: 0.1090100	best: 0.1012276 (27)	total: 263ms	remaining: 37.1ms
+799:	learn: 0.0002554	test: 0.1090132	best: 0.1012276 (27)	total: 302ms	remaining: 0us
+bestTest = 0.10122756
+bestIteration = 27
+Shrink model to first 28 iterations.
+[train] done target=target__retention_curve_20__05 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__05.cbm
+0:	learn: 0.1212666	test: 0.1139222	best: 0.1139222 (0)	total: 499us	remaining: 399ms
+100:	learn: 0.0568737	test: 0.1103919	best: 0.1096740 (66)	total: 38.9ms	remaining: 270ms
+200:	learn: 0.0291876	test: 0.1117175	best: 0.1096740 (66)	total: 76.7ms	remaining: 229ms
+300:	learn: 0.0132409	test: 0.1121267	best: 0.1096740 (66)	total: 114ms	remaining: 190ms
+400:	learn: 0.0058942	test: 0.1127530	best: 0.1096740 (66)	total: 149ms	remaining: 148ms
+500:	learn: 0.0028012	test: 0.1127411	best: 0.1096740 (66)	total: 183ms	remaining: 109ms
+600:	learn: 0.0013116	test: 0.1127629	best: 0.1096740 (66)	total: 217ms	remaining: 71.9ms
+700:	learn: 0.0005608	test: 0.1128308	best: 0.1096740 (66)	total: 252ms	remaining: 35.5ms
+799:	learn: 0.0002761	test: 0.1128450	best: 0.1096740 (66)	total: 287ms	remaining: 0us
+bestTest = 0.1096739967
+bestIteration = 66
+Shrink model to first 67 iterations.
+[train] done target=target__retention_curve_20__06 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__06.cbm
+0:	learn: 0.1150880	test: 0.1139099	best: 0.1139099 (0)	total: 401us	remaining: 321ms
+100:	learn: 0.0566976	test: 0.1106855	best: 0.1098104 (43)	total: 35.2ms	remaining: 244ms
+200:	learn: 0.0290443	test: 0.1112204	best: 0.1098104 (43)	total: 68ms	remaining: 203ms
+300:	learn: 0.0134956	test: 0.1120095	best: 0.1098104 (43)	total: 102ms	remaining: 168ms
+400:	learn: 0.0062339	test: 0.1128531	best: 0.1098104 (43)	total: 135ms	remaining: 135ms
+500:	learn: 0.0029317	test: 0.1134394	best: 0.1098104 (43)	total: 169ms	remaining: 101ms
+600:	learn: 0.0013606	test: 0.1133913	best: 0.1098104 (43)	total: 203ms	remaining: 67.1ms
+700:	learn: 0.0006516	test: 0.1134144	best: 0.1098104 (43)	total: 236ms	remaining: 33.3ms
+799:	learn: 0.0002935	test: 0.1134597	best: 0.1098104 (43)	total: 269ms	remaining: 0us
+bestTest = 0.1098103793
+bestIteration = 43
+Shrink model to first 44 iterations.
+[train] done target=target__retention_curve_20__07 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__07.cbm
+0:	learn: 0.1124464	test: 0.1152807	best: 0.1152807 (0)	total: 399us	remaining: 319ms
+100:	learn: 0.0549993	test: 0.1103182	best: 0.1092875 (76)	total: 33.2ms	remaining: 230ms
+200:	learn: 0.0283364	test: 0.1101296	best: 0.1092875 (76)	total: 67ms	remaining: 200ms
+300:	learn: 0.0127818	test: 0.1086660	best: 0.1085938 (286)	total: 100ms	remaining: 166ms
+400:	learn: 0.0056028	test: 0.1081286	best: 0.1081286 (400)	total: 134ms	remaining: 133ms
+500:	learn: 0.0025722	test: 0.1078198	best: 0.1078198 (500)	total: 166ms	remaining: 99.2ms
+600:	learn: 0.0011988	test: 0.1076707	best: 0.1076670 (597)	total: 199ms	remaining: 66ms
+700:	learn: 0.0005872	test: 0.1076533	best: 0.1076414 (676)	total: 235ms	remaining: 33.1ms
+799:	learn: 0.0002961	test: 0.1076060	best: 0.1076060 (799)	total: 268ms	remaining: 0us
+bestTest = 0.1076060056
+bestIteration = 799
+[train] done target=target__retention_curve_20__08 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__08.cbm
+0:	learn: 0.1152486	test: 0.1114809	best: 0.1114809 (0)	total: 371us	remaining: 297ms
+100:	learn: 0.0546382	test: 0.1097258	best: 0.1093289 (58)	total: 34ms	remaining: 235ms
+200:	learn: 0.0283725	test: 0.1098312	best: 0.1093289 (58)	total: 67.4ms	remaining: 201ms
+300:	learn: 0.0128559	test: 0.1080947	best: 0.1080947 (300)	total: 101ms	remaining: 167ms
+400:	learn: 0.0054757	test: 0.1072471	best: 0.1072073 (377)	total: 134ms	remaining: 133ms
+500:	learn: 0.0025917	test: 0.1074071	best: 0.1072073 (377)	total: 167ms	remaining: 99.7ms
+600:	learn: 0.0012266	test: 0.1073743	best: 0.1072073 (377)	total: 201ms	remaining: 66.5ms
+700:	learn: 0.0005235	test: 0.1073486	best: 0.1072073 (377)	total: 234ms	remaining: 33.1ms
+799:	learn: 0.0002218	test: 0.1073862	best: 0.1072073 (377)	total: 268ms	remaining: 0us
+bestTest = 0.1072072915
+bestIteration = 377
+Shrink model to first 378 iterations.
+[train] done target=target__retention_curve_20__09 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__09.cbm
+0:	learn: 0.1141348	test: 0.1101211	best: 0.1101211 (0)	total: 541us	remaining: 433ms
+100:	learn: 0.0529710	test: 0.1083169	best: 0.1082566 (93)	total: 33.3ms	remaining: 230ms
+200:	learn: 0.0261090	test: 0.1064924	best: 0.1064924 (200)	total: 65.8ms	remaining: 196ms
+300:	learn: 0.0112989	test: 0.1052560	best: 0.1050810 (279)	total: 98.8ms	remaining: 164ms
+400:	learn: 0.0049619	test: 0.1046994	best: 0.1045554 (366)	total: 132ms	remaining: 131ms
+500:	learn: 0.0022144	test: 0.1045632	best: 0.1045554 (366)	total: 165ms	remaining: 98.7ms
+600:	learn: 0.0010261	test: 0.1044428	best: 0.1044358 (552)	total: 197ms	remaining: 65.3ms
+700:	learn: 0.0004837	test: 0.1044641	best: 0.1044315 (621)	total: 230ms	remaining: 32.5ms
+799:	learn: 0.0002495	test: 0.1044595	best: 0.1044315 (621)	total: 263ms	remaining: 0us
+bestTest = 0.1044315205
+bestIteration = 621
+Shrink model to first 622 iterations.
+[train] done target=target__retention_curve_20__10 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__10.cbm
+0:	learn: 0.1121954	test: 0.1106817	best: 0.1106817 (0)	total: 455us	remaining: 364ms
+100:	learn: 0.0517025	test: 0.1063575	best: 0.1060302 (93)	total: 33.4ms	remaining: 231ms
+200:	learn: 0.0257423	test: 0.1050340	best: 0.1049745 (199)	total: 66.1ms	remaining: 197ms
+300:	learn: 0.0113980	test: 0.1038560	best: 0.1038381 (299)	total: 102ms	remaining: 169ms
+400:	learn: 0.0048396	test: 0.1040612	best: 0.1038381 (299)	total: 135ms	remaining: 134ms
+500:	learn: 0.0022103	test: 0.1038742	best: 0.1038153 (490)	total: 169ms	remaining: 101ms
+600:	learn: 0.0010451	test: 0.1039936	best: 0.1038153 (490)	total: 203ms	remaining: 67.3ms
+700:	learn: 0.0005050	test: 0.1040294	best: 0.1038153 (490)	total: 239ms	remaining: 33.7ms
+799:	learn: 0.0002400	test: 0.1040092	best: 0.1038153 (490)	total: 272ms	remaining: 0us
+bestTest = 0.1038153477
+bestIteration = 490
+Shrink model to first 491 iterations.
+[train] done target=target__retention_curve_20__11 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__11.cbm
+0:	learn: 0.1113728	test: 0.1127985	best: 0.1127985 (0)	total: 411us	remaining: 329ms
+100:	learn: 0.0514368	test: 0.1097380	best: 0.1096601 (99)	total: 33.9ms	remaining: 235ms
+200:	learn: 0.0251248	test: 0.1077535	best: 0.1077535 (200)	total: 66.7ms	remaining: 199ms
+300:	learn: 0.0114174	test: 0.1065350	best: 0.1063867 (271)	total: 100ms	remaining: 166ms
+400:	learn: 0.0050232	test: 0.1060235	best: 0.1060235 (400)	total: 134ms	remaining: 133ms
+500:	learn: 0.0022782	test: 0.1060544	best: 0.1059769 (428)	total: 169ms	remaining: 101ms
+600:	learn: 0.0010656	test: 0.1061939	best: 0.1059769 (428)	total: 202ms	remaining: 66.9ms
+700:	learn: 0.0005095	test: 0.1062468	best: 0.1059769 (428)	total: 236ms	remaining: 33.3ms
+799:	learn: 0.0002490	test: 0.1062701	best: 0.1059769 (428)	total: 268ms	remaining: 0us
+bestTest = 0.1059768542
+bestIteration = 428
+Shrink model to first 429 iterations.
+[train] done target=target__retention_curve_20__12 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__12.cbm
+0:	learn: 0.1121102	test: 0.1123618	best: 0.1123618 (0)	total: 382us	remaining: 306ms
+100:	learn: 0.0512345	test: 0.1109456	best: 0.1106784 (99)	total: 34ms	remaining: 235ms
+200:	learn: 0.0249078	test: 0.1098527	best: 0.1098474 (194)	total: 68.2ms	remaining: 203ms
+300:	learn: 0.0109808	test: 0.1094275	best: 0.1089787 (265)	total: 113ms	remaining: 188ms
+400:	learn: 0.0049034	test: 0.1095491	best: 0.1089787 (265)	total: 148ms	remaining: 147ms
+500:	learn: 0.0021452	test: 0.1097784	best: 0.1089787 (265)	total: 185ms	remaining: 111ms
+600:	learn: 0.0009694	test: 0.1098264	best: 0.1089787 (265)	total: 222ms	remaining: 73.5ms
+700:	learn: 0.0004704	test: 0.1098697	best: 0.1089787 (265)	total: 260ms	remaining: 36.7ms
+799:	learn: 0.0002249	test: 0.1098976	best: 0.1089787 (265)	total: 297ms	remaining: 0us
+bestTest = 0.1089786977
+bestIteration = 265
+Shrink model to first 266 iterations.
+[train] done target=target__retention_curve_20__13 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__13.cbm
+0:	learn: 0.1134507	test: 0.1142510	best: 0.1142510 (0)	total: 510us	remaining: 408ms
+100:	learn: 0.0520666	test: 0.1106210	best: 0.1098502 (91)	total: 33.8ms	remaining: 234ms
+200:	learn: 0.0252142	test: 0.1097247	best: 0.1097247 (200)	total: 67.1ms	remaining: 200ms
+300:	learn: 0.0108614	test: 0.1088860	best: 0.1087800 (277)	total: 101ms	remaining: 167ms
+400:	learn: 0.0045323	test: 0.1088201	best: 0.1086977 (336)	total: 137ms	remaining: 136ms
+500:	learn: 0.0020486	test: 0.1087315	best: 0.1086710 (451)	total: 173ms	remaining: 103ms
+600:	learn: 0.0009473	test: 0.1086579	best: 0.1086579 (600)	total: 210ms	remaining: 69.7ms
+700:	learn: 0.0004293	test: 0.1086175	best: 0.1086138 (694)	total: 248ms	remaining: 35.1ms
+799:	learn: 0.0002056	test: 0.1086353	best: 0.1086138 (694)	total: 285ms	remaining: 0us
+bestTest = 0.1086138045
+bestIteration = 694
+Shrink model to first 695 iterations.
+[train] done target=target__retention_curve_20__14 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__14.cbm
+0:	learn: 0.1131640	test: 0.1118646	best: 0.1118646 (0)	total: 439us	remaining: 351ms
+100:	learn: 0.0506306	test: 0.1107516	best: 0.1103417 (91)	total: 34ms	remaining: 235ms
+200:	learn: 0.0236701	test: 0.1115759	best: 0.1103417 (91)	total: 67.6ms	remaining: 201ms
+300:	learn: 0.0100016	test: 0.1119275	best: 0.1103417 (91)	total: 102ms	remaining: 169ms
+400:	learn: 0.0042410	test: 0.1119103	best: 0.1103417 (91)	total: 139ms	remaining: 138ms
+500:	learn: 0.0018902	test: 0.1118424	best: 0.1103417 (91)	total: 176ms	remaining: 105ms
+600:	learn: 0.0008865	test: 0.1118574	best: 0.1103417 (91)	total: 213ms	remaining: 70.7ms
+700:	learn: 0.0004186	test: 0.1118873	best: 0.1103417 (91)	total: 251ms	remaining: 35.5ms
+799:	learn: 0.0001884	test: 0.1119153	best: 0.1103417 (91)	total: 290ms	remaining: 0us
+bestTest = 0.1103416772
+bestIteration = 91
+Shrink model to first 92 iterations.
+[train] done target=target__retention_curve_20__15 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__15.cbm
+0:	learn: 0.1105407	test: 0.1143074	best: 0.1143074 (0)	total: 435us	remaining: 348ms
+100:	learn: 0.0503388	test: 0.1105448	best: 0.1101290 (82)	total: 33.4ms	remaining: 231ms
+200:	learn: 0.0244173	test: 0.1091326	best: 0.1090956 (197)	total: 66.3ms	remaining: 197ms
+300:	learn: 0.0107046	test: 0.1082479	best: 0.1080512 (245)	total: 99.8ms	remaining: 165ms
+400:	learn: 0.0046010	test: 0.1082952	best: 0.1080512 (245)	total: 133ms	remaining: 133ms
+500:	learn: 0.0020231	test: 0.1083057	best: 0.1080512 (245)	total: 167ms	remaining: 99.5ms
+600:	learn: 0.0008918	test: 0.1085533	best: 0.1080512 (245)	total: 201ms	remaining: 66.6ms
+700:	learn: 0.0004224	test: 0.1085433	best: 0.1080512 (245)	total: 234ms	remaining: 33ms
+799:	learn: 0.0002011	test: 0.1085409	best: 0.1080512 (245)	total: 268ms	remaining: 0us
+bestTest = 0.1080511747
+bestIteration = 245
+Shrink model to first 246 iterations.
+[train] done target=target__retention_curve_20__16 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__16.cbm
+0:	learn: 0.1091084	test: 0.1148588	best: 0.1148588 (0)	total: 422us	remaining: 337ms
+100:	learn: 0.0489619	test: 0.1123377	best: 0.1117468 (38)	total: 35.1ms	remaining: 243ms
+200:	learn: 0.0237308	test: 0.1117158	best: 0.1117158 (200)	total: 70.8ms	remaining: 211ms
+300:	learn: 0.0099028	test: 0.1099985	best: 0.1099985 (300)	total: 105ms	remaining: 175ms
+400:	learn: 0.0040901	test: 0.1098052	best: 0.1096430 (324)	total: 139ms	remaining: 138ms
+500:	learn: 0.0018337	test: 0.1097523	best: 0.1096430 (324)	total: 172ms	remaining: 103ms
+600:	learn: 0.0008466	test: 0.1098858	best: 0.1096430 (324)	total: 206ms	remaining: 68.2ms
+700:	learn: 0.0003943	test: 0.1098340	best: 0.1096430 (324)	total: 240ms	remaining: 33.8ms
+799:	learn: 0.0001915	test: 0.1098398	best: 0.1096430 (324)	total: 273ms	remaining: 0us
+bestTest = 0.1096430003
+bestIteration = 324
+Shrink model to first 325 iterations.
+[train] done target=target__retention_curve_20__17 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__17.cbm
+0:	learn: 0.1120464	test: 0.1144594	best: 0.1144594 (0)	total: 386us	remaining: 309ms
+100:	learn: 0.0503702	test: 0.1099481	best: 0.1092959 (59)	total: 33.5ms	remaining: 232ms
+200:	learn: 0.0243130	test: 0.1099109	best: 0.1092959 (59)	total: 66.5ms	remaining: 198ms
+300:	learn: 0.0106681	test: 0.1098137	best: 0.1092959 (59)	total: 99.9ms	remaining: 166ms
+400:	learn: 0.0048469	test: 0.1091902	best: 0.1091902 (400)	total: 135ms	remaining: 135ms
+500:	learn: 0.0021177	test: 0.1090350	best: 0.1089936 (453)	total: 172ms	remaining: 103ms
+600:	learn: 0.0009330	test: 0.1091920	best: 0.1089936 (453)	total: 209ms	remaining: 69.1ms
+700:	learn: 0.0004230	test: 0.1093247	best: 0.1089936 (453)	total: 245ms	remaining: 34.6ms
+799:	learn: 0.0001950	test: 0.1093503	best: 0.1089936 (453)	total: 282ms	remaining: 0us
+bestTest = 0.1089935719
+bestIteration = 453
+Shrink model to first 454 iterations.
+[train] done target=target__retention_curve_20__18 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__18.cbm
+0:	learn: 0.1120137	test: 0.0610056	best: 0.0610056 (0)	total: 435us	remaining: 348ms
+100:	learn: 0.0512581	test: 0.0585261	best: 0.0573505 (63)	total: 33.4ms	remaining: 231ms
+200:	learn: 0.0232302	test: 0.0601629	best: 0.0573505 (63)	total: 67.3ms	remaining: 201ms
+300:	learn: 0.0104704	test: 0.0607455	best: 0.0573505 (63)	total: 102ms	remaining: 168ms
+400:	learn: 0.0046558	test: 0.0612948	best: 0.0573505 (63)	total: 135ms	remaining: 135ms
+500:	learn: 0.0021801	test: 0.0615399	best: 0.0573505 (63)	total: 169ms	remaining: 101ms
+600:	learn: 0.0010332	test: 0.0617955	best: 0.0573505 (63)	total: 203ms	remaining: 67.1ms
+700:	learn: 0.0004775	test: 0.0618823	best: 0.0573505 (63)	total: 236ms	remaining: 33.4ms
+799:	learn: 0.0002236	test: 0.0619086	best: 0.0573505 (63)	total: 270ms	remaining: 0us
+bestTest = 0.05735050298
+bestIteration = 63
+Shrink model to first 64 iterations.
+[train] done target=target__retention_curve_20__19 model=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__target__retention_curve_20__19.cbm
+[train] all-target metrics saved=experiments/catboost_exp/v2_llm_retention_curve/catboost_regressor__metrics.json
+[train] summary report -> experiments/catboost_exp/v2_llm_retention_curve

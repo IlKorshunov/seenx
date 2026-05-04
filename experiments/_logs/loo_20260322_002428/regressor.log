@@ -1,0 +1,19 @@
+Baseline points:   0%|          | 0/2 [00:00<?, ?it/s]
+Baseline points:   0%|          | 0/2 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 338, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 334, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 218, in run_experiment
+    model.fit(X_train, y_train)
+  File "/home/kolya/ilya/seenx-ml/venv/lib/python3.12/site-packages/catboost/core.py", line 5873, in fit
+    return self._fit(X, y, cat_features, text_features, embedding_features, None, graph, sample_weight, None, None, None, None, baseline,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/venv/lib/python3.12/site-packages/catboost/core.py", line 2410, in _fit
+    self._train(
+  File "/home/kolya/ilya/seenx-ml/venv/lib/python3.12/site-packages/catboost/core.py", line 1790, in _train
+    self._object._train(train_pool, test_pool, params, allow_clear_pool, init_model._object if init_model else None)
+  File "_catboost.pyx", line 5023, in _catboost._CatBoost._train
+  File "_catboost.pyx", line 5072, in _catboost._CatBoost._train
+_catboost.CatBoostError: catboost/libs/metrics/metric.cpp:6935: All train targets are equal

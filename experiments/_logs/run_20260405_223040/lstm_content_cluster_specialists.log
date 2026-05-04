@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/analysis/video_clustering.py", line 10, in <module>
+    import plotly.express as px
+ModuleNotFoundError: No module named 'plotly'
+[run] /usr/bin/python3 /home/kolya/ilya/seenx-ml/analysis/video_clustering.py --data-dir /home/kolya/ilya/seenx-ml/data --embeddings-dir /home/kolya/ilya/seenx-ml/embeddings --output-dir /home/kolya/ilya/seenx-ml/output --out-root /home/kolya/ilya/seenx-ml/analysis/video_clustering
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/content_cluster_specialists.py", line 10, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/clustering/content_cluster_specialists.py", line 130, in main
+    subprocess.run(cmd_cluster, cwd=str(root), check=True)
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '/home/kolya/ilya/seenx-ml/analysis/video_clustering.py', '--data-dir', '/home/kolya/ilya/seenx-ml/data', '--embeddings-dir', '/home/kolya/ilya/seenx-ml/embeddings', '--output-dir', '/home/kolya/ilya/seenx-ml/output', '--out-root', '/home/kolya/ilya/seenx-ml/analysis/video_clustering']' returned non-zero exit status 1.

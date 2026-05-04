@@ -1,0 +1,85 @@
+[residual_huber] stage=residual_points total=20
+[residual_huber][residual] 1/20
+[residual_huber][residual] 2/20
+[residual_huber][residual] 3/20
+[residual_huber][residual] 4/20
+[residual_huber][residual] 5/20
+[residual_huber][residual] 6/20
+[residual_huber][residual] 7/20
+[residual_huber][residual] 8/20
+[residual_huber][residual] 9/20
+[residual_huber][residual] 10/20
+[residual_huber][residual] 11/20
+[residual_huber][residual] 12/20
+[residual_huber][residual] 13/20
+[residual_huber][residual] 14/20
+[residual_huber][residual] 15/20
+[residual_huber][residual] 16/20
+[residual_huber][residual] 17/20
+[residual_huber][residual] 18/20
+[residual_huber][residual] 19/20
+[residual_huber][residual] 20/20
+[residual_huber] stage=delta_residual total=19
+[residual_huber][delta] 1/19
+[residual_huber][delta] 2/19
+[residual_huber][delta] 3/19
+[residual_huber][delta] 4/19
+[residual_huber][delta] 5/19
+[residual_huber][delta] 6/19
+[residual_huber][delta] 7/19
+[residual_huber][delta] 8/19
+[residual_huber][delta] 9/19
+[residual_huber][delta] 10/19
+[residual_huber][delta] 11/19
+[residual_huber][delta] 12/19
+[residual_huber][delta] 13/19
+[residual_huber][delta] 14/19
+[residual_huber][delta] 15/19
+[residual_huber][delta] 16/19
+[residual_huber][delta] 17/19
+[residual_huber][delta] 18/19
+[residual_huber][delta] 19/19
+=== Retention Residual-Huber LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+huber_delta: 0.03
+huber_delta_delta: 0.015
+delta_blend: 0.65
+delta_max_step: 0.15
+point_models_count: 20
+delta_models_count: 19
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/residual_huber_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/point_models
+spearman: 0.8451127819548873
+pearson: 0.9074338089280211
+rmse: 0.107603071253761
+mae: 0.09399643925215342
+spike_rmse: 0.0636946095306897
+curvature_rmse: 0.0860758268982318
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  baseline_value  pred_residual_base  pred_residual_delta_curve pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0        0.999970            0.000029                   0.000029        1.00000             0.999999        0.999999        1.00000   0.00000
+         1        0.814674            0.021059                   0.028345        0.84047             0.840469        0.840469        0.75553   0.08494
+         2        0.773569            0.041908                   0.028051        0.80647             0.806470        0.806470        0.52776   0.27871
+         3        0.730701            0.005627                   0.047246        0.76338             0.763380        0.763380        0.60118   0.16220
+         4        0.721670            0.005100                   0.018205        0.73529             0.735289        0.735289        0.69789   0.03739
+         5        0.705409            0.017110                   0.054278        0.74668             0.746678        0.746678        0.69276   0.05392
+         6        0.695300            0.045263                   0.055097        0.74696             0.746955        0.746955        0.66316   0.08380
+         7        0.687583            0.020438                   0.050955        0.72786             0.727858        0.727858        0.65250   0.07536
+         8        0.674225            0.039409                   0.052428        0.72210             0.722096        0.722096        0.63671   0.08539
+         9        0.664814            0.037960                   0.040007        0.70410             0.704105        0.704105        0.61974   0.08437
+        10        0.654897            0.042457                   0.038861        0.69502             0.695017        0.695017        0.59526   0.09975
+        11        0.639979            0.038167                   0.040018        0.67935             0.679349        0.679349        0.58500   0.09435
+        12        0.623858            0.040345                   0.044559        0.66694             0.666942        0.666942        0.56250   0.10444
+        13        0.613330            0.035096                   0.044218        0.65436             0.654355        0.654355        0.54750   0.10686
+        14        0.602811            0.030084                   0.036405        0.63700             0.637004        0.637004        0.54000   0.09700
+        15        0.593415            0.029195                   0.033471        0.62539             0.625389        0.625389        0.52539   0.09999
+        16        0.582728            0.023688                   0.031621        0.61157             0.611573        0.611573        0.52500   0.08657
+        17        0.571242            0.026971                   0.030305        0.60038             0.600380        0.600380        0.50250   0.09788
+        18        0.553402            0.021100                   0.027320        0.57854             0.578545        0.578545        0.48947   0.08907
+        19        0.406555           -0.002421                   0.030363        0.42544             0.425444        0.425444        0.36750   0.05794

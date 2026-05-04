@@ -1,0 +1,7 @@
+venv/
+.venv/
+__pycache__/
+data/
+output/
+my_metrics/
+catboost_info/

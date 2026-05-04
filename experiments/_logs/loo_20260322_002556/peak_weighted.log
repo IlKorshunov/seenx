@@ -1,0 +1,41 @@
+Training points:   0%|          | 0/20 [00:00<?, ?it/s]
+Training points:   5%|▌         | 1/20 [00:06<02:06,  6.68s/it]
+Training points:  10%|█         | 2/20 [00:11<01:37,  5.41s/it]
+Training points:  15%|█▌        | 3/20 [00:15<01:25,  5.00s/it]
+Training points:  20%|██        | 4/20 [00:20<01:16,  4.79s/it]
+Training points:  25%|██▌       | 5/20 [00:24<01:10,  4.68s/it]
+Training points:  30%|███       | 6/20 [00:29<01:04,  4.62s/it]
+Training points:  35%|███▌      | 7/20 [00:33<00:59,  4.57s/it]
+Training points:  40%|████      | 8/20 [00:38<00:54,  4.55s/it]
+Training points:  45%|████▌     | 9/20 [00:42<00:49,  4.54s/it]
+Training points:  50%|█████     | 10/20 [00:47<00:45,  4.53s/it]
+Training points:  55%|█████▌    | 11/20 [00:51<00:40,  4.53s/it]
+Training points:  60%|██████    | 12/20 [00:56<00:36,  4.52s/it]
+Training points:  65%|██████▌   | 13/20 [01:00<00:31,  4.51s/it]
+Training points:  70%|███████   | 14/20 [01:05<00:27,  4.52s/it]
+Training points:  75%|███████▌  | 15/20 [01:09<00:22,  4.52s/it]
+Training points:  80%|████████  | 16/20 [01:14<00:18,  4.51s/it]
+Training points:  85%|████████▌ | 17/20 [01:18<00:13,  4.52s/it]
+Training points:  90%|█████████ | 18/20 [01:23<00:09,  4.53s/it]
+Training points:  95%|█████████▌| 19/20 [01:27<00:04,  4.53s/it]
+Training points: 100%|██████████| 20/20 [01:32<00:00,  4.54s/it]
+Training points: 100%|██████████| 20/20 [01:32<00:00,  4.62s/it]
+=== Retention Peak-Weighted LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+weight_slope_alpha: 1.8
+weight_curvature_alpha: 1.2
+weight_max: 7.0
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/peak_weighted/peak_weighted_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/peak_weighted/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/peak_weighted/point_models
+spearman: 0.8360902255639097
+pearson: 0.9063882520386062
+rmse: 0.10055541336045555
+mae: 0.08560302376535646
+spike_rmse: 0.06926601020335588
+curvature_rmse: 0.10480489566078673

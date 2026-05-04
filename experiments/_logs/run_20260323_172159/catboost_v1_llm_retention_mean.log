@@ -1,0 +1,20 @@
+[dataset] files_discovered=87 rows=83 cols=64
+[dataset] saved=experiments/catboost_exp/v1_llm_retention_mean/video_features_dataset.csv
+0:	learn: 0.0964642	test: 0.0951258	best: 0.0951258 (0)	total: 46.6ms	remaining: 27.9s
+100:	learn: 0.0321316	test: 0.0935420	best: 0.0919665 (42)	total: 63.8ms	remaining: 315ms
+200:	learn: 0.0086756	test: 0.0934737	best: 0.0918483 (135)	total: 78.9ms	remaining: 157ms
+300:	learn: 0.0024600	test: 0.0931680	best: 0.0918483 (135)	total: 94.1ms	remaining: 93.5ms
+400:	learn: 0.0006440	test: 0.0929833	best: 0.0918483 (135)	total: 113ms	remaining: 56.1ms
+500:	learn: 0.0001714	test: 0.0929700	best: 0.0918483 (135)	total: 128ms	remaining: 25.4ms
+599:	learn: 0.0000589	test: 0.0929897	best: 0.0918483 (135)	total: 143ms	remaining: 0us
+bestTest = 0.09184831722
+bestIteration = 135
+Shrink model to first 136 iterations.
+[train] done
+[train] rows_train=67
+[train] rows_eval=16
+[train] n_features=38
+[train] train_rmse=0.021601614811906148
+[train] model_path=experiments/catboost_exp/v1_llm_retention_mean/catboost_regressor.cbm
+[train] eval_rmse=0.09184831942151324
+[train] report -> experiments/catboost_exp/v1_llm_retention_mean

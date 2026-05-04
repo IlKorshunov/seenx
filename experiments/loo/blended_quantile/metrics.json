@@ -1,0 +1,19 @@
+{
+  "videos_total_with_target": 83,
+  "videos_used": 6,
+  "train_videos": 5,
+  "curve_points": 2,
+  "test_video": "3PBo1GiAlbs",
+  "test_drive_file_id": "3PBo1GiAlbs",
+  "baseline_weight": 0.35,
+  "model_count": 1,
+  "dataset_path": "/home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/blended_quantile_dataset.csv",
+  "prediction_path": "/home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/holdout_prediction_vs_true.csv",
+  "models_dir": "/home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/point_models",
+  "spearman": 0.9999999999999999,
+  "pearson": 1.0,
+  "rmse": 0.13139470707414996,
+  "mae": 0.09291008838415146,
+  "spike_rmse": 0.18582017676830298,
+  "curvature_rmse": 0.0
+}

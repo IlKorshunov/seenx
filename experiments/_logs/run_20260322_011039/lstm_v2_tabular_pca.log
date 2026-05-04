@@ -1,0 +1,124 @@
+2026-03-22 01:11:06,872 INFO Loading merged data...
+2026-03-22 01:11:06,886 INFO Loaded 138P93_Z_u0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,899 INFO Loaded 1J5zlq2Vs3Y: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,910 INFO Loaded 39R6j9qkzPo: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,920 INFO Loaded 3G6JrAq-w4M: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:06,930 INFO Loaded 3MncoqWP_qg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,941 INFO Loaded 3PBo1GiAlbs: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,950 INFO Loaded 3WA4YT8fkx8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,959 INFO Loaded 4WcGtcKKoWg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,970 INFO Loaded 6Ha1lqRKMig: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,980 INFO Loaded 6_qPAwOsDi0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:06,995 INFO Loaded 7g_56jn0NCA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,005 INFO Loaded 8YXWaEo201o: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,018 INFO Loaded 8__NWVjeyZ8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,027 INFO Loaded 9B3N8I4Vidc: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,040 INFO Loaded BZEZxzRJ-L4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,049 INFO Loaded Db6f982wxPg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,062 INFO Loaded DhFuAhFMvms: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,070 INFO Loaded DrS6_CT0XrU: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,082 INFO Loaded ECP4p12A5FY: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,094 INFO Loaded EFxlvlchMw8: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,104 INFO Loaded EhAdb6fIEe0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,114 INFO Loaded Ei6QuJppkb4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,122 INFO Loaded FYbEJ3oRgFk: 100 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,134 INFO Loaded FZ4waB-THOA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,146 INFO Loaded Fr4ZqY97Bco: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,157 INFO Loaded GfEdSBXxyHA: 101 rows, 82 cols (output+llm)
+2026-03-22 01:11:07,167 INFO Loaded GthDbmZFW-w: 101 rows, 84 cols (output+llm)
+2026-03-22 01:11:07,176 INFO Loaded IgJxh-fJTBU: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:07,183 INFO Loaded JXTBwlW02No: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:07,194 INFO Loaded K5zVqoMMj3Y: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,201 INFO Loaded LH3DvvXTxzc: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:07,210 INFO Loaded Mc0b511IaVU: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:07,216 INFO Loaded NE38Pn3CYRc: 100 rows, 79 cols (output+llm)
+2026-03-22 01:11:07,225 INFO Loaded Nvq6okhPSOw: 101 rows, 79 cols (output+llm)
+2026-03-22 01:11:07,232 INFO Loaded OpuMLYUuP_M: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,239 INFO Loaded P9bVljfAWS8: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,249 INFO Loaded Q1ZmiQVX9cY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,257 INFO Loaded RhVq2oJpsEY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,264 INFO Loaded RkwsqGM4_DE: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,271 INFO Loaded S_o49-nmh5w: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,281 INFO Loaded Sf95qeC7BUs: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,291 INFO Loaded U8e1Pd7aBLY: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,297 INFO Loaded VYYzb9KHawI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,305 INFO Loaded VYsqc9S5b9E: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,313 INFO Loaded W6enyqR-1Jw: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,320 INFO Loaded YoGUM0AsXJI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,329 INFO Loaded YubjPoEmzgU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,337 INFO Loaded Z6cbf9WN0c4: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,347 INFO Loaded b5gAWk2QuSU: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,357 INFO Loaded bK-1Mfb93uA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,369 INFO Loaded dx7dMwMXSAA: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,380 INFO Loaded e21aHqRYPKE: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,389 INFO Loaded eL9OqXpmvOE: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,401 INFO Loaded eLSgNBnpeRg: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,411 INFO Loaded fwHhuHVNR4I: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,420 INFO Loaded gYHHQNT6100: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,429 INFO Loaded gkSAR3jbMjA: 101 rows, 84 cols (output+llm)
+2026-03-22 01:11:07,440 INFO Loaded hnyYg62DY4E: 101 rows, 84 cols (output+llm)
+2026-03-22 01:11:07,448 INFO Loaded iKGmIRAfmCM: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,459 INFO Loaded iP_siVZjbzc: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,472 INFO Loaded ib29EiVnmJM: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,481 INFO Loaded ie3vumn9Je4: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,492 INFO Loaded jPVQgOI33V0: 101 rows, 122 cols (output+llm)
+2026-03-22 01:11:07,501 INFO Loaded jTtvWTti3b0: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,508 INFO Loaded kifrPvJigCU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,519 INFO Loaded lLoSngvynB8: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:07,528 INFO Loaded lYAEH2n3I58: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,536 INFO Loaded lgeLlSArJXU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,544 INFO Loaded mBzEZBF1a_U: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,550 INFO Loaded mM6sYTdPZ-0: 100 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,559 INFO Loaded pfacUo-6wNs: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,567 INFO Loaded porv8WwTSgc: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,575 INFO Loaded q607HENWvqY: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,584 INFO Loaded qoqjZR52lOQ: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,592 INFO Loaded rJxhpVu7BhU: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,603 INFO Loaded sujXtr4AVRU: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:07,610 INFO Loaded szF7osJgt-A: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,619 INFO Loaded vVZDZxRRXDI: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,628 INFO Loaded v_puTGCZjnA: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,633 INFO Loaded vopiJ3KKT-k: 100 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,640 INFO Loaded wS79wHHkjjw: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,645 INFO Loaded wWtq4RlbRos: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,654 INFO Loaded xK0GkyIVzq4: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,664 INFO Loaded xZnMwJQ4mfc: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:07,676 INFO Loaded yKC5nekLvbs: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:07,687 INFO Loaded yXaJpj7Bb9w: 101 rows, 69 cols (output+llm)
+2026-03-22 01:11:07,700 INFO Loaded yv4o4Epz1eM: 101 rows, 120 cols (output+llm)
+2026-03-22 01:11:07,701 INFO Total videos loaded: 87 (87 output, 0 snapshot-only)
+2026-03-22 01:11:08,875 INFO Embedding PCA visual: 75.9% explained by 24 components
+2026-03-22 01:11:08,875 INFO Embedding PCA audio: 88.1% explained by 24 components
+2026-03-22 01:11:08,875 INFO Embedding PCA text: 59.9% explained by 24 components
+2026-03-22 01:11:09,147 INFO Embedding PCA: added 72 features (87 videos with embeddings / 87 total)
+2026-03-22 01:11:09,147 INFO Videos: ['138P93_Z_u0', '1J5zlq2Vs3Y', '39R6j9qkzPo', '3G6JrAq-w4M', '3MncoqWP_qg', '3PBo1GiAlbs', '3WA4YT8fkx8', '4WcGtcKKoWg', '6Ha1lqRKMig', '6_qPAwOsDi0', '7g_56jn0NCA', '8YXWaEo201o', '8__NWVjeyZ8', '9B3N8I4Vidc', 'BZEZxzRJ-L4', 'Db6f982wxPg', 'DhFuAhFMvms', 'DrS6_CT0XrU', 'ECP4p12A5FY', 'EFxlvlchMw8', 'EhAdb6fIEe0', 'Ei6QuJppkb4', 'FYbEJ3oRgFk', 'FZ4waB-THOA', 'Fr4ZqY97Bco', 'GfEdSBXxyHA', 'GthDbmZFW-w', 'IgJxh-fJTBU', 'JXTBwlW02No', 'K5zVqoMMj3Y', 'LH3DvvXTxzc', 'Mc0b511IaVU', 'NE38Pn3CYRc', 'Nvq6okhPSOw', 'OpuMLYUuP_M', 'P9bVljfAWS8', 'Q1ZmiQVX9cY', 'RhVq2oJpsEY', 'RkwsqGM4_DE', 'S_o49-nmh5w', 'Sf95qeC7BUs', 'U8e1Pd7aBLY', 'VYYzb9KHawI', 'VYsqc9S5b9E', 'W6enyqR-1Jw', 'YoGUM0AsXJI', 'YubjPoEmzgU', 'Z6cbf9WN0c4', 'b5gAWk2QuSU', 'bK-1Mfb93uA', 'dx7dMwMXSAA', 'e21aHqRYPKE', 'eL9OqXpmvOE', 'eLSgNBnpeRg', 'fwHhuHVNR4I', 'gYHHQNT6100', 'gkSAR3jbMjA', 'hnyYg62DY4E', 'iKGmIRAfmCM', 'iP_siVZjbzc', 'ib29EiVnmJM', 'ie3vumn9Je4', 'jPVQgOI33V0', 'jTtvWTti3b0', 'kifrPvJigCU', 'lLoSngvynB8', 'lYAEH2n3I58', 'lgeLlSArJXU', 'mBzEZBF1a_U', 'mM6sYTdPZ-0', 'pfacUo-6wNs', 'porv8WwTSgc', 'q607HENWvqY', 'qoqjZR52lOQ', 'rJxhpVu7BhU', 'sujXtr4AVRU', 'szF7osJgt-A', 'vVZDZxRRXDI', 'v_puTGCZjnA', 'vopiJ3KKT-k', 'wS79wHHkjjw', 'wWtq4RlbRos', 'xK0GkyIVzq4', 'xZnMwJQ4mfc', 'yKC5nekLvbs', 'yXaJpj7Bb9w', 'yv4o4Epz1eM']
+2026-03-22 01:11:10,445 INFO Features after filtering: 176
+2026-03-22 01:11:10,446 INFO Validation split: first 10 videos from output
+2026-03-22 01:11:10,446 INFO Train: ['7g_56jn0NCA', '8YXWaEo201o', '8__NWVjeyZ8', '9B3N8I4Vidc', 'BZEZxzRJ-L4', 'Db6f982wxPg', 'DhFuAhFMvms', 'DrS6_CT0XrU', 'ECP4p12A5FY', 'EFxlvlchMw8', 'EhAdb6fIEe0', 'Ei6QuJppkb4', 'FYbEJ3oRgFk', 'FZ4waB-THOA', 'Fr4ZqY97Bco', 'GfEdSBXxyHA', 'GthDbmZFW-w', 'IgJxh-fJTBU', 'JXTBwlW02No', 'K5zVqoMMj3Y', 'LH3DvvXTxzc', 'Mc0b511IaVU', 'NE38Pn3CYRc', 'Nvq6okhPSOw', 'OpuMLYUuP_M', 'P9bVljfAWS8', 'Q1ZmiQVX9cY', 'RhVq2oJpsEY', 'RkwsqGM4_DE', 'S_o49-nmh5w', 'Sf95qeC7BUs', 'U8e1Pd7aBLY', 'VYYzb9KHawI', 'VYsqc9S5b9E', 'W6enyqR-1Jw', 'YoGUM0AsXJI', 'YubjPoEmzgU', 'Z6cbf9WN0c4', 'b5gAWk2QuSU', 'bK-1Mfb93uA', 'dx7dMwMXSAA', 'e21aHqRYPKE', 'eL9OqXpmvOE', 'eLSgNBnpeRg', 'fwHhuHVNR4I', 'gYHHQNT6100', 'gkSAR3jbMjA', 'hnyYg62DY4E', 'iKGmIRAfmCM', 'iP_siVZjbzc', 'ib29EiVnmJM', 'ie3vumn9Je4', 'jPVQgOI33V0', 'jTtvWTti3b0', 'kifrPvJigCU', 'lLoSngvynB8', 'lYAEH2n3I58', 'lgeLlSArJXU', 'mBzEZBF1a_U', 'mM6sYTdPZ-0', 'pfacUo-6wNs', 'porv8WwTSgc', 'q607HENWvqY', 'qoqjZR52lOQ', 'rJxhpVu7BhU', 'sujXtr4AVRU', 'szF7osJgt-A', 'vVZDZxRRXDI', 'v_puTGCZjnA', 'vopiJ3KKT-k', 'wS79wHHkjjw', 'wWtq4RlbRos', 'xK0GkyIVzq4', 'xZnMwJQ4mfc', 'yKC5nekLvbs', 'yXaJpj7Bb9w', 'yv4o4Epz1eM'], Val: ['138P93_Z_u0', '1J5zlq2Vs3Y', '39R6j9qkzPo', '3G6JrAq-w4M', '3MncoqWP_qg', '3PBo1GiAlbs', '3WA4YT8fkx8', '4WcGtcKKoWg', '6Ha1lqRKMig', '6_qPAwOsDi0']
+2026-03-22 01:11:10,914 INFO Video weights: min=0.250  max=1.310  mean=1.022
+2026-03-22 01:11:11,403 INFO Train windows: 77, Val windows: 10
+2026-03-22 01:11:11,648 INFO Baseline curve set: 101 points, mean=66.5%
+2026-03-22 01:11:11,648 INFO Model params: 5599921 (5599.9K)
+2026-03-22 01:11:12.191862: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-22 01:11:12.217730: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-03-22 01:11:12.739825: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_lstm_seq.py", line 412, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_lstm_seq.py", line 366, in main
+    model, result = train_model(model, train_dl, val_dl, device, args, use_engagement_weight=args.engagement_weight)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_lstm_seq.py", line 140, in train_model
+    model(feat, src_key_padding_mask=pad_mask), tgt, ad_mask, pad_mask,
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/src/models/retention_lstm.py", line 118, in forward
+    return bl.unsqueeze(0) + deviation
+           ~~~~~~~~~~~~~~~~^~~~~~~~~~~
+RuntimeError: The size of tensor a (101) must match the size of tensor b (128) at non-singleton dimension 1

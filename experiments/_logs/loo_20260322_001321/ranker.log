@@ -1,0 +1,34 @@
+=== Retention Ranker LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+spearman: 0.8466165413533834
+pearson: 0.8938057710839589
+rmse: 0.25518119224610547
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/ranker_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/holdout_prediction_vs_true.csv
+model_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/catboost_ranker.cbm
+=== Holdout Prediction vs True (20 points) ===
+ point_idx pred_score_raw pred_retention_norm true_retention
+         0       15.05030             1.00000        1.00000
+         1        9.44992             0.76427        0.75553
+         2        6.11368             0.62383        0.52776
+         3        3.17464             0.50012        0.60118
+         4        2.08127             0.45410        0.69789
+         5        1.96440             0.44918        0.69276
+         6        2.12195             0.45581        0.66316
+         7        1.93930             0.44812        0.65250
+         8        1.32468             0.42225        0.63671
+         9        0.32179             0.38004        0.61974
+        10       -0.33161             0.35253        0.59526
+        11       -1.17819             0.31690        0.58500
+        12       -1.83134             0.28941        0.56250
+        13       -2.42004             0.26463        0.54750
+        14       -3.00666             0.23993        0.54000
+        15       -3.62721             0.21381        0.52539
+        16       -4.26605             0.18692        0.52500
+        17       -5.01874             0.15524        0.50250
+        18       -5.75522             0.12424        0.48947
+        19       -8.70681             0.00000        0.36750

@@ -1,0 +1,717 @@
+{
+  "config": {
+    "strategy": "kmeans",
+    "n_videos": 87,
+    "metrics": {
+      "k": 8,
+      "n_valid": 87,
+      "n_noise": 0,
+      "F0": 0.5074,
+      "F1": 0.6424,
+      "F1/F0": 1.266,
+      "H_clust": 1.7962,
+      "Phi0": 0.018473,
+      "silhouette": 0.0722,
+      "calinski_harabasz": 3.99,
+      "davies_bouldin": 2.3775
+    }
+  },
+  "videos": {
+    "138P93_Z_u0": {
+      "cluster_id": 1,
+      "x": 1.5234,
+      "y": 3.0637,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "1J5zlq2Vs3Y": {
+      "cluster_id": 2,
+      "x": 3.2777,
+      "y": 2.5642,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "39R6j9qkzPo": {
+      "cluster_id": 2,
+      "x": 3.3709,
+      "y": 3.2903,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "3G6JrAq-w4M": {
+      "cluster_id": 2,
+      "x": 0.9835,
+      "y": 3.2689,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "3MncoqWP_qg": {
+      "cluster_id": 0,
+      "x": 1.211,
+      "y": 2.2808,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "3PBo1GiAlbs": {
+      "cluster_id": 2,
+      "x": 1.8036,
+      "y": 2.7753,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "3WA4YT8fkx8": {
+      "cluster_id": 4,
+      "x": 3.4701,
+      "y": 3.6685,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "4WcGtcKKoWg": {
+      "cluster_id": 7,
+      "x": 4.2067,
+      "y": 4.1276,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "6Ha1lqRKMig": {
+      "cluster_id": 2,
+      "x": 1.281,
+      "y": 2.7991,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "6_qPAwOsDi0": {
+      "cluster_id": 0,
+      "x": 0.1546,
+      "y": 2.772,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "7g_56jn0NCA": {
+      "cluster_id": 2,
+      "x": 2.0683,
+      "y": 2.7385,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "8YXWaEo201o": {
+      "cluster_id": 4,
+      "x": 2.8049,
+      "y": 3.7108,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "8__NWVjeyZ8": {
+      "cluster_id": 3,
+      "x": -2.1196,
+      "y": -0.2348,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "9B3N8I4Vidc": {
+      "cluster_id": 2,
+      "x": 3.1491,
+      "y": 2.9414,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "BZEZxzRJ-L4": {
+      "cluster_id": 3,
+      "x": -1.6799,
+      "y": -0.1116,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "Db6f982wxPg": {
+      "cluster_id": 4,
+      "x": 2.9711,
+      "y": 3.3632,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "DhFuAhFMvms": {
+      "cluster_id": 1,
+      "x": 1.5471,
+      "y": 4.6747,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "DrS6_CT0XrU": {
+      "cluster_id": 2,
+      "x": 4.1355,
+      "y": 3.5175,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "ECP4p12A5FY": {
+      "cluster_id": 2,
+      "x": 1.7435,
+      "y": 3.1853,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "EFxlvlchMw8": {
+      "cluster_id": 2,
+      "x": 1.5943,
+      "y": 3.7923,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "EhAdb6fIEe0": {
+      "cluster_id": 0,
+      "x": 1.3875,
+      "y": 2.0559,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "Ei6QuJppkb4": {
+      "cluster_id": 2,
+      "x": 1.1729,
+      "y": 3.213,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "FYbEJ3oRgFk": {
+      "cluster_id": 3,
+      "x": -2.4951,
+      "y": -0.4302,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "FZ4waB-THOA": {
+      "cluster_id": 2,
+      "x": 1.9187,
+      "y": 2.2199,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "Fr4ZqY97Bco": {
+      "cluster_id": 2,
+      "x": 0.5853,
+      "y": 3.6591,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "GfEdSBXxyHA": {
+      "cluster_id": 3,
+      "x": -1.9319,
+      "y": 0.0844,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "GthDbmZFW-w": {
+      "cluster_id": 3,
+      "x": -2.1826,
+      "y": -0.1415,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "IgJxh-fJTBU": {
+      "cluster_id": 2,
+      "x": 2.3505,
+      "y": 2.6522,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "JXTBwlW02No": {
+      "cluster_id": 7,
+      "x": 4.2273,
+      "y": 4.4943,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "K5zVqoMMj3Y": {
+      "cluster_id": 3,
+      "x": -1.6012,
+      "y": -0.3502,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "LH3DvvXTxzc": {
+      "cluster_id": 7,
+      "x": 3.8114,
+      "y": 4.2144,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "Mc0b511IaVU": {
+      "cluster_id": 3,
+      "x": -1.9743,
+      "y": 0.0495,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "NE38Pn3CYRc": {
+      "cluster_id": 1,
+      "x": 1.4637,
+      "y": 4.2982,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "Nvq6okhPSOw": {
+      "cluster_id": 2,
+      "x": 1.463,
+      "y": 1.5377,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "OpuMLYUuP_M": {
+      "cluster_id": 2,
+      "x": 3.0264,
+      "y": 3.7955,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "P9bVljfAWS8": {
+      "cluster_id": 4,
+      "x": 3.506,
+      "y": 3.7865,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "Q1ZmiQVX9cY": {
+      "cluster_id": 5,
+      "x": -0.6447,
+      "y": 0.587,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "RhVq2oJpsEY": {
+      "cluster_id": 3,
+      "x": -2.0194,
+      "y": -0.3823,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "RkwsqGM4_DE": {
+      "cluster_id": 7,
+      "x": 4.3048,
+      "y": 4.4225,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "S_o49-nmh5w": {
+      "cluster_id": 4,
+      "x": 2.414,
+      "y": 3.8581,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "Sf95qeC7BUs": {
+      "cluster_id": 3,
+      "x": -2.4299,
+      "y": -0.0686,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "U8e1Pd7aBLY": {
+      "cluster_id": 0,
+      "x": 0.7341,
+      "y": 2.9586,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "VYYzb9KHawI": {
+      "cluster_id": 7,
+      "x": 3.6461,
+      "y": 4.5512,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "VYsqc9S5b9E": {
+      "cluster_id": 7,
+      "x": 4.3765,
+      "y": 4.3123,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "W6enyqR-1Jw": {
+      "cluster_id": 5,
+      "x": -1.0191,
+      "y": 0.5519,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "YoGUM0AsXJI": {
+      "cluster_id": 2,
+      "x": 3.4106,
+      "y": 3.0597,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "YubjPoEmzgU": {
+      "cluster_id": 5,
+      "x": -0.5767,
+      "y": 0.2727,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "Z6cbf9WN0c4": {
+      "cluster_id": 2,
+      "x": 0.8433,
+      "y": 3.5648,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "b5gAWk2QuSU": {
+      "cluster_id": 2,
+      "x": 2.14,
+      "y": 2.3706,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "bK-1Mfb93uA": {
+      "cluster_id": 7,
+      "x": 4.4765,
+      "y": 3.9934,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "dx7dMwMXSAA": {
+      "cluster_id": 2,
+      "x": 2.3933,
+      "y": 2.3252,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "e21aHqRYPKE": {
+      "cluster_id": 2,
+      "x": 1.862,
+      "y": 1.7905,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "eL9OqXpmvOE": {
+      "cluster_id": 4,
+      "x": 2.6389,
+      "y": 3.7596,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "eLSgNBnpeRg": {
+      "cluster_id": 2,
+      "x": 2.0981,
+      "y": 1.7919,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "fwHhuHVNR4I": {
+      "cluster_id": 2,
+      "x": 1.2579,
+      "y": 3.4866,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "gYHHQNT6100": {
+      "cluster_id": 5,
+      "x": -0.6036,
+      "y": 0.3904,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "gkSAR3jbMjA": {
+      "cluster_id": 2,
+      "x": 1.7028,
+      "y": 3.4979,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "hnyYg62DY4E": {
+      "cluster_id": 5,
+      "x": -0.918,
+      "y": 0.416,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "iKGmIRAfmCM": {
+      "cluster_id": 7,
+      "x": 4.3931,
+      "y": 3.9533,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "iP_siVZjbzc": {
+      "cluster_id": 0,
+      "x": 1.0884,
+      "y": 2.062,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "ib29EiVnmJM": {
+      "cluster_id": 2,
+      "x": 1.6809,
+      "y": 1.523,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "ie3vumn9Je4": {
+      "cluster_id": 2,
+      "x": 2.9925,
+      "y": 3.8921,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "jPVQgOI33V0": {
+      "cluster_id": 0,
+      "x": 1.491,
+      "y": 2.4032,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "jTtvWTti3b0": {
+      "cluster_id": 2,
+      "x": 2.2994,
+      "y": 2.9261,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "kifrPvJigCU": {
+      "cluster_id": 7,
+      "x": 4.0422,
+      "y": 3.7521,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "lLoSngvynB8": {
+      "cluster_id": 2,
+      "x": 0.2044,
+      "y": 2.8043,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "lYAEH2n3I58": {
+      "cluster_id": 2,
+      "x": 1.8517,
+      "y": 3.3332,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "lgeLlSArJXU": {
+      "cluster_id": 2,
+      "x": 0.3779,
+      "y": 3.1453,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "mBzEZBF1a_U": {
+      "cluster_id": 4,
+      "x": 3.0984,
+      "y": 2.3745,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "mM6sYTdPZ-0": {
+      "cluster_id": 1,
+      "x": 1.1565,
+      "y": 4.0902,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "pfacUo-6wNs": {
+      "cluster_id": 4,
+      "x": 3.7761,
+      "y": 2.9726,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "porv8WwTSgc": {
+      "cluster_id": 7,
+      "x": 3.9965,
+      "y": 4.5288,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "q607HENWvqY": {
+      "cluster_id": 5,
+      "x": -0.5402,
+      "y": 0.7083,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "qoqjZR52lOQ": {
+      "cluster_id": 5,
+      "x": -0.4365,
+      "y": 0.1811,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "rJxhpVu7BhU": {
+      "cluster_id": 1,
+      "x": 1.9103,
+      "y": 4.5866,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "sujXtr4AVRU": {
+      "cluster_id": 2,
+      "x": 1.0761,
+      "y": 2.9528,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "szF7osJgt-A": {
+      "cluster_id": 4,
+      "x": 3.343,
+      "y": 4.3515,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "vVZDZxRRXDI": {
+      "cluster_id": 1,
+      "x": 1.8605,
+      "y": 4.8575,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "v_puTGCZjnA": {
+      "cluster_id": 1,
+      "x": 1.8567,
+      "y": 4.1584,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "vopiJ3KKT-k": {
+      "cluster_id": 3,
+      "x": -2.3699,
+      "y": -0.5892,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "wS79wHHkjjw": {
+      "cluster_id": 4,
+      "x": 3.5975,
+      "y": 4.0373,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "wWtq4RlbRos": {
+      "cluster_id": 6,
+      "x": 2.6434,
+      "y": 3.2467,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "xK0GkyIVzq4": {
+      "cluster_id": 1,
+      "x": 1.2934,
+      "y": 4.4174,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "xZnMwJQ4mfc": {
+      "cluster_id": 2,
+      "x": 0.9415,
+      "y": 2.3778,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "yKC5nekLvbs": {
+      "cluster_id": 3,
+      "x": -1.4468,
+      "y": -0.102,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "yXaJpj7Bb9w": {
+      "cluster_id": 2,
+      "x": 2.2028,
+      "y": 4.6081,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    },
+    "yv4o4Epz1eM": {
+      "cluster_id": 3,
+      "x": -1.2447,
+      "y": -0.12,
+      "duration_sec": 0.0,
+      "view_count": 0.0,
+      "like_count": 0.0
+    }
+  }
+}

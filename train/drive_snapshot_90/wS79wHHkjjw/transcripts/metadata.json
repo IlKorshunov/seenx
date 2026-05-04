@@ -1,0 +1,14 @@
+{
+  "video_folder": "wS79wHHkjjw",
+  "transcript_path": "transcripts",
+  "source_type": "csv_timestamps",
+  "drive": {
+    "root_folder_id": "1aIqGRHTsO9kNBrOXRRz9XV8kD0Ru8zSV",
+    "video_folder_id": "1vllnNI_AHNnEFl-Ra4Xavbewo2bgECzg",
+    "transcript_file_id": "1ASC7FAeYyRrFsZ3PxkrpgKX-w1T79G8A"
+  },
+  "download": {
+    "features_status": "downloaded",
+    "retention_status": "ok"
+  }
+}

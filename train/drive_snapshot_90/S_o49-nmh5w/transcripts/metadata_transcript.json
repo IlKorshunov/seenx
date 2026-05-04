@@ -1,0 +1,10 @@
+{
+  "video_folder": "S_o49-nmh5w",
+  "transcript_path": "transcripts",
+  "transcript_file": {
+    "file_id": "1BDR-3CLtTnwaWVKBMKoAd0TtRN1iUC7p",
+    "name": "whisper_segments.csv",
+    "mime_type": "text/csv",
+    "parent_id": "1LqsN4ds5DrJNUFWRL05qRC2wnm7G2aJO"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "videos_total_with_target": 90,
+  "videos_used": 90,
+  "train_videos": 89,
+  "curve_points": 50,
+  "test_video": "3PBo1GiAlbs",
+  "test_drive_file_id": "1UbOiAMFqYPFQ6i0MTlgtoiHt7IAJk5mn",
+  "spearman": 0.8909697714397986,
+  "pearson": 0.9481342450520874,
+  "rmse": 0.048466088875346494,
+  "mae": 0.040903984094403635,
+  "dataset_path": "train/regressor_experiment/regressor_dataset.csv",
+  "prediction_path": "train/regressor_experiment/holdout_prediction_vs_true.csv",
+  "point_models_dir": "train/regressor_experiment/point_models",
+  "point_models_count": 50,
+  "delta_models_count": 49,
+  "delta_blend": 0.65,
+  "delta_max_step": 0.25
+}

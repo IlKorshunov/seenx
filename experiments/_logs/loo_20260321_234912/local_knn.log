@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 416, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 412, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 296, in run_experiment
+    all_df, train_df, test_df = select_train_test(rows, args)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 124, in select_train_test
+    raise RuntimeError(
+RuntimeError: Недостаточно видео с target retention: найдено 83, нужно 90

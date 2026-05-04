@@ -1,0 +1,198 @@
+2026-03-23 04:11:55,347 INFO Loading merged data...
+2026-03-23 04:11:55,363 INFO Loaded 138P93_Z_u0: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,379 INFO Loaded 1J5zlq2Vs3Y: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,390 INFO Loaded 39R6j9qkzPo: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,401 INFO Loaded 3G6JrAq-w4M: 101 rows, 149 cols (output+llm)
+2026-03-23 04:11:55,412 INFO Loaded 3MncoqWP_qg: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,425 INFO Loaded 3PBo1GiAlbs: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,435 INFO Loaded 3WA4YT8fkx8: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,445 INFO Loaded 4WcGtcKKoWg: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,457 INFO Loaded 6Ha1lqRKMig: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,469 INFO Loaded 6_qPAwOsDi0: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,486 INFO Loaded 7g_56jn0NCA: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,498 INFO Loaded 8YXWaEo201o: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,514 INFO Loaded 8__NWVjeyZ8: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,524 INFO Loaded 9B3N8I4Vidc: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,540 INFO Loaded BZEZxzRJ-L4: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,550 INFO Loaded Db6f982wxPg: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,566 INFO Loaded DhFuAhFMvms: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,575 INFO Loaded DrS6_CT0XrU: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,589 INFO Loaded ECP4p12A5FY: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,603 INFO Loaded EFxlvlchMw8: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,615 INFO Loaded EhAdb6fIEe0: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,626 INFO Loaded Ei6QuJppkb4: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,634 INFO Loaded FYbEJ3oRgFk: 100 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,649 INFO Loaded FZ4waB-THOA: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,663 INFO Loaded Fr4ZqY97Bco: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,677 INFO Loaded GfEdSBXxyHA: 101 rows, 111 cols (output+llm)
+2026-03-23 04:11:55,690 INFO Loaded GthDbmZFW-w: 101 rows, 113 cols (output+llm)
+2026-03-23 04:11:55,702 INFO Loaded IgJxh-fJTBU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,711 INFO Loaded JXTBwlW02No: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,723 INFO Loaded K5zVqoMMj3Y: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,733 INFO Loaded LH3DvvXTxzc: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,744 INFO Loaded Mc0b511IaVU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,751 INFO Loaded NE38Pn3CYRc: 100 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,765 INFO Loaded Nvq6okhPSOw: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,774 INFO Loaded OpuMLYUuP_M: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,783 INFO Loaded P9bVljfAWS8: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,799 INFO Loaded Q1ZmiQVX9cY: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,812 INFO Loaded RhVq2oJpsEY: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,820 INFO Loaded RkwsqGM4_DE: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,829 INFO Loaded S_o49-nmh5w: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,845 INFO Loaded Sf95qeC7BUs: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,856 INFO Loaded U8e1Pd7aBLY: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,865 INFO Loaded VYYzb9KHawI: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,875 INFO Loaded VYsqc9S5b9E: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,887 INFO Loaded W6enyqR-1Jw: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,897 INFO Loaded YoGUM0AsXJI: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,909 INFO Loaded YubjPoEmzgU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,920 INFO Loaded Z6cbf9WN0c4: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:55,932 INFO Loaded b5gAWk2QuSU: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,943 INFO Loaded bK-1Mfb93uA: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,958 INFO Loaded dx7dMwMXSAA: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,971 INFO Loaded e21aHqRYPKE: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,982 INFO Loaded eL9OqXpmvOE: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:55,996 INFO Loaded eLSgNBnpeRg: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:56,008 INFO Loaded fwHhuHVNR4I: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:56,020 INFO Loaded gYHHQNT6100: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:56,031 INFO Loaded gkSAR3jbMjA: 101 rows, 113 cols (output+llm)
+2026-03-23 04:11:56,043 INFO Loaded hnyYg62DY4E: 101 rows, 113 cols (output+llm)
+2026-03-23 04:11:56,053 INFO Loaded iKGmIRAfmCM: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:56,065 INFO Loaded iP_siVZjbzc: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:56,081 INFO Loaded ib29EiVnmJM: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:56,091 INFO Loaded ie3vumn9Je4: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:56,104 INFO Loaded jPVQgOI33V0: 101 rows, 151 cols (output+llm)
+2026-03-23 04:11:56,118 INFO Loaded jTtvWTti3b0: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:56,160 INFO Loaded kifrPvJigCU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:56,174 INFO Loaded lLoSngvynB8: 101 rows, 149 cols (output+llm)
+2026-03-23 04:11:56,189 INFO Loaded lYAEH2n3I58: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:56,201 INFO Loaded lgeLlSArJXU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:56,212 INFO Loaded mBzEZBF1a_U: 101 rows, 127 cols (output+llm)
+2026-03-23 04:11:56,219 INFO Loaded mM6sYTdPZ-0: 100 rows, 127 cols (output+llm)
+2026-03-23 04:11:56,234 INFO Loaded pfacUo-6wNs: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,244 INFO Loaded porv8WwTSgc: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,256 INFO Loaded q607HENWvqY: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,269 INFO Loaded qoqjZR52lOQ: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,280 INFO Loaded rJxhpVu7BhU: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,293 INFO Loaded sujXtr4AVRU: 101 rows, 149 cols (output+llm)
+2026-03-23 04:11:56,302 INFO Loaded szF7osJgt-A: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,314 INFO Loaded vVZDZxRRXDI: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,327 INFO Loaded v_puTGCZjnA: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,335 INFO Loaded vopiJ3KKT-k: 100 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,343 INFO Loaded wS79wHHkjjw: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,349 INFO Loaded wWtq4RlbRos: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,362 INFO Loaded xK0GkyIVzq4: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,375 INFO Loaded xZnMwJQ4mfc: 101 rows, 149 cols (output+llm)
+2026-03-23 04:11:56,390 INFO Loaded yKC5nekLvbs: 101 rows, 149 cols (output+llm)
+2026-03-23 04:11:56,405 INFO Loaded yXaJpj7Bb9w: 101 rows, 119 cols (output+llm)
+2026-03-23 04:11:56,422 INFO Loaded yv4o4Epz1eM: 101 rows, 149 cols (output+llm)
+2026-03-23 04:11:56,422 INFO Total videos loaded: 87 (87 output, 0 snapshot-only)
+2026-03-23 04:11:56,453 INFO Added per-video features: duration_sec, log1p_view_count, mean_retention_prior
+2026-03-23 04:11:57,851 INFO Embedding PCA visual: 69.6% explained by 12 components
+2026-03-23 04:11:57,851 INFO Embedding PCA audio: 79.9% explained by 12 components
+2026-03-23 04:11:57,851 INFO Embedding PCA text: 31.9% explained by 12 components
+2026-03-23 04:11:57,876 INFO Embedding PCA: added 36 features (87 videos with embeddings / 87 total)
+2026-03-23 04:11:57,877 INFO Videos: ['138P93_Z_u0', '1J5zlq2Vs3Y', '39R6j9qkzPo', '3G6JrAq-w4M', '3MncoqWP_qg', '3PBo1GiAlbs', '3WA4YT8fkx8', '4WcGtcKKoWg', '6Ha1lqRKMig', '6_qPAwOsDi0', '7g_56jn0NCA', '8YXWaEo201o', '8__NWVjeyZ8', '9B3N8I4Vidc', 'BZEZxzRJ-L4', 'Db6f982wxPg', 'DhFuAhFMvms', 'DrS6_CT0XrU', 'ECP4p12A5FY', 'EFxlvlchMw8', 'EhAdb6fIEe0', 'Ei6QuJppkb4', 'FYbEJ3oRgFk', 'FZ4waB-THOA', 'Fr4ZqY97Bco', 'GfEdSBXxyHA', 'GthDbmZFW-w', 'IgJxh-fJTBU', 'JXTBwlW02No', 'K5zVqoMMj3Y', 'LH3DvvXTxzc', 'Mc0b511IaVU', 'NE38Pn3CYRc', 'Nvq6okhPSOw', 'OpuMLYUuP_M', 'P9bVljfAWS8', 'Q1ZmiQVX9cY', 'RhVq2oJpsEY', 'RkwsqGM4_DE', 'S_o49-nmh5w', 'Sf95qeC7BUs', 'U8e1Pd7aBLY', 'VYYzb9KHawI', 'VYsqc9S5b9E', 'W6enyqR-1Jw', 'YoGUM0AsXJI', 'YubjPoEmzgU', 'Z6cbf9WN0c4', 'b5gAWk2QuSU', 'bK-1Mfb93uA', 'dx7dMwMXSAA', 'e21aHqRYPKE', 'eL9OqXpmvOE', 'eLSgNBnpeRg', 'fwHhuHVNR4I', 'gYHHQNT6100', 'gkSAR3jbMjA', 'hnyYg62DY4E', 'iKGmIRAfmCM', 'iP_siVZjbzc', 'ib29EiVnmJM', 'ie3vumn9Je4', 'jPVQgOI33V0', 'jTtvWTti3b0', 'kifrPvJigCU', 'lLoSngvynB8', 'lYAEH2n3I58', 'lgeLlSArJXU', 'mBzEZBF1a_U', 'mM6sYTdPZ-0', 'pfacUo-6wNs', 'porv8WwTSgc', 'q607HENWvqY', 'qoqjZR52lOQ', 'rJxhpVu7BhU', 'sujXtr4AVRU', 'szF7osJgt-A', 'vVZDZxRRXDI', 'v_puTGCZjnA', 'vopiJ3KKT-k', 'wS79wHHkjjw', 'wWtq4RlbRos', 'xK0GkyIVzq4', 'xZnMwJQ4mfc', 'yKC5nekLvbs', 'yXaJpj7Bb9w', 'yv4o4Epz1eM']
+2026-03-23 04:11:59,183 INFO Features after filtering: 172
+2026-03-23 04:11:59,183 INFO Validation split: first 10 videos from output
+2026-03-23 04:11:59,183 INFO Train: ['7g_56jn0NCA', '8YXWaEo201o', '8__NWVjeyZ8', '9B3N8I4Vidc', 'BZEZxzRJ-L4', 'Db6f982wxPg', 'DhFuAhFMvms', 'DrS6_CT0XrU', 'ECP4p12A5FY', 'EFxlvlchMw8', 'EhAdb6fIEe0', 'Ei6QuJppkb4', 'FYbEJ3oRgFk', 'FZ4waB-THOA', 'Fr4ZqY97Bco', 'GfEdSBXxyHA', 'GthDbmZFW-w', 'IgJxh-fJTBU', 'JXTBwlW02No', 'K5zVqoMMj3Y', 'LH3DvvXTxzc', 'Mc0b511IaVU', 'NE38Pn3CYRc', 'Nvq6okhPSOw', 'OpuMLYUuP_M', 'P9bVljfAWS8', 'Q1ZmiQVX9cY', 'RhVq2oJpsEY', 'RkwsqGM4_DE', 'S_o49-nmh5w', 'Sf95qeC7BUs', 'U8e1Pd7aBLY', 'VYYzb9KHawI', 'VYsqc9S5b9E', 'W6enyqR-1Jw', 'YoGUM0AsXJI', 'YubjPoEmzgU', 'Z6cbf9WN0c4', 'b5gAWk2QuSU', 'bK-1Mfb93uA', 'dx7dMwMXSAA', 'e21aHqRYPKE', 'eL9OqXpmvOE', 'eLSgNBnpeRg', 'fwHhuHVNR4I', 'gYHHQNT6100', 'gkSAR3jbMjA', 'hnyYg62DY4E', 'iKGmIRAfmCM', 'iP_siVZjbzc', 'ib29EiVnmJM', 'ie3vumn9Je4', 'jPVQgOI33V0', 'jTtvWTti3b0', 'kifrPvJigCU', 'lLoSngvynB8', 'lYAEH2n3I58', 'lgeLlSArJXU', 'mBzEZBF1a_U', 'mM6sYTdPZ-0', 'pfacUo-6wNs', 'porv8WwTSgc', 'q607HENWvqY', 'qoqjZR52lOQ', 'rJxhpVu7BhU', 'sujXtr4AVRU', 'szF7osJgt-A', 'vVZDZxRRXDI', 'v_puTGCZjnA', 'vopiJ3KKT-k', 'wS79wHHkjjw', 'wWtq4RlbRos', 'xK0GkyIVzq4', 'xZnMwJQ4mfc', 'yKC5nekLvbs', 'yXaJpj7Bb9w', 'yv4o4Epz1eM'], Val: ['138P93_Z_u0', '1J5zlq2Vs3Y', '39R6j9qkzPo', '3G6JrAq-w4M', '3MncoqWP_qg', '3PBo1GiAlbs', '3WA4YT8fkx8', '4WcGtcKKoWg', '6Ha1lqRKMig', '6_qPAwOsDi0']
+2026-03-23 04:11:59,635 INFO Video weights: min=0.250  max=1.310  mean=1.022
+2026-03-23 04:12:00,102 INFO Train windows: 77, Val windows: 10
+2026-03-23 04:12:00,367 INFO Model params: 5597501 (5597.5K)
+2026-03-23 04:12:00.894181: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-23 04:12:00.919929: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-03-23 04:12:01.403739: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-23 04:12:14,389 INFO Saved experiments/lstm_exp/v1_baseline/training_curve.png
+2026-03-23 04:12:14,434 INFO 138P93_Z_u0 [val]  RMSE=12.2174  MAE=11.3358  spearman=0.960
+2026-03-23 04:12:14,551 INFO 1J5zlq2Vs3Y [val]  RMSE=19.9766  MAE=19.5156  spearman=0.951
+2026-03-23 04:12:14,670 INFO 39R6j9qkzPo [val]  RMSE=13.1802  MAE=12.9682  spearman=0.977
+2026-03-23 04:12:14,783 INFO 3G6JrAq-w4M [val]  RMSE=10.0632  MAE=8.2110  spearman=0.957
+2026-03-23 04:12:14,898 INFO 3MncoqWP_qg [val]  RMSE=4.0296  MAE=3.1498  spearman=0.971
+2026-03-23 04:12:15,015 INFO 3PBo1GiAlbs [val]  RMSE=5.5881  MAE=3.6299  spearman=0.881
+2026-03-23 04:12:15,131 INFO 3WA4YT8fkx8 [val]  RMSE=5.5928  MAE=4.9596  spearman=0.950
+2026-03-23 04:12:15,248 INFO 4WcGtcKKoWg [val]  RMSE=7.3843  MAE=6.5719  spearman=0.974
+2026-03-23 04:12:15,362 INFO 6Ha1lqRKMig [val]  RMSE=11.6875  MAE=10.8052  spearman=0.904
+2026-03-23 04:12:15,481 INFO 6_qPAwOsDi0 [val]  RMSE=5.4923  MAE=4.8037  spearman=0.979
+2026-03-23 04:12:15,598 INFO 7g_56jn0NCA [train]  RMSE=2.9099  MAE=2.0705  spearman=0.960
+2026-03-23 04:12:15,711 INFO 8YXWaEo201o [train]  RMSE=2.2251  MAE=1.5270  spearman=0.975
+2026-03-23 04:12:15,830 INFO 8__NWVjeyZ8 [train]  RMSE=7.0493  MAE=4.8945  spearman=0.903
+2026-03-23 04:12:15,949 INFO 9B3N8I4Vidc [train]  RMSE=5.3846  MAE=3.9323  spearman=0.920
+2026-03-23 04:12:16,067 INFO BZEZxzRJ-L4 [train]  RMSE=4.4508  MAE=2.7044  spearman=0.950
+2026-03-23 04:12:16,186 INFO Db6f982wxPg [train]  RMSE=4.0234  MAE=3.1722  spearman=0.977
+2026-03-23 04:12:16,302 INFO DhFuAhFMvms [train]  RMSE=3.9865  MAE=2.9415  spearman=0.961
+2026-03-23 04:12:16,418 INFO DrS6_CT0XrU [train]  RMSE=4.5259  MAE=4.2942  spearman=0.978
+2026-03-23 04:12:16,535 INFO ECP4p12A5FY [train]  RMSE=5.1638  MAE=3.9837  spearman=0.896
+2026-03-23 04:12:16,849 INFO EFxlvlchMw8 [train]  RMSE=4.3461  MAE=2.8475  spearman=0.959
+2026-03-23 04:12:16,963 INFO EhAdb6fIEe0 [train]  RMSE=5.1627  MAE=3.5232  spearman=0.869
+2026-03-23 04:12:17,081 INFO Ei6QuJppkb4 [train]  RMSE=5.7267  MAE=4.2154  spearman=0.977
+2026-03-23 04:12:17,197 INFO FYbEJ3oRgFk [train]  RMSE=15.0731  MAE=14.3581  spearman=0.049
+2026-03-23 04:12:17,315 INFO FZ4waB-THOA [train]  RMSE=6.0015  MAE=5.2907  spearman=0.970
+2026-03-23 04:12:17,427 INFO Fr4ZqY97Bco [train]  RMSE=5.5791  MAE=4.7776  spearman=0.971
+2026-03-23 04:12:17,541 INFO GfEdSBXxyHA [train]  RMSE=13.1841  MAE=11.6305  spearman=0.822
+2026-03-23 04:12:17,660 INFO GthDbmZFW-w [train]  RMSE=8.4439  MAE=6.8971  spearman=0.702
+2026-03-23 04:12:17,777 INFO IgJxh-fJTBU [train]  RMSE=3.8489  MAE=2.6932  spearman=0.964
+2026-03-23 04:12:17,893 INFO JXTBwlW02No [train]  RMSE=4.5381  MAE=3.8910  spearman=0.974
+2026-03-23 04:12:18,009 INFO K5zVqoMMj3Y [train]  RMSE=4.7158  MAE=3.0079  spearman=0.965
+2026-03-23 04:12:18,124 INFO LH3DvvXTxzc [train]  RMSE=2.9068  MAE=2.2117  spearman=0.995
+2026-03-23 04:12:18,237 INFO Mc0b511IaVU [train]  RMSE=3.2622  MAE=2.1800  spearman=0.989
+2026-03-23 04:12:18,355 INFO NE38Pn3CYRc [train]  RMSE=4.6865  MAE=3.1865  spearman=0.891
+2026-03-23 04:12:18,487 INFO Nvq6okhPSOw [train]  RMSE=5.1615  MAE=3.9676  spearman=0.731
+2026-03-23 04:12:18,601 INFO OpuMLYUuP_M [train]  RMSE=5.3363  MAE=4.9099  spearman=0.950
+2026-03-23 04:12:18,714 INFO P9bVljfAWS8 [train]  RMSE=6.8094  MAE=4.9730  spearman=0.987
+2026-03-23 04:12:18,830 INFO Q1ZmiQVX9cY [train]  RMSE=5.1582  MAE=4.0288  spearman=0.872
+2026-03-23 04:12:18,949 INFO RhVq2oJpsEY [train]  RMSE=4.5997  MAE=3.9172  spearman=0.982
+2026-03-23 04:12:19,064 INFO RkwsqGM4_DE [train]  RMSE=5.5388  MAE=4.7320  spearman=0.977
+2026-03-23 04:12:19,180 INFO S_o49-nmh5w [train]  RMSE=4.5739  MAE=4.1398  spearman=0.980
+2026-03-23 04:12:19,294 INFO Sf95qeC7BUs [train]  RMSE=6.1148  MAE=4.8174  spearman=0.918
+2026-03-23 04:12:19,409 INFO U8e1Pd7aBLY [train]  RMSE=3.1857  MAE=2.4276  spearman=0.977
+2026-03-23 04:12:19,525 INFO VYYzb9KHawI [train]  RMSE=5.7716  MAE=4.3597  spearman=0.975
+2026-03-23 04:12:19,856 INFO VYsqc9S5b9E [train]  RMSE=6.4342  MAE=4.1427  spearman=0.959
+2026-03-23 04:12:19,972 INFO W6enyqR-1Jw [train]  RMSE=4.1070  MAE=2.6796  spearman=0.980
+2026-03-23 04:12:20,089 INFO YoGUM0AsXJI [train]  RMSE=3.3368  MAE=2.2437  spearman=0.994
+2026-03-23 04:12:20,204 INFO YubjPoEmzgU [train]  RMSE=6.7727  MAE=5.9605  spearman=0.930
+2026-03-23 04:12:20,322 INFO Z6cbf9WN0c4 [train]  RMSE=9.2363  MAE=7.0891  spearman=0.495
+2026-03-23 04:12:20,437 INFO b5gAWk2QuSU [train]  RMSE=4.2565  MAE=3.6876  spearman=0.992
+2026-03-23 04:12:20,551 INFO bK-1Mfb93uA [train]  RMSE=4.7753  MAE=4.1140  spearman=0.979
+2026-03-23 04:12:20,668 INFO dx7dMwMXSAA [train]  RMSE=4.8005  MAE=3.4178  spearman=0.915
+2026-03-23 04:12:20,787 INFO e21aHqRYPKE [train]  RMSE=3.0043  MAE=2.1024  spearman=0.974
+2026-03-23 04:12:20,902 INFO eL9OqXpmvOE [train]  RMSE=10.5166  MAE=8.6210  spearman=0.724
+2026-03-23 04:12:21,021 INFO eLSgNBnpeRg [train]  RMSE=4.1487  MAE=3.8272  spearman=0.991
+2026-03-23 04:12:21,138 INFO fwHhuHVNR4I [train]  RMSE=3.4393  MAE=2.1802  spearman=0.980
+2026-03-23 04:12:21,252 INFO gYHHQNT6100 [train]  RMSE=6.4202  MAE=5.5567  spearman=0.906
+2026-03-23 04:12:21,368 INFO gkSAR3jbMjA [train]  RMSE=20.7653  MAE=20.2395  spearman=0.732
+2026-03-23 04:12:21,484 INFO hnyYg62DY4E [train]  RMSE=12.0454  MAE=8.3866  spearman=0.556
+2026-03-23 04:12:21,601 INFO iKGmIRAfmCM [train]  RMSE=7.5092  MAE=5.4487  spearman=0.980
+2026-03-23 04:12:21,715 INFO iP_siVZjbzc [train]  RMSE=5.1642  MAE=4.1571  spearman=0.981
+2026-03-23 04:12:21,833 INFO ib29EiVnmJM [train]  RMSE=9.5484  MAE=8.7538  spearman=0.852
+2026-03-23 04:12:21,952 INFO ie3vumn9Je4 [train]  RMSE=8.4693  MAE=6.0471  spearman=0.985
+2026-03-23 04:12:22,073 INFO jPVQgOI33V0 [train]  RMSE=4.3995  MAE=2.7795  spearman=0.988
+2026-03-23 04:12:22,190 INFO jTtvWTti3b0 [train]  RMSE=4.3580  MAE=3.4823  spearman=0.828
+2026-03-23 04:12:22,309 INFO kifrPvJigCU [train]  RMSE=4.0935  MAE=3.1817  spearman=0.991
+2026-03-23 04:12:22,428 INFO lLoSngvynB8 [train]  RMSE=3.8472  MAE=2.3864  spearman=0.956
+2026-03-23 04:12:22,760 INFO lYAEH2n3I58 [train]  RMSE=5.4703  MAE=3.9877  spearman=0.926
+2026-03-23 04:12:22,874 INFO lgeLlSArJXU [train]  RMSE=3.8986  MAE=2.8346  spearman=0.973
+2026-03-23 04:12:22,987 INFO mBzEZBF1a_U [train]  RMSE=5.2206  MAE=4.2585  spearman=0.336
+2026-03-23 04:12:23,102 INFO mM6sYTdPZ-0 [train]  RMSE=9.4953  MAE=8.5816  spearman=0.921
+2026-03-23 04:12:23,218 INFO pfacUo-6wNs [train]  RMSE=5.0714  MAE=4.1649  spearman=0.433
+2026-03-23 04:12:23,333 INFO porv8WwTSgc [train]  RMSE=8.9904  MAE=7.4038  spearman=0.975
+2026-03-23 04:12:23,450 INFO q607HENWvqY [train]  RMSE=4.4297  MAE=3.1292  spearman=0.957
+2026-03-23 04:12:23,568 INFO qoqjZR52lOQ [train]  RMSE=5.3120  MAE=3.1830  spearman=0.968
+2026-03-23 04:12:23,684 INFO rJxhpVu7BhU [train]  RMSE=3.6618  MAE=2.6052  spearman=0.960
+2026-03-23 04:12:23,800 INFO sujXtr4AVRU [train]  RMSE=5.8501  MAE=3.8324  spearman=0.963
+2026-03-23 04:12:23,915 INFO szF7osJgt-A [train]  RMSE=5.9612  MAE=4.5224  spearman=0.981
+2026-03-23 04:12:24,032 INFO vVZDZxRRXDI [train]  RMSE=4.6580  MAE=3.2444  spearman=0.951
+2026-03-23 04:12:24,148 INFO v_puTGCZjnA [train]  RMSE=4.2214  MAE=3.2158  spearman=0.923
+2026-03-23 04:12:24,262 INFO vopiJ3KKT-k [train]  RMSE=5.8656  MAE=4.4093  spearman=0.831
+2026-03-23 04:12:24,383 INFO wS79wHHkjjw [train]  RMSE=5.3159  MAE=3.3130  spearman=0.901
+2026-03-23 04:12:24,498 INFO wWtq4RlbRos [train]  RMSE=3.5886  MAE=2.4783  spearman=0.971
+2026-03-23 04:12:24,615 INFO xK0GkyIVzq4 [train]  RMSE=6.3648  MAE=4.1511  spearman=0.950
+2026-03-23 04:12:24,731 INFO xZnMwJQ4mfc [train]  RMSE=4.8631  MAE=2.5384  spearman=0.967
+2026-03-23 04:12:24,851 INFO yKC5nekLvbs [train]  RMSE=3.9951  MAE=2.6221  spearman=0.967
+2026-03-23 04:12:24,965 INFO yXaJpj7Bb9w [train]  RMSE=7.8506  MAE=6.2004  spearman=0.384
+2026-03-23 04:12:25,082 INFO yv4o4Epz1eM [train]  RMSE=5.6359  MAE=3.3230  spearman=0.979
+2026-03-23 04:12:25,758 INFO Saved feature importance (172 features)
+2026-03-23 04:12:25,769 INFO Saved model: experiments/lstm_exp/v1_baseline/lstm_model.pt
+2026-03-23 04:12:25,770 INFO Saved metrics: experiments/lstm_exp/v1_baseline/metrics.json
+2026-03-23 04:12:25,773 INFO Saved holdout: experiments/lstm_exp/v1_baseline/holdout_prediction_vs_true.csv
+2026-03-23 04:12:25,773 INFO Done. Best val MAE=0.0302, epochs=138, time=13s

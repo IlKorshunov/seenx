@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_multimodal_seq.py", line 8, in <module>
+    from train.transformer.train_multimodal_seq import main
+  File "/home/kolya/ilya/seenx-ml/train/transformer/train_multimodal_seq.py", line 28, in <module>
+    from src.models.retention_multimodal_transformer import MultimodalRetentionTransformer
+  File "/home/kolya/ilya/seenx-ml/src/models/__init__.py", line 5, in <module>
+    from .video_mae_retention import VideoMAEFeatureExtractor, VideoMAERetention, VideoMAEHybridRetention
+  File "/home/kolya/ilya/seenx-ml/src/models/video_mae_retention.py", line 11, in <module>
+    from peft import LoraConfig, get_peft_model
+ModuleNotFoundError: No module named 'peft'

@@ -1,0 +1,199 @@
+2026-03-23 04:18:25,260 INFO Tuned JSON: applied loss / optimizer / window / feature-filter params (architecture kept from CLI — use --tuned-apply-architecture to override).
+2026-03-23 04:18:25,261 INFO Saved tuned payload copy -> experiments/transformer_exp/v4_tuned_multimodal/tuned_params_applied.json
+2026-03-23 04:18:25,261 INFO Merged tuned params from /home/kolya/ilya/seenx-ml/tune_hp/results/tune_multimodal_transformer_best.json
+2026-03-23 04:18:25,261 INFO Loading merged data (no PCA — raw embeddings go to model)...
+2026-03-23 04:18:25,277 INFO Loaded 138P93_Z_u0: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,293 INFO Loaded 1J5zlq2Vs3Y: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,305 INFO Loaded 39R6j9qkzPo: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,316 INFO Loaded 3G6JrAq-w4M: 101 rows, 149 cols (output+llm)
+2026-03-23 04:18:25,327 INFO Loaded 3MncoqWP_qg: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,341 INFO Loaded 3PBo1GiAlbs: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,351 INFO Loaded 3WA4YT8fkx8: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,361 INFO Loaded 4WcGtcKKoWg: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,373 INFO Loaded 6Ha1lqRKMig: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,385 INFO Loaded 6_qPAwOsDi0: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,402 INFO Loaded 7g_56jn0NCA: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,414 INFO Loaded 8YXWaEo201o: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,430 INFO Loaded 8__NWVjeyZ8: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,440 INFO Loaded 9B3N8I4Vidc: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,455 INFO Loaded BZEZxzRJ-L4: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,465 INFO Loaded Db6f982wxPg: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,481 INFO Loaded DhFuAhFMvms: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,489 INFO Loaded DrS6_CT0XrU: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,504 INFO Loaded ECP4p12A5FY: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,517 INFO Loaded EFxlvlchMw8: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,529 INFO Loaded EhAdb6fIEe0: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,540 INFO Loaded Ei6QuJppkb4: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,548 INFO Loaded FYbEJ3oRgFk: 100 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,564 INFO Loaded FZ4waB-THOA: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,577 INFO Loaded Fr4ZqY97Bco: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,591 INFO Loaded GfEdSBXxyHA: 101 rows, 111 cols (output+llm)
+2026-03-23 04:18:25,603 INFO Loaded GthDbmZFW-w: 101 rows, 113 cols (output+llm)
+2026-03-23 04:18:25,615 INFO Loaded IgJxh-fJTBU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,624 INFO Loaded JXTBwlW02No: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,636 INFO Loaded K5zVqoMMj3Y: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,646 INFO Loaded LH3DvvXTxzc: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,657 INFO Loaded Mc0b511IaVU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,665 INFO Loaded NE38Pn3CYRc: 100 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,679 INFO Loaded Nvq6okhPSOw: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,688 INFO Loaded OpuMLYUuP_M: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,697 INFO Loaded P9bVljfAWS8: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,713 INFO Loaded Q1ZmiQVX9cY: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,725 INFO Loaded RhVq2oJpsEY: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,734 INFO Loaded RkwsqGM4_DE: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,743 INFO Loaded S_o49-nmh5w: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,761 INFO Loaded Sf95qeC7BUs: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,772 INFO Loaded U8e1Pd7aBLY: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,781 INFO Loaded VYYzb9KHawI: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,790 INFO Loaded VYsqc9S5b9E: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,803 INFO Loaded W6enyqR-1Jw: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,813 INFO Loaded YoGUM0AsXJI: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,825 INFO Loaded YubjPoEmzgU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,837 INFO Loaded Z6cbf9WN0c4: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,848 INFO Loaded b5gAWk2QuSU: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,859 INFO Loaded bK-1Mfb93uA: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,874 INFO Loaded dx7dMwMXSAA: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,888 INFO Loaded e21aHqRYPKE: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,898 INFO Loaded eL9OqXpmvOE: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,912 INFO Loaded eLSgNBnpeRg: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,923 INFO Loaded fwHhuHVNR4I: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,936 INFO Loaded gYHHQNT6100: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:25,947 INFO Loaded gkSAR3jbMjA: 101 rows, 113 cols (output+llm)
+2026-03-23 04:18:25,959 INFO Loaded hnyYg62DY4E: 101 rows, 113 cols (output+llm)
+2026-03-23 04:18:25,969 INFO Loaded iKGmIRAfmCM: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,981 INFO Loaded iP_siVZjbzc: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:25,997 INFO Loaded ib29EiVnmJM: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:26,008 INFO Loaded ie3vumn9Je4: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:26,020 INFO Loaded jPVQgOI33V0: 101 rows, 151 cols (output+llm)
+2026-03-23 04:18:26,034 INFO Loaded jTtvWTti3b0: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:26,042 INFO Loaded kifrPvJigCU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:26,056 INFO Loaded lLoSngvynB8: 101 rows, 149 cols (output+llm)
+2026-03-23 04:18:26,070 INFO Loaded lYAEH2n3I58: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:26,082 INFO Loaded lgeLlSArJXU: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:26,093 INFO Loaded mBzEZBF1a_U: 101 rows, 127 cols (output+llm)
+2026-03-23 04:18:26,100 INFO Loaded mM6sYTdPZ-0: 100 rows, 127 cols (output+llm)
+2026-03-23 04:18:26,115 INFO Loaded pfacUo-6wNs: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,124 INFO Loaded porv8WwTSgc: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,136 INFO Loaded q607HENWvqY: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,149 INFO Loaded qoqjZR52lOQ: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,160 INFO Loaded rJxhpVu7BhU: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,173 INFO Loaded sujXtr4AVRU: 101 rows, 149 cols (output+llm)
+2026-03-23 04:18:26,181 INFO Loaded szF7osJgt-A: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,193 INFO Loaded vVZDZxRRXDI: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,206 INFO Loaded v_puTGCZjnA: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,214 INFO Loaded vopiJ3KKT-k: 100 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,222 INFO Loaded wS79wHHkjjw: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,227 INFO Loaded wWtq4RlbRos: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,240 INFO Loaded xK0GkyIVzq4: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,253 INFO Loaded xZnMwJQ4mfc: 101 rows, 149 cols (output+llm)
+2026-03-23 04:18:26,268 INFO Loaded yKC5nekLvbs: 101 rows, 149 cols (output+llm)
+2026-03-23 04:18:26,283 INFO Loaded yXaJpj7Bb9w: 101 rows, 119 cols (output+llm)
+2026-03-23 04:18:26,300 INFO Loaded yv4o4Epz1eM: 101 rows, 149 cols (output+llm)
+2026-03-23 04:18:26,301 INFO Total videos loaded: 87 (87 output, 0 snapshot-only)
+2026-03-23 04:18:26,331 INFO Added per-video features: duration_sec, log1p_view_count, mean_retention_prior
+2026-03-23 04:18:26,331 INFO Loading aligned embeddings...
+2026-03-23 04:18:27,364 INFO Loaded aligned embeddings for 87 / 87 videos
+2026-03-23 04:18:28,401 INFO Tabular features after filtering: 100
+2026-03-23 04:18:28,401 INFO Train: 77 videos, Val: 10 videos
+2026-03-23 04:18:28,685 INFO Time ref (max time_sec on train): 1979.0 s
+2026-03-23 04:18:28,686 INFO Video weights: min=0.250  max=1.310  mean=1.022
+2026-03-23 04:18:28,948 INFO Train windows: 77, Val windows: 10
+/home/kolya/ilya/seenx-ml/src/models/retention_multimodal_transformer.py:104: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(encoder_layer, num_layers=n_layers)
+2026-03-23 04:18:29,157 INFO Baseline curve set: 101 points, raw_mean=66.5%, norm_mean=0.5321
+2026-03-23 04:18:29,157 INFO Model: transformer, params: 2892289 (2892.3K), tabular features: 100
+2026-03-23 04:18:40,221 INFO Global calibration: disabled (raw model output; use --global-calibration for OLS a,b)
+2026-03-23 04:18:40,221 INFO 138P93_Z_u0 [val]  RMSE=7.9694  MAE=6.6314  r=0.881
+2026-03-23 04:18:40,333 INFO 1J5zlq2Vs3Y [val]  RMSE=16.4651  MAE=16.0678  r=0.956
+2026-03-23 04:18:40,443 INFO 39R6j9qkzPo [val]  RMSE=9.2747  MAE=9.0032  r=0.956
+2026-03-23 04:18:40,549 INFO 3G6JrAq-w4M [val]  RMSE=7.8966  MAE=7.2608  r=0.852
+2026-03-23 04:18:40,655 INFO 3MncoqWP_qg [val]  RMSE=2.3212  MAE=1.6294  r=0.986
+2026-03-23 04:18:40,764 INFO 3PBo1GiAlbs [val]  RMSE=4.1223  MAE=2.6839  r=0.919
+2026-03-23 04:18:40,871 INFO 3WA4YT8fkx8 [val]  RMSE=6.9890  MAE=6.7490  r=0.989
+2026-03-23 04:18:40,978 INFO 4WcGtcKKoWg [val]  RMSE=13.2287  MAE=12.9042  r=0.976
+2026-03-23 04:18:41,084 INFO 6Ha1lqRKMig [val]  RMSE=8.0060  MAE=7.2008  r=0.929
+2026-03-23 04:18:41,193 INFO 6_qPAwOsDi0 [val]  RMSE=7.6409  MAE=7.3451  r=0.977
+2026-03-23 04:18:41,299 INFO 7g_56jn0NCA [train]  RMSE=3.2890  MAE=2.9053  r=0.982
+2026-03-23 04:18:41,402 INFO 8YXWaEo201o [train]  RMSE=3.1695  MAE=2.3638  r=0.974
+2026-03-23 04:18:41,512 INFO 8__NWVjeyZ8 [train]  RMSE=3.1488  MAE=2.6268  r=0.983
+2026-03-23 04:18:41,617 INFO 9B3N8I4Vidc [train]  RMSE=2.1418  MAE=1.5678  r=0.978
+2026-03-23 04:18:41,843 INFO BZEZxzRJ-L4 [train]  RMSE=3.1602  MAE=2.3277  r=0.973
+2026-03-23 04:18:41,952 INFO Db6f982wxPg [train]  RMSE=4.8111  MAE=4.4864  r=0.989
+2026-03-23 04:18:42,059 INFO DhFuAhFMvms [train]  RMSE=1.9285  MAE=1.5099  r=0.986
+2026-03-23 04:18:42,166 INFO DrS6_CT0XrU [train]  RMSE=4.1334  MAE=2.8746  r=0.945
+2026-03-23 04:18:42,273 INFO ECP4p12A5FY [train]  RMSE=2.8357  MAE=2.0914  r=0.969
+2026-03-23 04:18:42,378 INFO EFxlvlchMw8 [train]  RMSE=1.9016  MAE=1.5604  r=0.985
+2026-03-23 04:18:42,484 INFO EhAdb6fIEe0 [train]  RMSE=2.1550  MAE=1.7691  r=0.990
+2026-03-23 04:18:42,594 INFO Ei6QuJppkb4 [train]  RMSE=4.7526  MAE=3.7817  r=0.955
+2026-03-23 04:18:42,699 INFO FYbEJ3oRgFk [train]  RMSE=4.2851  MAE=3.0728  r=0.962
+2026-03-23 04:18:42,808 INFO FZ4waB-THOA [train]  RMSE=2.4209  MAE=2.0041  r=0.992
+2026-03-23 04:18:42,913 INFO Fr4ZqY97Bco [train]  RMSE=2.8127  MAE=2.0165  r=0.990
+2026-03-23 04:18:43,021 INFO GfEdSBXxyHA [train]  RMSE=2.0097  MAE=1.4899  r=0.982
+2026-03-23 04:18:43,130 INFO GthDbmZFW-w [train]  RMSE=3.3167  MAE=2.2148  r=0.959
+2026-03-23 04:18:43,236 INFO IgJxh-fJTBU [train]  RMSE=3.0773  MAE=2.1911  r=0.972
+2026-03-23 04:18:43,340 INFO JXTBwlW02No [train]  RMSE=3.8863  MAE=3.2485  r=0.965
+2026-03-23 04:18:43,447 INFO K5zVqoMMj3Y [train]  RMSE=5.1099  MAE=4.6687  r=0.964
+2026-03-23 04:18:43,673 INFO LH3DvvXTxzc [train]  RMSE=2.0413  MAE=1.5185  r=0.984
+2026-03-23 04:18:43,779 INFO Mc0b511IaVU [train]  RMSE=2.5000  MAE=2.1924  r=0.993
+2026-03-23 04:18:43,887 INFO NE38Pn3CYRc [train]  RMSE=5.0296  MAE=3.9595  r=0.920
+2026-03-23 04:18:43,997 INFO Nvq6okhPSOw [train]  RMSE=2.9774  MAE=2.6246  r=0.990
+2026-03-23 04:18:44,104 INFO OpuMLYUuP_M [train]  RMSE=5.9037  MAE=5.0051  r=0.917
+2026-03-23 04:18:44,209 INFO P9bVljfAWS8 [train]  RMSE=3.3849  MAE=2.6423  r=0.966
+2026-03-23 04:18:44,315 INFO Q1ZmiQVX9cY [train]  RMSE=2.7094  MAE=2.3407  r=0.987
+2026-03-23 04:18:44,426 INFO RhVq2oJpsEY [train]  RMSE=2.1151  MAE=1.7832  r=0.989
+2026-03-23 04:18:44,532 INFO RkwsqGM4_DE [train]  RMSE=3.1208  MAE=2.3799  r=0.982
+2026-03-23 04:18:44,640 INFO S_o49-nmh5w [train]  RMSE=2.0821  MAE=1.6201  r=0.989
+2026-03-23 04:18:44,746 INFO Sf95qeC7BUs [train]  RMSE=2.8425  MAE=2.1391  r=0.951
+2026-03-23 04:18:44,851 INFO U8e1Pd7aBLY [train]  RMSE=4.1065  MAE=3.6351  r=0.979
+2026-03-23 04:18:44,957 INFO VYYzb9KHawI [train]  RMSE=2.2240  MAE=1.6895  r=0.980
+2026-03-23 04:18:45,063 INFO VYsqc9S5b9E [train]  RMSE=3.2681  MAE=2.4974  r=0.979
+2026-03-23 04:18:45,168 INFO W6enyqR-1Jw [train]  RMSE=2.0207  MAE=1.6513  r=0.992
+2026-03-23 04:18:45,278 INFO YoGUM0AsXJI [train]  RMSE=1.1140  MAE=0.7144  r=0.994
+2026-03-23 04:18:45,504 INFO YubjPoEmzgU [train]  RMSE=3.1140  MAE=2.3613  r=0.986
+2026-03-23 04:18:45,614 INFO Z6cbf9WN0c4 [train]  RMSE=4.8523  MAE=4.0899  r=0.889
+2026-03-23 04:18:45,720 INFO b5gAWk2QuSU [train]  RMSE=4.4167  MAE=4.0912  r=0.992
+2026-03-23 04:18:45,824 INFO bK-1Mfb93uA [train]  RMSE=1.6453  MAE=1.1958  r=0.989
+2026-03-23 04:18:45,933 INFO dx7dMwMXSAA [train]  RMSE=1.6876  MAE=1.2520  r=0.989
+2026-03-23 04:18:46,044 INFO e21aHqRYPKE [train]  RMSE=3.2451  MAE=2.9439  r=0.989
+2026-03-23 04:18:46,150 INFO eL9OqXpmvOE [train]  RMSE=4.4453  MAE=3.6810  r=0.985
+2026-03-23 04:18:46,260 INFO eLSgNBnpeRg [train]  RMSE=3.7248  MAE=3.0816  r=0.979
+2026-03-23 04:18:46,371 INFO fwHhuHVNR4I [train]  RMSE=4.2546  MAE=3.6330  r=0.961
+2026-03-23 04:18:46,477 INFO gYHHQNT6100 [train]  RMSE=3.0162  MAE=2.6334  r=0.991
+2026-03-23 04:18:46,582 INFO gkSAR3jbMjA [train]  RMSE=10.5968  MAE=10.0661  r=0.967
+2026-03-23 04:18:46,687 INFO hnyYg62DY4E [train]  RMSE=5.9450  MAE=5.0671  r=0.981
+2026-03-23 04:18:46,793 INFO iKGmIRAfmCM [train]  RMSE=2.2558  MAE=1.5537  r=0.985
+2026-03-23 04:18:46,897 INFO iP_siVZjbzc [train]  RMSE=1.9708  MAE=1.5676  r=0.994
+2026-03-23 04:18:47,005 INFO ib29EiVnmJM [train]  RMSE=3.0274  MAE=2.7895  r=0.994
+2026-03-23 04:18:47,113 INFO ie3vumn9Je4 [train]  RMSE=3.5709  MAE=2.4213  r=0.980
+2026-03-23 04:18:47,348 INFO jPVQgOI33V0 [train]  RMSE=2.0593  MAE=1.6517  r=0.992
+2026-03-23 04:18:47,456 INFO jTtvWTti3b0 [train]  RMSE=1.6332  MAE=1.1705  r=0.991
+2026-03-23 04:18:47,565 INFO kifrPvJigCU [train]  RMSE=2.8761  MAE=2.5471  r=0.981
+2026-03-23 04:18:47,671 INFO lLoSngvynB8 [train]  RMSE=3.5479  MAE=3.1434  r=0.980
+2026-03-23 04:18:47,777 INFO lYAEH2n3I58 [train]  RMSE=3.5929  MAE=2.9617  r=0.979
+2026-03-23 04:18:47,884 INFO lgeLlSArJXU [train]  RMSE=2.0657  MAE=1.6879  r=0.983
+2026-03-23 04:18:47,991 INFO mBzEZBF1a_U [train]  RMSE=2.3336  MAE=1.7604  r=0.984
+2026-03-23 04:18:48,096 INFO mM6sYTdPZ-0 [train]  RMSE=4.6083  MAE=3.4328  r=0.914
+2026-03-23 04:18:48,203 INFO pfacUo-6wNs [train]  RMSE=2.1116  MAE=1.3650  r=0.985
+2026-03-23 04:18:48,308 INFO porv8WwTSgc [train]  RMSE=4.0636  MAE=2.9171  r=0.962
+2026-03-23 04:18:48,415 INFO q607HENWvqY [train]  RMSE=2.4229  MAE=1.9594  r=0.984
+2026-03-23 04:18:48,521 INFO qoqjZR52lOQ [train]  RMSE=3.2626  MAE=2.3556  r=0.976
+2026-03-23 04:18:48,627 INFO rJxhpVu7BhU [train]  RMSE=2.9356  MAE=2.6117  r=0.983
+2026-03-23 04:18:48,734 INFO sujXtr4AVRU [train]  RMSE=2.7721  MAE=2.3752  r=0.985
+2026-03-23 04:18:48,838 INFO szF7osJgt-A [train]  RMSE=2.9036  MAE=1.8951  r=0.969
+2026-03-23 04:18:48,943 INFO vVZDZxRRXDI [train]  RMSE=2.0154  MAE=1.5885  r=0.981
+2026-03-23 04:18:49,051 INFO v_puTGCZjnA [train]  RMSE=3.6978  MAE=3.2666  r=0.984
+2026-03-23 04:18:49,285 INFO vopiJ3KKT-k [train]  RMSE=5.2718  MAE=4.2557  r=0.929
+2026-03-23 04:18:49,398 INFO wS79wHHkjjw [train]  RMSE=4.6248  MAE=3.7711  r=0.966
+2026-03-23 04:18:49,504 INFO wWtq4RlbRos [train]  RMSE=5.0155  MAE=4.7905  r=0.976
+2026-03-23 04:18:49,612 INFO xK0GkyIVzq4 [train]  RMSE=3.5492  MAE=2.4522  r=0.961
+2026-03-23 04:18:49,721 INFO xZnMwJQ4mfc [train]  RMSE=2.8931  MAE=2.4814  r=0.983
+2026-03-23 04:18:49,833 INFO yKC5nekLvbs [train]  RMSE=3.2336  MAE=2.9786  r=0.981
+2026-03-23 04:18:49,939 INFO yXaJpj7Bb9w [train]  RMSE=6.4392  MAE=5.7621  r=0.979
+2026-03-23 04:18:50,047 INFO yv4o4Epz1eM [train]  RMSE=2.2363  MAE=1.8406  r=0.989
+2026-03-23 04:18:50,158 INFO Computing feature importance...
+2026-03-23 04:19:03,158 INFO Tabular importance: 100 features, baseline MAE=7.7516
+2026-03-23 04:19:03,199 INFO Ablation visual: MAE=8.1674 (baseline=7.7516, delta=+0.4158)
+2026-03-23 04:19:03,239 INFO Ablation audio: MAE=7.6332 (baseline=7.7516, delta=+-0.1184)
+2026-03-23 04:19:03,279 INFO Ablation text: MAE=8.5914 (baseline=7.7516, delta=+0.8398)
+2026-03-23 04:19:03,319 INFO Ablation all embeddings: MAE=8.5855 (delta=+0.8340)
+2026-03-23 04:19:03,364 INFO Done. Best val loss=0.0183, epochs=105, time=10s

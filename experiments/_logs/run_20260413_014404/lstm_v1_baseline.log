@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_lstm_seq_v1.py", line 8, in <module>
+    from train.lstm.train_lstm_seq_v1 import main
+  File "/home/kolya/ilya/seenx-ml/train/lstm/train_lstm_seq_v1.py", line 14, in <module>
+    from src.models.retention_lstm import RetentionLSTM
+  File "/home/kolya/ilya/seenx-ml/src/models/__init__.py", line 5, in <module>
+    from .video_mae_retention import VideoMAEFeatureExtractor, VideoMAERetention, VideoMAEHybridRetention
+  File "/home/kolya/ilya/seenx-ml/src/models/video_mae_retention.py", line 11, in <module>
+    from peft import LoraConfig, get_peft_model
+ModuleNotFoundError: No module named 'peft'

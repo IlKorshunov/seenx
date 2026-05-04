@@ -1,0 +1,23 @@
+{
+  "videos_total_with_target": 83,
+  "videos_used": 6,
+  "train_videos": 5,
+  "curve_points": 2,
+  "test_video": "3PBo1GiAlbs",
+  "test_drive_file_id": "3PBo1GiAlbs",
+  "oof_folds": 5,
+  "meta_l2": 0.02,
+  "base_models": [
+    "baseline",
+    "residual_huber",
+    "local_knn"
+  ],
+  "dataset_path": "/home/kolya/ilya/seenx-ml/experiments/loo/meta_ensemble/meta_ensemble_dataset.csv",
+  "prediction_path": "/home/kolya/ilya/seenx-ml/experiments/loo/meta_ensemble/holdout_prediction_vs_true.csv",
+  "spearman": 0.9999999999999999,
+  "pearson": 1.0,
+  "rmse": 0.11878004074292856,
+  "mae": 0.08399017227893918,
+  "spike_rmse": 0.16798034455787836,
+  "curvature_rmse": 0.0
+}

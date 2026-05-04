@@ -1,0 +1,61 @@
+---
+description: Conventions for adding and extending feature extractors (video, text, audio)
+globs: src/extractors/**/*.py
+alwaysApply: false
+---
+
+# Feature Extractors
+
+## Output Conventions
+
+- All features are **per-second** (index = second 0..duration-1).
+- Column names: snake_case, e.g. `overlay_prob`, `hook_score`, `loudness_change`.
+- Continuous: values in [0, 1] or raw floats. Binary: 0/1. Categorical: use int codes or separate binary cols.
+
+## Video Extractors (frame-based)
+
+Inherit from `VideoFeature` in `feature_extractor.py`:
+
+```python
+class MyFeature(VideoFeature):
+    def required_keys(self):
+        return set()  # or {"other_col"} if depends on prior pass
+
+    def produces_keys(self):
+        return {"my_prob"}
+
+    def run(self, video_path, context):
+        df = context["data"]  # DataFrame, index = seconds
+        df["my_prob"] = 0.0
+        dataset = VideoBatchDataset(
+            video_path=video_path,
+            batch_size=self.config.get("batch_size"),
+            transform=self.default_transform,
+        )
+        # ... inference loop, write to df.at[idx, "my_prob"]
+```
+
+- Use `config.get("device")`, `config.get("batch_size")`, `config.get("clip_model")` etc.
+- Use `torch.autocast(device_type=self.device.type, enabled=self.use_fp16)` when on CUDA.
+- Add to `src/extractors/video/__init__.py` and `src/aggregator.py` imports + `all_passes` / `_ALL_EXPECTED`.
+
+## Text Extractors
+
+- Function signature: `extract_X(video_path, config, existing_features=None) -> pd.DataFrame`
+- Use `get_segments_and_duration`, `seg_bounds`, `skip_if_exists` from `text._base`.
+- Skip if `skip_if_exists({"col1", "col2"}, existing_features, "name")` returns True.
+- Add to `src/aggregator.py` imports and pipeline steps.
+
+## Audio Extractors
+
+- Same signature: `extract_X(video_path, config, existing_features=None) -> pd.DataFrame`
+- Use `extract_audio_to_wav`, `get_video_duration` from `seenx_utils` / `audio_utils`.
+- Add to `src/aggregator.py` imports and pipeline steps.
+
+## Registration Checklist
+
+1. Implement extractor in `src/extractors/{audio,text,video}/`.
+2. Export from `src/extractors/{audio,text,video}/__init__.py`.
+3. Import in `src/aggregator.py`.
+4. Add to pipeline (e.g. `all_passes` for video, or `_STEPS` for function-based).
+5. Add produced column names to `_ALL_EXPECTED` in `aggregator.py`.

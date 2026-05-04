@@ -1,0 +1,10 @@
+{
+  "video_folder": "szF7osJgt-A",
+  "transcript_path": "transcripts",
+  "transcript_file": {
+    "file_id": "1JliIvSF7Lfns0msmvOYaKnd4hCwp6lXo",
+    "name": "whisper_segments.csv",
+    "mime_type": "text/csv",
+    "parent_id": "1ZIeLmURjsem5CBGD0R0GlbFMSkutYFqz"
+  }
+}

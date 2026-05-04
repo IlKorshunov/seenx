@@ -1,0 +1,3 @@
+point_idx,baseline_value,pred_residual_base,pred_residual_delta_curve,pred_retention,pred_retention_norm,pred_score_raw,true_retention,abs_error
+0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,0.0
+1,0.438,-0.030827095917601355,-0.013290434470945911,0.4185717340227247,0.4185717340227247,0.4185717340227247,0.27,0.14857173402272467

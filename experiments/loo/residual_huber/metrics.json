@@ -1,0 +1,23 @@
+{
+  "videos_total_with_target": 83,
+  "videos_used": 6,
+  "train_videos": 5,
+  "curve_points": 2,
+  "test_video": "3PBo1GiAlbs",
+  "test_drive_file_id": "3PBo1GiAlbs",
+  "huber_delta": 0.03,
+  "huber_delta_delta": 0.015,
+  "delta_blend": 0.65,
+  "delta_max_step": 0.15,
+  "point_models_count": 1,
+  "delta_models_count": 1,
+  "dataset_path": "/home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/residual_huber_dataset.csv",
+  "prediction_path": "/home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/holdout_prediction_vs_true.csv",
+  "models_dir": "/home/kolya/ilya/seenx-ml/experiments/loo/residual_huber/point_models",
+  "spearman": 0.9999999999999999,
+  "pearson": 1.0,
+  "rmse": 0.10505608062011271,
+  "mae": 0.07428586701136233,
+  "spike_rmse": 0.1485717340227246,
+  "curvature_rmse": 0.0
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_stacked_loo.py", line 435, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_stacked_loo.py", line 431, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_stacked_loo.py", line 278, in run_experiment
+    pred_abs = _fit_pointwise_predict(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_stacked_loo.py", line 90, in _fit_pointwise_predict
+    task_type=getattr(args, "task_type", "GPU"),
+                      ^^^^
+NameError: name 'args' is not defined

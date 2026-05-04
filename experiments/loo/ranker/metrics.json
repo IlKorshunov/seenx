@@ -1,0 +1,13 @@
+{
+  "videos_total_with_target": 83,
+  "videos_used": 6,
+  "train_videos": 5,
+  "curve_points": 2,
+  "test_video": "3PBo1GiAlbs",
+  "spearman": 0.9999999999999999,
+  "pearson": 1.0,
+  "rmse": 0.19091883092036785,
+  "dataset_path": "/home/kolya/ilya/seenx-ml/experiments/loo/ranker/ranker_dataset.csv",
+  "prediction_path": "/home/kolya/ilya/seenx-ml/experiments/loo/ranker/holdout_prediction_vs_true.csv",
+  "model_path": "/home/kolya/ilya/seenx-ml/experiments/loo/ranker/catboost_ranker.cbm"
+}

@@ -1,0 +1,61 @@
+[blended_quantile] stage=quantile_points total=20 alpha=0.35
+[blended_quantile][point] 1/20
+[blended_quantile][point] 2/20
+[blended_quantile][point] 3/20
+[blended_quantile][point] 4/20
+[blended_quantile][point] 5/20
+[blended_quantile][point] 6/20
+[blended_quantile][point] 7/20
+[blended_quantile][point] 8/20
+[blended_quantile][point] 9/20
+[blended_quantile][point] 10/20
+[blended_quantile][point] 11/20
+[blended_quantile][point] 12/20
+[blended_quantile][point] 13/20
+[blended_quantile][point] 14/20
+[blended_quantile][point] 15/20
+[blended_quantile][point] 16/20
+[blended_quantile][point] 17/20
+[blended_quantile][point] 18/20
+[blended_quantile][point] 19/20
+[blended_quantile][point] 20/20
+=== Retention Blended-Quantile LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+baseline_weight: 0.35
+model_count: 20
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/blended_quantile_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/point_models
+spearman: 0.8556390977443609
+pearson: 0.9249332061822786
+rmse: 0.07908869839329409
+mae: 0.06323750001671677
+spike_rmse: 0.059385642584488106
+curvature_rmse: 0.08940821027095525
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  baseline_value  model_quantile_pred pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0        0.999970             1.000000        0.99999             0.999989        0.999989        1.00000   0.00001
+         1        0.814674             0.814416        0.81451             0.814507        0.814507        0.75553   0.05898
+         2        0.773569             0.761970        0.76603             0.766030        0.766030        0.52776   0.23827
+         3        0.730701             0.693068        0.70624             0.706240        0.706240        0.60118   0.10506
+         4        0.721670             0.723778        0.72304             0.723040        0.723040        0.69789   0.02515
+         5        0.705409             0.715082        0.71170             0.711697        0.711697        0.69276   0.01893
+         6        0.695300             0.704158        0.70106             0.701058        0.701058        0.66316   0.03790
+         7        0.687583             0.688699        0.68831             0.688309        0.688309        0.65250   0.03581
+         8        0.674225             0.663386        0.66718             0.667180        0.667180        0.63671   0.03047
+         9        0.664814             0.659674        0.66147             0.661473        0.661473        0.61974   0.04174
+        10        0.654897             0.673048        0.66670             0.666696        0.666696        0.59526   0.07143
+        11        0.639979             0.626643        0.63131             0.631311        0.631311        0.58500   0.04631
+        12        0.623858             0.649784        0.64071             0.640710        0.640710        0.56250   0.07821
+        13        0.613330             0.591516        0.59915             0.599151        0.599151        0.54750   0.05165
+        14        0.602811             0.624302        0.61678             0.616780        0.616780        0.54000   0.07678
+        15        0.593415             0.614673        0.60723             0.607233        0.607233        0.52539   0.08184
+        16        0.582728             0.590457        0.58775             0.587752        0.587752        0.52500   0.06275
+        17        0.571242             0.610751        0.59692             0.596923        0.596923        0.50250   0.09442
+        18        0.553402             0.542504        0.54632             0.546318        0.546318        0.48947   0.05684
+        19        0.406555             0.426782        0.41970             0.419703        0.419703        0.36750   0.05220

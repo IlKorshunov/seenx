@@ -1,0 +1,14 @@
+{
+    "audio_sr": 22050,
+    "chroma_fps": 2,
+    "scan_ratio": 1.0,
+    "min_bumper_sec": 6,
+    "max_bumper_sec": 25,
+    "match_threshold": 0.88,
+    "mask_score_ratio": 0.9,
+    "mask_radius_sec": 5,
+    "silence_thresh": 0.005,
+    "locate_threshold": 0.87,
+    "locate_max_per_video": 2,
+    "min_candidate_videos": 2
+}

@@ -1,0 +1,457 @@
+============================================================
+LOO Experiments Runner
+============================================================
+SNAPSHOT_DIR=data  CURVE_POINTS=20  SEED=42
+ITERATIONS=700  LR=0.05  DEPTH=6
+LOG: experiments/_logs/loo_20260321_234912
+============================================================
+[RUN] regressor
+[OUT] experiments/loo/regressor
+[LOG] experiments/_logs/loo_20260321_234912/regressor.log
+=== Retention Regressor LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+spearman: 0.8451127819548873
+pearson: 0.909729836628565
+rmse: 0.0979764212558373
+mae: 0.08319537693273357
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/regressor/regressor_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/regressor/holdout_prediction_vs_true.csv
+point_models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/regressor/point_models
+point_models_count: 20
+delta_models_count: 19
+delta_blend: 0.65
+delta_max_step: 0.25
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  pred_retention_base  pred_retention_delta_curve pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0             0.999999                    0.999999        1.00000             0.999999        0.999999        1.00000   0.00000
+         1             0.834961                    0.836899        0.83622             0.836221        0.836221        0.75553   0.08069
+         2             0.800397                    0.797764        0.79869             0.798686        0.798686        0.52776   0.27092
+         3             0.725410                    0.764531        0.75084             0.750839        0.750839        0.60118   0.14965
+         4             0.727748                    0.724441        0.72560             0.725599        0.725599        0.69789   0.02770
+         5             0.708371                    0.736550        0.72669             0.726687        0.726687        0.69276   0.03392
+         6             0.738688                    0.738634        0.73865             0.738653        0.738653        0.66316   0.07549
+         7             0.709445                    0.725088        0.71961             0.719613        0.719613        0.65250   0.06711
+         8             0.703259                    0.708224        0.70649             0.706486        0.706486        0.63671   0.06978
+         9             0.708422                    0.683859        0.69246             0.692456        0.692456        0.61974   0.07272
+        10             0.677134                    0.676742        0.67688             0.676880        0.676880        0.59526   0.08162
+        11             0.667712                    0.660963        0.66333             0.663325        0.663325        0.58500   0.07833
+        12             0.655471                    0.649295        0.65146             0.651457        0.651457        0.56250   0.08896
+        13             0.634817                    0.637582        0.63661             0.636614        0.636614        0.54750   0.08911
+        14             0.624278                    0.619332        0.62106             0.621063        0.621063        0.54000   0.08106
+        15             0.625388                    0.608480        0.61440             0.614398        0.614398        0.52539   0.08900
+        16             0.623874                    0.599575        0.60808             0.608079        0.608079        0.52500   0.08308
+        17             0.599101                    0.585712        0.59040             0.590398        0.590398        0.50250   0.08790
+        18             0.571037                    0.568575        0.56944             0.569437        0.569437        0.48947   0.07996
+        19             0.407429                    0.433515        0.42438             0.424385        0.424385        0.36750   0.05688
+[OK] regressor
+============================================================
+[RUN] shape_only
+[OUT] experiments/loo/shape_only
+[LOG] experiments/_logs/loo_20260321_234912/shape_only.log
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_shape_only_loo.py", line 262, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_shape_only_loo.py", line 258, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_shape_only_loo.py", line 109, in run_experiment
+    all_df, train_df, test_df = select_train_test(rows, args)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 124, in select_train_test
+    raise RuntimeError(
+RuntimeError: Недостаточно видео с target retention: найдено 83, нужно 90
+[FAIL] shape_only (exit=1)
+============================================================
+[RUN] local_knn
+[OUT] experiments/loo/local_knn
+[LOG] experiments/_logs/loo_20260321_234912/local_knn.log
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 416, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 412, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 296, in run_experiment
+    all_df, train_df, test_df = select_train_test(rows, args)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 124, in select_train_test
+    raise RuntimeError(
+RuntimeError: Недостаточно видео с target retention: найдено 83, нужно 90
+[FAIL] local_knn (exit=1)
+============================================================
+[RUN] ranker
+[OUT] experiments/loo/ranker
+[LOG] experiments/_logs/loo_20260321_234912/ranker.log
+=== Retention Ranker LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+spearman: 0.8466165413533834
+pearson: 0.8938057710839589
+rmse: 0.25518119224610547
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/ranker_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/holdout_prediction_vs_true.csv
+model_path: /home/kolya/ilya/seenx-ml/experiments/loo/ranker/catboost_ranker.cbm
+=== Holdout Prediction vs True (20 points) ===
+ point_idx pred_score_raw pred_retention_norm true_retention
+         0       15.05030             1.00000        1.00000
+         1        9.44992             0.76427        0.75553
+         2        6.11368             0.62383        0.52776
+         3        3.17464             0.50012        0.60118
+         4        2.08127             0.45410        0.69789
+         5        1.96440             0.44918        0.69276
+         6        2.12195             0.45581        0.66316
+         7        1.93930             0.44812        0.65250
+         8        1.32468             0.42225        0.63671
+         9        0.32179             0.38004        0.61974
+        10       -0.33161             0.35253        0.59526
+        11       -1.17819             0.31690        0.58500
+        12       -1.83134             0.28941        0.56250
+        13       -2.42004             0.26463        0.54750
+        14       -3.00666             0.23993        0.54000
+        15       -3.62721             0.21381        0.52539
+        16       -4.26605             0.18692        0.52500
+        17       -5.01874             0.15524        0.50250
+        18       -5.75522             0.12424        0.48947
+        19       -8.70681             0.00000        0.36750
+[OK] ranker
+============================================================
+[RUN] hybrid
+[OUT] experiments/loo/hybrid
+[LOG] experiments/_logs/loo_20260321_234912/hybrid.log
+=== Retention Hybrid LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+ensemble_seeds: [42]
+shape_ranker_weight: 0.7
+shape_anchor_points: 1
+level_anchor_points: 2
+level_pred: 0.9122768066546744
+level_true: 0.8777631578947368
+level_abs_error: 0.034513648759937565
+tail_pred: 0.5056358768794735
+tail_true: 0.4284868421052631
+tail_abs_error: 0.07714903477421042
+use_tail_floor: 1
+affine_calibration_enabled: 0
+calib_alpha: 1.0
+calib_beta: 0.0
+spearman_abs: 0.837593984962406
+pearson_abs: 0.9094111195392576
+rmse_abs: 0.11622819304235918
+mae_abs: 0.10552984958072383
+rmse_abs_uncalibrated: 0.11622819304235918
+mae_abs_uncalibrated: 0.10552984958072383
+spearman_shape: 0.837593984962406
+pearson_shape: 0.9094111195392575
+rmse_shape: 0.15189158101519606
+mae_shape: 0.1389590052552309
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/hybrid_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/holdout_prediction_vs_true.csv
+ensemble_models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/ensemble_models
+ensemble_models_count: 4
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  point_frac pred_shape true_shape  pred_retention_uncalibrated pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error  abs_error_uncalibrated shape_abs_error
+         0    0.000000    1.00000    1.00000                     0.912277        0.91228             0.912277        0.912277        1.00000   0.08772                0.087723         0.00000
+         1    0.052632    0.77523    0.75553                     0.820874        0.82087             0.820874        0.820874        0.75553   0.06535                0.065348         0.01970
+         2    0.105263    0.66141    0.52776                     0.774591        0.77459             0.774591        0.774591        0.52776   0.24683                0.246828         0.13364
+         3    0.157895    0.56921    0.60118                     0.737102        0.73710             0.737102        0.737102        0.60118   0.13592                0.135917         0.03197
+         4    0.210526    0.52674    0.69789                     0.719831        0.71983             0.719831        0.719831        0.69789   0.02194                0.021936         0.17115
+         5    0.263158    0.54287    0.69276                     0.726388        0.72639             0.726388        0.726388        0.69276   0.03362                0.033625         0.14990
+         6    0.315789    0.55606    0.66316                     0.731752        0.73175             0.731752        0.731752        0.66316   0.06859                0.068594         0.10710
+         7    0.368421    0.54422    0.65250                     0.726938        0.72694             0.726938        0.726938        0.65250   0.07444                0.074438         0.10828
+         8    0.421053    0.51348    0.63671                     0.714436        0.71444             0.714436        0.714436        0.63671   0.07773                0.077726         0.12323
+         9    0.473684    0.48526    0.61974                     0.702963        0.70296             0.702963        0.702963        0.61974   0.08323                0.083226         0.13448
+        10    0.526316    0.46002    0.59526                     0.692698        0.69270             0.692698        0.692698        0.59526   0.09744                0.097435         0.13524
+        11    0.578947    0.43403    0.58500                     0.682131        0.68213             0.682131        0.682131        0.58500   0.09713                0.097131         0.15097
+        12    0.631579    0.41309    0.56250                     0.673614        0.67361             0.673614        0.673614        0.56250   0.11111                0.111114         0.14941
+        13    0.684211    0.39070    0.54750                     0.664511        0.66451             0.664511        0.664511        0.54750   0.11701                0.117011         0.15680
+        14    0.736842    0.36825    0.54000                     0.655383        0.65538             0.655383        0.655383        0.54000   0.11538                0.115383         0.17175
+        15    0.789474    0.34774    0.52539                     0.647041        0.64704             0.647041        0.647041        0.52539   0.12165                0.121646         0.17766
+        16    0.842105    0.32341    0.52500                     0.637148        0.63715             0.637148        0.637148        0.52500   0.11215                0.112148         0.20159
+        17    0.894737    0.30125    0.50250                     0.628137        0.62814             0.628137        0.628137        0.50250   0.12564                0.125637         0.20125
+        18    0.947368    0.27171    0.48947                     0.616124        0.61612             0.616124        0.616124        0.48947   0.12665                0.126650         0.21777
+        19    1.000000    0.13020    0.36750                     0.558580        0.55858             0.558580        0.558580        0.36750   0.19108                0.191080         0.23730
+[OK] hybrid
+============================================================
+[RUN] stacked
+[OUT] experiments/loo/stacked
+[LOG] experiments/_logs/loo_20260321_234912/stacked.log
+=== Retention Stacked LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+oof_folds: 5
+meta_l2: 0.02
+spearman: 0.8571428571428572
+pearson: 0.91819766494525
+rmse: 0.09200563984541493
+mae: 0.0775253096008445
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/stacked/stacked_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/stacked/holdout_prediction_vs_true.csv
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  point_frac  pred_abs_expert  pred_delta_expert  pred_shape_expert pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0    0.000000         0.999998           1.000000           0.914145        0.99997             0.999971        0.999971        1.00000   0.00003
+         1    0.052632         0.839776           0.827597           0.843600        0.82500             0.825004        0.825004        0.75553   0.06948
+         2    0.105263         0.795271           0.783698           0.823937        0.78053             0.780529        0.780529        0.52776   0.25277
+         3    0.157895         0.740953           0.740143           0.799381        0.73259             0.732591        0.732591        0.60118   0.13141
+         4    0.210526         0.722674           0.699832           0.798157        0.73623             0.736227        0.736227        0.69789   0.03833
+         5    0.263158         0.689957           0.708419           0.788888        0.70732             0.707318        0.707318        0.69276   0.01455
+         6    0.315789         0.754368           0.698411           0.808418        0.73436             0.734358        0.734358        0.66316   0.07120
+         7    0.368421         0.729769           0.693357           0.796382        0.69685             0.696845        0.696845        0.65250   0.04435
+         8    0.421053         0.666651           0.679581           0.783742        0.68819             0.688186        0.688186        0.63671   0.05148
+         9    0.473684         0.684869           0.651456           0.776618        0.67316             0.673158        0.673158        0.61974   0.05342
+        10    0.526316         0.680888           0.643909           0.776112        0.67472             0.674725        0.674725        0.59526   0.07946
+        11    0.578947         0.692569           0.627555           0.764673        0.66949             0.669494        0.669494        0.58500   0.08449
+        12    0.631579         0.656560           0.612967           0.762740        0.64412             0.644115        0.644115        0.56250   0.08162
+        13    0.684211         0.655008           0.602692           0.766058        0.64739             0.647390        0.647390        0.54750   0.09989
+        14    0.736842         0.610602           0.583137           0.748154        0.60932             0.609324        0.609324        0.54000   0.06932
+        15    0.789474         0.639915           0.571195           0.749206        0.61464             0.614641        0.614641        0.52539   0.08925
+        16    0.842105         0.608165           0.561400           0.750652        0.60620             0.606195        0.606195        0.52500   0.08120
+        17    0.894737         0.593959           0.547762           0.737369        0.58737             0.587369        0.587369        0.50250   0.08487
+        18    0.947368         0.585917           0.529082           0.735665        0.58447             0.584475        0.584475        0.48947   0.09500
+        19    1.000000         0.407231           0.397696           0.665466        0.42590             0.425901        0.425901        0.36750   0.05840
+[OK] stacked
+============================================================
+[RUN] conservative_catboost
+[OUT] experiments/loo/conservative_catboost
+[LOG] experiments/_logs/loo_20260321_234912/conservative_catboost.log
+[conservative_cb] stage=train points=20 iter=150 depth=4 l2=10.0
+[conservative_cb][point] 1/20
+[conservative_cb][point] 2/20
+[conservative_cb][point] 3/20
+[conservative_cb][point] 4/20
+[conservative_cb][point] 5/20
+[conservative_cb][point] 6/20
+[conservative_cb][point] 7/20
+[conservative_cb][point] 8/20
+[conservative_cb][point] 9/20
+[conservative_cb][point] 10/20
+[conservative_cb][point] 11/20
+[conservative_cb][point] 12/20
+[conservative_cb][point] 13/20
+[conservative_cb][point] 14/20
+[conservative_cb][point] 15/20
+[conservative_cb][point] 16/20
+[conservative_cb][point] 17/20
+[conservative_cb][point] 18/20
+[conservative_cb][point] 19/20
+[conservative_cb][point] 20/20
+=== Retention Conservative-CatBoost LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+iterations: 150
+learning_rate: 0.03
+depth: 4
+l2_leaf_reg: 10.0
+model_count: 20
+baseline_rmse: 0.07875314774557045
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/conservative_catboost_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/point_models
+spearman: 0.8436090225563909
+pearson: 0.9170570476463656
+rmse: 0.08617221286046477
+mae: 0.07039430596511094
+spike_rmse: 0.06044976427640541
+curvature_rmse: 0.08556482902709504
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  baseline_value pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0        0.999970        1.00000             0.999999        0.999999        1.00000   0.00000
+         1        0.814674        0.82252             0.822516        0.822516        0.75553   0.06699
+         2        0.773569        0.77731             0.777315        0.777315        0.52776   0.24955
+         3        0.730701        0.72861             0.728607        0.728607        0.60118   0.12742
+         4        0.721670        0.72371             0.723710        0.723710        0.69789   0.02582
+         5        0.705409        0.72612             0.726123        0.726123        0.69276   0.03336
+         6        0.695300        0.71308             0.713080        0.713080        0.66316   0.04992
+         7        0.687583        0.68306             0.683058        0.683058        0.65250   0.03056
+         8        0.674225        0.67358             0.673579        0.673579        0.63671   0.03687
+         9        0.664814        0.68125             0.681251        0.681251        0.61974   0.06151
+        10        0.654897        0.66861             0.668613        0.668613        0.59526   0.07335
+        11        0.639979        0.65114             0.651135        0.651135        0.58500   0.06614
+        12        0.623858        0.63344             0.633441        0.633441        0.56250   0.07094
+        13        0.613330        0.62950             0.629504        0.629504        0.54750   0.08200
+        14        0.602811        0.61451             0.614514        0.614514        0.54000   0.07451
+        15        0.593415        0.61906             0.619058        0.619058        0.52539   0.09366
+        16        0.582728        0.58586             0.585862        0.585862        0.52500   0.06086
+        17        0.571242        0.58634             0.586343        0.586343        0.50250   0.08384
+        18        0.553402        0.57550             0.575500        0.575500        0.48947   0.08603
+        19        0.406555        0.40204             0.402045        0.402045        0.36750   0.03454
+[OK] conservative_catboost
+============================================================
+[RUN] ad_peak_weighted
+[OUT] experiments/loo/ad_peak_weighted
+[LOG] experiments/_logs/loo_20260321_234912/ad_peak_weighted.log
+=== Retention Ad-Peak-Weighted LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+weight_slope_alpha: 1.4
+weight_curvature_alpha: 0.9
+weight_ad_alpha: 1.2
+weight_max: 6.0
+integration_max_drop: 0.1
+integration_strength_power: 1.0
+integration_active_threshold: 0.5
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/ad_peak_weighted_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/point_models
+spearman: 0.8150375939849623
+pearson: 0.901727201124929
+rmse: 0.08898766942712974
+mae: 0.07206919381746509
+spike_rmse: 0.06700085604095005
+curvature_rmse: 0.09641654153810238
+[OK] ad_peak_weighted
+============================================================
+[RUN] peak_weighted
+[OUT] experiments/loo/peak_weighted
+[LOG] experiments/_logs/loo_20260321_234912/peak_weighted.log
+=== Retention Peak-Weighted LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+weight_slope_alpha: 1.8
+weight_curvature_alpha: 1.2
+weight_max: 7.0
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/peak_weighted/peak_weighted_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/peak_weighted/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/peak_weighted/point_models
+spearman: 0.806015037593985
+pearson: 0.8987686368243086
+rmse: 0.08514571495314315
+mae: 0.06908251230182903
+spike_rmse: 0.06812030657864379
+curvature_rmse: 0.09777997446282966
+[OK] peak_weighted
+============================================================
+[RUN] blended_quantile
+[OUT] experiments/loo/blended_quantile
+[LOG] experiments/_logs/loo_20260321_234912/blended_quantile.log
+[blended_quantile] stage=quantile_points total=20 alpha=0.35
+[blended_quantile][point] 1/20
+[blended_quantile][point] 2/20
+[blended_quantile][point] 3/20
+[blended_quantile][point] 4/20
+[blended_quantile][point] 5/20
+[blended_quantile][point] 6/20
+[blended_quantile][point] 7/20
+[blended_quantile][point] 8/20
+[blended_quantile][point] 9/20
+[blended_quantile][point] 10/20
+[blended_quantile][point] 11/20
+[blended_quantile][point] 12/20
+[blended_quantile][point] 13/20
+[blended_quantile][point] 14/20
+[blended_quantile][point] 15/20
+[blended_quantile][point] 16/20
+[blended_quantile][point] 17/20
+[blended_quantile][point] 18/20
+[blended_quantile][point] 19/20
+[blended_quantile][point] 20/20
+=== Retention Blended-Quantile LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+baseline_weight: 0.35
+model_count: 20
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/blended_quantile_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/point_models
+spearman: 0.8556390977443609
+pearson: 0.9249332061822786
+rmse: 0.07908869839329409
+mae: 0.06323750001671677
+spike_rmse: 0.059385642584488106
+curvature_rmse: 0.08940821027095525
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  baseline_value  model_quantile_pred pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0        0.999970             1.000000        0.99999             0.999989        0.999989        1.00000   0.00001
+         1        0.814674             0.814416        0.81451             0.814507        0.814507        0.75553   0.05898
+         2        0.773569             0.761970        0.76603             0.766030        0.766030        0.52776   0.23827
+         3        0.730701             0.693068        0.70624             0.706240        0.706240        0.60118   0.10506
+         4        0.721670             0.723778        0.72304             0.723040        0.723040        0.69789   0.02515
+         5        0.705409             0.715082        0.71170             0.711697        0.711697        0.69276   0.01893
+         6        0.695300             0.704158        0.70106             0.701058        0.701058        0.66316   0.03790
+         7        0.687583             0.688699        0.68831             0.688309        0.688309        0.65250   0.03581
+         8        0.674225             0.663386        0.66718             0.667180        0.667180        0.63671   0.03047
+         9        0.664814             0.659674        0.66147             0.661473        0.661473        0.61974   0.04174
+        10        0.654897             0.673048        0.66670             0.666696        0.666696        0.59526   0.07143
+        11        0.639979             0.626643        0.63131             0.631311        0.631311        0.58500   0.04631
+        12        0.623858             0.649784        0.64071             0.640710        0.640710        0.56250   0.07821
+        13        0.613330             0.591516        0.59915             0.599151        0.599151        0.54750   0.05165
+        14        0.602811             0.624302        0.61678             0.616780        0.616780        0.54000   0.07678
+        15        0.593415             0.614673        0.60723             0.607233        0.607233        0.52539   0.08184
+        16        0.582728             0.590457        0.58775             0.587752        0.587752        0.52500   0.06275
+        17        0.571242             0.610751        0.59692             0.596923        0.596923        0.50250   0.09442
+        18        0.553402             0.542504        0.54632             0.546318        0.546318        0.48947   0.05684
+        19        0.406555             0.426782        0.41970             0.419703        0.419703        0.36750   0.05220
+[OK] blended_quantile
+============================================================
+[RUN] residual_huber
+[OUT] experiments/loo/residual_huber
+[LOG] experiments/_logs/loo_20260321_234912/residual_huber.log
+[residual_huber] stage=residual_points total=20
+[residual_huber][residual] 1/20
+[residual_huber][residual] 2/20
+[residual_huber][residual] 3/20
+[residual_huber][residual] 4/20
+[residual_huber][residual] 5/20
+[residual_huber][residual] 6/20
+[residual_huber][residual] 7/20
+[residual_huber][residual] 8/20
+[residual_huber][residual] 9/20
+[residual_huber][residual] 10/20
+[residual_huber][residual] 11/20
+[residual_huber][residual] 12/20
+[residual_huber][residual] 13/20
+[residual_huber][residual] 14/20
+[residual_huber][residual] 15/20
+[residual_huber][residual] 16/20
+[residual_huber][residual] 17/20
+[residual_huber][residual] 18/20
+[residual_huber][residual] 19/20
+[residual_huber][residual] 20/20
+[residual_huber] stage=delta_residual total=19
+[residual_huber][delta] 1/19
+[residual_huber][delta] 2/19
+[residual_huber][delta] 3/19
+[residual_huber][delta] 4/19
+[residual_huber][delta] 5/19
+[residual_huber][delta] 6/19
+[residual_huber][delta] 7/19
+[residual_huber][delta] 8/19
+[residual_huber][delta] 9/19
+[residual_huber][delta] 10/19
+[residual_huber][delta] 11/19
+[residual_huber][delta] 12/19
+[residual_huber][delta] 13/19
+[residual_huber][delta] 14/19
+[residual_huber][delta] 15/19
+[residual_huber][delta] 16/19
+[residual_huber][d

@@ -1,0 +1,28 @@
+{
+  "arch": "tabular_transformer",
+  "best_params": {
+    "redundant_corr_threshold": 0.88,
+    "max_nan_pct": 0.52,
+    "min_nonzero_pct": 0.008,
+    "top_k_features": 0,
+    "d_model": 256,
+    "n_heads": 8,
+    "n_layers": 6,
+    "d_ff": 512,
+    "dropout": 0.22,
+    "lr": 0.00038,
+    "weight_decay": 0.002,
+    "alpha_corr": 0.32,
+    "alpha_smooth": 0.14,
+    "alpha_delta": 0.45,
+    "alpha_mono": 0.035,
+    "ad_penalty": 2.4,
+    "start_boost_secs": 18,
+    "start_boost_factor": 1.75,
+    "window_size": 128,
+    "batch_size": 12,
+    "feature_mask_prob": 0.12,
+    "noise_std": 0.018
+  },
+  "note": "Hand-picked tabular transformer priors; merge with --tuned-params-json. Use --tuned-apply-architecture to take d_model/n_layers from this file, or omit flag to keep CLI (e.g. super-heavy) sizes."
+}

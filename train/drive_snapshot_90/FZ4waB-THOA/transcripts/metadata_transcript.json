@@ -1,0 +1,10 @@
+{
+  "video_folder": "FZ4waB-THOA",
+  "transcript_path": "transcripts",
+  "transcript_file": {
+    "file_id": "1GI1cYwHTV3cY4HVWi0dRjjFNLZOKIdvr",
+    "name": "whisper_segments.csv",
+    "mime_type": "text/csv",
+    "parent_id": "1KR7qg4DIPfydMGATXFC65cnoJ75t3m8T"
+  }
+}

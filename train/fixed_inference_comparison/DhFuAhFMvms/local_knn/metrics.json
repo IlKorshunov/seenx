@@ -1,0 +1,22 @@
+{
+  "videos_total_with_target": 90,
+  "videos_used": 90,
+  "train_videos": 89,
+  "curve_points": 100,
+  "test_video": "DhFuAhFMvms",
+  "test_drive_file_id": "1gVX70KoK8NADNqKe-jxplrN7rxjAz_Mp",
+  "auto_tune": true,
+  "neighbors_k": 12,
+  "distance_temperature": 0.8,
+  "residual_strength": 0.45,
+  "spike_gain": 1.0,
+  "smooth_window": 7,
+  "spearman": 0.8574489109074455,
+  "pearson": 0.9115927675590347,
+  "rmse": 0.055355176851845996,
+  "mae": 0.05008264235780255,
+  "spike_rmse": 0.018147294702620043,
+  "curvature_rmse": 0.017600820957950843,
+  "dataset_path": "fixed_inference_comparison/DhFuAhFMvms/local_knn/local_knn_dataset.csv",
+  "prediction_path": "fixed_inference_comparison/DhFuAhFMvms/local_knn/holdout_prediction_vs_true.csv"
+}

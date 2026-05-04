@@ -1,0 +1,81 @@
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+Default metric period is 5 because MAE is/are not implemented for GPU
+[blended_quantile] stage=quantile_points total=20 alpha=0.35
+[blended_quantile][point] 1/20
+[blended_quantile][point] 2/20
+[blended_quantile][point] 3/20
+[blended_quantile][point] 4/20
+[blended_quantile][point] 5/20
+[blended_quantile][point] 6/20
+[blended_quantile][point] 7/20
+[blended_quantile][point] 8/20
+[blended_quantile][point] 9/20
+[blended_quantile][point] 10/20
+[blended_quantile][point] 11/20
+[blended_quantile][point] 12/20
+[blended_quantile][point] 13/20
+[blended_quantile][point] 14/20
+[blended_quantile][point] 15/20
+[blended_quantile][point] 16/20
+[blended_quantile][point] 17/20
+[blended_quantile][point] 18/20
+[blended_quantile][point] 19/20
+[blended_quantile][point] 20/20
+=== Retention Blended-Quantile LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+baseline_weight: 0.35
+model_count: 20
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/blended_quantile_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/blended_quantile/point_models
+spearman: 0.6360902255639098
+pearson: 0.8292803160320055
+rmse: 0.08483822565711735
+mae: 0.06909147421295983
+spike_rmse: 0.09099611033316167
+curvature_rmse: 0.15123158396968575
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  baseline_value  model_quantile_pred pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0        0.999970             1.000000        0.99999             0.999989        0.999989        1.00000   0.00001
+         1        0.814674             0.812213        0.81307             0.813074        0.813074        0.75553   0.05755
+         2        0.773569             0.718854        0.73800             0.738004        0.738004        0.52776   0.21024
+         3        0.730701             0.469265        0.56077             0.560768        0.560768        0.60118   0.04042
+         4        0.721670             0.763989        0.74918             0.749177        0.749177        0.69789   0.05128
+         5        0.705409             0.661655        0.67697             0.676969        0.676969        0.69276   0.01579
+         6        0.695300             0.426306        0.52045             0.520454        0.520454        0.66316   0.14270
+         7        0.687583             0.549764        0.59800             0.598000        0.598000        0.65250   0.05450
+         8        0.674225             0.706787        0.69539             0.695390        0.695390        0.63671   0.05868
+         9        0.664814             0.678590        0.67377             0.673768        0.673768        0.61974   0.05403
+        10        0.654897             0.638278        0.64409             0.644095        0.644095        0.59526   0.04883
+        11        0.639979             0.648423        0.64547             0.645468        0.645468        0.58500   0.06047
+        12        0.623858             0.734961        0.69608             0.696075        0.696075        0.56250   0.13358
+        13        0.613330             0.643960        0.63324             0.633240        0.633240        0.54750   0.08574
+        14        0.602811             0.668676        0.64562             0.645623        0.645623        0.54000   0.10562
+        15        0.593415             0.665014        0.63995             0.639954        0.639954        0.52539   0.11456
+        16        0.582728             0.565187        0.57133             0.571326        0.571326        0.52500   0.04633
+        17        0.571242             0.440501        0.48626             0.486260        0.486260        0.50250   0.01624
+        18        0.553402             0.417588        0.46512             0.465123        0.465123        0.48947   0.02435
+        19        0.406555             0.252765        0.30659             0.306592        0.306592        0.36750   0.06091

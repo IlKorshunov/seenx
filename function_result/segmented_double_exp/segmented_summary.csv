@@ -1,0 +1,4 @@
+segment,n_train,n_val,n_features,n_trees,train_mae,train_r2,val_mae,val_r2,loo_mae_mean,loo_r2_mean,loo_n_folds
+first_drop,140,33,69,192,0.495,0.98,2.416,0.07,2.913,-235.724,87
+dip,4175,755,69,224,2.233,0.947,8.51,0.305,8.515,-21.096,78
+main,75331,17691,69,74,5.209,0.781,9.118,0.233,10.081,-1.416,87

@@ -1,0 +1,19 @@
+{
+  "videos_total_with_target": 90,
+  "videos_used": 90,
+  "train_videos": 89,
+  "curve_points": 100,
+  "test_video": "DhFuAhFMvms",
+  "test_drive_file_id": "1gVX70KoK8NADNqKe-jxplrN7rxjAz_Mp",
+  "spearman": 0.8514658997643172,
+  "pearson": 0.9055207625497252,
+  "rmse": 0.06641133002740854,
+  "mae": 0.06266818131962315,
+  "dataset_path": "fixed_inference_comparison/DhFuAhFMvms/regressor/regressor_dataset.csv",
+  "prediction_path": "fixed_inference_comparison/DhFuAhFMvms/regressor/holdout_prediction_vs_true.csv",
+  "point_models_dir": "fixed_inference_comparison/DhFuAhFMvms/regressor/point_models",
+  "point_models_count": 100,
+  "delta_models_count": 99,
+  "delta_blend": 0.65,
+  "delta_max_step": 0.25
+}

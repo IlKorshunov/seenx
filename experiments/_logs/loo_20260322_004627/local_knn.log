@@ -1,0 +1,25 @@
+=== Retention Local-kNN Residual LOO ===
+videos_total_with_target: 83
+videos_used: 6
+train_videos: 5
+curve_points: 2
+test_video: 3PBo1GiAlbs
+test_drive_file_id: 3PBo1GiAlbs
+auto_tune: False
+neighbors_k: 12
+distance_temperature: 1.0
+residual_strength: 0.65
+spike_gain: 1.05
+smooth_window: 7
+spearman: 0.9999999999999999
+pearson: 0.9999999999999998
+rmse: 0.09350228344627481
+mae: 0.0661160986812876
+spike_rmse: 0.1322321973625752
+curvature_rmse: 0.0
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/local_knn/local_knn_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/local_knn/holdout_prediction_vs_true.csv
+=== Holdout Prediction vs True (2 points) ===
+ point_idx  point_frac  pred_retention_base_knn  pred_retention_residual_component pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0         0.0                 1.000000                           0.240611        1.00000             1.000000        1.000000        1.00000   0.00000
+         1         1.0                 0.438574                          -0.240611        0.40223             0.402232        0.402232        0.27000   0.13223

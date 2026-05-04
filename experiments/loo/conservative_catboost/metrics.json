@@ -1,0 +1,23 @@
+{
+  "videos_total_with_target": 83,
+  "videos_used": 6,
+  "train_videos": 5,
+  "curve_points": 2,
+  "test_video": "3PBo1GiAlbs",
+  "test_drive_file_id": "3PBo1GiAlbs",
+  "iterations": 150,
+  "learning_rate": 0.03,
+  "depth": 4,
+  "l2_leaf_reg": 10.0,
+  "model_count": 1,
+  "baseline_rmse": 0.11879393923933998,
+  "dataset_path": "/home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/conservative_catboost_dataset.csv",
+  "prediction_path": "/home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/holdout_prediction_vs_true.csv",
+  "models_dir": "/home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/point_models",
+  "spearman": 0.9999999999999999,
+  "pearson": 1.0,
+  "rmse": 0.11162618709454804,
+  "mae": 0.0789316338525532,
+  "spike_rmse": 0.1578632677051064,
+  "curvature_rmse": 0.0
+}

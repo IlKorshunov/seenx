@@ -1,0 +1,12 @@
+{
+  "all_mae": 6.081,
+  "all_rmse": 7.087,
+  "all_r2": 0.232,
+  "val_mae": 10.169,
+  "val_rmse": 11.265,
+  "val_r2": -1.282,
+  "train_mae": 5.089,
+  "train_rmse": 6.073,
+  "train_r2": 0.6,
+  "n_videos": 87
+}

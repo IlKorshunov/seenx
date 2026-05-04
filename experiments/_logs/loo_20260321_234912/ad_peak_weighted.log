@@ -1,0 +1,23 @@
+=== Retention Ad-Peak-Weighted LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+weight_slope_alpha: 1.4
+weight_curvature_alpha: 0.9
+weight_ad_alpha: 1.2
+weight_max: 6.0
+integration_max_drop: 0.1
+integration_strength_power: 1.0
+integration_active_threshold: 0.5
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/ad_peak_weighted_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/ad_peak_weighted/point_models
+spearman: 0.8150375939849623
+pearson: 0.901727201124929
+rmse: 0.08898766942712974
+mae: 0.07206919381746509
+spike_rmse: 0.06700085604095005
+curvature_rmse: 0.09641654153810238

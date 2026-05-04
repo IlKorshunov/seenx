@@ -1,0 +1,12 @@
+usage: train_retention_kernel_baseline_loo.py [-h] [--env-file ENV_FILE]
+                                              [--snapshot-dir SNAPSHOT_DIR]
+                                              [--root-folder-id ROOT_FOLDER_ID]
+                                              [--limit-videos LIMIT_VIDEOS]
+                                              [--train-videos TRAIN_VIDEOS]
+                                              [--curve-points CURVE_POINTS]
+                                              [--eval-video-folder EVAL_VIDEO_FOLDER]
+                                              [--eval-drive-file-id EVAL_DRIVE_FILE_ID]
+                                              [--output-dir OUTPUT_DIR]
+                                              [--temperature TEMPERATURE]
+                                              [--max-pca-components MAX_PCA_COMPONENTS]
+train_retention_kernel_baseline_loo.py: error: unrecognized arguments: --random-seed 42 --task-type GPU --gpu-ram-part 0.6

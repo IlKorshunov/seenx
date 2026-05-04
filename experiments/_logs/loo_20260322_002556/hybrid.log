@@ -1,0 +1,60 @@
+Default metric period is 5 because PFound, NDCG is/are not implemented for GPU
+Metric PFound is not implemented on GPU. Will use CPU for metric computation, this could significantly affect learning time
+Metric NDCG:top=20;type=Base is not implemented on GPU. Will use CPU for metric computation, this could significantly affect learning time
+=== Retention Hybrid LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+ensemble_seeds: [42]
+shape_ranker_weight: 0.7
+shape_anchor_points: 1
+level_anchor_points: 2
+level_pred: 0.9284205825837468
+level_true: 0.8777631578947368
+level_abs_error: 0.05065742468901002
+tail_pred: 0.5321002222441926
+tail_true: 0.4284868421052631
+tail_abs_error: 0.10361338013892951
+use_tail_floor: 1
+affine_calibration_enabled: 0
+calib_alpha: 1.0
+calib_beta: 0.0
+spearman_abs: 0.849624060150376
+pearson_abs: 0.8975934590043778
+rmse_abs: 0.14177408218903573
+mae_abs: 0.1326892825636037
+rmse_abs_uncalibrated: 0.14177408218903573
+mae_abs_uncalibrated: 0.1326892825636037
+spearman_shape: 0.849624060150376
+pearson_shape: 0.8975934590043776
+rmse_shape: 0.142420285074844
+mae_shape: 0.1272616660725807
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/hybrid_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/holdout_prediction_vs_true.csv
+ensemble_models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/ensemble_models
+ensemble_models_count: 4
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  point_frac pred_shape true_shape  pred_retention_uncalibrated pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error  abs_error_uncalibrated shape_abs_error
+         0    0.000000    1.00000    1.00000                     0.928421        0.92842             0.928421        0.928421        1.00000   0.07158                0.071579         0.00000
+         1    0.052632    0.78544    0.75553                     0.843385        0.84338             0.843385        0.843385        0.75553   0.08786                0.087858         0.02991
+         2    0.105263    0.70654    0.52776                     0.812115        0.81212             0.812115        0.812115        0.52776   0.28435                0.284352         0.17877
+         3    0.157895    0.61233    0.60118                     0.774780        0.77478             0.774780        0.774780        0.60118   0.17360                0.173596         0.01115
+         4    0.210526    0.59253    0.69789                     0.766934        0.76693             0.766934        0.766934        0.69789   0.06904                0.069039         0.10536
+         5    0.263158    0.57554    0.69276                     0.760197        0.76020             0.760197        0.760197        0.69276   0.06743                0.067434         0.11723
+         6    0.315789    0.57570    0.66316                     0.760264        0.76026             0.760264        0.760264        0.66316   0.09711                0.097106         0.08745
+         7    0.368421    0.56389    0.65250                     0.755583        0.75558             0.755583        0.755583        0.65250   0.10308                0.103083         0.08861
+         8    0.421053    0.53730    0.63671                     0.745045        0.74505             0.745045        0.745045        0.63671   0.10833                0.108335         0.09941
+         9    0.473684    0.51130    0.61974                     0.734737        0.73474             0.734737        0.734737        0.61974   0.11500                0.115000         0.10844
+        10    0.526316    0.48915    0.59526                     0.725959        0.72596             0.725959        0.725959        0.59526   0.13070                0.130696         0.10612
+        11    0.578947    0.45849    0.58500                     0.713808        0.71381             0.713808        0.713808        0.58500   0.12881                0.128808         0.12651
+        12    0.631579    0.42174    0.56250                     0.699245        0.69925             0.699245        0.699245        0.56250   0.13675                0.136745         0.14076
+        13    0.684211    0.39751    0.54750                     0.689643        0.68964             0.689643        0.689643        0.54750   0.14214                0.142143         0.14999
+        14    0.736842    0.36958    0.54000                     0.678572        0.67857             0.678572        0.678572        0.54000   0.13857                0.138572         0.17042
+        15    0.789474    0.35004    0.52539                     0.670829        0.67083             0.670829        0.670829        0.52539   0.14543                0.145434         0.17535
+        16    0.842105    0.32477    0.52500                     0.660811        0.66081             0.660811        0.660811        0.52500   0.13581                0.135811         0.20023
+        17    0.894737    0.30235    0.50250                     0.651928        0.65193             0.651928        0.651928        0.50250   0.14943                0.149428         0.20015
+        18    0.947368    0.27524    0.48947                     0.641183        0.64118             0.641183        0.641183        0.48947   0.15171                0.151709         0.21424
+        19    1.000000    0.13236    0.36750                     0.584556        0.58456             0.584556        0.584556        0.36750   0.21706                0.217056         0.23514

@@ -1,0 +1,5 @@
+modality,mae_without,mae_increase
+visual,7.6374,0.7929
+audio,6.8301,-0.0145
+text,7.0891,0.2445
+all_embeddings_zeroed,8.0242,1.1796

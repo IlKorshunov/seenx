@@ -1,0 +1,23 @@
+Training points:   0%|          | 0/2 [00:00<?, ?it/s]
+Training points: 100%|██████████| 2/2 [00:00<00:00, 9279.43it/s]
+Training points:   0%|          | 0/2 [00:00<?, ?it/s]
+Training points: 100%|██████████| 2/2 [00:00<00:00, 31418.01it/s]
+=== Retention Stacked LOO ===
+videos_total_with_target: 83
+videos_used: 6
+train_videos: 5
+curve_points: 2
+test_video: 3PBo1GiAlbs
+test_drive_file_id: 3PBo1GiAlbs
+oof_folds: 5
+meta_l2: 0.02
+spearman: 0.9999999999999999
+pearson: 0.9999999999999998
+rmse: 0.11935133747432704
+mae: 0.08439414007178075
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/stacked/stacked_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/stacked/holdout_prediction_vs_true.csv
+=== Holdout Prediction vs True (2 points) ===
+ point_idx  point_frac  pred_abs_expert  pred_delta_expert  pred_shape_expert pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0         0.0         1.000000                1.0              0.719        1.00000             1.000000        1.000000        1.00000   0.00000
+         1         1.0         0.436462                0.7              0.719        0.43879             0.438788        0.438788        0.27000   0.16879

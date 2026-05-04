@@ -1,0 +1,23 @@
+{
+    "speaker_image_path": "static/misc/speaker_face.png",
+    "face_detector": "static/weights/yolov12l-face.pt",
+    "face_embedder": "static/weights/arcface_weights.h5",
+    "shot_segmentor": "static/weights/transnetv2-pytorch-weights.pth",
+    "shot_segmentor_batch_size": -1,
+    "whisper_model_size": "large-v3",
+    "whisper_language": "ru",
+    "pose_model": "static/weights/yolo11l-pose.pt",
+    "speaker_probability_threshold": 0.88,
+    "keypoint_confidence_threshold": 0.5,
+    "source_separation_dir": "static/separated/htdemucs/output_audio",
+    "demucs_segment": 8.0,
+    "clip_model": "openai/clip-vit-large-patch14",
+    "clap_model": "laion/larger_clap_music_and_speech",
+    "speech_emotion_model": "superb/wav2vec2-large-superb-er",
+    "batch_size": -1,
+    "device": "gpu",
+    "optical_flow_model": "static/weights/raft-sintel.pth",
+    "shot_bound_shift_frames": 2,
+    "text_prob_stride": 10,
+    "emotion_model_weights": "static/weights/resemotenet_affectnet7.pth"
+}

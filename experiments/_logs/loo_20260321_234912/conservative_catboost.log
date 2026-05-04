@@ -1,0 +1,65 @@
+[conservative_cb] stage=train points=20 iter=150 depth=4 l2=10.0
+[conservative_cb][point] 1/20
+[conservative_cb][point] 2/20
+[conservative_cb][point] 3/20
+[conservative_cb][point] 4/20
+[conservative_cb][point] 5/20
+[conservative_cb][point] 6/20
+[conservative_cb][point] 7/20
+[conservative_cb][point] 8/20
+[conservative_cb][point] 9/20
+[conservative_cb][point] 10/20
+[conservative_cb][point] 11/20
+[conservative_cb][point] 12/20
+[conservative_cb][point] 13/20
+[conservative_cb][point] 14/20
+[conservative_cb][point] 15/20
+[conservative_cb][point] 16/20
+[conservative_cb][point] 17/20
+[conservative_cb][point] 18/20
+[conservative_cb][point] 19/20
+[conservative_cb][point] 20/20
+=== Retention Conservative-CatBoost LOO ===
+videos_total_with_target: 83
+videos_used: 83
+train_videos: 82
+curve_points: 20
+test_video: Z6cbf9WN0c4
+test_drive_file_id: Z6cbf9WN0c4
+iterations: 150
+learning_rate: 0.03
+depth: 4
+l2_leaf_reg: 10.0
+model_count: 20
+baseline_rmse: 0.07875314774557045
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/conservative_catboost_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/holdout_prediction_vs_true.csv
+models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/conservative_catboost/point_models
+spearman: 0.8436090225563909
+pearson: 0.9170570476463656
+rmse: 0.08617221286046477
+mae: 0.07039430596511094
+spike_rmse: 0.06044976427640541
+curvature_rmse: 0.08556482902709504
+=== Holdout Prediction vs True (20 points) ===
+ point_idx  baseline_value pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error
+         0        0.999970        1.00000             0.999999        0.999999        1.00000   0.00000
+         1        0.814674        0.82252             0.822516        0.822516        0.75553   0.06699
+         2        0.773569        0.77731             0.777315        0.777315        0.52776   0.24955
+         3        0.730701        0.72861             0.728607        0.728607        0.60118   0.12742
+         4        0.721670        0.72371             0.723710        0.723710        0.69789   0.02582
+         5        0.705409        0.72612             0.726123        0.726123        0.69276   0.03336
+         6        0.695300        0.71308             0.713080        0.713080        0.66316   0.04992
+         7        0.687583        0.68306             0.683058        0.683058        0.65250   0.03056
+         8        0.674225        0.67358             0.673579        0.673579        0.63671   0.03687
+         9        0.664814        0.68125             0.681251        0.681251        0.61974   0.06151
+        10        0.654897        0.66861             0.668613        0.668613        0.59526   0.07335
+        11        0.639979        0.65114             0.651135        0.651135        0.58500   0.06614
+        12        0.623858        0.63344             0.633441        0.633441        0.56250   0.07094
+        13        0.613330        0.62950             0.629504        0.629504        0.54750   0.08200
+        14        0.602811        0.61451             0.614514        0.614514        0.54000   0.07451
+        15        0.593415        0.61906             0.619058        0.619058        0.52539   0.09366
+        16        0.582728        0.58586             0.585862        0.585862        0.52500   0.06086
+        17        0.571242        0.58634             0.586343        0.586343        0.50250   0.08384
+        18        0.553402        0.57550             0.575500        0.575500        0.48947   0.08603
+        19        0.406555        0.40204             0.402045        0.402045        0.36750   0.03454

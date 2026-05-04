@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_lstm_seq.py", line 8, in <module>
+    from train.lstm.train_lstm_seq import main
+  File "/home/kolya/ilya/seenx-ml/train/lstm/train_lstm_seq.py", line 17, in <module>
+    from train.lstm.lstm_seq_base import (
+  File "/home/kolya/ilya/seenx-ml/train/lstm/lstm_seq_base.py", line 16, in <module>
+    from torch.utils.tensorboard import SummaryWriter
+  File "/home/kolya/.local/lib/python3.12/site-packages/torch/utils/tensorboard/__init__.py", line 1, in <module>
+    import tensorboard
+ModuleNotFoundError: No module named 'tensorboard'

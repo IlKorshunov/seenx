@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_catboost_regressor.py", line 8, in <module>
+    from train.tabular_catboost.train_catboost_regressor import main
+  File "/home/kolya/ilya/seenx-ml/train/tabular_catboost/train_catboost_regressor.py", line 11, in <module>
+    from catboost import CatBoostRegressor
+ModuleNotFoundError: No module named 'catboost'

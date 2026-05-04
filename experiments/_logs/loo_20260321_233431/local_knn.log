@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 416, in <module>
+    main()
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 412, in main
+    run_experiment(args)
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_local_knn_loo.py", line 290, in run_experiment
+    rows = build_rows_with_targets_source(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/train_retention_regressor_loo.py", line 186, in build_rows_with_targets_source
+    access_token = manager.get()
+                   ^^^^^^^^^^^^^
+  File "/home/kolya/ilya/seenx-ml/train/drive_feature_labeling_pipeline.py", line 43, in get
+    raise RuntimeError(
+RuntimeError: Google Drive access token not found. Set GDRIVE_ACCESS_TOKEN or use --snapshot-dir mode.

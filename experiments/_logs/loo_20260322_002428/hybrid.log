@@ -1,0 +1,42 @@
+Default metric period is 5 because PFound, NDCG is/are not implemented for GPU
+Metric PFound is not implemented on GPU. Will use CPU for metric computation, this could significantly affect learning time
+Metric NDCG:top=2;type=Base is not implemented on GPU. Will use CPU for metric computation, this could significantly affect learning time
+=== Retention Hybrid LOO ===
+videos_total_with_target: 83
+videos_used: 6
+train_videos: 5
+curve_points: 2
+test_video: 3PBo1GiAlbs
+test_drive_file_id: 3PBo1GiAlbs
+ensemble_seeds: [42]
+shape_ranker_weight: 0.7
+shape_anchor_points: 1
+level_anchor_points: 2
+level_pred: 0.7062722612641394
+level_true: 0.635
+level_abs_error: 0.07127226126413944
+tail_pred: 0.7015495230199349
+tail_true: 0.635
+tail_abs_error: 0.06654952301993489
+use_tail_floor: 1
+affine_calibration_enabled: 0
+calib_alpha: 1.0
+calib_beta: 0.0
+spearman_abs: 0.9999999999999999
+pearson_abs: 0.9999999999999998
+rmse_abs: 0.3695845953708423
+mae_abs: 0.36302906185273837
+rmse_abs_uncalibrated: 0.3695845953708423
+mae_abs_uncalibrated: 0.36302906185273837
+spearman_shape: 0.9999999999999999
+pearson_shape: 1.0
+rmse_shape: 0.07400513567846075
+mae_shape: 0.0523295332808701
+dataset_path: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/hybrid_dataset.csv
+prediction_path: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/holdout_prediction_vs_true.csv
+ensemble_models_dir: /home/kolya/ilya/seenx-ml/experiments/loo/hybrid/ensemble_models
+ensemble_models_count: 4
+=== Holdout Prediction vs True (2 points) ===
+ point_idx  point_frac pred_shape true_shape  pred_retention_uncalibrated pred_retention  pred_retention_norm  pred_score_raw true_retention abs_error  abs_error_uncalibrated shape_abs_error
+         0         0.0    1.00000    1.00000                     0.706272        0.70627             0.706272        0.706272        1.00000   0.29373                0.293728         0.00000
+         1         1.0    0.16534    0.27000                     0.702330        0.70233             0.702330        0.702330        0.27000   0.43233                0.432330         0.10466
