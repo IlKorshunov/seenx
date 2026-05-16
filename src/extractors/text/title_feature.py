@@ -1,30 +1,29 @@
 """Title analysis: Qwen3-4B scoring + regex heuristics.
 
-Produces per-video scalar columns (broadcast to all seconds):
-  title_clickbait       : 0-10, насколько кликбейтный заголовок
-  title_clarity         : 0-10, ясность обещания
-  title_emotional       : 0-10, эмоциональная заряженность
-  title_specificity     : 0-10, конкретность (цифры, факты vs абстракция)
-  title_urgency         : 0-10, срочность / FOMO
-  title_len             : количество символов
-  title_has_number      : 1.0 если есть цифры
-  title_has_question    : 1.0 если есть вопрос
-  title_caps_ratio      : доля слов капсом
+title_clickbait : 0-10, насколько кликбейтный заголовок
+title_clarity : 0-10, ясность обещания
+title_emotional : 0-10, эмоциональная заряженность
+title_specificity : 0-10, конкретность
+title_urgency : 0-10, срочность
+title_len : количество символов
+title_has_number  : 1.0 если есть цифры
+title_has_question : 1.0 если есть вопрос
+title_caps_ratio : доля слов капсом
 """
 
 from __future__ import annotations
 
-import gc
 import json
-import os
 import re
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from ._base import get_segments_and_duration, logger, skip_if_exists
+from .common import release_models, video_id
 
 
 _COLS = {"title_clickbait", "title_clarity", "title_emotional", "title_specificity", "title_urgency", "title_len", "title_has_number", "title_has_question", "title_caps_ratio"}
@@ -53,12 +52,8 @@ _NUMBER_RE = re.compile(r"\d+")
 _QUESTION_RE = re.compile(r"\?|^(как|зачем|почему|что|кто|где|когда|сколько)\b", re.IGNORECASE)
 
 
-def _video_id(video_path: str) -> str:
-    return os.path.basename(os.path.dirname(video_path)) if video_path.endswith(".mp4") else os.path.splitext(os.path.basename(video_path))[0]
-
-
-def _load_title(video_id: str) -> str:
-    for comments_path in _COMMENTS_ROOT.rglob(f"{video_id}/comments.json"):
+def _load_title(video_id_value: str) -> str:
+    for comments_path in _COMMENTS_ROOT.rglob(f"{video_id_value}/comments.json"):
         try:
             return json.loads(comments_path.read_text(encoding="utf-8")).get("video_title", "")
         except Exception:
@@ -83,8 +78,6 @@ def _llm_score(title: str) -> dict[str, float]:
     if not title.strip():
         return defaults
 
-    from transformers import AutoModelForCausalLM, AutoTokenizer
-
     tokenizer = AutoTokenizer.from_pretrained(_LLM_MODEL_ID)
     model = AutoModelForCausalLM.from_pretrained(_LLM_MODEL_ID, torch_dtype=torch.bfloat16, device_map="auto")
     model.eval()
@@ -98,10 +91,7 @@ def _llm_score(title: str) -> dict[str, float]:
     full = tokenizer.decode(generated, skip_special_tokens=False).strip()
     response = full.split("</think>", 1)[1].strip() if "</think>" in full else tokenizer.decode(generated, skip_special_tokens=True).strip()
 
-    del model, tokenizer
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    release_models(model, tokenizer, device=None)
 
     result = dict(defaults)
     for score_idx, score_text in enumerate(re.findall(r"(\d+(?:\.\d+)?)", response)[:5]):
@@ -114,8 +104,8 @@ def extract_title_features(video_path, config, existing_features=None) -> pd.Dat
         return pd.DataFrame()
 
     _, duration = get_segments_and_duration(video_path, config)
-    video_id = _video_id(video_path)
-    title = _load_title(video_id)
+    video_id_value = video_id(video_path)
+    title = _load_title(video_id_value)
 
     features: dict[str, float] = {}
     features.update(_regex_features(title))
@@ -123,7 +113,7 @@ def extract_title_features(video_path, config, existing_features=None) -> pd.Dat
 
     logger.info(
         "Title [%s]: clickbait=%.0f clarity=%.0f emotional=%.0f spec=%.0f urgency=%.0f",
-        video_id,
+        video_id_value,
         features["title_clickbait"],
         features["title_clarity"],
         features["title_emotional"],

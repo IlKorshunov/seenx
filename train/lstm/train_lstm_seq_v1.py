@@ -34,6 +34,8 @@ from train.common.seq_data_utils import (
     predict_video,
     seq_metrics,
 )
+from train.common.retention_plots import plot_prediction, plot_training_curve
+from train.common.split_utils import apply_train_id_file_filter, resolve_train_val_split
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -139,41 +141,6 @@ def train_model(model: nn.Module, train_dl: DataLoader, val_dl: DataLoader, devi
     return {"train_losses": train_losses, "val_losses": val_losses, "best_val_mae": round(best_val, 6), "epochs_trained": epoch, "elapsed_sec": round(time.time() - t0, 1)}
 
 
-def plot_training_curve(train_losses, val_losses, out_path):
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.plot(train_losses, label="train MAE", color="#2196F3")
-    ax.plot(val_losses, label="val MAE", color="#FF5722")
-    ax.set(xlabel="epoch", ylabel="MAE", title="LSTM Training Curve")
-    ax.legend()
-    ax.grid(True, alpha=0.3)
-    plt.tight_layout()
-    fig.savefig(out_path, dpi=150, bbox_inches="tight")
-    plt.close(fig)
-    logger.info("Saved %s", out_path)
-
-
-def plot_prediction(vid, y_true, y_pred, is_ad, split, metrics, out_path):
-    t, res = np.arange(len(y_true)), y_pred - y_true
-    fig, (a1, a2) = plt.subplots(2, 1, figsize=(14, 8), height_ratios=[3, 1], sharex=True)
-    a1.plot(t, y_true, color="#2196F3", label="actual", linewidth=1.2)
-    a1.plot(t, y_pred, color="#FF5722", label="predicted", alpha=0.8, linewidth=1.2)
-    a1.fill_between(t, y_true, y_pred, alpha=0.1, color="#9C27B0")
-    if is_ad is not None and (is_ad > 0.5).any():
-        a1.fill_between(t, 0, 1, where=is_ad > 0.5, alpha=0.15, color="red", label="ad segment")
-    a1.set(ylabel="Retention (%)", title=f"{vid} [{split}]  RMSE={metrics['rmse']:.4f}  MAE={metrics['mae']:.4f}  r={metrics['pearson']:.3f}")
-    a1.legend(fontsize=9)
-    a1.grid(True, alpha=0.3)
-    a2.fill_between(t, res, alpha=0.3, color="#4CAF50", where=res >= 0)
-    a2.fill_between(t, res, alpha=0.3, color="#F44336", where=res < 0)
-    a2.axhline(0, color="black", linewidth=0.5)
-    a2.set(xlabel="sec", ylabel="error")
-    a2.grid(True, alpha=0.3)
-    plt.tight_layout()
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    fig.savefig(out_path, dpi=150, bbox_inches="tight")
-    plt.close(fig)
-
-
 def plot_feature_importance(model, feature_cols, video_dfs, val_ids, normalizer, device, out_dir, window_size):
     model.eval()
     importance, n = np.zeros(len(feature_cols)), 0
@@ -228,24 +195,8 @@ def main():
     feature_cols, filter_log = filter_features(video_dfs, top_k=top_k)
     Path(os.path.join(od, "feature_filter_log.txt")).write_text("\n".join(filter_log), encoding="utf-8")
     logger.info("Features after filtering: %d", len(feature_cols))
-    if args.eval_video and args.eval_video in video_dfs:
-        val_ids, train_ids = [args.eval_video], [v for v in vids if v != args.eval_video]
-    elif args.val_first_n_output > 0:
-        n_val = min(args.val_first_n_output, len(output_vids))
-        val_ids = output_vids[:n_val]
-        vs = set(val_ids)
-        train_ids = [v for v in vids if v not in vs]
-        logger.info("Validation split: first %d videos from output", n_val)
-    else:
-        rng = np.random.RandomState(args.random_seed)
-        rng.shuffle(vids)
-        n_val = max(1, int(len(vids) * args.val_ratio))
-        val_ids, train_ids = vids[:n_val], vids[n_val:]
-    if getattr(args, "train_video_ids_file", ""):
-        allow = {ln.strip() for ln in Path(args.train_video_ids_file).read_text(encoding="utf-8").splitlines() if ln.strip()}
-        b = len(train_ids)
-        train_ids = [v for v in train_ids if v in allow]
-        logger.info("Train subset from file: %d -> %d videos (%s)", b, len(train_ids), args.train_video_ids_file)
+    train_ids, val_ids = resolve_train_val_split(args, vids, output_vids)
+    train_ids = apply_train_id_file_filter(train_ids, args)
     logger.info("Train: %s, Val: %s", train_ids, val_ids)
     normalizer = FeatureNormalizer()
     normalizer.fit({v: video_dfs[v] for v in train_ids}, feature_cols)

@@ -1,16 +1,6 @@
 """Viewer expectation model: does current content match what viewer expected?
-
-Uses precomputed segment embeddings (seg_embeddings.npy from semantic_embedding_feature)
-to measure whether current content aligns with the trajectory established by
-previous segments. High expectation_match = predictable; low = surprising pivot.
-
-Differs from information_density (novelty vs running average) and
-narrative_momentum (drift from intro). This measures whether content
-follows the trajectory the viewer was primed to expect.
-
-Produces per-second columns:
-  expectation_match   : 0-1, cosine similarity to predicted embedding
-  expectation_surprise: 0-1, inverse of match (1 = maximally unexpected)
+expectation_match   : 0-1, cosine similarity to predicted embedding
+expectation_surprise: 0-1, inverse of match (1 = maximally unexpected)
 """
 
 from __future__ import annotations

@@ -33,16 +33,12 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 from src.models.retention_transformer import RetentionTransformer
 from train.common.seq_data_utils import FeatureNormalizer, WindowedSeqDataset, ad_aware_loss, filter_features, load_all_merged, load_video_weights, predict_video, seq_metrics
+from train.common.retention_plots import COLOR_ACTUAL as C_BLUE, GRID_ALPHA, plot_prediction, plot_training_curve, save_figure as _save_fig
+from train.common.split_utils import resolve_train_val_split
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
-
-C_BLUE, C_ORANGE, C_PURPLE = "#2196F3", "#FF5722", "#9C27B0"
-C_GREEN, C_RED = "#4CAF50", "#F44336"
-GRID_ALPHA = 0.3
-PLOT_DPI = 150
-
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Train RetentionTransformer on merged features.")
@@ -93,6 +89,7 @@ def train_model(model, train_dl, val_dl, device, args, use_engagement_weight: bo
     best_val_loss, epochs_without_improvement, best_state_dict = float("inf"), 0, {}
     train_losses, val_losses = [], []
     train_start_time = time.time()
+    epoch = 0
 
     for epoch in (epoch_progress := tqdm(range(1, args.epochs + 1), desc="Training", unit="ep")):
         model.train()
@@ -152,48 +149,6 @@ def train_model(model, train_dl, val_dl, device, args, use_engagement_weight: bo
     }
 
 
-def _save_fig(fig, path):
-    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-    fig.savefig(path, dpi=PLOT_DPI, bbox_inches="tight")
-    plt.close(fig)
-
-
-def plot_training_curve(train_losses, val_losses, out_path):
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.plot(train_losses, label="train MAE", color=C_BLUE)
-    ax.plot(val_losses, label="val MAE", color=C_ORANGE)
-    ax.set(xlabel="epoch", ylabel="MAE", title="Transformer Training Curve")
-    ax.legend()
-    ax.grid(True, alpha=GRID_ALPHA)
-    plt.tight_layout()
-    _save_fig(fig, out_path)
-    logger.info("Saved %s", out_path)
-
-
-def plot_prediction(vid, y_true, y_pred, is_ad, split, metrics, out_path):
-    time_axis = np.arange(len(y_true))
-    fig, (top_ax, bottom_ax) = plt.subplots(2, 1, figsize=(14, 8), height_ratios=[3, 1], sharex=True)
-
-    top_ax.plot(time_axis, y_true, color=C_BLUE, label="actual", linewidth=1.2)
-    top_ax.plot(time_axis, y_pred, color=C_ORANGE, label="predicted", alpha=0.8, linewidth=1.2)
-    top_ax.fill_between(time_axis, y_true, y_pred, alpha=0.1, color=C_PURPLE)
-    if is_ad is not None and (ad := is_ad > 0.5).any():
-        top_ax.fill_between(time_axis, 0, 1, where=ad, alpha=0.15, color="red", label="ad segment")
-    top_ax.set(ylabel="Retention (%)", title=f"{vid} [{split}]  RMSE={metrics['rmse']:.4f}  MAE={metrics['mae']:.4f}  r={metrics['pearson']:.3f}")
-    top_ax.legend(fontsize=9)
-    top_ax.grid(True, alpha=GRID_ALPHA)
-
-    residuals = y_pred - y_true
-    bottom_ax.fill_between(time_axis, residuals, alpha=0.3, color=C_GREEN, where=residuals >= 0)
-    bottom_ax.fill_between(time_axis, residuals, alpha=0.3, color=C_RED, where=residuals < 0)
-    bottom_ax.axhline(0, color="black", linewidth=0.5)
-    bottom_ax.set(xlabel="sec", ylabel="error")
-    bottom_ax.grid(True, alpha=GRID_ALPHA)
-
-    plt.tight_layout()
-    _save_fig(fig, out_path)
-
-
 def compute_feature_importance(model, feature_cols, video_dfs, val_ids, normalizer, device, out_dir, window_size, n_repeats=5):
     """Permutation importance: shuffle each feature, measure MAE increase over full videos."""
     model.eval()
@@ -205,7 +160,7 @@ def compute_feature_importance(model, feature_cols, video_dfs, val_ids, normaliz
     baseline_mae = np.mean(list(baseline_mae_per_video.values()))
 
     importance = np.zeros(len(feature_cols))
-    rng = np.random.RandomState(42)
+    rng = np.random.RandomState(42)  # pylint: disable=no-member
 
     for feat_idx, feat_name in enumerate(tqdm(feature_cols, desc="Permutation importance")):
         mae_increases = []
@@ -219,7 +174,7 @@ def compute_feature_importance(model, feature_cols, video_dfs, val_ids, normaliz
             mae_increases.append(np.mean(shuffled_maes) - baseline_mae)
         importance[feat_idx] = np.mean(mae_increases)
 
-    ranking = sorted(zip(feature_cols, importance, strict=True), key=lambda x: -x[1])
+    ranking = sorted(zip(feature_cols, importance, strict=True), key=lambda x: -float(x[1]))
     pd.DataFrame(ranking, columns=["feature", "importance_mae_increase"]).to_csv(os.path.join(out_dir, "feature_importance.csv"), index=False)
 
     top_n = min(30, len(ranking))
@@ -254,20 +209,7 @@ def main():
     Path(os.path.join(args.output_dir, "feature_filter_log.txt")).write_text("\n".join(filter_log), encoding="utf-8")
     logger.info("Features after filtering: %d", len(feature_cols))
 
-    if args.eval_video and args.eval_video in video_dfs:
-        val_ids = [args.eval_video]
-        train_ids = [video_id for video_id in video_ids if video_id != args.eval_video]
-    elif args.val_first_n_output > 0:
-        n_val = min(args.val_first_n_output, len(output_video_ids))
-        val_ids = output_video_ids[:n_val]
-        val_set = set(val_ids)
-        train_ids = [video_id for video_id in video_ids if video_id not in val_set]
-        logger.info("Validation split: first %d videos from output", n_val)
-    else:
-        split_rng = np.random.RandomState(args.random_seed)
-        split_rng.shuffle(video_ids)
-        val_video_count = max(1, int(len(video_ids) * args.val_ratio))
-        val_ids, train_ids = video_ids[:val_video_count], video_ids[val_video_count:]
+    train_ids, val_ids = resolve_train_val_split(args, video_ids, output_video_ids)
     logger.info("Train: %s, Val: %s", train_ids, val_ids)
 
     normalizer = FeatureNormalizer()
@@ -308,6 +250,7 @@ def main():
 
     compute_feature_importance(model, feature_cols, video_dfs, val_ids, normalizer, device, args.output_dir, args.window_size)
 
+    assert normalizer.median is not None and normalizer.iqr is not None
     torch.save(
         {
             "model_state_dict": model.state_dict(),
@@ -318,8 +261,6 @@ def main():
             "d_ff": args.d_ff,
             "dropout": args.dropout,
             "feature_cols": feature_cols,
-            # FeatureNormalizer now uses robust stats (median/IQR) instead of mean/std.
-            # Keep legacy keys for backward compatibility with older loaders.
             "normalizer_mean": normalizer.median.tolist(),
             "normalizer_std": normalizer.iqr.tolist(),
             "normalizer_median": normalizer.median.tolist(),

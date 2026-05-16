@@ -5,6 +5,7 @@ Runs selected methods and builds one consensus ranking/report.
 from __future__ import annotations
 
 import argparse
+import os
 import time
 from pathlib import Path
 
@@ -12,40 +13,34 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-
-
+from .catboost_importance import run_catboost_importance
+from .permutation_importance import run_permutation_importance
+from .correlation_analysis import run_correlation_analysis
+from .shap_analysis import run_shap_analysis
+from .transformer_importance import run_transformer_importance
+from matplotlib.patches import Patch  
 matplotlib.use("Agg")
 
 from .utils import default_output_dir, feature_group_of
 
 
 def _run_catboost(output_dir, results_dir, target, top_n) -> dict | None:
-    from .catboost_importance import run_catboost_importance
-
     return run_catboost_importance(output_dir=output_dir, results_dir=results_dir, target=target, top_n=top_n)
 
 
 def _run_permutation(output_dir, results_dir, target, top_n) -> dict | None:
-    from .permutation_importance import run_permutation_importance
-
     return run_permutation_importance(output_dir=output_dir, results_dir=results_dir, target=target, top_n=top_n, use_loo=True)
 
 
 def _run_correlation(output_dir, results_dir, target, top_n) -> dict | None:
-    from .correlation_analysis import run_correlation_analysis
-
     return run_correlation_analysis(output_dir=output_dir, results_dir=results_dir, target=target, top_n=top_n)
 
 
-def _run_shap(output_dir, results_dir, target, top_n) -> dict | None:
-    from .shap_analysis import run_shap_analysis
-
+def _run_shap(output_dir, results_dir, target, top_n) -> dict | None:   
     return run_shap_analysis(output_dir=output_dir, results_dir=results_dir, target=target, top_n=top_n, n_dependence_plots=min(5, top_n))
 
 
 def _run_transformer(output_dir, results_dir, target, top_n) -> dict | None:
-    from .transformer_importance import run_transformer_importance
-
     return run_transformer_importance(output_dir=output_dir, results_dir=results_dir, target=target, top_n=top_n)
 
 
@@ -135,38 +130,44 @@ def build_master_ranking(pipeline_results: dict[str, dict], results_dir: Path) -
 
 
 def write_summary_report(master_ranking: pd.DataFrame, pipeline_results: dict[str, dict], results_dir: Path, target: str, elapsed: dict[str, float]) -> None:
-    lines = ["# Feature Importance Analysis — Summary Report\n", f"**Target:** `{target}`\n", f"**Results directory:** `{results_dir}`\n", "\n## Pipelines Run\n"]
+    ls = os.linesep
+    lines = [
+        f"Feature Importance Analysis — Summary Report{ls}",
+        f"**Target:** `{target}`{ls}",
+        f"**Results directory:** `{results_dir}`{ls}",
+        f"{ls}## Pipelines Run{ls}",
+    ]
 
     for name, t in elapsed.items():
         status = "ok" if pipeline_results.get(name) else "failed"
-        lines.append(f"- {status} **{name}** ({t:.1f}s)\n")
+        lines.append(f"- {status} **{name}** ({t:.1f}s){ls}")
 
-    lines.append("\n## Top 20 Features (Consensus Ranking)\n\n")
+    lines.append(f"{ls}## Top 20 Features (Consensus Ranking){ls}{ls}")
     if not master_ranking.empty:
         top20 = master_ranking.head(20)[["feature", "group", "avg_rank", "n_methods"]]
-        lines.append("| Rank | Feature | Group | Avg Rank | Methods |\n")
-        lines.append("|------|---------|-------|----------|---------|\n")
+        lines.append(f"| Rank | Feature | Group | Avg Rank | Methods |{ls}")
+        lines.append(f"|------|---------|-------|----------|---------|{ls}")
         for i, row in top20.iterrows():
-            lines.append(f"| {i + 1} | `{row['feature']}` | {row['group']} | {row['avg_rank']:.1f} | {int(row['n_methods'])} |\n")
+            lines.append(f"| {i + 1} | `{row['feature']}` | {row['group']} | {row['avg_rank']:.1f} | {int(row['n_methods'])} |{ls}")
 
-    lines.append("\n## Feature Groups (by consensus importance)\n\n")
+    lines.append(f"{ls}## Feature Groups (by consensus importance){ls}{ls}")
     if not master_ranking.empty and "group" in master_ranking.columns:
         group_ranks = master_ranking.groupby("group")["avg_rank"].mean().sort_values()
-        lines.append("| Group | Avg Rank (lower = more important) |\n")
-        lines.append("|-------|-----------------------------------|\n")
+        lines.append(f"| Group | Avg Rank (lower = more important) |{ls}")
+        lines.append(f"|-------|-----------------------------------|{ls}")
         for group, rank in group_ranks.items():
-            lines.append(f"| {group} | {rank:.1f} |\n")
+            lines.append(f"| {group} | {rank:.1f} |{ls}")
 
-    lines.append("\n## Output Files\n\n")
+    lines.append(f"{ls}## Output Files{ls}{ls}")
     for subdir in sorted(results_dir.iterdir()):
         if subdir.is_dir():
             files = sorted(subdir.glob("*"))
-            lines.append(f"### `{subdir.name}/`\n")
+            lines.append(f"### `{subdir.name}/`{ls}")
             for f in files[:15]:
-                lines.append(f"- `{f.name}`\n")
+                lines.append(f"- `{f.name}`{ls}")
             if len(files) > 15:
-                lines.append(f"- and {len(files) - 15} more\n")
-            lines.append("\n")
+                lines.append(f"- and {len(files) - 15} more{ls}")
+            lines.append(ls)
 
     report_path = results_dir / "summary_report.md"
     with open(report_path, "w") as f:
@@ -184,15 +185,13 @@ def plot_master_ranking(master_ranking: pd.DataFrame, results_dir: Path, top_n: 
     group_colors = {g: palette[i % len(palette)] for i, g in enumerate(groups)}
     colors = [group_colors[g] for g in top["group"]]
 
-    fig, ax = plt.subplots(figsize=(10, max(6, top_n * 0.35)))
+    _, ax = plt.subplots(figsize=(10, max(6, top_n * 0.35)))
     max_rank = top["avg_rank"].max()
     bar_vals = (max_rank - top["avg_rank"] + 1)[::-1]
     ax.barh(top["feature"][::-1], bar_vals, color=colors[::-1])
     ax.set_xlabel("Consensus importance (higher = more important)")
     ax.set_title(f"Master Feature Ranking — top {top_n}")
     ax.tick_params(axis="y", labelsize=8)
-
-    from matplotlib.patches import Patch
 
     legend_elements = [Patch(facecolor=group_colors[g], label=g) for g in sorted(group_colors)]
     ax.legend(handles=legend_elements, loc="lower right", fontsize=7, ncol=2)

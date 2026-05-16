@@ -20,7 +20,6 @@ Data sources:
 
 from __future__ import annotations
 
-import gc
 import json
 import os
 import re
@@ -29,8 +28,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import torch
+from transformers import AutoModel, AutoTokenizer
 
 from ._base import get_segments_and_duration, logger, seg_bounds, skip_if_exists
+from .common import release_models, video_id
 
 
 _COLS = {"title_transcript_gap", "title_delivery_30s", "title_claim_intensity"}
@@ -60,10 +61,6 @@ _SUPERLATIVE_RE = re.compile(r"\b(лучш|худш|величайш|сильн�
 _CAPS_WORD_RE = re.compile(r"\b[А-ЯЁA-Z]{3,}\b")
 
 
-def _video_id(video_path: str) -> str:
-    return os.path.basename(os.path.dirname(video_path)) if video_path.endswith(".mp4") else os.path.splitext(os.path.basename(video_path))[0]
-
-
 def _find_comments_json(video_id: str) -> Path | None:
     for comments_path in _COMMENTS_ROOT.rglob(f"{video_id}/comments.json"):
         return comments_path
@@ -74,11 +71,8 @@ def _load_title_desc(video_id: str) -> tuple[str, str]:
     comments_path = _find_comments_json(video_id)
     if comments_path is None:
         return "", ""
-    try:
-        data = json.loads(comments_path.read_text(encoding="utf-8"))
-        return data.get("video_title", ""), data.get("video_description", "")
-    except Exception:
-        return "", ""
+    data = json.loads(comments_path.read_text(encoding="utf-8"))
+    return data.get("video_title", ""), data.get("video_description", "")
 
 
 def _title_claim_intensity(title: str, desc_first_line: str) -> float:
@@ -113,12 +107,12 @@ def extract_clickbait_gap(video_path: str, config, existing_features=None) -> pd
     if skip_if_exists(_COLS, existing_features, "clickbait gap"):
         return pd.DataFrame()
 
-    video_id = _video_id(video_path)
+    video_id_value = video_id(video_path)
     segments, duration = get_segments_and_duration(video_path, config)
     duration = max(duration, 1)
 
-    title, desc = _load_title_desc(video_id)
-    desc_first_line = (desc or "").split("\n")[0].strip()
+    title, desc = _load_title_desc(video_id_value)
+    desc_first_line = (desc or "").split(os.linesep)[0].strip()
 
     claim_score = _title_claim_intensity(title, desc_first_line)
 
@@ -126,7 +120,7 @@ def extract_clickbait_gap(video_path: str, config, existing_features=None) -> pd
     valid = [(segment, start_sec, end_sec) for segment, start_sec, end_sec in valid if start_sec < end_sec]
 
     if not title or not valid:
-        logger.info("Clickbait gap: no title or no transcript for %s, returning zeros", video_id)
+        logger.info("Clickbait gap: no title or no transcript for %s, returning zeros", video_id_value)
         return pd.DataFrame(
             {
                 "title_transcript_gap": np.zeros(duration, dtype=np.float32),
@@ -134,8 +128,6 @@ def extract_clickbait_gap(video_path: str, config, existing_features=None) -> pd
                 "title_claim_intensity": np.full(duration, claim_score, dtype=np.float32),
             }
         )
-
-    from transformers import AutoModel, AutoTokenizer
 
     device = torch.device(config.get("device"))
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
@@ -147,10 +139,7 @@ def extract_clickbait_gap(video_path: str, config, existing_features=None) -> pd
     seg_texts = [seg["text"].strip() for seg, _, _ in valid]
     seg_embs = _encode_texts(seg_texts, model, tokenizer, device)
 
-    del model, tokenizer
-    gc.collect()
-    if device.type == "cuda":
-        torch.cuda.empty_cache()
+    release_models(model, tokenizer, device=device)
 
     per_seg_sim = seg_embs @ title_emb
 
@@ -175,7 +164,7 @@ def extract_clickbait_gap(video_path: str, config, existing_features=None) -> pd
     else:
         delivery_30s = float(title_transcript_gap[:DELIVERY_HORIZON_SEC].mean()) if duration >= DELIVERY_HORIZON_SEC else 0.0
 
-    logger.info("Clickbait gap %s: claim=%.3f, delivery_30s=%.3f, gap_mean=%.3f", video_id, claim_score, delivery_30s, float(title_transcript_gap.mean()))
+    logger.info("Clickbait gap %s: claim=%.3f, delivery_30s=%.3f, gap_mean=%.3f", video_id_value, claim_score, delivery_30s, float(title_transcript_gap.mean()))
 
     return pd.DataFrame(
         {

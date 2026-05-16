@@ -18,7 +18,6 @@ from train.common.seq_data_utils import load_all_merged
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
 
-# --- CURVE FITTING FUNCTIONS ---
 _C_FALLBACK_RATIO = 0.15
 
 
@@ -79,14 +78,12 @@ def get_best_curve(time_sec, retention):
             if mae < best_mae:
                 best_mae = mae
                 best_type = c_type
-                # pad params to length 5
                 p_pad = np.zeros(5)
                 p_pad[: len(params)] = params
                 best_params = p_pad
         except Exception:
             continue
 
-    # mapping type to integer to be used as feature
     type_map = {"hill": 0, "double_exp": 1, "weibull": 2}
 
     return type_map[best_type], best_params, best_mae
@@ -99,7 +96,6 @@ def main():
     parser.add_argument("--data-dir", default="data")
     args = parser.parse_args()
 
-    # 1. Load clusters
     cluster_map = {}
     if os.path.exists(args.clusters_file):
         with open(args.clusters_file, encoding="utf-8") as f:
@@ -110,19 +106,15 @@ def main():
     else:
         logger.warning(f"Clusters file not found: {args.clusters_file}")
 
-    # 2. Get retention curves
     logger.info("Loading retention curves to fit parameters...")
-    # use_curve_raw=True because we want to fit against the real unsmoothed curve
     video_dfs = load_all_merged(args.output_dir, args.data_dir, use_curve_raw=True, emb_pca_components=0)
 
-    # Compute best curve per video
     curve_features = {}
     for vid, df in video_dfs.items():
         if "time" not in df.columns or "retention" not in df.columns:
             continue
 
         df_sorted = df.sort_values("time").reset_index(drop=True)
-        # Using index * some duration step or just raw index as pseudo time for curve fitting if time_sec is not pure
         t_sec = df_sorted["time"].values if pd.api.types.is_numeric_dtype(df_sorted["time"]) else np.arange(len(df_sorted))
         ret = df_sorted["retention"].values
 
@@ -138,7 +130,6 @@ def main():
         }
     logger.info(f"Computed curve parameters for {len(curve_features)} videos")
 
-    # 3. Update all CSVs in output_dir
     csv_files = glob.glob(os.path.join(args.output_dir, "*_features.csv")) + glob.glob(os.path.join(args.output_dir, "*_features.csv.partial"))
 
     updated_count = 0
@@ -146,7 +137,6 @@ def main():
         vid = os.path.basename(path).replace("_features.csv.partial", "").replace("_features.csv", "")
         df = pd.read_csv(path, index_col=0 if pd.read_csv(path, nrows=0).columns[0] == "Unnamed: 0" else None)
 
-        # Performance warning fix: build a dict of new columns and concat once
         new_cols = {}
 
         if "video_cluster" in df.columns:
@@ -155,7 +145,6 @@ def main():
         c_id = cluster_map.get(vid, -1)
         new_cols["video_cluster"] = c_id
 
-        # Remove old curve cols if present
         for col in ["best_curve_type", "curve_p0", "curve_p1", "curve_p2", "curve_p3", "curve_p4", "curve_fit_mae"]:
             if col in df.columns:
                 df.drop(columns=[col], inplace=True)
@@ -164,7 +153,6 @@ def main():
         for k, v in c_feats.items():
             new_cols[k] = v
 
-        # Add all new columns at once to prevent DataFrame fragmentation
         df = pd.concat([df, pd.DataFrame([new_cols] * len(df), index=df.index)], axis=1)
 
         df.to_csv(path)

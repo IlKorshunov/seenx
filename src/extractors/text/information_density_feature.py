@@ -2,13 +2,11 @@
 Information density: measures how much new semantic content appears per second.
 
 Uses pre-computed text segment embeddings from embeddings/<vid>/seg_embeddings.npy.
-For each second t, computes KL-divergence proxy between the embedding at t
-and a running average of previous embeddings. High density = new information.
+For each second t, computes KL-divergence between the embedding at cur moment
+and a running average of previous embeddings.
 """
 
-import json
 import math
-import os
 
 import numpy as np
 import pandas as pd
@@ -16,24 +14,15 @@ import pandas as pd
 from ...seenx_utils import get_video_duration
 from ...utils.config import Config
 from ...utils.logger import Logger
+from .common import EMBEDDINGS_ROOT, load_segment_embeddings, video_id
 
 
 logger = Logger(show=True).get_logger()
-EMBEDDINGS_ROOT = "embeddings"
 _COLS = {"information_density", "cumulative_info"}
 
 
 def _load_seg_data(video_id: str) -> tuple[np.ndarray | None, list[dict]]:
-    emb_path = os.path.join(EMBEDDINGS_ROOT, video_id, "seg_embeddings.npy")
-    meta_path = os.path.join(EMBEDDINGS_ROOT, video_id, "seg_meta.json")
-    if not os.path.exists(emb_path):
-        return None, []
-    embeddings = np.load(emb_path, allow_pickle=False).astype(np.float32)
-    metadata = []
-    if os.path.exists(meta_path):
-        with open(meta_path, encoding="utf-8") as metadata_file:
-            metadata = json.load(metadata_file)
-    return embeddings, metadata
+    return load_segment_embeddings(video_id, EMBEDDINGS_ROOT)
 
 
 def _resample_to_1fps(embeddings: np.ndarray, seg_meta: list[dict], duration: int) -> np.ndarray:
@@ -61,11 +50,11 @@ def extract_information_density(video_path: str, config: Config, existing_featur
         return pd.DataFrame()
 
     duration = math.ceil(get_video_duration(video_path))
-    video_id = os.path.basename(os.path.dirname(video_path))
-    embeddings, metadata = _load_seg_data(video_id)
+    video_id_value = video_id(video_path)
+    embeddings, metadata = _load_seg_data(video_id_value)
 
     if embeddings is None or len(metadata) < 2:
-        logger.warning("information_density: no embeddings for %s", video_id)
+        logger.warning("information_density: no embeddings for %s", video_id_value)
         return pd.DataFrame({column: np.zeros(duration) for column in sorted(_COLS)})
 
     per_sec = _resample_to_1fps(embeddings, metadata, duration)

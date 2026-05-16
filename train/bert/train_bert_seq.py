@@ -36,17 +36,12 @@ import os
 import sys
 from pathlib import Path
 
-import matplotlib
 import numpy as np
 import pandas as pd
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
@@ -64,16 +59,13 @@ from train.common.seq_data_utils import (
     seq_metrics,
     time_feature_extra_dim,
 )
+from train.common.composite_trainer import lr_warmup_cosine as _lr_lambda_warmup_cosine, to_device_batch as _to_device
+from train.common.retention_plots import plot_prediction, plot_training_curve
+from train.common.split_utils import apply_train_id_file_filter, resolve_train_val_split
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
-
-C_BLUE, C_ORANGE, C_PURPLE = "#2196F3", "#FF5722", "#9C27B0"
-C_GREEN, C_RED = "#4CAF50", "#F44336"
-GRID_ALPHA = 0.3
-PLOT_DPI = 150
-
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Train BERT retention predictor.")
@@ -93,6 +85,8 @@ def parse_args() -> argparse.Namespace:
 
     a("--val-ratio", type=float, default=0.15)
     a("--val-first-n-output", type=int, default=0)
+    a("--eval-video", default="")
+    a("--train-video-ids-file", default="")
     a("--top-k-features", type=int, default=0)
 
     a("--alpha-corr", type=float, default=0.3)
@@ -136,55 +130,6 @@ def parse_args() -> argparse.Namespace:
     a("--force-bert-extract", action="store_true", default=False, help="Recompute and overwrite bert_embeddings.npy even if already on disk")
 
     return p.parse_args()
-
-
-def _save_fig(fig, path):
-    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-    fig.savefig(path, dpi=PLOT_DPI, bbox_inches="tight")
-    plt.close(fig)
-
-
-def plot_training_curve(train_losses, val_losses, out_path):
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.plot(train_losses, label="train", color=C_BLUE)
-    ax.plot(val_losses, label="val", color=C_ORANGE)
-    ax.set(xlabel="epoch", ylabel="loss", title="BERT Training Curve")
-    ax.legend()
-    ax.grid(True, alpha=GRID_ALPHA)
-    plt.tight_layout()
-    _save_fig(fig, out_path)
-
-
-def plot_prediction(vid, y_true, y_pred, is_ad, split, metrics, out_path):
-    t = np.arange(len(y_true))
-    fig, (a1, a2) = plt.subplots(2, 1, figsize=(14, 8), height_ratios=[3, 1], sharex=True)
-    a1.plot(t, y_true, color=C_BLUE, label="actual", linewidth=1.2)
-    a1.plot(t, y_pred, color=C_ORANGE, label="predicted", alpha=0.8, linewidth=1.2)
-    a1.fill_between(t, y_true, y_pred, alpha=0.1, color=C_PURPLE)
-    if is_ad is not None and (ad := is_ad > 0.5).any():
-        a1.fill_between(t, 0, 1, where=ad, alpha=0.15, color="red", label="ad segment")
-    a1.set(ylabel="Retention (%)", title=f"{vid} [{split}]  RMSE={metrics['rmse']:.4f}  MAE={metrics['mae']:.4f}  r={metrics['pearson']:.3f}")
-    a1.legend(fontsize=9)
-    a1.grid(True, alpha=GRID_ALPHA)
-    res = y_pred - y_true
-    a2.fill_between(t, res, alpha=0.3, color=C_GREEN, where=res >= 0)
-    a2.fill_between(t, res, alpha=0.3, color=C_RED, where=res < 0)
-    a2.axhline(0, color="black", linewidth=0.5)
-    a2.set(xlabel="sec", ylabel="error")
-    a2.grid(True, alpha=GRID_ALPHA)
-    plt.tight_layout()
-    _save_fig(fig, out_path)
-
-
-def _lr_lambda_warmup_cosine(epoch, warmup, total):
-    if epoch < warmup:
-        return (epoch + 1) / warmup
-    progress = (epoch - warmup) / max(total - warmup, 1)
-    return 0.5 * (1 + np.cos(np.pi * progress))
-
-
-def _to_device(batch, device, *keys):
-    return tuple(batch[k].to(device) for k in keys)
 
 
 def _ensure_bert_embeddings(video_dfs, args):
@@ -253,12 +198,6 @@ def run_bert_attention_visualization(
     bert_embs: dict | None = None,
     emb_dim: int | None = None,
 ):
-    """Save attention heatmaps / rollout / entropy for a few validation videos.
-
-    Uses a single forward on the first time window (window_size sec) so captured
-    attention matches one (T×T) self-attention map. Full-sequence sliding-window
-    prediction would overwrite weights each step.
-    """
     if not getattr(args, "attention_plots", False) or not val_ids:
         return
     max_v = max(1, int(getattr(args, "attention_max_videos", 3)))
@@ -339,17 +278,8 @@ def _split_train_val(args, video_ids, video_dfs):
     output_video_ids = sorted(
         p.name.replace("_features.csv", "") for p in output_dir.glob("*_features.csv") if not p.name.endswith(".partial") and p.name.replace("_features.csv", "") in video_dfs
     )
-    if args.val_first_n_output > 0:
-        n_val = min(args.val_first_n_output, len(output_video_ids))
-        val_ids = output_video_ids[:n_val]
-        train_ids = [v for v in video_ids if v not in set(val_ids)]
-    else:
-        rng = np.random.RandomState(args.random_seed)
-        ids_shuffled = list(video_ids)
-        rng.shuffle(ids_shuffled)
-        n_val = max(1, int(len(ids_shuffled) * args.val_ratio))
-        val_ids, train_ids = ids_shuffled[:n_val], ids_shuffled[n_val:]
-    return train_ids, val_ids
+    train_ids, val_ids = resolve_train_val_split(args, video_ids, output_video_ids)
+    return apply_train_id_file_filter(train_ids, args), val_ids
 
 
 def _compute_baseline(video_dfs, train_ids, normalizer):

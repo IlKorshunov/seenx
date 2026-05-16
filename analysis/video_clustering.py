@@ -12,14 +12,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import umap
 from dtaidistance import dtw_ndim
-from plotly.subplots import make_subplots
 from sklearn.cluster import DBSCAN, AgglomerativeClustering, KMeans, SpectralClustering
 from sklearn.decomposition import PCA
 from sklearn.impute import SimpleImputer
@@ -71,18 +68,6 @@ def _k_range(mn: int, mx: int, n: int) -> list[int]:
 
 def _n_unique(labels: np.ndarray) -> int:
     return len(set(labels.tolist()))
-
-
-def _dark_layout(fig, title: str, height: int = 700):
-    fig.update_layout(
-        template="plotly_dark",
-        paper_bgcolor="#0d1117",
-        plot_bgcolor="#161b22",
-        font=dict(family="Inter, sans-serif", size=13, color="#e6edf3"),
-        title=dict(text=title, font=dict(size=18), x=0.5),
-        height=height,
-        margin=dict(l=40, r=20, t=60, b=40),
-    )
 
 
 def _load_video_data(vids: list[str], data_dir: Path, output_dir: Path):
@@ -269,7 +254,11 @@ def compute_metrics(labels: np.ndarray, X: np.ndarray | None = None, D: np.ndarr
     base = {"k": K, "n_valid": n, "n_noise": n_noise}
     if K < 2:
         return base
-    Dv = D[np.ix_(valid, valid)] if D is not None else pairwise_distances(X[valid])
+    if D is not None:
+        Dv = D[np.ix_(valid, valid)]
+    else:
+        assert X is not None
+        Dv = pairwise_distances(X[valid])
     f0, f1, f1f0 = metric_f0_f1(Dv, lb)
     out = {**base, "F0": round(f0, 4), "F1": round(f1, 4), "F1/F0": f1f0, "H_clust": metric_h_clust(lb, unique_k)}
     if X is not None:
@@ -349,53 +338,12 @@ def save_results(vids: list[str], labels: np.ndarray, xy: np.ndarray, display: l
             "UMAP 2": xy[:, 1],
         }
     )
+    df.to_csv(out / "clusters.csv", index=False)
     title = f"{strategy.upper()} · k={metrics.get('k', '?')} · sil={sil:.3f} · {n} videos"
-    fig = px.scatter(
-        df,
-        x="UMAP 1",
-        y="UMAP 2",
-        color="cluster",
-        hover_data={"video_id": True, "duration_s": ":.1f", "views": ":,.0f", "UMAP 1": False, "UMAP 2": False},
-        color_discrete_sequence=px.colors.qualitative.Safe,
-        title=title,
-    )
-    fig.update_traces(marker=dict(size=10, opacity=0.85, line=dict(width=0.5, color="white")))
-    _dark_layout(fig, title)
-    fig.update_layout(legend=dict(title="Cluster"))
-    fig.add_annotation(
-        text=" | ".join(f"C{s['cluster']}({s['n']})" for s in summary),
-        xref="paper",
-        yref="paper",
-        x=0.02,
-        y=0.98,
-        showarrow=False,
-        font=dict(size=10, family="monospace", color="#8b949e"),
-        align="left",
-        bgcolor="rgba(0,0,0,0.6)",
-        borderpad=4,
-        xanchor="left",
-        yanchor="top",
-    )
     m_text = " · ".join(f"{METRIC_LABELS.get(key, key)}={v}" for key in METRIC_KEYS if (v := metrics.get(key)) is not None)
-    fig.add_annotation(
-        text=m_text,
-        xref="paper",
-        yref="paper",
-        x=0.02,
-        y=0.02,
-        showarrow=False,
-        font=dict(size=9, family="monospace", color="#8b949e"),
-        align="left",
-        bgcolor="rgba(0,0,0,0.6)",
-        borderpad=4,
-        xanchor="left",
-        yanchor="bottom",
-    )
-    fig.write_html(str(out / "cluster_viz.html"), include_plotlyjs="cdn", full_html=True)
 
-    plt.style.use("dark_background")
-
-    fig_plt, ax = plt.subplots(figsize=(10, 6))
+    plt.style.use("default")
+    fig_plt, ax = plt.subplots(figsize=(10, 6), facecolor="white")
     clusters = np.unique(labels)
     cmap = plt.get_cmap("tab10")
 
@@ -403,62 +351,45 @@ def save_results(vids: list[str], labels: np.ndarray, xy: np.ndarray, display: l
         mask = labels == c
         n_samples = np.sum(mask)
         color = cmap(i % 10)
-        ax.scatter(xy[mask, 0], xy[mask, 1], label=f"Cluster {c} ({n_samples})", c=[color], alpha=0.8, edgecolors="none", s=40)
+        ax.scatter(xy[mask, 0], xy[mask, 1], label=f"Cluster {c} ({n_samples})", c=[color], alpha=0.85, edgecolors="white", linewidths=0.4, s=42)
 
     ax.set_title(title, fontsize=12)
     ax.set_xlabel("UMAP 1")
     ax.set_ylabel("UMAP 2")
-    ax.grid(True, alpha=0.2)
+    ax.set_facecolor("white")
+    ax.grid(True, alpha=0.25)
     ax.legend(title="Cluster", bbox_to_anchor=(1.05, 1), loc="upper left")
 
-    plt.figtext(0.02, 0.02, m_text, fontsize=8, color="#8b949e", family="monospace")
+    plt.figtext(0.02, 0.02, m_text, fontsize=8, color="#4b5563", family="monospace")
 
-    plt.tight_layout(rect=[0, 0.05, 1, 1])
+    plt.tight_layout(rect=(0, 0.05, 1, 1))
     plt.savefig(out / "cluster_viz.png", dpi=150, bbox_inches="tight")
     plt.close()
 
 
 def save_comparison(results: dict, out: Path) -> None:
     strategies = list(results.keys())
-    fig = make_subplots(
-        rows=2, cols=1, row_heights=[0.5, 0.5], specs=[[{"type": "bar"}], [{"type": "table"}]], subplot_titles=["Key Metrics by Strategy", ""], vertical_spacing=0.08
-    )
-    colors = px.colors.qualitative.Safe
-    for mi, (key, label) in enumerate([("silhouette", "Silhouette \u2191"), ("F1/F0", "F\u2081/F\u2080 \u2191")]):
-        fig.add_trace(go.Bar(x=strategies, y=[results[s].get(key) or 0 for s in strategies], name=label, marker_color=colors[mi % len(colors)]), row=1, col=1)
     header_keys = ["k", "silhouette", "F0", "F1", "F1/F0", "Phi0", "calinski_harabasz", "davies_bouldin", "H_clust", "n_noise"]
-    header_labels = ["k", "Sil\u2191", "F\u2080\u2193", "F\u2081\u2191", "F\u2081/F\u2080\u2191", "\u03a6\u2080\u2193", "CH\u2191", "DB\u2193", "H_clust", "noise"]
-    cell_cols = [strategies] + [[("-" if (v := results[s].get(k)) is None else str(v)) for s in strategies] for k in header_keys]
-    fig.add_trace(
-        go.Table(
-            header=dict(values=["Strategy"] + header_labels, fill_color="#161b22", font=dict(color="#e6edf3", size=11), align="center", line_color="#30363d"),
-            cells=dict(values=cell_cols, fill_color="#0d1117", font=dict(color="#e6edf3", size=10), align="center", line_color="#21262d"),
-        ),
-        row=2,
-        col=1,
-    )
-    _dark_layout(fig, "Clustering Strategy Comparison", height=800)
-    fig.update_layout(barmode="group")
-    fig.write_html(str(out / "comparison.html"), include_plotlyjs="cdn", full_html=True)
+    pd.DataFrame([{"strategy": strategy, **{key: results[strategy].get(key) for key in header_keys}} for strategy in strategies]).to_csv(out / "comparison.csv", index=False)
 
-    plt.style.use("dark_background")
-
-    fig_plt, ax = plt.subplots(figsize=(10, 5))
+    plt.style.use("default")
+    fig_plt, ax = plt.subplots(figsize=(10, 5), facecolor="white")
     x = np.arange(len(strategies))
     width = 0.35
 
     sil_scores = [results[s].get("silhouette", 0) or 0 for s in strategies]
     f1f0_scores = [results[s].get("F1/F0", 0) or 0 for s in strategies]
 
-    ax.bar(x - width / 2, sil_scores, width, label="Silhouette ↑", color="cyan")
-    ax.bar(x + width / 2, f1f0_scores, width, label="F1/F0 ↑", color="magenta")
+    ax.bar(x - width / 2, sil_scores, width, label="Silhouette ↑", color="#2563eb")
+    ax.bar(x + width / 2, f1f0_scores, width, label="F1/F0 ↑", color="#db2777")
 
     ax.set_ylabel("Score")
     ax.set_title("Clustering Strategy Comparison")
     ax.set_xticks(x)
     ax.set_xticklabels(strategies)
+    ax.set_facecolor("white")
     ax.legend(loc="upper left", bbox_to_anchor=(1, 1))
-    ax.grid(True, alpha=0.2, axis="y")
+    ax.grid(True, alpha=0.25, axis="y")
 
     plt.tight_layout()
     plt.savefig(out / "comparison.png", dpi=150, bbox_inches="tight")
@@ -546,7 +477,7 @@ def main() -> None:
     if "retention" in strategies:
         (sub := args.out_root / "retention").mkdir(parents=True, exist_ok=True)
 
-        print("  [retention] Extracting rich precomputed multimodal embeddings from disk...")
+        print("  [retention] Extracting rich precomputed multimodal embeddings from disk")
         emb_matrix, ext_vids = extract_precomputed_embeddings(vids, args.embeddings_dir)
 
         seq_emb_matrix = None
@@ -555,7 +486,7 @@ def main() -> None:
             df, feature_cols = load_all_video_sequences(vids, args.output_dir)
             if not df.empty and feature_cols:
                 device = "mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu"
-                print(f"  [retention] Training base sequence model on {device}...")
+                print(f"  [retention] Training base sequence model on {device}")
 
                 base_model = RetentionTransformer(input_dim=len(feature_cols), d_model=64, nhead=4, num_layers=3, dim_feedforward=256, dropout=0.1).to(device)
 
@@ -566,7 +497,7 @@ def main() -> None:
                 optimizer = optim.AdamW(base_model.parameters(), lr=1e-3)
                 criterion = nn.MSELoss()
 
-                for epoch in range(10):
+                for _ in range(10):
                     base_model.train()
                     for seq, target in temp_loader:
                         seq, target = seq.to(device), target.to(device)
@@ -578,7 +509,7 @@ def main() -> None:
                         loss.backward()
                         optimizer.step()
 
-                print("  [retention] Extracting sequence embeddings...")
+                print("  [retention] Extracting sequence embeddings")
                 seq_emb_matrix, seq_vids = extract_video_embeddings(df, feature_cols, scaler, base_model, device)
             else:
                 print("  [retention] No sequence data found for dynamic embeddings.")
@@ -633,7 +564,7 @@ def main() -> None:
 
     if len(all_results) > 1:
         save_comparison(all_results, args.out_root)
-        print(f"\nComparison → {args.out_root / 'comparison.html'}")
+        print(f"\nComparison → {args.out_root / 'comparison.png'}")
 
 
 if __name__ == "__main__":

@@ -1,26 +1,23 @@
 """Audience friction detection: Qwen3-4B scores problematic segments.
-
-Detects moments where viewers are likely to leave due to content issues.
-Scores are continuous [0, 1] for use in regression models.
-
-Produces per-second columns:
-  friction_jargon      : 0-1, непонятные термины без объяснения
-  friction_repetition  : 0-1, повтор уже сказанного
-  friction_abstract    : 0-1, абстрактные рассуждения без конкретики
-  friction_digression  : 0-1, уход от заявленной темы
-  friction_total       : 0-1, агрегированная метрика трения
+friction_jargon      : 0-1, непонятные термины без объяснения
+friction_repetition  : 0-1, повтор уже сказанного
+friction_abstract    : 0-1, абстрактные рассуждения без конкретики
+friction_digression  : 0-1, уход от заявленной темы
+friction_total       : 0-1, агрегированная метрика трения
 """
 
 from __future__ import annotations
 
-import gc
+import os
 import re
 
 import numpy as np
 import pandas as pd
 import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from ._base import get_segments_and_duration, logger, seg_bounds, skip_if_exists
+from .common import collect_valid_segment_dicts, release_models
 
 
 _COLS = {"friction_jargon", "friction_repetition", "friction_abstract", "friction_digression", "friction_total"}
@@ -56,12 +53,10 @@ def _format_segments(segments: list[dict], start_idx: int) -> str:
         text = segment.get("text", "").strip()[:200]
         start_sec, end_sec = segment["start"], segment["end"]
         lines.append(f'[{segment_number}] ({start_sec:.0f}-{end_sec:.0f}с) "{text}"')
-    return "\n".join(lines)
+    return  os.linesep.join(lines)
 
 
 def _load_llm():
-    from transformers import AutoModelForCausalLM, AutoTokenizer
-
     tokenizer = AutoTokenizer.from_pretrained(_LLM_MODEL_ID)
     model = AutoModelForCausalLM.from_pretrained(_LLM_MODEL_ID, torch_dtype=torch.bfloat16, device_map="auto")
     model.eval()
@@ -97,7 +92,7 @@ def extract_friction(video_path, config, existing_features=None) -> pd.DataFrame
         return pd.DataFrame()
 
     segments, duration = get_segments_and_duration(video_path, config)
-    valid = [segment for segment in segments if segment.get("text", "").strip()]
+    valid = collect_valid_segment_dicts(segments)
 
     jargon = np.zeros(duration, dtype=np.float64)
     repetition = np.zeros(duration, dtype=np.float64)
@@ -140,10 +135,7 @@ def extract_friction(video_path, config, existing_features=None) -> pd.DataFrame
         if window_end >= len(valid):
             break
 
-    del model, tokenizer
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    release_models(model, tokenizer, device=None)
 
     total = (jargon + repetition + abstract + digression) / 4.0
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import argparse
 import gc
 import json
@@ -88,13 +90,13 @@ def _failed_path(output_path: str) -> str:
     return output_path + FAILED_SUFFIX
 
 
-def _save_checkpoint(df: pd.DataFrame, output_path: str) -> None:
+def _save_checkpoint(df: pd.DataFrame, output_path: str):
     path = _checkpoint_path(output_path)
     df.to_csv(path, index=True)
     logger.info("Checkpoint saved (%d cols) -> %s", len(df.columns), path)
 
 
-def _load_failed_features(output_path: str) -> set[str]:
+def _load_failed_features(output_path: str):
     path = _failed_path(output_path)
     if not os.path.exists(path):
         return set()
@@ -104,7 +106,7 @@ def _load_failed_features(output_path: str) -> set[str]:
     return cols
 
 
-def _save_failed_features(output_path: str, cols: set[str]) -> None:
+def _save_failed_features(output_path: str, cols: set[str]):
     path = _failed_path(output_path)
     if not cols:
         if os.path.exists(path):
@@ -115,14 +117,108 @@ def _save_failed_features(output_path: str, cols: set[str]) -> None:
     logger.info("Saved %d failed feature cols -> %s", len(cols), path)
 
 
-# Seconds: aligned with local spike MA window; edit_pace / motion / scene_novelty dynamics
 _VIS_DYNAMICS_WINDOW_SEC = 5
 _VIS_DYNAMICS_SPIKE_SOURCES = {"motion_speed": "motion_spike", "pitch_mean": "pitch_spike", "brightness": "brightness_spike", "visual_entropy": "entropy_spike"}
 _VIS_DYNAMICS_DELTA_BASES = ("motion_speed", "edit_pace", "scene_novelty")
+_FACE_EMOTION_COLS = {"angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"}
+_VOICE_EMOTION_COLS = {"voice_angry", "voice_happy", "voice_sad", "voice_neutral", "voice_dominant_emotion_conf"}
+_TEXT_EMOTION_LABELS = (
+    "admiration",
+    "amusement",
+    "anger",
+    "annoyance",
+    "approval",
+    "caring",
+    "confusion",
+    "curiosity",
+    "desire",
+    "disappointment",
+    "disapproval",
+    "disgust",
+    "embarrassment",
+    "excitement",
+    "fear",
+    "gratitude",
+    "grief",
+    "joy",
+    "love",
+    "nervousness",
+    "optimism",
+    "pride",
+    "realization",
+    "relief",
+    "remorse",
+    "sadness",
+    "surprise",
+    "neutral",
+)
+_TEXT_EMOTION_COLS = {f"sent_{emotion}" for emotion in _TEXT_EMOTION_LABELS}
+_EKMAN_COLS = {f"ekman_{emotion}" for emotion in ("joy", "excitement", "sadness", "neutral")} | {"ekman_intensity"}
+_RAW_EMOTION_COLS = _FACE_EMOTION_COLS | _VOICE_EMOTION_COLS | _TEXT_EMOTION_COLS
+_COMMENT_COLS = {
+    "desc_chapter_start",
+    "desc_chapter_boundary_dist",
+    "timecode_like_weighted_30s",
+    "comment_question_rate_30s",
+    "comment_density_30s",
+    "comment_positive_rate_30s",
+    "comment_reply_depth_30s",
+    "comment_aggression_rate_30s",
+    "author_reply_rate_video",
+    "avg_comment_length_video",
+    "complex_words_ratio_video",
+}
+_VISUAL_COLS = {
+    "brightness",
+    "sharpness",
+    "speaker_prob",
+    "face_screen_ratio",
+    "faces_total_ratio",
+    "text_prob",
+    "motion_speed",
+    "edit_pace",
+    "scene_novelty",
+    "screencast_prob",
+    "overlay_prob",
+    "bumper_score",
+    "visual_entropy",
+    "visual_complexity",
+    "visual_complexity_gradient",
+    "visual_complexity_acceleration",
+    "color_temperature",
+    "color_saturation",
+    "face_area_ratio",
+    "short_insert",
+    "short_insert_rate",
+}
+_BATCH_VISUAL_COLS = _VISUAL_COLS - {"color_temperature", "color_saturation", "short_insert", "short_insert_rate"}
+_DEPRECATED_EKMAN = {"ekman_anger", "ekman_disgust", "ekman_fear", "ekman_surprise"}
+_REMOVED_EXPENSIVE = {
+    "aesthetic_score",
+    "depth_variance",
+    "depth_mean",
+    "audio_novelty",
+    "audio_topic_shift",
+    "audio_hook_similarity",
+    "audio_global_dist",
+    "audio_momentum",
+    "audio_self_similarity",
+    "visual_topic_shift",
+    "visual_hook_similarity",
+    "visual_global_dist",
+    "visual_momentum",
+    "visual_self_similarity",
+    "voice_angry",
+    "voice_happy",
+    "voice_sad",
+    "voice_neutral",
+    "voice_dominant_emotion_conf",
+}
+_REDUNDANT_DUPLICATE = {"embedding_drift", "embedding_drift_smoothed", "loudness_zscore", "loudness_spike", "loudness_drop"}
+_REDUNDANT_COLS = {"visual_novelty", "global_topic_dist"} | _DEPRECATED_EKMAN | _REMOVED_EXPENSIVE | _REDUNDANT_DUPLICATE
 
 
-def _append_local_spike_and_visual_dynamics(acc: pd.DataFrame) -> None:
-    """Spike ratios (value / rolling mean) + rolling change stats for montage / motion / scene pace."""
+def _append_local_spike_and_visual_dynamics(acc: pd.DataFrame):
     W = _VIS_DYNAMICS_WINDOW_SEC
     for col, new_col in _VIS_DYNAMICS_SPIKE_SOURCES.items():
         if col not in acc.columns:
@@ -137,7 +233,7 @@ def _append_local_spike_and_visual_dynamics(acc: pd.DataFrame) -> None:
         acc[f"{col}_abs_step_mean_{W}s"] = s.diff().abs().rolling(W, min_periods=1).mean().fillna(0.0).astype(np.float32)
 
 
-def _load_checkpoint(output_path: str) -> tuple[pd.DataFrame, list]:
+def _load_checkpoint(output_path: str) -> tuple[pd.DataFrame, list[str]]:
     path = _checkpoint_path(output_path)
     if not os.path.exists(path):
         return pd.DataFrame(), []
@@ -147,18 +243,7 @@ def _load_checkpoint(output_path: str) -> tuple[pd.DataFrame, list]:
     return df, features
 
 
-def get_retention(video_path: str, html_path: str = None) -> pd.DataFrame:
-    """
-    Load or build audience retention. When html_path is a CSV (e.g. retention.csv):
-    values are YouTube audience_watch_ratio * 100, interpolated to 1 fps via
-    np.interp; this is ground truth and should not be smoothed.
-
-    Formula (CSV case). Given CSV columns time_ratio τ and audience_watch_ratio r,
-    video duration T seconds, for each integer second t in 0..T:
-      τ_t = t / T,
-      retention(t) = 100 * interp(τ_t, τ_csv, r_csv),
-    where interp is piecewise linear (np.interp).
-    """
+def get_retention(video_path: str, html_path: str | None = None) -> pd.DataFrame:
     video_duration = get_video_duration(video_path)
     if html_path is None:
         logger.info("Creating empty audience retention data")
@@ -184,7 +269,39 @@ def _should_run(step_cols: set[str], only: set[str] | None, existing: set[str]) 
     return only is None or bool(missing & only) or bool(want_overwrite)
 
 
-def _prepare_shot_boundary_embeddings(video_path: str, config: Config) -> None:
+def _ensure_time_index(df: pd.DataFrame):
+    if df.index.name is None:
+        df.index.name = "time"
+    return df
+
+
+def _map_to_index(index, features: pd.DataFrame):
+    if features.empty:
+        return pd.DataFrame(index=index)
+    x_old = np.arange(len(features))
+    x_new = np.linspace(0, len(features) - 1, len(index))
+    return pd.DataFrame({col: np.interp(x_new, x_old, features[col].astype("float64").values) for col in features.columns}, index=index)
+
+
+def _build_visual_passes(config: Config, data_dir: str, only: set[str] | None = None):
+    passes = [
+        FrameQualityFeature(config),
+        ColorFeature(config),
+        SpeakerProbabilityFeature(config),
+        FaceScreenRatioFeature(config),
+        TextProbFeature(config),
+        MotionSpeedFeature(config),
+        EditPaceFeature(config),
+        ShortInsertFeature(config),
+        SceneNoveltyFeature(config),
+        ScreencastFeature(config),
+        OverlayFeature(config),
+        BumperFeature(config, data_dir=data_dir),
+    ]
+    return [feature_pass for feature_pass in passes if feature_pass.produces_keys() & only] if only is not None else passes
+
+
+def _prepare_shot_boundary_embeddings(video_path: str, config: Config):
     if config.get("use_shot_ensemble") is False or config.get("shot_boundary_ensemble") is False:
         return
     disabled = set(config.get("ensemble_disable") or [])
@@ -208,7 +325,7 @@ def aggregate(
     audio_path: str,
     output_path: str,
     config: Config,
-    html_path: str = None,
+    html_path: str | None = None,
     data_dir: str = "data",
     only: set[str] | None = None,
     skip_comment_features: bool = False,
@@ -225,44 +342,6 @@ def aggregate(
             accumulated = pd.DataFrame()
             existing_features = []
     existing_features_set = set(existing_features)
-
-    _FACE_EMOTION_COLS = {"angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"}
-    _VOICE_EMOTION_COLS = {"voice_angry", "voice_happy", "voice_sad", "voice_neutral", "voice_dominant_emotion_conf"}
-    _TEXT_EMOTION_COLS = {
-        f"sent_{e}"
-        for e in (
-            "admiration",
-            "amusement",
-            "anger",
-            "annoyance",
-            "approval",
-            "caring",
-            "confusion",
-            "curiosity",
-            "desire",
-            "disappointment",
-            "disapproval",
-            "disgust",
-            "embarrassment",
-            "excitement",
-            "fear",
-            "gratitude",
-            "grief",
-            "joy",
-            "love",
-            "nervousness",
-            "optimism",
-            "pride",
-            "realization",
-            "relief",
-            "remorse",
-            "sadness",
-            "surprise",
-            "neutral",
-        )
-    }
-    _EKMAN_COLS = {f"ekman_{e}" for e in ("joy", "excitement", "sadness", "neutral")} | {"ekman_intensity"}
-    _RAW_EMOTION_COLS = _FACE_EMOTION_COLS | _VOICE_EMOTION_COLS | _TEXT_EMOTION_COLS
 
     _ALL_EXPECTED = (
         {"retention"}
@@ -331,19 +410,7 @@ def aggregate(
         | {"sfx_energy"}
         | {"speech_predictability"}
         | {"speech_lm_surprisal", "speech_lm_surprisal_vel"}
-        | {
-            "desc_chapter_start",
-            "desc_chapter_boundary_dist",
-            "timecode_like_weighted_30s",
-            "comment_question_rate_30s",
-            "comment_density_30s",
-            "comment_positive_rate_30s",
-            "comment_reply_depth_30s",
-            "comment_aggression_rate_30s",
-            "author_reply_rate_video",
-            "avg_comment_length_video",
-            "complex_words_ratio_video",
-        }
+        | _COMMENT_COLS
         | {"title_transcript_gap", "title_delivery_30s", "title_claim_intensity"}
     )
     if _ALL_EXPECTED.issubset(existing_features_set):
@@ -351,9 +418,7 @@ def aggregate(
         return accumulated
 
     if "retention" not in existing_features:
-        retention = get_retention(video_path=video_path, html_path=html_path)
-        if retention.index.name is None:
-            retention.index.name = "time"
+        retention = _ensure_time_index(get_retention(video_path=video_path, html_path=html_path))
     else:
         retention = accumulated[["retention"]].copy()
 
@@ -361,13 +426,7 @@ def aggregate(
     t_total = time.time()
 
     def map_to_retention(features: pd.DataFrame) -> pd.DataFrame:
-        if features.empty:
-            return pd.DataFrame(index=retention.index)
-        mapped = pd.DataFrame(index=retention.index)
-        for col in features.columns:
-            fp = features[col].astype("float64").values
-            mapped[col] = np.interp(np.linspace(0, len(features) - 1, len(retention)), np.arange(len(features)), fp)
-        return mapped
+        return _map_to_index(retention.index, features)
 
     def add_to_accumulated(mapped: pd.DataFrame) -> None:
         nonlocal accumulated, existing_features, existing_features_set
@@ -386,7 +445,6 @@ def aggregate(
         accumulated = retention.copy()
         _save_checkpoint(accumulated, output_path)
 
-    # Drop columns that previously failed so they get re-extracted.
     prev_failed = _load_failed_features(output_path)
     if prev_failed:
         drop_cols = prev_failed & existing_features_set
@@ -397,8 +455,6 @@ def aggregate(
             logger.info("Dropped %d previously-failed cols for re-extraction: %s", len(drop_cols), sorted(drop_cols))
             _save_checkpoint(accumulated, output_path)
 
-    # Drop broken feature columns (all-zero or constant) so they get re-extracted.
-    # Skip columns that are constant by design (one value per video).
     _SKIP_QUALITY_CHECK = {"retention", "time", "time_pct", "hook_score", "hook_has_address", "n_chapters"}
     bad_cols = []
     for c in accumulated.columns:
@@ -429,50 +485,11 @@ def aggregate(
                 logger.info("speaker_prob zero_ratio=%.1f%% — dropped %d face-dependent cols for re-extraction: %s", zero_ratio * 100, len(bad_face), sorted(bad_face))
                 _save_checkpoint(accumulated, output_path)
 
-    _VISUAL_COLS = {
-        "brightness",
-        "sharpness",
-        "speaker_prob",
-        "face_screen_ratio",
-        "faces_total_ratio",
-        "text_prob",
-        "motion_speed",
-        "edit_pace",
-        "scene_novelty",
-        "screencast_prob",
-        "overlay_prob",
-        "bumper_score",
-        "visual_entropy",
-        "visual_complexity",
-        "visual_complexity_gradient",
-        "visual_complexity_acceleration",
-        "color_temperature",
-        "color_saturation",
-        "face_area_ratio",
-        "short_insert",
-        "short_insert_rate",
-    }
     if _should_run(_VISUAL_COLS, only, existing_features_set):
         _prepare_shot_boundary_embeddings(video_path, config)
         t0 = time.time()
         logger.info("Extracting visual features")
-        all_passes = [
-            FrameQualityFeature(config),
-            ColorFeature(config),
-            SpeakerProbabilityFeature(config),
-            FaceScreenRatioFeature(config),
-            TextProbFeature(config),
-            MotionSpeedFeature(config),
-            # EmotionFeature(config),  # TODO: re-enable when face emotion model is chosen
-            EditPaceFeature(config),
-            ShortInsertFeature(config),
-            SceneNoveltyFeature(config),
-            ScreencastFeature(config),
-            OverlayFeature(config),
-            BumperFeature(config, data_dir=data_dir),
-        ]
-        if only is not None:
-            all_passes = [p for p in all_passes if p.produces_keys() & only]
+        all_passes = _build_visual_passes(config, data_dir, only)
         speaker_features = run_feature_pipeline(video_path, config, passes=all_passes, existing_features=existing_features_set)
         speaker_features = speaker_features.drop(columns=["frame_face_boxes", "frame_keypoints", "frame_idx"], errors="ignore")
         logger.info("Visual features done in %.1fs", time.time() - t0)
@@ -485,7 +502,6 @@ def aggregate(
             torch.cuda.empty_cache()
         logger.info("GPU memory freed after visual features")
 
-    # --- Demucs (raw stem features only) ---
     _DEMUCS_RAW = {"music_rms", "music_zcr", "music_centroid", "music_rolloff", "vocal_rms", "vocal_zcr", "vocal_centroid", "vocal_rolloff"}
     if _should_run(_DEMUCS_RAW, only, existing_features_set):
         t0 = time.time()
@@ -500,7 +516,6 @@ def aggregate(
         except Exception as e:
             logger.error("Demucs FAILED (%.1fs): %s — skipped", time.time() - t0, e)
 
-    # --- Derived from Demucs stems (no Demucs re-run needed) ---
     _SMS_COLS = {"speech_ratio", "silence_stretch", "music_only"}
     need_sms = _SMS_COLS - set(accumulated.columns)
     if need_sms and all(c in accumulated.columns for c in ["vocal_rms", "music_rms"]):
@@ -544,39 +559,7 @@ def aggregate(
         ),
         (
             "sentiment",
-            {
-                f"sent_{e}"
-                for e in (
-                    "admiration",
-                    "amusement",
-                    "anger",
-                    "annoyance",
-                    "approval",
-                    "caring",
-                    "confusion",
-                    "curiosity",
-                    "desire",
-                    "disappointment",
-                    "disapproval",
-                    "disgust",
-                    "embarrassment",
-                    "excitement",
-                    "fear",
-                    "gratitude",
-                    "grief",
-                    "joy",
-                    "love",
-                    "nervousness",
-                    "optimism",
-                    "pride",
-                    "realization",
-                    "relief",
-                    "remorse",
-                    "sadness",
-                    "surprise",
-                    "neutral",
-                )
-            },
+            _TEXT_EMOTION_COLS,
             lambda: extract_text_sentiment(video_path=video_path, config=config, existing_features=existing_features),
         ),
         ("hook score", {"hook_score", "hook_has_address", "is_question"}, lambda: extract_hook_score(video_path=video_path, config=config, existing_features=existing_features)),
@@ -624,19 +607,7 @@ def aggregate(
         ),
         (
             "comment features",
-            {
-                "desc_chapter_start",
-                "desc_chapter_boundary_dist",
-                "timecode_like_weighted_30s",
-                "comment_question_rate_30s",
-                "comment_density_30s",
-                "comment_positive_rate_30s",
-                "comment_reply_depth_30s",
-                "comment_aggression_rate_30s",
-                "author_reply_rate_video",
-                "avg_comment_length_video",
-                "complex_words_ratio_video",
-            },
+            _COMMENT_COLS,
             lambda: extract_comment_features(video_path=video_path, config=config, existing_features=existing_features),
         ),
         (
@@ -684,7 +655,6 @@ def aggregate(
 
     clear_transcript_cache()
 
-    # --- Refine is_intro / is_outro using Hill curve when retention is available ---
     if "is_intro" in accumulated.columns and "retention" in accumulated.columns and accumulated["retention"].std() > 1e-3:
         try:
             from .analysis.segmented_trainer import fit_hill_curve
@@ -714,7 +684,6 @@ def aggregate(
         accumulated["question_density"] = rolling_count / (_QD_WINDOW_SEC / 60.0)
         logger.info("Derived question_density from is_question (window=%ds)", _QD_WINDOW_SEC)
 
-    # --- Ekman emotion fusion (face + voice + text → 7 Ekman + intensity) ---
     if not skip_emotion_features:
         if not _EKMAN_COLS.issubset(set(accumulated.columns)):
             has_any_emotion = bool(_RAW_EMOTION_COLS & set(accumulated.columns))
@@ -724,7 +693,6 @@ def aggregate(
                 for col in ekman_df.columns:
                     accumulated[col] = ekman_df[col]
 
-        # Drop raw emotion columns — only keep fused Ekman in final output.
         drop_raw = sorted(_RAW_EMOTION_COLS & set(accumulated.columns))
         if drop_raw and _EKMAN_COLS.issubset(set(accumulated.columns)):
             accumulated = accumulated.drop(columns=drop_raw, errors="ignore")
@@ -732,31 +700,6 @@ def aggregate(
     else:
         logger.info("Skipping Ekman fusion and raw-emotion drop (--skip-emotion-features)")
 
-    _DEPRECATED_EKMAN = {"ekman_anger", "ekman_disgust", "ekman_fear", "ekman_surprise"}
-    _REMOVED_EXPENSIVE = {
-        "aesthetic_score",
-        "depth_variance",
-        "depth_mean",
-        "audio_novelty",
-        "audio_topic_shift",
-        "audio_hook_similarity",
-        "audio_global_dist",
-        "audio_momentum",
-        "audio_self_similarity",
-        "visual_topic_shift",
-        "visual_hook_similarity",
-        "visual_global_dist",
-        "visual_momentum",
-        "visual_self_similarity",
-        "voice_angry",
-        "voice_happy",
-        "voice_sad",
-        "voice_neutral",
-        "voice_dominant_emotion_conf",
-    }
-    # Redundant with loudness_dynamics + video_intelligence (internal drift / RMS z-channels)
-    _REDUNDANT_DUPLICATE = {"embedding_drift", "embedding_drift_smoothed", "loudness_zscore", "loudness_spike", "loudness_drop"}
-    _REDUNDANT_COLS = {"visual_novelty", "global_topic_dist"} | _DEPRECATED_EKMAN | _REMOVED_EXPENSIVE | _REDUNDANT_DUPLICATE
     drop_redundant = sorted(_REDUNDANT_COLS & set(accumulated.columns))
     if drop_redundant:
         accumulated = accumulated.drop(columns=drop_redundant, errors="ignore")
@@ -766,7 +709,8 @@ def aggregate(
 
     _save_failed_features(output_path, failed_cols)
 
-    logger.info("Total aggregation time: %.1fs (%.1f min)", time.time() - t_total, (time.time() - t_total) / 60)
+    elapsed = time.time() - t_total
+    logger.info("Total aggregation time: %.1fs (%.1f min)", elapsed, elapsed / 60)
     if failed_cols:
         logger.warning("Failed features (%d cols): %s — will retry on next run", len(failed_cols), sorted(failed_cols))
 
@@ -778,70 +722,10 @@ def aggregate(
     return accumulated
 
 
-# ---------------------------------------------------------------------------
-# Batch-mode: one model loaded → process all videos → unload → next model
-# ---------------------------------------------------------------------------
-
-_FACE_EMOTION_COLS = {"angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"}
-_VOICE_EMOTION_COLS = {"voice_angry", "voice_happy", "voice_sad", "voice_neutral", "voice_dominant_emotion_conf"}
-_TEXT_EMOTION_COLS = {
-    f"sent_{e}"
-    for e in (
-        "admiration",
-        "amusement",
-        "anger",
-        "annoyance",
-        "approval",
-        "caring",
-        "confusion",
-        "curiosity",
-        "desire",
-        "disappointment",
-        "disapproval",
-        "disgust",
-        "embarrassment",
-        "excitement",
-        "fear",
-        "gratitude",
-        "grief",
-        "joy",
-        "love",
-        "nervousness",
-        "optimism",
-        "pride",
-        "realization",
-        "relief",
-        "remorse",
-        "sadness",
-        "surprise",
-        "neutral",
-    )
-}
-_EKMAN_COLS_BATCH = {f"ekman_{e}" for e in ("joy", "excitement", "sadness", "neutral")} | {"ekman_intensity"}
-_RAW_EMOTION_COLS_BATCH = _FACE_EMOTION_COLS | _VOICE_EMOTION_COLS | _TEXT_EMOTION_COLS
-
 _BATCH_GROUPS = [
     (
         "visual",
-        {
-            "brightness",
-            "sharpness",
-            "speaker_prob",
-            "face_screen_ratio",
-            "faces_total_ratio",
-            "text_prob",
-            "motion_speed",
-            "edit_pace",
-            "scene_novelty",
-            "screencast_prob",
-            "overlay_prob",
-            "bumper_score",
-            "visual_entropy",
-            "visual_complexity",
-            "visual_complexity_gradient",
-            "visual_complexity_acceleration",
-            "face_area_ratio",
-        },
+        _BATCH_VISUAL_COLS,
         "~4 GB",
     ),
     ("zoom", {"flow_mag_med", "radial_med", "radial_ratio"}, "~500 MB"),
@@ -871,39 +755,7 @@ _BATCH_GROUPS = [
     ("audio_extra", {"spectral_flux", "laughter_prob", "sfx_energy", "speech_predictability", "speech_lm_surprisal", "speech_lm_surprisal_vel"}, "~1 GB"),
     (
         "text_sentiment",
-        {
-            f"sent_{e}"
-            for e in (
-                "admiration",
-                "amusement",
-                "anger",
-                "annoyance",
-                "approval",
-                "caring",
-                "confusion",
-                "curiosity",
-                "desire",
-                "disappointment",
-                "disapproval",
-                "disgust",
-                "embarrassment",
-                "excitement",
-                "fear",
-                "gratitude",
-                "grief",
-                "joy",
-                "love",
-                "nervousness",
-                "optimism",
-                "pride",
-                "realization",
-                "relief",
-                "remorse",
-                "sadness",
-                "surprise",
-                "neutral",
-            )
-        },
+        _TEXT_EMOTION_COLS,
         "~1.5 GB",
     ),
     (
@@ -929,19 +781,7 @@ _BATCH_GROUPS = [
     ("video_intelligence", {"content_rhythm", "visual_audio_sync", "narrative_momentum", "engagement_surprise"}, "~500 MB"),
     (
         "comment_social",
-        {
-            "desc_chapter_start",
-            "desc_chapter_boundary_dist",
-            "timecode_like_weighted_30s",
-            "comment_question_rate_30s",
-            "comment_density_30s",
-            "comment_positive_rate_30s",
-            "comment_reply_depth_30s",
-            "comment_aggression_rate_30s",
-            "author_reply_rate_video",
-            "avg_comment_length_video",
-            "complex_words_ratio_video",
-        },
+        _COMMENT_COLS,
         "0 (CPU)",
     ),
     ("speech_intelligibility", {"speech_intelligibility", "speech_mumble_index"}, "0 (CPU)"),
@@ -949,45 +789,31 @@ _BATCH_GROUPS = [
 
 
 def _discover_videos(data_dir: str) -> list[dict]:
-    """Find all videos in data_dir that have both video.mp4 and retention.csv."""
-    videos = []
+    rows = []
     for name in sorted(os.listdir(data_dir)):
         d = os.path.join(data_dir, name)
-        if not os.path.isdir(d):
-            continue
-        video = os.path.join(d, "video.mp4")
-        ret = os.path.join(d, "retention.csv")
-        if os.path.isfile(video) and os.path.isfile(ret):
-            videos.append({"vid": name, "video_path": video, "retention_path": ret, "output_path": os.path.join("output", f"{name}_features.csv")})
-    return videos
+        video, ret = os.path.join(d, "video.mp4"), os.path.join(d, "retention.csv")
+        if os.path.isdir(d) and os.path.isfile(video) and os.path.isfile(ret):
+            rows.append({"vid": name, "video_path": video, "retention_path": ret, "output_path": os.path.join("output", f"{name}_features.csv")})
+    return rows
 
 
-def _batch_load_video(v: dict) -> tuple[pd.DataFrame, set]:
-    """Load checkpoint or existing output for a video, return (accumulated, existing_set)."""
+def _batch_load_video(v: dict) -> tuple[pd.DataFrame, set[str]]:
     acc, feats = _load_checkpoint(v["output_path"])
     if acc.empty and os.path.exists(v["output_path"]):
         acc = pd.read_csv(v["output_path"], index_col=0)
         feats = acc.columns.tolist()
     if acc.empty:
-        retention = get_retention(v["video_path"], v["retention_path"])
-        if retention.index.name is None:
-            retention.index.name = "time"
-        acc = retention.copy()
+        acc = _ensure_time_index(get_retention(v["video_path"], v["retention_path"])).copy()
         _save_checkpoint(acc, v["output_path"])
     return acc, set(feats if feats else acc.columns.tolist())
 
 
 def _batch_map_to_retention(retention_index, features: pd.DataFrame) -> pd.DataFrame:
-    if features.empty:
-        return pd.DataFrame(index=retention_index)
-    mapped = pd.DataFrame(index=retention_index)
-    for col in features.columns:
-        fp = features[col].astype("float64").values
-        mapped[col] = np.interp(np.linspace(0, len(features) - 1, len(retention_index)), np.arange(len(features)), fp)
-    return mapped
+    return _map_to_index(retention_index, features)
 
 
-def _batch_add_cols(acc: pd.DataFrame, mapped: pd.DataFrame, output_path: str, only: set | None = None) -> pd.DataFrame:
+def _batch_add_cols(acc: pd.DataFrame, mapped: pd.DataFrame, output_path: str, only: set[str] | None = None) -> pd.DataFrame:
     new_cols = [c for c in mapped.columns if c not in acc.columns]
     overwrite_cols = [c for c in mapped.columns if c in acc.columns and c in only] if only else []
     if new_cols:
@@ -1006,12 +832,8 @@ def _gpu_cleanup():
 
 
 def _batch_run_group_for_video(
-    group_name: str, v: dict, acc: pd.DataFrame, existing: set, config: Config, preloaded_zeroshot=None, only: set | None = None
-) -> tuple[pd.DataFrame, set, set]:
-    """Run a single feature group for a single video.
-
-    Returns (updated_acc, updated_existing, failed_cols).
-    """
+    group_name: str, v: dict, acc: pd.DataFrame, existing: set[str], config: Config, only: set[str] | None = None
+) -> tuple[pd.DataFrame, set[str], set[str]]:
     video_path = v["video_path"]
     output_path = v["output_path"]
     retention_idx = acc.index
@@ -1045,47 +867,9 @@ def _batch_run_group_for_video(
 
     if group_name == "visual":
         core = {"brightness", "sharpness", "speaker_prob"}
-        group_cols = {
-            "brightness",
-            "sharpness",
-            "speaker_prob",
-            "face_screen_ratio",
-            "faces_total_ratio",
-            "text_prob",
-            "motion_speed",
-            "edit_pace",
-            "scene_novelty",
-            "screencast_prob",
-            "overlay_prob",
-            "bumper_score",
-            "visual_entropy",
-            "visual_complexity",
-            "visual_complexity_gradient",
-            "visual_complexity_acceleration",
-            "color_temperature",
-            "color_saturation",
-            "face_area_ratio",
-            "short_insert",
-            "short_insert_rate",
-        }
-        if not (core - existing) and not (only and (group_cols & only)):
+        if not (core - existing) and not (only and (_VISUAL_COLS & only)):
             return acc, existing, failed
-        all_passes = [
-            FrameQualityFeature(config),
-            ColorFeature(config),
-            SpeakerProbabilityFeature(config),
-            FaceScreenRatioFeature(config),
-            TextProbFeature(config),
-            MotionSpeedFeature(config),
-            EditPaceFeature(config),
-            ShortInsertFeature(config),
-            SceneNoveltyFeature(config),
-            ScreencastFeature(config),
-            OverlayFeature(config),
-            BumperFeature(config, data_dir=os.path.dirname(os.path.dirname(video_path))),
-        ]
-        if only:
-            all_passes = [p for p in all_passes if p.produces_keys() & only]
+        all_passes = _build_visual_passes(config, os.path.dirname(os.path.dirname(video_path)), only)
         try:
             t0 = time.time()
             _prepare_shot_boundary_embeddings(video_path, config)
@@ -1127,7 +911,6 @@ def _batch_run_group_for_video(
                 logger.error("  [%s] demucs FAILED: %s", v["vid"], e)
                 failed.update(cols)
 
-        # Derived features from demucs stems
         need_sms = {"speech_ratio", "silence_stretch", "music_only"} - set(acc.columns)
         if need_sms and all(c in acc.columns for c in ["vocal_rms", "music_rms"]):
             sms_df = extract_speech_music_silence(acc["vocal_rms"].values, acc["music_rms"].values)
@@ -1222,20 +1005,7 @@ def _batch_run_group_for_video(
         )
 
     elif group_name == "comment_social":
-        _cols = {
-            "desc_chapter_start",
-            "desc_chapter_boundary_dist",
-            "timecode_like_weighted_30s",
-            "comment_question_rate_30s",
-            "comment_density_30s",
-            "comment_positive_rate_30s",
-            "comment_reply_depth_30s",
-            "comment_aggression_rate_30s",
-            "author_reply_rate_video",
-            "avg_comment_length_video",
-            "complex_words_ratio_video",
-        }
-        _run_step("comment features", _cols, lambda: extract_comment_features(video_path=video_path, config=config, existing_features=existing_list))
+        _run_step("comment features", _COMMENT_COLS, lambda: extract_comment_features(video_path=video_path, config=config, existing_features=existing_list))
 
     elif group_name == "speech_intelligibility":
         _run_step(
@@ -1248,7 +1018,6 @@ def _batch_run_group_for_video(
 
 
 def _batch_finalize(acc: pd.DataFrame, output_path: str, *, skip_emotion_features: bool = False) -> pd.DataFrame:
-    """Compute derived features and write final CSV."""
     if "edit_pace" in acc.columns and "screencast_prob" in acc.columns:
         acc["edit_pace_x_screencast"] = acc["edit_pace"] * acc["screencast_prob"]
     if "is_ad" in acc.columns and "viewer_address" in acc.columns:
@@ -1262,41 +1031,17 @@ def _batch_finalize(acc: pd.DataFrame, output_path: str, *, skip_emotion_feature
         acc["question_density"] = rolling_count / (_QD_WINDOW_SEC / 60.0)
 
     if not skip_emotion_features:
-        if not _EKMAN_COLS_BATCH.issubset(set(acc.columns)):
-            has_any = bool(_RAW_EMOTION_COLS_BATCH & set(acc.columns))
+        if not _EKMAN_COLS.issubset(set(acc.columns)):
+            has_any = bool(_RAW_EMOTION_COLS & set(acc.columns))
             if has_any:
                 ekman_df = compute_ekman_fusion(acc)
                 for col in ekman_df.columns:
                     acc[col] = ekman_df[col]
 
-        drop_raw = sorted(_RAW_EMOTION_COLS_BATCH & set(acc.columns))
-        if drop_raw and _EKMAN_COLS_BATCH.issubset(set(acc.columns)):
+        drop_raw = sorted(_RAW_EMOTION_COLS & set(acc.columns))
+        if drop_raw and _EKMAN_COLS.issubset(set(acc.columns)):
             acc = acc.drop(columns=drop_raw, errors="ignore")
 
-    _DEPRECATED_EKMAN = {"ekman_anger", "ekman_disgust", "ekman_fear", "ekman_surprise"}
-    _REMOVED_EXPENSIVE = {
-        "aesthetic_score",
-        "depth_variance",
-        "depth_mean",
-        "audio_novelty",
-        "audio_topic_shift",
-        "audio_hook_similarity",
-        "audio_global_dist",
-        "audio_momentum",
-        "audio_self_similarity",
-        "visual_topic_shift",
-        "visual_hook_similarity",
-        "visual_global_dist",
-        "visual_momentum",
-        "visual_self_similarity",
-        "voice_angry",
-        "voice_happy",
-        "voice_sad",
-        "voice_neutral",
-        "voice_dominant_emotion_conf",
-    }
-    _REDUNDANT_DUPLICATE = {"embedding_drift", "embedding_drift_smoothed", "loudness_zscore", "loudness_spike", "loudness_drop"}
-    _REDUNDANT_COLS = {"visual_novelty", "global_topic_dist"} | _DEPRECATED_EKMAN | _REMOVED_EXPENSIVE | _REDUNDANT_DUPLICATE
     drop_redundant = sorted(_REDUNDANT_COLS & set(acc.columns))
     if drop_redundant:
         acc = acc.drop(columns=drop_redundant, errors="ignore")
@@ -1327,16 +1072,8 @@ def _batch_finalize(acc: pd.DataFrame, output_path: str, *, skip_emotion_feature
 
 
 def aggregate_batch(
-    data_dir: str, output_dir: str, config: Config, only: set | None = None, skip_comment_features: bool = False, skip_emotion_features: bool = False
+    data_dir: str, output_dir: str, config: Config, only: set[str] | None = None, skip_comment_features: bool = False, skip_emotion_features: bool = False
 ) -> dict[str, pd.DataFrame]:
-    """Batch-mode aggregation: load each model once, process all videos, unload.
-
-    Instead of loading/unloading models per video, iterates over model groups
-    and processes all videos for each group before moving on. This avoids
-    redundant model loading when processing many videos.
-
-    Returns dict of {video_id: final_dataframe}.
-    """
     os.makedirs(output_dir, exist_ok=True)
     t_total = time.time()
 
@@ -1350,8 +1087,8 @@ def aggregate_batch(
 
     logger.info("=== BATCH MODE: %d videos, %d feature groups ===", len(videos), len(_BATCH_GROUPS))
 
-    all_failed: dict[str, set] = {v["vid"]: set() for v in videos}
-    video_data: dict[str, tuple[pd.DataFrame, set]] = {}
+    all_failed: dict[str, set[str]] = {v["vid"]: set() for v in videos}
+    video_data: dict[str, tuple[pd.DataFrame, set[str]]] = {}
 
     for v in videos:
         acc, existing = _batch_load_video(v)
@@ -1365,8 +1102,6 @@ def aggregate_batch(
         if skip_emotion_features and group_name == "text_sentiment":
             logger.info("[group text_sentiment] skipped (--skip-emotion-features)")
             continue
-        # When --only is set, run only groups that produce at least one requested column
-        # (avoids loading e.g. text_sentiment when the user only wants comments / speech).
         if only and not (group_cols & only):
             logger.info("[group %s] not in --only, skipping", group_name)
             continue
@@ -1402,7 +1137,7 @@ def aggregate_batch(
         _gpu_cleanup()
         logger.info("[group %s] done in %.1fs", group_name, time.time() - t_group)
 
-    results = {}
+    results: dict[str, pd.DataFrame] = {}
     for v in videos:
         acc, _ = video_data[v["vid"]]
         acc = _batch_finalize(acc, v["output_path"], skip_emotion_features=skip_emotion_features)
@@ -1410,7 +1145,8 @@ def aggregate_batch(
         results[v["vid"]] = acc
         logger.info("Finalized %s (%d cols)", v["vid"], len(acc.columns))
 
-    logger.info("=== BATCH COMPLETE: %d videos in %.1fs (%.1f min) ===", len(videos), time.time() - t_total, (time.time() - t_total) / 60)
+    batch_elapsed = time.time() - t_total
+    logger.info("=== BATCH COMPLETE: %d videos in %.1fs (%.1f min) ===", len(videos), batch_elapsed, batch_elapsed / 60)
     return results
 
 

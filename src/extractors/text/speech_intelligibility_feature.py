@@ -38,7 +38,6 @@ def extract_speech_intelligibility(video_path, config, existing_features=None) -
     intelligibility[mask] = conf_sum_per_sec[mask] / word_count_per_sec[mask]
     wps_norm = np.clip(pd.Series(words_per_sec).rolling(SPEECH_INTELLIGIBILITY_SMOOTH_WINDOW, center=True, min_periods=1).mean().values / SPEECH_INTELLIGIBILITY_WPS_FAST, 0.0, 1.0)
     mumble_index = np.clip((1.0 - intelligibility) * wps_norm * SPEECH_INTELLIGIBILITY_MUMBLE_SCALE, 0.0, 1.0)
-
     logger.info("Speech intelligibility: mean=%.2f, mumble_mean=%.3f", intelligibility.mean(), mumble_index.mean())
 
     return pd.DataFrame({"speech_intelligibility": intelligibility, "speech_mumble_index": mumble_index})

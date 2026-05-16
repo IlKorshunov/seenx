@@ -130,12 +130,12 @@ def run_extract_stems(args):
     tmp = tempfile.NamedTemporaryFile(suffix=".wav", delete=False)
     tmp.close()
     wav_path = tmp.name
-    logger.info("Converting %s → %s", audio_path, wav_path)
+    logger.info("Converting %s -> %s", audio_path, wav_path)
     mp4_to_wav(audio_path, wav_path)
-    logger.info("Running Demucs separation...")
+    logger.info("Running Demucs separation")
     ok = separate([wav_path], outp=args.output_dir, device="cuda", segment=args.segment)
     if not ok:
-        logger.warning("Demucs failed on CUDA, retrying on CPU...")
+        logger.warning("Demucs failed on CUDA, retrying on CPU")
         ok = separate([wav_path], outp=args.output_dir, device="cpu", segment=args.segment)
     filename = os.path.splitext(os.path.basename(wav_path))[0]
     separated_folder = os.path.join(args.output_dir, "htdemucs", filename)
@@ -309,7 +309,7 @@ def main():
     bump.add_argument("--max_types", type=int, default=10)
     bump.add_argument("--scan_ratio", type=float, default=None)
     bump.add_argument("--skip_video_verify", action="store_true")
-    stems = subparsers.add_parser("extract_stems", help="Demucs separation: data/<video_id>/audio.mp3 → stems in data/<video_id>/stems")
+    stems = subparsers.add_parser("extract_stems", help="Demucs separation: data/<video_id>/audio.mp3 -> stems in data/<video_id>/stems")
     stems.add_argument("--video-id", dest="video_id", default="1J5zlq2Vs3Y")
     stems.add_argument("--data-root", dest="data_root", default="data")
     stems.add_argument("--output-dir", dest="output_dir", default="static/separated/htdemucs/output_audio")

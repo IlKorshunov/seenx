@@ -1,3 +1,5 @@
+import gc
+
 import numpy as np
 import torch
 
@@ -7,6 +9,17 @@ from ....utils.config import Config
 def resolve_device(config: Config) -> torch.device:
     raw = str(config.get("device") or "auto").strip().lower()
     return torch.device("cuda" if torch.cuda.is_available() else "cpu") if raw == "auto" else torch.device("cuda" if raw == "gpu" else raw)
+
+
+def unload_ensemble(models: tuple, device: str | torch.device | None = "cuda") -> None:
+    del models
+    gc.collect()
+    if device is None:
+        should_clear_cuda = torch.cuda.is_available()
+    else:
+        should_clear_cuda = str(device).split(":", 1)[0] == "cuda" and torch.cuda.is_available()
+    if should_clear_cuda:
+        torch.cuda.empty_cache()
 
 
 def robust_minmax(x: np.ndarray, p_low: float = 5.0, p_high: float = 99.0) -> np.ndarray:

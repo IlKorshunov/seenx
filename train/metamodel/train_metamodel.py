@@ -1,15 +1,9 @@
 """
-Metamodel script that combines the 3 best sequential models:
-- MultimodalLSTM (lstm_exp/v3_multimodal)
-- MultimodalTransformer (transformer_exp/v4_tuned_multimodal)
-- VideoMAE-Hybrid (videomae_exp/v1_hybrid)
-
-It loads the pre-trained weights, computes predictions on the validation set,
-evaluates individual models, simple average, and an optimized weighted ensemble.
+Hybrid of next models: LSTM, Transformer, VideoMAE.
+evaluates individual models, and an optimized weighted ensemble.
 """
 
 from __future__ import annotations
-
 import argparse
 import json
 import logging
@@ -22,9 +16,7 @@ import pandas as pd
 import torch
 from scipy.optimize import nnls
 
-
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
-
 from src.models.retention_multimodal_lstm import MultimodalRetentionLSTM
 from src.models.retention_multimodal_transformer import MultimodalRetentionTransformer
 from train.common.seq_data_utils import FeatureNormalizer, load_aligned_embeddings_for_videos, load_all_merged, plot_mae_summary, predict_video_multimodal, seq_metrics
@@ -38,19 +30,16 @@ logger = logging.getLogger(__name__)
 def _load_videomae_embeddings(video_dfs, emb_root):
     emb_root = Path(emb_root)
     res = {}
-    for vid, df in video_dfs.items():
+    for vid, _ in video_dfs.items():
         p = emb_root / vid / "videomae_embeddings.npy"
         if p.exists():
-            arr = np.load(str(p))
-            res[vid] = arr
+            res[vid] = np.load(str(p))
     return res
 
 
 def load_model(ckpt_path: Path, device: torch.device, is_lstm: bool = False):
     ckpt = torch.load(ckpt_path, map_location="cpu")
     n_tab = len(ckpt["feature_cols"])
-
-    # Defaults depending on model type
     if is_lstm:
         model = MultimodalRetentionLSTM(
             hidden_size=ckpt.get("hidden_size", 256),
@@ -87,13 +76,11 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
     device = torch.device(args.device)
 
-    # 1. Load data
-    logger.info("Loading features and embeddings...")
+    logger.info("Loading embs")
     video_dfs = load_all_merged("output", "data", use_curve_raw=True, emb_pca_components=0)
     aligned_embs = load_aligned_embeddings_for_videos(video_dfs, "embeddings")
     vmae_embs_raw = _load_videomae_embeddings(video_dfs, "embeddings")
 
-    # Build hybrid embeddings for VideoMAE
     vmae_embs = {}
     for vid, df in video_dfs.items():
         vmae = vmae_embs_raw.get(vid)
@@ -102,13 +89,11 @@ def main():
             n = min(len(vmae), len(clip), len(df))
             vmae_embs[vid] = np.concatenate([vmae[:n], clip[:n, 768:]], axis=1)
 
-    # 2. Load the 3 models
-    logger.info("Loading pre-trained base models...")
+    logger.info("Loading models")
     m_lstm, cols_lstm = load_model(Path(args.lstm_exp) / "multimodal_lstm_model.pt", device, is_lstm=True)
     m_tf, cols_tf = load_model(Path(args.tf_exp) / "multimodal_transformer_model.pt", device, is_lstm=False)
     m_vmae, cols_vmae = load_model(Path(args.vmae_exp) / "videomae_model.pt", device, is_lstm=False)
 
-    # Load respective train sets to fit normalizers
     train_ids_lstm = json.loads(Path(args.lstm_exp, "metrics.json").read_text())["train_ids"]
     train_ids_tf = json.loads(Path(args.tf_exp, "metrics.json").read_text())["train_ids"]
     train_ids_vmae = json.loads(Path(args.vmae_exp, "metrics.json").read_text())["train_ids"]
@@ -122,7 +107,6 @@ def main():
     norm_vmae = FeatureNormalizer()
     norm_vmae.fit({v: video_dfs[v] for v in train_ids_vmae}, cols_vmae)
 
-    # Compute and set baselines
     def set_baseline_for_model(model, train_ids, normalizer):
         max_len = max(len(video_dfs[v]) for v in train_ids)
         acc = np.zeros(max_len, dtype=np.float64)
@@ -131,34 +115,27 @@ def main():
             ret = pd.to_numeric(video_dfs[v]["retention"], errors="coerce").fillna(0).values
             acc[: len(ret)] += ret
             cnt[: len(ret)] += 1.0
-        curve = (acc / np.maximum(cnt, 1.0)).astype(np.float32)
+        curve = (acc / cnt).astype(np.float32)
         model.set_baseline(torch.tensor(normalizer.normalize_retention(curve).astype(np.float32)))
 
     set_baseline_for_model(m_lstm, train_ids_lstm, norm_lstm)
     set_baseline_for_model(m_tf, train_ids_tf, norm_tf)
     set_baseline_for_model(m_vmae, train_ids_vmae, norm_vmae)
 
-    # Common val_ids (assume they share the same validation set)
     val_ids = json.loads(Path(args.lstm_exp, "metrics.json").read_text())["val_ids"]
-    logger.info(f"Evaluating on {len(val_ids)} validation videos...")
+    logger.info(f"Evaluating on {len(val_ids)} validation videos")
 
     all_true = []
     all_preds_lstm = []
     all_preds_tf = []
     all_preds_vmae = []
-    vid_data = {}  # Store predictions per video for later plotting
-
-    # 3. Predict
+    vid_data = {}  
+    
     for vid in val_ids:
         df = video_dfs[vid]
-        # LSTM
         y_true, p_lstm = predict_video_multimodal(m_lstm, df, aligned_embs.get(vid), cols_lstm, norm_lstm, device, 128)
-        # TF
         _, p_tf = predict_video_multimodal(m_tf, df, aligned_embs.get(vid), cols_tf, norm_tf, device, 128)
-        # VMAE
         _, p_vmae = predict_video_multimodal(m_vmae, df, vmae_embs.get(vid), cols_vmae, norm_vmae, device, 128)
-
-        # Pad/truncate just in case
         n = min(len(y_true), len(p_lstm), len(p_tf), len(p_vmae))
         y_true = y_true[:n]
         p_lstm = p_lstm[:n]
@@ -177,28 +154,22 @@ def main():
     p2 = np.concatenate(all_preds_tf)
     p3 = np.concatenate(all_preds_vmae)
 
-    logger.info("--- Base Models ---")
     logger.info(f"LSTM v3 Multimodal MAE: {np.mean(np.abs(y - p1)):.4f}")
     logger.info(f"Transformer v4 Multimodal MAE: {np.mean(np.abs(y - p2)):.4f}")
     logger.info(f"VideoMAE v1 Hybrid MAE: {np.mean(np.abs(y - p3)):.4f}")
 
-    # 4. Simple Average Ensemble
     p_avg = (p1 + p2 + p3) / 3.0
-    logger.info("--- Simple Average Ensemble ---")
     logger.info(f"Average Ensemble MAE: {np.mean(np.abs(y - p_avg)):.4f}")
 
-    # 5. Weighted Ensemble (Non-Negative Least Squares to prevent negative weights)
     X = np.stack([p1, p2, p3], axis=1)
     weights, _ = nnls(X, y)
-    # Normalize weights to sum to 1
     weights = weights / np.sum(weights)
 
     p_weight = X @ weights
-    logger.info("--- Weighted Metamodel (NNLS) ---")
+    logger.info("Weighted Metamodel")
     logger.info(f"Optimal Weights -> LSTM: {weights[0]:.3f}, TF: {weights[1]:.3f}, VMAE: {weights[2]:.3f}")
     logger.info(f"Weighted Ensemble MAE: {np.mean(np.abs(y - p_weight)):.4f}")
 
-    # Plot predictions for each video and collect metrics
     all_metrics = {}
     for vid in val_ids:
         v_data = vid_data[vid]
@@ -217,7 +188,6 @@ def main():
 
     plot_mae_summary(all_metrics, args.output_dir, model_name="Metamodel")
 
-    # Save meta-model
     meta_path = Path(args.output_dir) / "metrics.json"
     meta_path.write_text(
         json.dumps(

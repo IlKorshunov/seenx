@@ -9,15 +9,10 @@ from typing import Any
 import numpy as np
 import pandas as pd
 from catboost import CatBoostRegressor
+import matplotlib
 
-
-try:
-    import matplotlib
-
-    matplotlib.use("Agg")
-    import matplotlib.pyplot as plt
-except Exception:  # pragma: no cover
-    plt = None  # type: ignore
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 
 def parse_args() -> argparse.Namespace:
@@ -44,12 +39,8 @@ def parse_args() -> argparse.Namespace:
 def discover_feature_files(features_root: Path) -> list[Path]:
     return sorted(features_root.rglob("features_llm.json"))
 
-
 def safe_float(value: Any, default: float = 0.0) -> float:
-    try:
-        return float(value)
-    except Exception:
-        return default
+    return float(value) if isinstance(value, (int, float)) else default
 
 
 def mean_series(rows: Any) -> float:
@@ -574,7 +565,6 @@ def main() -> None:
                 imp_sum = np.zeros_like(imp, dtype=float)
                 fcols = list(bundle["feature_cols"])
             imp_sum = imp_sum + imp.astype(float)
-            # One example learning curve (mid bucket) for quick visual parity
             if col.rstrip().endswith("09") and not example_curve_png:
                 sub = report_dir / "example_target_training_curve"
                 sub.mkdir(parents=True, exist_ok=True)

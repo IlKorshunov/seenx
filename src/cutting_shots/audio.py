@@ -189,8 +189,6 @@ def run_audio_pipeline(data_dir: str, cfg: BumperConfig, max_types: int = 10) ->
                 )
                 logger.info("  [type %d] %s: %.1f–%.1fs  audio_score=%.3f", type_idx, vid, start_sec, start_sec + dur_sec, score)
 
-    # Discard types present in fewer than min_candidate_videos unique videos.
-    # A real repeating bumper must appear in multiple episodes; single-video hits are FPs.
     type_videos: dict[int, set[str]] = defaultdict(set)
     for c in candidates:
         type_videos[c.bumper_type].add(c.video_id)

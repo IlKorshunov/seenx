@@ -9,18 +9,21 @@ import torch.nn as nn
 import torch.optim as optim
 from plotly.subplots import make_subplots
 from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
 from torch.utils.data import DataLoader
 
 from analysis.augmentations import AugmentedRetentionDataset, RetentionDataset
 
+N_STEPS = 100
+EMBEDDING_FILES = ["audio_embeddings.npy", "bert_embeddings.npy", "visual_embeddings.npy", "videomae_embeddings.npy", "seg_embeddings.npy"]
+
 
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model: int, dropout: float = 0.1, max_len: int = 5000):
         super().__init__()
         self.dropout = nn.Dropout(p=dropout)
-
         position = torch.arange(max_len).unsqueeze(1)
         div_term = torch.exp(torch.arange(0, d_model, 2) * (-np.log(10000.0) / d_model))
         pe = torch.zeros(max_len, 1, d_model)
@@ -39,28 +42,49 @@ class RetentionTransformer(nn.Module):
         self.d_model = d_model
         self.input_proj = nn.Linear(input_dim, d_model)
         self.pos_encoder = PositionalEncoding(d_model, dropout)
-
         encoder_layers = nn.TransformerEncoderLayer(d_model=d_model, nhead=nhead, dim_feedforward=dim_feedforward, dropout=dropout, batch_first=True)
         self.transformer_encoder = nn.TransformerEncoder(encoder_layers, num_layers)
-
         self.decoder = nn.Sequential(nn.Linear(d_model, d_model // 2), nn.ReLU(), nn.Dropout(dropout), nn.Linear(d_model // 2, 1))
 
     def forward(self, src: torch.Tensor, return_embeddings: bool = False):
-        x = self.input_proj(src)
-        x = x.transpose(0, 1)
-        x = self.pos_encoder(x)
-        x = x.transpose(0, 1)
-        memory = self.transformer_encoder(x)
-        embeddings = memory.mean(dim=1)
-        output = self.decoder(embeddings)
-
-        if return_embeddings:
-            return output, embeddings
-        return output
+        x = self.input_proj(src).transpose(0, 1)
+        x = self.pos_encoder(x).transpose(0, 1)
+        return self.decoder(self.transformer_encoder(x).mean(dim=1)) if not return_embeddings else (self.decoder(self.transformer_encoder(x).mean(dim=1)), self.transformer_encoder(x).mean(dim=1))
 
 
-def extract_precomputed_embeddings(vids: list[str], emb_dir: Path) -> tuple[np.ndarray, list[str]]:
-    embeddings = []
+def _sample_embedding_sequence(arr: np.ndarray, n_steps: int) -> np.ndarray:
+    arr = arr.reshape(1, -1) if arr.ndim == 1 else arr.reshape(arr.shape[0], -1)
+    idx = np.linspace(0, len(arr) - 1, n_steps).round().astype(int)
+    sampled = arr[idx].astype(np.float32, copy=False)
+    return sampled / (np.linalg.norm(sampled, axis=1, keepdims=True) + 1e-6)
+
+
+def _pca_reduce(embeddings: np.ndarray, pca_dim: int) -> np.ndarray:
+    n_components = min(pca_dim, embeddings.shape[0] - 1, embeddings.shape[1])
+    return PCA(n_components=n_components, random_state=42).fit_transform(embeddings) if n_components > 0 else embeddings
+
+
+def _scaled_modality_blocks(sequences_by_vid: dict[str, dict[str, np.ndarray]], valid_vids: list[str], dims_by_file: dict[str, int], n_steps: int) -> list[np.ndarray]:
+    blocks = []
+    for fname in EMBEDDING_FILES:
+        dim = dims_by_file.get(fname, 0)
+        if dim == 0:
+            continue
+        block = np.zeros((len(valid_vids), n_steps * dim), dtype=np.float32)
+        present_rows = []
+        for row_idx, vid in enumerate(valid_vids):
+            if fname in sequences_by_vid[vid]:
+                block[row_idx] = sequences_by_vid[vid][fname].reshape(-1)
+                present_rows.append(row_idx)
+        if present_rows:
+            block[present_rows] = StandardScaler().fit_transform(block[present_rows])
+        blocks.append(block)
+    return blocks
+
+
+def extract_precomputed_embeddings(vids: list[str], emb_dir: Path, n_steps: int = N_STEPS, pca_dim: int = 128) -> tuple[np.ndarray, list[str]]:
+    sequences_by_vid: dict[str, dict[str, np.ndarray]] = {}
+    dims_by_file: dict[str, int] = {}
     valid_vids = []
 
     for vid in vids:
@@ -68,33 +92,28 @@ def extract_precomputed_embeddings(vids: list[str], emb_dir: Path) -> tuple[np.n
         if not vid_dir.exists():
             continue
 
-        emb_parts = []
-
-        for fname in ["audio_embeddings.npy", "bert_embeddings.npy", "visual_embeddings.npy", "videomae_embeddings.npy", "seg_embeddings.npy"]:
+        video_parts = {}
+        for fname in EMBEDDING_FILES:
             path = vid_dir / fname
             if path.exists():
                 try:
                     arr = np.load(path)
-                    if arr.ndim > 1:
-                        pooled = arr.mean(axis=0)
-                        pooled = pooled / (np.linalg.norm(pooled) + 1e-6)
-                        emb_parts.append(pooled)
+                    if arr.size > 0:
+                        sampled = _sample_embedding_sequence(arr, n_steps)
+                        video_parts[fname] = sampled
+                        dims_by_file[fname] = max(dims_by_file.get(fname, 0), sampled.shape[1])
                 except Exception:
                     pass
 
-        if emb_parts:
-            final_emb = np.concatenate(emb_parts)
-            embeddings.append(final_emb)
+        if video_parts:
+            sequences_by_vid[vid] = video_parts
             valid_vids.append(vid)
 
-    if not embeddings:
+    if not sequences_by_vid:
         return np.zeros((0, 0)), []
 
-    max_len = max((len(e) for e in embeddings), default=0)
-    if max_len > 0:
-        padded = [np.pad(e, (0, max_len - len(e))) for e in embeddings]
-        return np.vstack(padded), valid_vids
-    return np.zeros((0, 0)), []
+    blocks = _scaled_modality_blocks(sequences_by_vid, valid_vids, dims_by_file, n_steps)
+    return _pca_reduce(np.hstack(blocks), pca_dim), valid_vids
 
 
 def extract_video_embeddings(df, feature_cols, scaler, model, device):
@@ -104,20 +123,16 @@ def extract_video_embeddings(df, feature_cols, scaler, model, device):
     model.eval()
     with torch.no_grad():
         for video_id in sorted(df["video_id"].unique()):
-            video_data = df[df["video_id"] == video_id].sort_values("interval_idx").iloc[:100]
+            video_data = df[df["video_id"] == video_id].sort_values("interval_idx").iloc[:N_STEPS]
             if len(video_data) == 0:
                 continue
 
             features = video_data[feature_cols].values
-            if scaler is not None:
-                features = scaler.transform(features)
+            features = scaler.transform(features)
 
             seq_len = len(features)
-            if seq_len < 100:
-                pad_features = np.zeros((100 - seq_len, len(feature_cols)))
-                features = np.vstack([features, pad_features])
-            else:
-                features = features[:100]
+            if seq_len < N_STEPS:
+                features = np.vstack([features, np.zeros((N_STEPS - seq_len, len(feature_cols)))])
 
             features_tensor = torch.FloatTensor(features).unsqueeze(0).to(device)
 
@@ -160,7 +175,7 @@ def find_optimal_clusters(embeddings: np.ndarray, min_clusters: int = 2, max_clu
         fig.write_html(str(output_dir / "optimal_clusters.html"))
 
         plt.style.use("dark_background")
-        fig_plt, axes = plt.subplots(1, 2, figsize=(10, 4))
+        _, axes = plt.subplots(1, 2, figsize=(10, 4))
 
         axes[0].plot(list(K_range), inertias, marker="o", color="dodgerblue")
         axes[0].set_title("Elbow Method (Inertia)")
@@ -184,11 +199,10 @@ def find_optimal_clusters(embeddings: np.ndarray, min_clusters: int = 2, max_clu
 
 class ClusterAwareTransformer:
     def __init__(self, n_clusters: int, input_dim: int, device: str, model_config: dict = None):
-        self.n_clusters = max(1, n_clusters)
+        self.n_clusters = max(2, n_clusters)
         self.device = device
         self.models = {}
         self.cluster_assignments = {}
-        self.cluster_scaler = None
 
         if model_config is None:
             model_config = {"d_model": 64, "nhead": 4, "num_layers": 3, "dim_feedforward": 256, "dropout": 0.1}
@@ -197,16 +211,8 @@ class ClusterAwareTransformer:
             self.models[i] = RetentionTransformer(input_dim=input_dim, **model_config).to(device)
 
     def fit_clusters(self, embeddings: np.ndarray):
-        if self.n_clusters <= 1:
-            self.cluster_labels = np.zeros(len(embeddings), dtype=int)
-            return self.cluster_labels
-
-        scaler = StandardScaler()
-        embeddings_scaled = scaler.fit_transform(embeddings)
-        self.cluster_scaler = scaler
-
         self.kmeans = KMeans(n_clusters=self.n_clusters, random_state=42, n_init=10)
-        self.cluster_labels = self.kmeans.fit_predict(embeddings_scaled)
+        self.cluster_labels = self.kmeans.fit_predict(StandardScaler().fit_transform(embeddings))
 
         unique, counts = np.unique(self.cluster_labels, return_counts=True)
         for c, cnt in zip(unique, counts, strict=True):
@@ -227,9 +233,7 @@ class ClusterAwareTransformer:
         patience: int = 20,
         use_augmentation: bool = True,
     ):
-
         cluster_train_videos = [v for v in train_videos if self.cluster_assignments.get(v, 0) == cluster_id]
-
         cluster_val_videos = [v for v in val_videos if self.cluster_assignments.get(v, 0) == cluster_id]
 
         if not cluster_val_videos and val_videos:
@@ -256,7 +260,7 @@ class ClusterAwareTransformer:
         patience_counter = 0
         best_state = None
 
-        for epoch in range(epochs):
+        for _ in range(epochs):
             model.train()
             train_loss = 0
             for seq, target in train_loader:

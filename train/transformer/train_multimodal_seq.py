@@ -13,24 +13,18 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import copy
 import json
 import logging
 import os
 import subprocess
 import sys
-import time
 from pathlib import Path
 
 import matplotlib
 import numpy as np
 import pandas as pd
 import torch
-import torch.nn as nn
-from torch.optim.swa_utils import SWALR, AveragedModel
 from torch.utils.data import DataLoader
-from tqdm import tqdm
-
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -42,7 +36,6 @@ from src.models.retention_multimodal_transformer import MultimodalRetentionTrans
 from train.common.seq_data_utils import (
     FeatureNormalizer,
     MultimodalWindowedDataset,
-    composite_loss,
     filter_features,
     load_aligned_embeddings_for_videos,
     load_all_merged,
@@ -55,17 +48,14 @@ from train.common.seq_data_utils import (
     seq_metrics,
     time_feature_extra_dim,
 )
+from train.common.composite_trainer import run_composite_training_loop, to_device_batch
+from train.common.retention_plots import COLOR_ACTUAL as C_BLUE, COLOR_ERR_POS as C_GREEN, COLOR_PRED as C_ORANGE, GRID_ALPHA, plot_prediction, plot_training_curve, save_figure as _save_fig
+from train.common.split_utils import apply_train_id_file_filter, resolve_train_val_split
 from train.common.tuned_params_io import apply_best_params_to_args, merge_tuned_file_into_args
 
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
-
-C_BLUE, C_ORANGE, C_PURPLE = "#2196F3", "#FF5722", "#9C27B0"
-C_GREEN, C_RED = "#4CAF50", "#F44336"
-GRID_ALPHA = 0.3
-PLOT_DPI = 150
-
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Train multimodal retention model (embeddings + tabular).")
@@ -132,165 +122,13 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
-def _to_device(batch, device, *keys):
-    return tuple(batch[k].to(device) for k in keys)
-
-
-def _lr_lambda(epoch, warmup, total):
-    if epoch < warmup:
-        return (epoch + 1) / warmup
-    return 0.5 * (1 + np.cos(np.pi * (epoch - warmup) / max(total - warmup, 1)))
-
-
 def train_model(model, train_dl, val_dl, device, args, use_engagement_weight=True):
-    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda ep: _lr_lambda(ep, args.warmup_epochs, args.epochs))
+    def _forward(batch_model, batch, batch_device):
+        emb, tab, tgt, pad_mask, ad_mask, spike_triggers = to_device_batch(batch, batch_device, "embeddings", "tabular", "retention", "padding_mask", "is_ad", "spike_triggers")
+        vw = batch["video_weight"].to(batch_device) if use_engagement_weight else None
+        return batch_model(emb, tabular=tab, src_key_padding_mask=pad_mask), tgt, ad_mask, spike_triggers, pad_mask, vw
 
-    swa_start = args.swa_start_epoch if args.swa_start_epoch > 0 else int(args.epochs * 0.7)
-    swa_model = AveragedModel(model)
-    swa_scheduler = SWALR(optimizer, swa_lr=args.swa_lr)
-    swa_active = False
-
-    best_val_loss, no_improve, best_state = float("inf"), 0, {}
-    best_state_owner = "model"
-    train_losses, val_losses = [], []
-    t0 = time.time()
-
-    for epoch in (pbar := tqdm(range(1, args.epochs + 1), desc="Training", unit="ep")):
-        model.train()
-        tl, tn = 0.0, 0
-        for batch in tqdm(train_dl, desc=f"Ep {epoch} [train]", leave=False, unit="b"):
-            emb, tab, tgt, pad_mask, ad_mask, spike_triggers = _to_device(batch, device, "embeddings", "tabular", "retention", "padding_mask", "is_ad", "spike_triggers")
-            vw = batch["video_weight"].to(device) if use_engagement_weight else None
-
-            pred = model(emb, tabular=tab, src_key_padding_mask=pad_mask)
-            loss = composite_loss(
-                pred,
-                tgt,
-                ad_mask,
-                spike_triggers,
-                pad_mask,
-                args.ad_penalty_weight,
-                vw,
-                args.alpha_corr,
-                args.alpha_smooth,
-                args.alpha_mono,
-                args.start_boost_secs,
-                args.start_boost_factor,
-                args.alpha_delta,
-            )
-
-            optimizer.zero_grad()
-            loss.backward()
-            nn.utils.clip_grad_norm_(model.parameters(), args.grad_clip)
-            optimizer.step()
-
-            nv = (~pad_mask).sum().item()
-            tl += loss.item() * nv
-            tn += nv
-
-        if epoch >= swa_start:
-            swa_model.update_parameters(model)
-            swa_scheduler.step()
-            swa_active = True
-        else:
-            scheduler.step()
-
-        train_losses.append(tl / max(tn, 1))
-
-        eval_model = swa_model if swa_active else model
-        eval_model.eval()
-        vl, vn = 0.0, 0
-        with torch.no_grad():
-            for batch in tqdm(val_dl, desc=f"Ep {epoch} [val]", leave=False, unit="b"):
-                emb, tab, tgt, pad_mask, ad_mask, spike_triggers = _to_device(batch, device, "embeddings", "tabular", "retention", "padding_mask", "is_ad", "spike_triggers")
-                pred = eval_model(emb, tabular=tab, src_key_padding_mask=pad_mask)
-                loss = composite_loss(pred, tgt, ad_mask, spike_triggers, pad_mask, 1.0, None, args.alpha_corr, 0.0, 0.0, 0, 1.0, args.alpha_delta)
-                nv = (~pad_mask).sum().item()
-                vl += loss.item() * nv
-                vn += nv
-        val_losses.append(vl / max(vn, 1))
-
-        pbar.set_postfix(train=f"{train_losses[-1]:.4f}", val=f"{val_losses[-1]:.4f}", lr=f"{optimizer.param_groups[0]['lr']:.2e}", swa="on" if swa_active else "off")
-        if epoch % 10 == 0 or epoch == 1:
-            logger.info(
-                "Epoch %3d/%d  train=%.4f  val=%.4f  lr=%.2e%s",
-                epoch,
-                args.epochs,
-                train_losses[-1],
-                val_losses[-1],
-                optimizer.param_groups[0]["lr"],
-                " [SWA]" if swa_active else "",
-            )
-
-        if val_losses[-1] < best_val_loss:
-            best_val_loss, no_improve = val_losses[-1], 0
-            if swa_active:
-                best_state = {k: v.cpu().clone() for k, v in swa_model.state_dict().items()}
-                best_state_owner = "swa"
-            else:
-                best_state = {k: v.cpu().clone() for k, v in model.state_dict().items()}
-                best_state_owner = "model"
-        else:
-            no_improve += 1
-            if not swa_active and no_improve >= args.patience:
-                logger.info("Early stop at epoch %d", epoch)
-                break
-
-    if best_state_owner == "swa":
-        swa_model.load_state_dict(best_state)
-        has_bn = any(isinstance(m, (nn.BatchNorm1d, nn.BatchNorm2d)) for m in swa_model.modules())
-        if has_bn:
-            torch.optim.swa_utils.update_bn(train_dl, swa_model, device=device)
-        model = copy.deepcopy(swa_model.module)
-    else:
-        model.load_state_dict(best_state)
-
-    return model, {
-        "train_losses": train_losses,
-        "val_losses": val_losses,
-        "best_val_loss": round(best_val_loss, 6),
-        "epochs_trained": epoch,
-        "elapsed_sec": round(time.time() - t0, 1),
-    }
-
-
-def _save_fig(fig, path):
-    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
-    fig.savefig(path, dpi=PLOT_DPI, bbox_inches="tight")
-    plt.close(fig)
-
-
-def plot_training_curve(train_losses, val_losses, out_path):
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.plot(train_losses, label="train", color=C_BLUE)
-    ax.plot(val_losses, label="val", color=C_ORANGE)
-    ax.set(xlabel="epoch", ylabel="composite loss", title="Multimodal Training Curve")
-    ax.legend()
-    ax.grid(True, alpha=GRID_ALPHA)
-    plt.tight_layout()
-    _save_fig(fig, out_path)
-
-
-def plot_prediction(vid, y_true, y_pred, is_ad, split, metrics, out_path):
-    t = np.arange(len(y_true))
-    fig, (a1, a2) = plt.subplots(2, 1, figsize=(14, 8), height_ratios=[3, 1], sharex=True)
-    a1.plot(t, y_true, color=C_BLUE, label="actual", linewidth=1.2)
-    a1.plot(t, y_pred, color=C_ORANGE, label="predicted", alpha=0.8, linewidth=1.2)
-    a1.fill_between(t, y_true, y_pred, alpha=0.1, color=C_PURPLE)
-    if is_ad is not None and (ad := is_ad > 0.5).any():
-        a1.fill_between(t, 0, 1, where=ad, alpha=0.15, color="red", label="ad segment")
-    a1.set(ylabel="Retention (%)", title=f"{vid} [{split}]  RMSE={metrics['rmse']:.4f}  MAE={metrics['mae']:.4f}  r={metrics['pearson']:.3f}")
-    a1.legend(fontsize=9)
-    a1.grid(True, alpha=GRID_ALPHA)
-    res = y_pred - y_true
-    a2.fill_between(t, res, alpha=0.3, color=C_GREEN, where=res >= 0)
-    a2.fill_between(t, res, alpha=0.3, color=C_RED, where=res < 0)
-    a2.axhline(0, color="black", linewidth=0.5)
-    a2.set(xlabel="sec", ylabel="error")
-    a2.grid(True, alpha=GRID_ALPHA)
-    plt.tight_layout()
-    _save_fig(fig, out_path)
+    return run_composite_training_loop(model, train_dl, val_dl, device, args, _forward, enable_swa=True)
 
 
 def _tune_arch_name(arch: str) -> str:

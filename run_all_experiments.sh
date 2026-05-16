@@ -134,17 +134,12 @@ if [[ "${RUN_OPTUNA:-0}" == "1" ]]; then
 fi
 
 if [[ "${SKIP_CLUSTER_JSON:-0}" != "1" ]]; then
-  echo "[pre] compute_video_clusters"
-  if [[ -d "$ROOT_DIR/output" ]]; then
-    "$PYTHON_BIN" train/compute_video_clusters.py \
-      --features-root "$ROOT_DIR/data" \
-      --output-dir "$ROOT_DIR/configs" \
-      --output-features-dir "$ROOT_DIR/output" || true
-  else
-    "$PYTHON_BIN" train/compute_video_clusters.py \
-      --features-root "$ROOT_DIR/data" \
-      --output-dir "$ROOT_DIR/configs" || true
-  fi
+  echo "[pre] duration_video_clusters"
+  "$PYTHON_BIN" -m train.clustering.cluster_specialists_multimodal \
+    --repo-root "$ROOT_DIR" \
+    --features-root "$ROOT_DIR/data" \
+    --clusters-json "$ROOT_DIR/configs/video_clusters.json" \
+    --lists-json "$ROOT_DIR/configs/video_cluster_train_lists.json" || true
   echo
 fi
 
@@ -459,26 +454,6 @@ run_exp \
   --batch-size "$HEAVY_BATCH" \
   --device "$DEVICE" \
   "${TUNE_TRF_ARGS[@]}"
-
-if [[ "${RUN_CLUSTER_SPECIALISTS:-0}" == "1" ]]; then
-  run_exp \
-    "lstm_cluster_specialists_multimodal" \
-    "experiments/lstm_exp/cluster_specialists" \
-    "$PYTHON_BIN" train/cluster_specialists_multimodal.py \
-    --repo-root "$ROOT_DIR" \
-    --lists-json "$ROOT_DIR/configs/video_cluster_train_lists.json" \
-    --output-base "experiments/lstm_exp/cluster_specialists" \
-    --output-dir-features output \
-    --snapshot-dir data \
-    --embeddings-root embeddings \
-    --val-first-n-output "$VAL_N" \
-    --d-model "$HEAVY_D_MODEL" \
-    --n-layers "$HEAVY_N_LAYERS_LSTM" \
-    --epochs "$EPOCHS" \
-    --batch-size "$HEAVY_BATCH" \
-    --device "$DEVICE" \
-    "${TUNE_LSTM_ARGS[@]}"
-fi
 
 echo "[summary]"
 "$PYTHON_BIN" "$ROOT_DIR/train/summarize_experiments.py" --root "$ROOT_DIR"

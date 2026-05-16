@@ -2,22 +2,23 @@
 
 Primary: Qwen3-4B reads transcript context and returns the boundary segment.
 Fallback: GeRaCl + NLI per-segment classification (if LLM fails or unavailable).
-Post-processing: regex boost, position boost, Hill curve cap (in aggregator).
 
-Output (per-second, 1 Hz):
-  is_intro — score [0, 1]: how much this second looks like an intro
-  is_outro — score [0, 1]: how much this second looks like an outro
+is_intro — score [0, 1]: how much this second looks like an intro
+is_outro — score [0, 1]: how much this second looks like an outro
 """
 
-import gc
+import os
 import re
 
 import numpy as np
 import pandas as pd
 import torch
 
-from ._base import get_segments_and_duration, logger, seg_bounds, skip_if_exists
+from ._base import get_segments_and_duration, logger, skip_if_exists
 from ._zeroshot import ZeroShotTask, classify_segments
+from .common import collect_valid_segments_with_mid, release_models
+
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 _COLS = {"is_intro", "is_outro"}
@@ -109,14 +110,7 @@ _OUTRO_PROMPT = """\
 Если заключения нет, ответь 0."""
 
 
-# ---------------------------------------------------------------------------
-# LLM-based boundary detection
-# ---------------------------------------------------------------------------
-
-
 def _load_llm():
-    from transformers import AutoModelForCausalLM, AutoTokenizer
-
     tokenizer = AutoTokenizer.from_pretrained(_LLM_MODEL_ID)
     model = AutoModelForCausalLM.from_pretrained(_LLM_MODEL_ID, torch_dtype=torch.bfloat16, device_map="auto")
     model.eval()
@@ -124,21 +118,16 @@ def _load_llm():
 
 
 def _unload_llm(model, tokenizer):
-    del model, tokenizer
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
-
+    release_models(model, tokenizer, device=None)
 
 def _format_segments(segments: list[tuple], start_idx: int = 1) -> str:
     lines = []
     for segment_number, (text, start_sec, end_sec, _) in enumerate(segments, start=start_idx):
         lines.append(f'[{segment_number}] ({start_sec}-{end_sec}с) "{text}"')
-    return "\n".join(lines)
+    return os.linesep.join(lines)
 
 
 def _parse_llm_response(text: str, max_val: int) -> int | None:
-    """Extract the first integer from LLM response, validate range."""
     match = re.search(r"\d+", text)
     if match is None:
         return None
@@ -163,7 +152,6 @@ def _llm_generate(model, tokenizer, prompt: str) -> str:
 
 def _run_boundary_prompt(model, tokenizer, valid, prompt_template, edge) -> int | None:
     """Run a single LLM prompt for intro/outro boundary detection.
-
     Returns timestamp (seconds), 0 (no boundary), or None (failure).
     """
     if not valid:
@@ -194,15 +182,10 @@ def _run_boundary_prompt(model, tokenizer, valid, prompt_template, edge) -> int 
         return None
 
     if edge == "start":
-        _, _, boundary_sec, _ = valid[segment_idx]  # end of last intro segment
+        _, _, boundary_sec, _ = valid[segment_idx]  
     else:
-        _, boundary_sec, _, _ = valid[segment_idx]  # start of first outro segment
+        _, boundary_sec, _, _ = valid[segment_idx]
     return boundary_sec
-
-
-# ---------------------------------------------------------------------------
-# NLI fallback (per-segment GeRaCl + NLI)
-# ---------------------------------------------------------------------------
 
 _NLI_SEARCH_FRAC = 0.30
 _NLI_GAP_SEC = 15
@@ -270,32 +253,28 @@ def _detect_boundary_nli(valid: list[tuple], duration: int, edge: str, config) -
         return first_good if first_good < duration else duration
 
 
-# ---------------------------------------------------------------------------
-# Score curve builders
-# ---------------------------------------------------------------------------
+def _build_linear_curve(duration: int, start_sec: int, end_sec: int, start_score: float, end_score: float) -> np.ndarray:
+    scores = np.zeros(duration, dtype=np.float64)
+    start_sec = max(0, min(duration, start_sec))
+    end_sec = max(0, min(duration, end_sec))
+    if start_sec >= end_sec:
+        return scores
+
+    span = max(end_sec - start_sec, 1)
+    for second_idx in range(start_sec, end_sec):
+        fraction = (second_idx - start_sec) / span
+        scores[second_idx] = start_score + (end_score - start_score) * fraction
+    return scores
 
 
 def _build_intro_curve(duration: int, boundary_sec: int) -> np.ndarray:
-    """Smooth intro score: high near t=0, decays to ~0.5 at boundary."""
-    if boundary_sec <= 0:
-        return np.zeros(duration, dtype=np.float64)
-    scores = np.zeros(duration, dtype=np.float64)
-    for second_idx in range(min(duration, boundary_sec)):
-        fraction = second_idx / max(boundary_sec, 1)
-        scores[second_idx] = 0.90 - 0.40 * fraction  # 0.90 -> 0.50
-    return scores
+    """Smooth intro score: high near t=0, decays to 0.5 at boundary."""
+    return _build_linear_curve(duration, 0, boundary_sec, 0.90, 0.50)
 
 
 def _build_outro_curve(duration: int, boundary_sec: int) -> np.ndarray:
-    """Smooth outro score: grows from ~0.5 at boundary to 0.9 at end."""
-    if boundary_sec >= duration:
-        return np.zeros(duration, dtype=np.float64)
-    scores = np.zeros(duration, dtype=np.float64)
-    span = max(duration - boundary_sec, 1)
-    for second_idx in range(boundary_sec, duration):
-        fraction = (second_idx - boundary_sec) / span
-        scores[second_idx] = 0.50 + 0.40 * fraction  # 0.50 -> 0.90
-    return scores
+    """Smooth outro score: grows from 0.5 at boundary to 0.9 at end."""
+    return _build_linear_curve(duration, boundary_sec, duration, 0.50, 0.90)
 
 
 def _apply_regex_boost(scores: np.ndarray, valid: list[tuple], regex, edge: str) -> np.ndarray:
@@ -321,42 +300,25 @@ def _apply_position_boost(scores: np.ndarray, duration: int, edge: str) -> np.nd
     return scores
 
 
-# ---------------------------------------------------------------------------
-# Main entry point
-# ---------------------------------------------------------------------------
-
-
 def extract_sections(video_path: str, config, existing_features=None) -> pd.DataFrame:
     if skip_if_exists(_COLS, existing_features, "sections"):
         return pd.DataFrame()
 
     segments, duration = get_segments_and_duration(video_path, config)
-    valid = []
-    for segment in segments:
-        text = segment.get("text", "").strip()
-        if not text:
-            continue
-        start_sec, end_sec = seg_bounds(segment, duration)
-        if start_sec < end_sec:
-            mid_fraction = ((start_sec + end_sec) / 2.0) / max(duration, 1)
-            valid.append((text, start_sec, end_sec, mid_fraction))
+    valid = collect_valid_segments_with_mid(segments, duration)
 
     if not valid:
         return pd.DataFrame({"is_intro": np.zeros(duration), "is_outro": np.zeros(duration)})
 
-    # --- Detect boundaries: weighted ensemble LLM (0.8) + NLI (0.2) ---
     W_LLM = 0.8
     W_NLI = 0.2
 
     intro_llm = None
     outro_llm = None
-    try:
-        model, tokenizer = _load_llm()
-        intro_llm = _run_boundary_prompt(model, tokenizer, valid, _INTRO_PROMPT, edge="start")
-        outro_llm = _run_boundary_prompt(model, tokenizer, valid, _OUTRO_PROMPT, edge="end")
-        _unload_llm(model, tokenizer)
-    except Exception as error:
-        logger.warning("LLM section detection failed: %s", error)
+    model, tokenizer = _load_llm()
+    intro_llm = _run_boundary_prompt(model, tokenizer, valid, _INTRO_PROMPT, edge="start")
+    outro_llm = _run_boundary_prompt(model, tokenizer, valid, _OUTRO_PROMPT, edge="end")
+    _unload_llm(model, tokenizer)
 
     intro_nli = _detect_boundary_nli(valid, duration, edge="start", config=config)
     outro_nli = _detect_boundary_nli(valid, duration, edge="end", config=config)
@@ -375,11 +337,9 @@ def extract_sections(video_path: str, config, existing_features=None) -> pd.Data
 
     logger.info("Section boundaries: intro_end=%ds (llm=%s, nli=%s), outro_start=%ds (llm=%s, nli=%s)", intro_end, intro_llm, intro_nli, outro_start, outro_llm, outro_nli)
 
-    # --- Build per-second score curves ---
     is_intro = _build_intro_curve(duration, intro_end)
     is_outro = _build_outro_curve(duration, outro_start)
 
-    # --- Boost with regex hits and position ---
     is_intro = _apply_regex_boost(is_intro, valid, RU_INTRO, edge="start")
     is_outro = _apply_regex_boost(is_outro, valid, RU_OUTRO, edge="end")
     is_intro = _apply_position_boost(is_intro, duration, edge="start")

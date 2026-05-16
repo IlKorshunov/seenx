@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import json
 import math
-import os
 import re
 from pathlib import Path
 from typing import Any
@@ -23,6 +22,7 @@ import numpy as np
 import pandas as pd
 
 from ._base import get_segments_and_duration, logger, skip_if_exists
+from .common import video_id
 
 
 _COLS = {
@@ -64,10 +64,6 @@ _KNOWN_OWNERS = {"@ivanlyrics"}
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[3]
 _COMMENTS_ROOT = _PROJECT_ROOT / "get_data" / "comments"
-
-
-def _video_id(video_path: str) -> str:
-    return os.path.basename(os.path.dirname(video_path)) if video_path.endswith(".mp4") else os.path.splitext(os.path.basename(video_path))[0]
 
 
 def _find_comments_json(video_id: str) -> Path | None:
@@ -222,13 +218,13 @@ def extract_comment_features(video_path: str, config, existing_features=None) ->
     if skip_if_exists(_COLS, existing_features, "comment features"):
         return pd.DataFrame()
 
-    video_id = _video_id(video_path)
+    video_id_value = video_id(video_path)
     _, duration = get_segments_and_duration(video_path, config)
     duration = max(duration, 1)
 
-    comments_path = _find_comments_json(video_id)
+    comments_path = _find_comments_json(video_id_value)
     if comments_path is None:
-        logger.warning("No comments.json for %s, returning zeros", video_id)
+        logger.warning("No comments.json for %s, returning zeros", video_id_value)
         return pd.DataFrame({column: np.zeros(duration, dtype=np.float32) for column in _COLS})
 
     try:
@@ -242,7 +238,7 @@ def extract_comment_features(video_path: str, config, existing_features=None) ->
     comments = _flatten_comments(threads)
 
     chapter_secs = _parse_description_timecodes(description)
-    logger.info("Comment features for %s: %d comments, %d desc chapters, dur=%ds", video_id, len(comments), len(chapter_secs), duration)
+    logger.info("Comment features for %s: %d comments, %d desc chapters, dur=%ds", video_id_value, len(comments), len(chapter_secs), duration)
 
     result = {}
     result.update(_description_chapter_features(chapter_secs, duration))

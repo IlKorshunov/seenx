@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
 import pandas as pd
@@ -22,56 +21,26 @@ def main() -> None:
     p.add_argument("--root", type=Path, default=Path("."), help="Repository root (default: cwd)")
     args = p.parse_args()
     root = args.root.resolve()
-    exp_root = root / "experiments"
 
     rows = []
-    for pth in exp_root.glob("**/metrics.json"):
-        m = read_json(pth)
-        if not isinstance(m, dict):
+    for pth in (root / "experiments").glob("**/metrics.json"):
+        metrics = read_json(pth)
+        if not isinstance(metrics, dict):
             continue
 
-        rel_dir = pth.parent.relative_to(root).as_posix()
-        model_name = m.get("model", m.get("arch", "unknown"))
-        score = None
-        score_name = None
-        per_video = m.get("per_video", {})
+        if "per_video" in metrics:
+            val_rmse = [float(info["rmse"]) for info in metrics["per_video"].values() if info.get("split") == "val"]
+            score, score_name = float(sum(val_rmse) / len(val_rmse)), "mean_val_rmse"
+        else:
+            score, score_name = float(metrics["eval_rmse"]), "eval_rmse"
 
-        if isinstance(per_video, dict) and per_video:
-            val_rmse = []
-            for vid, info in per_video.items():
-                if not isinstance(info, dict):
-                    continue
-                if info.get("split") == "val" and isinstance(info.get("rmse"), (int, float)):
-                    val_rmse.append(float(info["rmse"]))
-            if val_rmse:
-                score = float(sum(val_rmse) / len(val_rmse))
-                score_name = "mean_val_rmse"
-
-        if score is None and isinstance(m.get("eval_rmse"), (int, float)):
-            score = float(m["eval_rmse"])
-            score_name = "eval_rmse"
-
-        if score is None and isinstance(m.get("mean_eval_rmse"), (int, float)):
-            score = float(m["mean_eval_rmse"])
-            score_name = "mean_eval_rmse"
-
-        if score is None and isinstance(m.get("best_val_loss"), (int, float)):
-            score = float(m["best_val_loss"])
-            score_name = "best_val_loss"
-
-        rows.append({"dir": rel_dir, "model": model_name, "score": score, "score_name": score_name or "unknown"})
+        rows.append({"dir": pth.parent.relative_to(root), "model": metrics.get("model", metrics.get("arch", "unknown")), "score": score, "score_name": score_name})
 
     if not rows:
-        print("No metrics.json files found under experiments/", file=sys.stderr)
-        raise SystemExit(0)
+        print("No metrics.json files found into experiments")
+        return
 
-    df = pd.DataFrame(rows)
-    df_valid = df[df["score"].notna()].sort_values("score", ascending=True).reset_index(drop=True)
-
-    print("\n== Experiment leaderboard (lower is better) ==")
-    if df_valid.empty:
-        print("No experiments with numeric validation score.")
-        raise SystemExit(0)
+    df_valid = pd.DataFrame(rows).sort_values("score", ascending=True).reset_index(drop=True)
 
     for i, r in df_valid.iterrows():
         print(f"{i + 1:2d}. {r['dir']} | model={r['model']} | {r['score_name']}={r['score']:.6f}")
@@ -80,10 +49,10 @@ def main() -> None:
     best_dir = root / best["dir"]
     best_metrics = read_json(best_dir / "metrics.json") or {}
 
-    print("\n== Best model/version ==")
+    print("best model")
     print(f"version: {best['dir']}")
-    print(f"model:   {best['model']}")
-    print(f"metric:  {best['score_name']}={best['score']:.6f}")
+    print(f"model: {best['model']}")
+    print(f"metric: {best['score_name']}={best['score']:.6f}")
 
     per_video = best_metrics.get("per_video", {})
     worst = []
@@ -93,28 +62,24 @@ def main() -> None:
                 continue
             if info.get("split") != "val":
                 continue
-            rmse = info.get("rmse")
-            mae = info.get("mae")
-            if isinstance(rmse, (int, float)):
-                worst.append((vid, float(rmse), float(mae) if isinstance(mae, (int, float)) else None))
+            worst.append((vid, float(info.get("rmse") or 0), float(info.get("mae") or 0)))
     worst.sort(key=lambda x: x[1], reverse=True)
 
-    print("\n== Worst-3 validation videos (best model) ==")
+    print("worst videos")
     if worst:
         for i, (vid, rmse, mae) in enumerate(worst[:3], 1):
-            mae_txt = f", mae={mae:.6f}" if mae is not None else ""
-            print(f"{i}. {vid}: rmse={rmse:.6f}{mae_txt}")
+            print(f"{i}. {vid}: rmse={rmse:.6f}, mae={mae:.6f}")
     else:
-        print("No per_video validation breakdown found.")
+        print("No per_video validation found.")
 
     fi_path = best_dir / "feature_importance.csv"
-    print("\n== Feature importance (best model) ==")
+    print("Feature importance for best model")
     if not fi_path.exists():
-        print("feature_importance.csv not found.")
+        print("feature_importance.csv not found")
     else:
         fi = pd.read_csv(fi_path)
         if "feature" not in fi.columns:
-            print("feature_importance.csv has no 'feature' column.")
+            print("feature_importance.csv has no need features column.")
         else:
             cand = []
             for c in fi.columns:
@@ -132,14 +97,14 @@ def main() -> None:
                 tmp = tmp.dropna().sort_values(imp_col, ascending=False)
 
                 print(f"importance_column: {imp_col}")
-                print("\nTop-5 most informative:")
+                print("Top-5 most informative:")
                 for i, (_, r) in enumerate(tmp.head(5).iterrows(), 1):
                     print(f"{i}. {r['feature']}: {float(r[imp_col]):.6f}")
 
-                print("\nTop-5 least informative:")
-                for i, (_, r) in enumerate(tmp.tail(5).sort_values(imp_col, ascending=True).iterrows(), 1):
-                    print(f"{i}. {r['feature']}: {float(r[imp_col]):.6f}")
-
+                print("Bottom-5 least informative:")
+                bot = tmp.sort_values(imp_col).head(5)
+                for i, (_, row) in enumerate(bot.iterrows(), 1):
+                    print(f"{i}. {row['feature']}: {float(row[imp_col]):.6f}")
 
 if __name__ == "__main__":
     main()

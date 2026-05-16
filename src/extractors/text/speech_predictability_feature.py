@@ -6,6 +6,7 @@ import pandas as pd
 
 from ...utils.logger import Logger
 from .constants import SPEECH_PREDICTABILITY_COL, SPEECH_PREDICTABILITY_WINDOW_SEC
+from ._base import get_segments_and_duration
 
 
 logger = Logger(show=True).get_logger()
@@ -29,8 +30,6 @@ def extract_speech_predictability(video_path: str, config=None, existing_feature
     if existing_features and feature_col in (existing_features if isinstance(existing_features, set) else set(existing_features)):
         logger.info("%s already exists, skipping", feature_col)
         return pd.DataFrame()
-
-    from ._base import get_segments_and_duration
 
     segments, duration = get_segments_and_duration(video_path, config)
     n_seconds = max(1, int(np.ceil(duration)))

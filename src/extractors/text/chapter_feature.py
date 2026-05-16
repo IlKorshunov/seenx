@@ -1,18 +1,14 @@
-import gc
-import json
-import os
-
 import numpy as np
 import pandas as pd
 import torch
+from transformers import AutoModel, AutoTokenizer
 
 from ._base import get_segments_and_duration, logger, seg_bounds, skip_if_exists
+from .common import EMBEDDINGS_ROOT, load_segment_embeddings, release_models, video_id
 
 
 MODEL_ID = "deepvk/USER2-base"
 EMB_DIM = 256
-EMBEDDINGS_ROOT = "embeddings"
-
 _COLS = {"chapter_id", "n_chapters", "topic_change_rate"}
 
 SHIFT_K = 1.5
@@ -20,20 +16,8 @@ MIN_CHAPTER_SEGMENTS = 3
 TOPIC_CHANGE_WINDOW_SEC = 60
 
 
-def _video_id(video_path: str) -> str:
-    return os.path.basename(os.path.dirname(video_path)) if video_path.endswith(".mp4") else os.path.splitext(os.path.basename(video_path))[0]
-
-
 def _load_saved_embeddings(video_path: str):
-    video_id = _video_id(video_path)
-    emb_path = os.path.join(EMBEDDINGS_ROOT, video_id, "seg_embeddings.npy")
-    meta_path = os.path.join(EMBEDDINGS_ROOT, video_id, "seg_meta.json")
-    if not os.path.exists(emb_path) or not os.path.exists(meta_path):
-        return None, None
-    embeddings = np.load(emb_path)
-    with open(meta_path, encoding="utf-8") as metadata_file:
-        metadata = json.load(metadata_file)
-    return embeddings, metadata
+    return load_segment_embeddings(video_id(video_path), EMBEDDINGS_ROOT, require_metadata=True)
 
 
 def _encode_texts(texts, model, tokenizer, device, batch_size=128):
@@ -60,19 +44,14 @@ def extract_chapters(video_path: str, config, existing_features=None) -> pd.Data
         logger.info("Chapters: too few segments (%d), returning defaults", len(valid))
         return pd.DataFrame({"chapter_id": np.zeros(duration), "n_chapters": np.ones(duration), "topic_change_rate": np.zeros(duration)})
 
-    embs, meta = _load_saved_embeddings(video_path)
+    embs, _ = _load_saved_embeddings(video_path)
     if embs is None or len(embs) != len(valid):
         logger.info("Chapters: computing embeddings from scratch (%d segments)", len(valid))
-        from transformers import AutoModel, AutoTokenizer
-
         device = torch.device(config.get("device"))
         tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
         model = AutoModel.from_pretrained(MODEL_ID, torch_dtype=torch.float32).to(device).eval()
         embs = _encode_texts([seg["text"].strip() for seg, _, _ in valid], model, tokenizer, device)
-        del model, tokenizer
-        gc.collect()
-        if device.type == "cuda":
-            torch.cuda.empty_cache()
+        release_models(model, tokenizer, device=device)
     else:
         logger.info("Chapters: loaded saved embeddings (%d segments)", len(embs))
 

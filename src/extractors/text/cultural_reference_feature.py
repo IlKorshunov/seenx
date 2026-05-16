@@ -1,13 +1,4 @@
-"""Cultural references from speech transcript (spaCy NER + regex fallback).
-
-Uses Whisper segments (start/end/text) via get_transcript caching. Detects
-PERSON, ORG, EVENT, WORK_OF_ART (English) or PER, ORG, MISC (multilingual wiki).
-
-Output (per-second, 1 Hz):
-  has_person_mention — 0/1: PERSON/PER in a segment covering this second
-  has_org_mention — 0/1: ORG in a segment covering this second
-"""
-
+"""Cultural references from speech transcript (spaCy NER + regex fallback)."""
 from __future__ import annotations
 
 import re
@@ -15,8 +6,9 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
-
-from ._base import get_segments_and_duration, logger, seg_bounds, skip_if_exists
+import spacy
+from ._base import get_segments_and_duration, logger, skip_if_exists
+from .common import collect_valid_segments
 
 
 _COLS = {"has_person_mention", "has_org_mention"}
@@ -42,7 +34,6 @@ def _try_load_spacy(config) -> Any:
     if _nlp is not None:
         return _nlp
 
-    import spacy
 
     seen: set[str] = set()
     candidates: list[str] = []
@@ -86,7 +77,6 @@ def _spacy_entity_counts(nlp, text: str) -> tuple[int, bool, bool]:
 
 
 def _regex_entity_counts(text: str) -> tuple[int, bool, bool]:
-    """Capitalized multi-word phrases as named-entity proxies; org suffix hints."""
     if not text or not text.strip():
         return 0, False, False
     phrases = set(_MULTIWORD_LATIN.findall(text)) | set(_MULTIWORD_CYR.findall(text))
@@ -113,17 +103,7 @@ def extract_cultural_references(video_path: str, config, existing_features=None)
 
     segments, duration = get_segments_and_duration(video_path, config)
     duration = max(int(duration), 1)
-
-    valid: list[tuple[str, int, int]] = []
-    for segment in segments or []:
-        if not isinstance(segment, dict):
-            continue
-        text = (segment.get("text") or "").strip()
-        if not text:
-            continue
-        start_sec, end_sec = seg_bounds(segment, duration)
-        if start_sec < end_sec:
-            valid.append((text, start_sec, end_sec))
+    valid = collect_valid_segments(segments, duration)
 
     zeros = {"has_person_mention": np.zeros(duration, dtype=np.float64), "has_org_mention": np.zeros(duration, dtype=np.float64)}
 

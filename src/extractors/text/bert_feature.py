@@ -1,4 +1,3 @@
-import gc
 import os
 import numpy as np
 import torch
@@ -6,6 +5,7 @@ import argparse
 from ...models.bert_retention import DEFAULT_BACKBONE, BERTFeatureExtractor
 from ...utils.config import Config
 from ._base import get_segments_and_duration, logger, seg_bounds
+from .common import release_models, video_id
 
 
 EMBEDDINGS_ROOT = "embeddings"
@@ -15,14 +15,10 @@ def _resolve_embeddings_root(embeddings_root: str) -> str:
     return os.path.normpath(os.path.abspath(embeddings_root))
 
 
-def _video_id(video_path: str) -> str:
-    return os.path.basename(os.path.dirname(video_path)) if video_path.endswith(".mp4") else os.path.splitext(os.path.basename(video_path))[0]
-
-
 def extract_bert_embeddings(video_path: str, config: Config, backbone: str = DEFAULT_BACKBONE, embeddings_root: str = EMBEDDINGS_ROOT, force: bool = False) -> np.ndarray:
     embeddings_root = _resolve_embeddings_root(embeddings_root)
-    video_id = _video_id(video_path)
-    out_dir = os.path.join(embeddings_root, video_id)
+    video_id_value = video_id(video_path)
+    out_dir = os.path.join(embeddings_root, video_id_value)
     out_path = os.path.join(out_dir, "bert_embeddings.npy")
 
     if not force and os.path.isfile(out_path):
@@ -33,17 +29,14 @@ def extract_bert_embeddings(video_path: str, config: Config, backbone: str = DEF
     valid = [(seg, start, end) for seg in segments if seg.get("text", "").strip() for start, end in [seg_bounds(seg, duration)] if start < end]
 
     device = torch.device(config.get("device"))
-    logger.info("Extracting BERT embeddings for %s (%d segments, %ds) on %s", video_id, len(valid), duration, device)
+    logger.info("Extracting BERT embeddings for %s (%d segments, %ds) on %s", video_id_value, len(valid), duration, device)
 
     extractor = BERTFeatureExtractor(backbone=backbone, device=device)
     texts = [seg["text"].strip() for seg, _, _ in valid]
     seg_meta = [{"start": float(seg["start"]), "end": float(seg["end"])} for seg, _, _ in valid]
     embeddings = extractor.extract(texts, seg_meta, duration)
 
-    del extractor
-    gc.collect()
-    if device.type == "cuda":
-        torch.cuda.empty_cache()
+    release_models(extractor, device=device)
     os.makedirs(out_dir, exist_ok=True)
     tmp_path = out_path[:-4] + ".tmp.npy" if out_path.endswith(".npy") else out_path + ".tmp.npy"
     np.save(tmp_path, embeddings)

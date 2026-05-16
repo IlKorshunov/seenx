@@ -28,12 +28,12 @@ def _load_backbone(backbone_name: str, device: torch.device):
     if "timesformer" in model_id.lower():
         _m = TimesformerModel.from_pretrained(model_id, local_files_only=True)
         model: PreTrainedModel = cast(PreTrainedModel, _m)
-        model.to(device)  # type: ignore[arg-type]
+        model.to(device) 
         processor = AutoImageProcessor.from_pretrained(model_id, local_files_only=True)
     else:
         _m = VideoMAEModel.from_pretrained(model_id, local_files_only=True)
         model = cast(PreTrainedModel, _m)
-        model.to(device)  # type: ignore[arg-type]
+        model.to(device) 
         processor = VideoMAEImageProcessor.from_pretrained(model_id, local_files_only=True)
     return model, processor, model.config.hidden_size
 

@@ -1,15 +1,15 @@
-import gc
 import math
+import os
 import re
 
 import numpy as np
 import pandas as pd
-import os
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from ._base import get_segments_and_duration, logger, skip_if_exists
-from .config import RU_AD_CTA_PATTERNS, RU_AD_PATTERNS
+from .common import collect_valid_segment_dicts, release_models
+from .constants import RU_AD_CTA_PATTERNS, RU_AD_PATTERNS
 
 
 _COLS = {"is_ad", "ad_segment_length"}
@@ -59,10 +59,7 @@ def _load_llm():
 
 
 def _unload_llm(model, tokenizer):
-    del model, tokenizer
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    release_models(model, tokenizer, device=None)
 
 
 def _llm_generate(model, tokenizer, prompt: str) -> str:
@@ -143,7 +140,7 @@ def extract_ad_segments(video_path, config, existing_features=None) -> pd.DataFr
     if skip_if_exists(_COLS, existing_features, "ad_segments"):
         return pd.DataFrame()
     segments, duration = get_segments_and_duration(video_path, config)
-    valid = [seg for seg in segments if seg.get("text", "").strip()]
+    valid = collect_valid_segment_dicts(segments)
     llm_ranges = _detect_ads_llm(valid)
     regex_ranges = _detect_ads_regex(valid)
     all_ranges = _merge_ranges(llm_ranges + regex_ranges)

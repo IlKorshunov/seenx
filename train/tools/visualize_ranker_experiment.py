@@ -10,8 +10,8 @@ import pandas as pd
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Визуализация результатов holdout-эксперимента retention ranker.")
-    parser.add_argument("--experiment-dir", default="ranker_experiment", help="Папка с metrics.json и holdout_prediction_vs_true.csv")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--experiment-dir", default="ranker_experiment")
     return parser.parse_args()
 
 
@@ -22,9 +22,9 @@ def main() -> None:
     metrics_path = exp_dir / "metrics.json"
 
     if not pred_path.exists():
-        raise FileNotFoundError(f"Не найден файл предсказаний: {pred_path}")
+        raise FileNotFoundError(f"File not found: {pred_path}")
     if not metrics_path.exists():
-        raise FileNotFoundError(f"Не найден файл метрик: {metrics_path}")
+        raise FileNotFoundError(f"File not found: {metrics_path}")
 
     df = pd.read_csv(pred_path)
     metrics = json.loads(metrics_path.read_text(encoding="utf-8"))

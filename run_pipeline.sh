@@ -67,11 +67,6 @@ python3 -m analysis.feature_importance.run_all \
   --results_dir analysis/feature_importance/results \
   --top_n 30
 
-if [[ "${RUN_OPTUNA:-0}" == "1" ]]; then
-  echo "[run] optuna"
-  python3 train/optimize_hyperparams.py --features_dir "$OUTPUT_DIR" --n_trials 30
-fi
-
 TRAIN_TARGET="${TRAIN_TARGET:-}"
 if [[ "$TRAIN_TARGET" == "transformer" || "$TRAIN_TARGET" == "ensemble" ]]; then
   echo "[run] train target=$TRAIN_TARGET"

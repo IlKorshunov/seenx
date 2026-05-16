@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-import gc
 import re
 
 import numpy as np
 import pandas as pd
-import torch
 
 from ._base import get_segments_and_duration, logger, seg_bounds, skip_if_exists
+from .common import collect_valid_segment_dicts, release_models
 from .constants import TOPIC_SHARPNESS_COLS, TOPIC_SHARPNESS_PROMPT, TOPIC_SHARPNESS_WINDOW_OVERLAP, TOPIC_SHARPNESS_WINDOW_SEGMENTS
 from .friction_feature import _format_segments, _llm_generate, _load_llm
 
@@ -29,7 +28,7 @@ def extract_topic_sharpness(video_path, config, existing_features=None) -> pd.Da
         return pd.DataFrame()
 
     segments, duration = get_segments_and_duration(video_path, config)
-    valid = [segment for segment in segments if segment.get("text", "").strip()]
+    valid = collect_valid_segment_dicts(segments)
     sharp = np.zeros(duration, dtype=np.float64)
 
     model, tokenizer = _load_llm()
@@ -59,10 +58,7 @@ def extract_topic_sharpness(video_path, config, existing_features=None) -> pd.Da
         if window_end >= len(valid):
             break
 
-    del model, tokenizer
-    gc.collect()
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    release_models(model, tokenizer, device=None)
 
     logger.info("Topic sharpness: mean=%.1f max=%.0f (0–100)", float(sharp.mean()), float(sharp.max()))
     return pd.DataFrame({"topic_sharpness_0_100": sharp})

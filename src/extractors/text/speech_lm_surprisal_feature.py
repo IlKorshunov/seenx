@@ -1,19 +1,7 @@
-"""LM-based token surprisal (perplexity-related) per second.
+"""Per-second LM surprisal for speech transcripts.
 
-Uses a small causal LM from Hugging Face. For each token, surprisal is
--n log p(token | previous tokens) in nats (PyTorch cross-entropy). This differs
-from `speech_predictability` (Shannon entropy of word unigrams in a window).
-
-Outputs:
-  speech_lm_surprisal     — mean token surprisal (nats) per second
-  speech_lm_surprisal_vel — |Δ surprisal| between consecutive seconds (rate of change)
-
-Long transcripts: sliding windows over token ids with overlap; per-token values
-are averaged across windows that cover that position (approximate for boundaries).
-
-Config (optional, init.json):
-  lm_surprisal_model_id — default "distilgpt2"; for Russian-heavy text try
-                          "ai-forever/rugpt3small_based_on_gpt2" or "facebook/mgpt"
+The extractor estimates how unexpected each token is for a small causal LM and
+returns the mean surprisal plus its second-to-second change.
 """
 
 from __future__ import annotations
@@ -28,7 +16,8 @@ import torch.nn.functional as F
 from ._base import get_segments_and_duration, logger, skip_if_exists
 
 
-_COLS = {"speech_lm_surprisal", "speech_lm_surprisal_vel"}
+_OUTPUT_COLS = ("speech_lm_surprisal", "speech_lm_surprisal_vel")
+_COLS = set(_OUTPUT_COLS)
 
 _DEFAULT_MODEL = "distilgpt2"
 _DEFAULT_MAX_LEN = 1024
@@ -36,6 +25,10 @@ _DEFAULT_STRIDE = 512
 
 _model_cache: dict[str, object] = {}
 _tok_cache: dict[str, object] = {}
+
+
+def _empty_result(n_seconds: int) -> pd.DataFrame:
+    return pd.DataFrame({column: np.zeros(n_seconds, dtype=np.float64) for column in _OUTPUT_COLS})
 
 
 def _get_lm(model_id: str, device: torch.device):
@@ -52,6 +45,14 @@ def _get_lm(model_id: str, device: torch.device):
     return model, tok
 
 
+def _append_text(chars: list[str], sec_per_char: list[int], text: str, second_idx: int) -> None:
+    if chars:
+        chars.append(" ")
+        sec_per_char.append(second_idx)
+    chars.extend(text)
+    sec_per_char.extend([second_idx] * len(text))
+
+
 def _build_text_and_char_sec(segments: list[dict], n_seconds: int) -> tuple[str, np.ndarray]:
     """Full transcript string + per-character second index (0 .. n_seconds-1)."""
     chars: list[str] = []
@@ -65,15 +66,9 @@ def _build_text_and_char_sec(segments: list[dict], n_seconds: int) -> tuple[str,
                 continue
             start_sec = float(word.get("start", 0.0))
             second_idx = min(n_seconds - 1, max(0, int(math.floor(start_sec))))
-            if chars:
-                chars.append(" ")
-                sec_per_char.append(second_idx)
-            for char in raw:
-                chars.append(char)
-                sec_per_char.append(second_idx)
+            _append_text(chars, sec_per_char, raw, second_idx)
 
     if not chars:
-        parts: list[str] = []
         sec_per_char = []
         for segment in segments:
             text = (segment.get("text") or "").strip()
@@ -81,13 +76,7 @@ def _build_text_and_char_sec(segments: list[dict], n_seconds: int) -> tuple[str,
                 continue
             start = float(segment.get("start", 0.0))
             second_idx = min(n_seconds - 1, max(0, int(math.floor(start))))
-            if parts:
-                parts.append(" ")
-                sec_per_char.append(second_idx)
-            for char in text:
-                parts.append(char)
-                sec_per_char.append(second_idx)
-        chars = parts
+            _append_text(chars, sec_per_char, text, second_idx)
 
     if not chars:
         return "", np.zeros(0, dtype=np.int64)
@@ -134,9 +123,7 @@ def extract_speech_lm_surprisal(video_path: str, config=None, existing_features:
     if skip_if_exists(_COLS, existing_features, "speech_lm_surprisal"):
         return pd.DataFrame()
 
-    model_id = _DEFAULT_MODEL
-    if config is not None:
-        model_id = config.get("lm_surprisal_model_id", _DEFAULT_MODEL)
+    model_id = config.get("lm_surprisal_model_id", _DEFAULT_MODEL) if config is not None else _DEFAULT_MODEL
 
     segments, duration = get_segments_and_duration(video_path, config)
     n_seconds = max(1, int(np.ceil(duration)))
@@ -146,7 +133,7 @@ def extract_speech_lm_surprisal(video_path: str, config=None, existing_features:
 
     full_text, char_sec = _build_text_and_char_sec(segments, n_seconds)
     if not full_text.strip():
-        return pd.DataFrame({"speech_lm_surprisal": out_surp, "speech_lm_surprisal_vel": out_vel})
+        return _empty_result(n_seconds)
 
     device = torch.device(config.get("device") if config else "cpu")
     model, tokenizer = _get_lm(model_id, device)
@@ -159,11 +146,10 @@ def extract_speech_lm_surprisal(video_path: str, config=None, existing_features:
     encoded_inputs = tokenizer(full_text, return_tensors="pt", add_special_tokens=False, truncation=False, return_offsets_mapping=tokenizer.is_fast)
     input_ids = encoded_inputs["input_ids"].to(device)
     offset_map = encoded_inputs.get("offset_mapping")
-    if offset_map is not None:
-        offset_map = offset_map[0]
+    offset_map = offset_map[0] if offset_map is not None else None
 
     if input_ids.shape[1] == 0:
-        return pd.DataFrame({"speech_lm_surprisal": out_surp, "speech_lm_surprisal_vel": out_vel})
+        return _empty_result(n_seconds)
 
     token_surp = _sliding_surprisal(input_ids, model, max_model_len, stride).detach().cpu().numpy()
 

@@ -1,20 +1,19 @@
-"""Semantic embedding features via deepvk/USER2-base (256d Matryoshka).
-
-Saves per-segment embeddings to embeddings/<video_id>/ and derives 6 cosine
-similarity features broadcast to 1 Hz:
-  semantic_novelty, topic_shift, hook_similarity,
-  global_topic_dist, semantic_momentum, segment_self_similarity
+"""Semantic embedding features via deepvk/USER2-base.
+Saves per-segment embeddings to embeddings/<video_id>/
+semantic_novelty, topic_shift, hook_similarity,
+global_topic_dist, semantic_momentum, segment_self_similarity
 """
 
-import gc
 import json
 import os
 
 import numpy as np
 import pandas as pd
 import torch
+from transformers import AutoModel, AutoTokenizer
 
 from ._base import get_segments_and_duration, seg_bounds, skip_if_exists
+from .common import release_models, video_id
 
 
 MODEL_ID = "deepvk/USER2-base"
@@ -22,10 +21,6 @@ EMB_DIM = 256
 EMBEDDINGS_ROOT = "embeddings"
 
 _COLS = {"semantic_novelty", "topic_shift", "hook_similarity", "global_topic_dist", "semantic_momentum", "segment_self_similarity"}
-
-
-def _video_id(video_path: str) -> str:
-    return os.path.basename(os.path.dirname(video_path)) if video_path.endswith(".mp4") else os.path.splitext(os.path.basename(video_path))[0]
 
 
 def _encode_texts(texts: list[str], model, tokenizer, device, batch_size: int = 128) -> np.ndarray:
@@ -42,7 +37,7 @@ def _encode_texts(texts: list[str], model, tokenizer, device, batch_size: int = 
 
 
 def _save(video_path: str, embeddings: np.ndarray, segments: list[dict]) -> None:
-    out_dir = os.path.join(EMBEDDINGS_ROOT, _video_id(video_path))
+    out_dir = os.path.join(EMBEDDINGS_ROOT, video_id(video_path))
     os.makedirs(out_dir, exist_ok=True)
     np.save(os.path.join(out_dir, "seg_embeddings.npy"), embeddings)
     np.save(os.path.join(out_dir, "seg_similarity_matrix.npy"), embeddings @ embeddings.T)
@@ -98,8 +93,6 @@ def extract_semantic_embeddings(video_path, config, existing_features=None) -> p
     if not valid:
         return pd.DataFrame({column: np.zeros(duration) for column in sorted(_COLS)})
 
-    from transformers import AutoModel, AutoTokenizer
-
     device = torch.device(config.get("device"))
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
     model = AutoModel.from_pretrained(MODEL_ID, torch_dtype=torch.float32).to(device).eval()
@@ -107,10 +100,7 @@ def extract_semantic_embeddings(video_path, config, existing_features=None) -> p
     embeddings = _encode_texts([seg["text"].strip() for seg, _, _ in valid], model, tokenizer, device)
     _save(video_path, embeddings, [seg for seg, _, _ in valid])
 
-    del model, tokenizer
-    gc.collect()
-    if device.type == "cuda":
-        torch.cuda.empty_cache()
+    release_models(model, tokenizer, device=device)
 
     cols = sorted(_COLS)
     derived = _derive(embeddings)

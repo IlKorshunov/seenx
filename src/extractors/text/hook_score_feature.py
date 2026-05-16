@@ -1,13 +1,25 @@
 """Hook score + per-second binary is_question (rules + embedding fallback)."""
 
-import gc
-
 import numpy as np
 import pandas as pd
 import torch
+from transformers import AutoModel, AutoTokenizer
 
-from ._base import get_segments_and_duration, logger, seg_bounds, skip_if_exists
-from .config import *
+from ._base import get_segments_and_duration, logger, skip_if_exists
+from .common import collect_valid_segments, release_models
+from .constants import (
+    ADDRESS_WINDOW_SEC,
+    CLAIM_WINDOW_SEC,
+    HOOK_ADDRESS_W,
+    HOOK_CLAIM_W,
+    HOOK_DENSITY_W,
+    HOOK_NUMBERS_W,
+    HOOK_QUESTION_W,
+    NUMBER_PATTERN,
+    QUESTION_WINDOW_SEC,
+    RU_ADDRESS,
+    RU_CLAIMS,
+)
 
 
 _COLS = {"hook_score", "hook_has_address", "is_question"}
@@ -77,23 +89,15 @@ def _encode(texts, model, tokenizer, device):
 
 def _compute_is_question(segments, dur, config):
     """Per-second binary is_question: rules first, cosine similarity fallback."""
-    valid = []
-    for segment in segments:
-        text = segment.get("text", "").strip()
-        if not text:
-            continue
-        start_sec, end_sec = seg_bounds(segment, duration)
-        if start_sec < end_sec:
-            valid.append((text, start_sec, end_sec))
+    valid = collect_valid_segments(segments, dur)
 
     if not valid:
-        return np.zeros(duration, dtype=np.float64)
+        return np.zeros(dur, dtype=np.float64)
 
     rule_results = [_is_question_by_rules(text) for text, _, _ in valid]
     ambiguous_idx = [segment_idx for segment_idx, rule_result in enumerate(rule_results) if not rule_result]
 
     if ambiguous_idx:
-        from transformers import AutoModel, AutoTokenizer
 
         device = torch.device(config.get("device"))
         tokenizer = AutoTokenizer.from_pretrained(_QUESTION_MODEL_ID)
@@ -110,12 +114,9 @@ def _compute_is_question(segments, dur, config):
             if sims[result_idx] >= _COSINE_THRESHOLD:
                 rule_results[segment_idx] = True
 
-        del model, tokenizer
-        gc.collect()
-        if device.type == "cuda":
-            torch.cuda.empty_cache()
+        release_models(model, tokenizer, device=device)
 
-    out = np.zeros(duration, dtype=np.float64)
+    out = np.zeros(dur, dtype=np.float64)
     for (_, start_sec, end_sec), is_question_segment in zip(valid, rule_results, strict=True):
         if is_question_segment:
             out[start_sec:end_sec] = 1.0
@@ -133,7 +134,7 @@ def extract_hook_score(video_path, config, existing_features=None) -> pd.DataFra
     address_score, claim_score, number_score = 0.0, 0.0, 0.0
     total_words = 0
     for segment in segments:
-        t0, text = seg["start"], seg["text"]
+        segment_start_sec, text = segment["start"], segment["text"]
         if segment_start_sec < ADDRESS_WINDOW_SEC and RU_ADDRESS.search(text):
             address_score = 1.0
         if segment_start_sec < CLAIM_WINDOW_SEC:
@@ -145,7 +146,7 @@ def extract_hook_score(video_path, config, existing_features=None) -> pd.DataFra
 
     wps = total_words / min(CLAIM_WINDOW_SEC, duration)
 
-    is_question = _compute_is_question(segments, dur, config)
+    is_question = _compute_is_question(segments, duration, config)
     q_hook = float(is_question[: int(QUESTION_WINDOW_SEC)].max()) if duration > 0 else 0.0
     hook = q_hook * HOOK_QUESTION_W + address_score * HOOK_ADDRESS_W + claim_score * HOOK_CLAIM_W + number_score * HOOK_NUMBERS_W + wps * HOOK_DENSITY_W
 
